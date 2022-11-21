@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TheBestMovieTheater
 {
-    public partial class Form1 : Form
+    public partial class Register : Form
     {
-        public Form1()
+        public Register()
         {
             InitializeComponent();
         }
