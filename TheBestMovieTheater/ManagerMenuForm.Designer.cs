@@ -37,11 +37,8 @@
             this.viewsComboBox = new System.Windows.Forms.ComboBox();
             this.modifyLabel = new System.Windows.Forms.Label();
             this.ModifyButton = new System.Windows.Forms.Button();
-            this.MoviesRadioButton = new System.Windows.Forms.RadioButton();
-            this.RoomsRadioButton = new System.Windows.Forms.RadioButton();
-            this.ShowtimeRadioButton = new System.Windows.Forms.RadioButton();
-            this.PricesRadioButton = new System.Windows.Forms.RadioButton();
             this.LogoutButton = new System.Windows.Forms.Button();
+            this.modifyComboBox = new System.Windows.Forms.ComboBox();
             this.consultGroupBox.SuspendLayout();
             this.modifyGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -75,18 +72,15 @@
             this.consultGroupBox.Controls.Add(this.consultLabel);
             this.consultGroupBox.Location = new System.Drawing.Point(12, 106);
             this.consultGroupBox.Name = "consultGroupBox";
-            this.consultGroupBox.Size = new System.Drawing.Size(197, 165);
+            this.consultGroupBox.Size = new System.Drawing.Size(225, 165);
             this.consultGroupBox.TabIndex = 2;
             this.consultGroupBox.TabStop = false;
             // 
             // modifyGroupBox
             // 
-            this.modifyGroupBox.Controls.Add(this.RoomsRadioButton);
-            this.modifyGroupBox.Controls.Add(this.ShowtimeRadioButton);
-            this.modifyGroupBox.Controls.Add(this.PricesRadioButton);
+            this.modifyGroupBox.Controls.Add(this.modifyComboBox);
             this.modifyGroupBox.Controls.Add(this.ModifyButton);
             this.modifyGroupBox.Controls.Add(this.modifyLabel);
-            this.modifyGroupBox.Controls.Add(this.MoviesRadioButton);
             this.modifyGroupBox.Location = new System.Drawing.Point(243, 106);
             this.modifyGroupBox.Name = "modifyGroupBox";
             this.modifyGroupBox.Size = new System.Drawing.Size(270, 165);
@@ -97,7 +91,7 @@
             // 
             this.consultLabel.AutoSize = true;
             this.consultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.consultLabel.Location = new System.Drawing.Point(55, 18);
+            this.consultLabel.Location = new System.Drawing.Point(68, 18);
             this.consultLabel.Name = "consultLabel";
             this.consultLabel.Size = new System.Drawing.Size(86, 25);
             this.consultLabel.TabIndex = 4;
@@ -106,19 +100,25 @@
             // 
             // ViewButton
             // 
-            this.ViewButton.Location = new System.Drawing.Point(60, 112);
+            this.ViewButton.Location = new System.Drawing.Point(73, 102);
             this.ViewButton.Name = "ViewButton";
-            this.ViewButton.Size = new System.Drawing.Size(81, 30);
+            this.ViewButton.Size = new System.Drawing.Size(81, 38);
             this.ViewButton.TabIndex = 5;
             this.ViewButton.Text = "View";
             this.ViewButton.UseVisualStyleBackColor = true;
+            this.ViewButton.Click += new System.EventHandler(this.ViewButton_Click);
             // 
             // viewsComboBox
             // 
+            this.viewsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.viewsComboBox.FormattingEnabled = true;
-            this.viewsComboBox.Location = new System.Drawing.Point(40, 65);
+            this.viewsComboBox.Items.AddRange(new object[] {
+            "Client List",
+            "Ticket Sales (Movies)",
+            "Ticket Sales (Showtime)"});
+            this.viewsComboBox.Location = new System.Drawing.Point(17, 65);
             this.viewsComboBox.Name = "viewsComboBox";
-            this.viewsComboBox.Size = new System.Drawing.Size(121, 24);
+            this.viewsComboBox.Size = new System.Drawing.Size(186, 24);
             this.viewsComboBox.TabIndex = 6;
             // 
             // modifyLabel
@@ -134,56 +134,13 @@
             // 
             // ModifyButton
             // 
-            this.ModifyButton.Location = new System.Drawing.Point(175, 74);
+            this.ModifyButton.Location = new System.Drawing.Point(91, 102);
             this.ModifyButton.Name = "ModifyButton";
             this.ModifyButton.Size = new System.Drawing.Size(89, 38);
             this.ModifyButton.TabIndex = 4;
             this.ModifyButton.Text = "Modify";
             this.ModifyButton.UseVisualStyleBackColor = true;
-            // 
-            // MoviesRadioButton
-            // 
-            this.MoviesRadioButton.AutoSize = true;
-            this.MoviesRadioButton.Location = new System.Drawing.Point(16, 50);
-            this.MoviesRadioButton.Name = "MoviesRadioButton";
-            this.MoviesRadioButton.Size = new System.Drawing.Size(132, 20);
-            this.MoviesRadioButton.TabIndex = 4;
-            this.MoviesRadioButton.TabStop = true;
-            this.MoviesRadioButton.Text = "Available Movies";
-            this.MoviesRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // RoomsRadioButton
-            // 
-            this.RoomsRadioButton.AutoSize = true;
-            this.RoomsRadioButton.Location = new System.Drawing.Point(16, 76);
-            this.RoomsRadioButton.Name = "RoomsRadioButton";
-            this.RoomsRadioButton.Size = new System.Drawing.Size(136, 20);
-            this.RoomsRadioButton.TabIndex = 5;
-            this.RoomsRadioButton.TabStop = true;
-            this.RoomsRadioButton.Text = "Screening Rooms";
-            this.RoomsRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // ShowtimeRadioButton
-            // 
-            this.ShowtimeRadioButton.AutoSize = true;
-            this.ShowtimeRadioButton.Location = new System.Drawing.Point(16, 102);
-            this.ShowtimeRadioButton.Name = "ShowtimeRadioButton";
-            this.ShowtimeRadioButton.Size = new System.Drawing.Size(93, 20);
-            this.ShowtimeRadioButton.TabIndex = 6;
-            this.ShowtimeRadioButton.TabStop = true;
-            this.ShowtimeRadioButton.Text = "Showtimes";
-            this.ShowtimeRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // PricesRadioButton
-            // 
-            this.PricesRadioButton.AutoSize = true;
-            this.PricesRadioButton.Location = new System.Drawing.Point(16, 128);
-            this.PricesRadioButton.Name = "PricesRadioButton";
-            this.PricesRadioButton.Size = new System.Drawing.Size(106, 20);
-            this.PricesRadioButton.TabIndex = 7;
-            this.PricesRadioButton.TabStop = true;
-            this.PricesRadioButton.Text = "Ticket Prices";
-            this.PricesRadioButton.UseVisualStyleBackColor = true;
+            this.ModifyButton.Click += new System.EventHandler(this.ModifyButton_Click);
             // 
             // LogoutButton
             // 
@@ -193,6 +150,21 @@
             this.LogoutButton.TabIndex = 4;
             this.LogoutButton.Text = "Logout";
             this.LogoutButton.UseVisualStyleBackColor = true;
+            this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
+            // 
+            // modifyComboBox
+            // 
+            this.modifyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.modifyComboBox.FormattingEnabled = true;
+            this.modifyComboBox.Items.AddRange(new object[] {
+            "Available Movies",
+            "Screening Rooms",
+            "Showtimes",
+            "TIcket Prices"});
+            this.modifyComboBox.Location = new System.Drawing.Point(49, 65);
+            this.modifyComboBox.Name = "modifyComboBox";
+            this.modifyComboBox.Size = new System.Drawing.Size(186, 24);
+            this.modifyComboBox.TabIndex = 7;
             // 
             // ManagerMenuForm
             // 
@@ -224,12 +196,9 @@
         private System.Windows.Forms.ComboBox viewsComboBox;
         private System.Windows.Forms.Button ViewButton;
         private System.Windows.Forms.Label consultLabel;
-        private System.Windows.Forms.RadioButton RoomsRadioButton;
-        private System.Windows.Forms.RadioButton ShowtimeRadioButton;
-        private System.Windows.Forms.RadioButton PricesRadioButton;
         private System.Windows.Forms.Button ModifyButton;
         private System.Windows.Forms.Label modifyLabel;
-        private System.Windows.Forms.RadioButton MoviesRadioButton;
         private System.Windows.Forms.Button LogoutButton;
+        private System.Windows.Forms.ComboBox modifyComboBox;
     }
 }
