@@ -36,12 +36,14 @@ namespace TheBestMovieTheater
             sda.Fill(ct);
             if (ct.Rows[0][0].ToString() == "1")
             {
-                MessageBox.Show("YESSSS");
+
             }
             else if (mt.Rows[0][0].ToString() == "1")
             {
                 ManagerMenuForm managerMenu = new ManagerMenuForm();
-                managerMenu.ShowDialog();
+                managerMenu.Show();
+
+                this.Hide();
             }
 
 
