@@ -135,9 +135,12 @@
             this.registerButton.TabIndex = 9;
             this.registerButton.Text = "Register !";
             this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
             // firstNameTextBox
             // 
+            this.firstNameTextBox.BackColor = System.Drawing.Color.White;
+            this.firstNameTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.firstNameTextBox.Location = new System.Drawing.Point(229, 111);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(158, 22);
