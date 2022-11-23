@@ -18,15 +18,28 @@ namespace TheBestMovieTheater
             InitializeComponent();
         }
 
-        SqlConnection conn = new SqlConnection("Data Source=CRCL-CST-027;Initial Catalog=TBMT_DB;Integrated Security=True");
+        // database connection string
+        private readonly SqlConnection conn = new SqlConnection("Data Source=CRCL-CST-027;Initial Catalog=TBMT_DB;Integrated Security=True");
 
+        /// <summary>
+        /// Verifies the information then enters the client data in the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void registerButton_Click(object sender, EventArgs e)
         {
+            Client newClient = new Client();
             int validate = 0;
             DateTime now = DateTime.Now;
 
+            newClient.firstName = firstNameTextBox.Text;
+            newClient.lastName = lastNameTextBox.Text;
+            newClient.emailAddress = emailTextBox.Text;
+            newClient.username = newUsernameTextBox.Text;
+            newClient.password = newPasswordTextBox.Text;
+
             // Verify the firstname so it is at least 2 characters.
-            if (firstNameTextBox.Text.Length > 2)
+            if (newClient.firstName.Length > 2)
             {
                 validate++;
                 firstNameTextBox.BackColor = Color.White;
@@ -36,8 +49,8 @@ namespace TheBestMovieTheater
                 firstNameTextBox.BackColor = Color.Red;
             }
 
-            // Verify last name so it is at least 2 charachters
-            if (lastNameTextBox.Text.Length > 2)
+            // Verify last name so it is at least 2 characters
+            if (newClient.lastName.Length > 2)
             {
                 validate++;
                 lastNameTextBox.BackColor = Color.White;
@@ -48,11 +61,11 @@ namespace TheBestMovieTheater
             }
 
             // Verify email to only accept valid emails
-            if (emailTextBox.Text.Contains("@")) {
+            if (newClient.emailAddress.Contains("@")) {
 
                 string[] email;
 
-                email = emailTextBox.Text.Split('@', '.');
+                email = newClient.emailAddress.Split('@', '.');
 
                 if (email[0].Length > 2 && email[1].Length > 2 && email[2].Length > 1)
                 {
@@ -69,7 +82,8 @@ namespace TheBestMovieTheater
                 emailTextBox.BackColor = Color.Red;
             }
 
-            if (newUsernameTextBox.Text.Length > 2)
+            // Verify new username is at least 2 characters
+            if (newClient.username.Length > 2)
             {
                 validate++;
                 newUsernameTextBox.BackColor = Color.White;
@@ -79,7 +93,8 @@ namespace TheBestMovieTheater
                 newUsernameTextBox.BackColor = Color.Red;
             }
 
-            if (newPasswordTextBox.Text.Length > 2)
+            // Verify password is at least 2 characters long
+            if (newClient.password.Length > 2)
             {
                 validate++;
                 newPasswordTextBox.BackColor = Color.White;
@@ -89,7 +104,8 @@ namespace TheBestMovieTheater
                 newPasswordTextBox.BackColor = Color.Red;
             }
 
-            if (newPasswordTextBox.Text == repeatPasswordTextBox.Text)
+            // Verify that the Client did not do any mistakes in his password creation
+            if (repeatPasswordTextBox.Text == newClient.password)
             {
                 validate++;
                 repeatPasswordTextBox.BackColor = Color.White;
@@ -99,11 +115,12 @@ namespace TheBestMovieTheater
                 repeatPasswordTextBox.BackColor = Color.Red;
             }
 
+            // If all verifications are ok, we create the enter for the DB table and close the Form
             if (validate == 6)
             {
 
                 TBMT_DBDataSetTableAdapters.ClientTableAdapter clientTableAdapter = new TBMT_DBDataSetTableAdapters.ClientTableAdapter();
-                clientTableAdapter.Insert(firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, newUsernameTextBox.Text, newPasswordTextBox.Text, now, null);
+                clientTableAdapter.Insert(newClient.firstName, newClient.lastName, newClient.emailAddress, newClient.username, newClient.password, now, null);
 
                 this.Close();
             }

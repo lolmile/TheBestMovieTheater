@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TheBestMovieTheater
 {
-    internal class Client
+    internal class Client : Person
     {
-        public Client() { }
+        public Client() {}
 
         public void PurchaseMovieTicket()
         {

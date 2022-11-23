@@ -18,6 +18,11 @@ namespace TheBestMovieTheater
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Verifies that the entered username and password match the database information.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void loginButton_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection("Data Source=CRCL-CST-027;Initial Catalog=TBMT_DB;Integrated Security=True");
@@ -37,6 +42,11 @@ namespace TheBestMovieTheater
 
         }
 
+        /// <summary>
+        /// Opens the register form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void registerButton_Click(object sender, EventArgs e)
         {
             Register registerForm = new Register();
