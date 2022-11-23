@@ -92,6 +92,7 @@
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(312, 172);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(189, 22);
             this.passwordTextBox.TabIndex = 5;
             // 
@@ -103,6 +104,7 @@
             this.loginButton.TabIndex = 6;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // registerTitleLabel
             // 
@@ -123,6 +125,7 @@
             this.registerButton.TabIndex = 8;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
             // loginForm
             // 
