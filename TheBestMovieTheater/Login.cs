@@ -26,17 +26,22 @@ namespace TheBestMovieTheater
         private void loginButton_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection("Data Source=CRCL-CST-027;Initial Catalog=TBMT_DB;Integrated Security=True");
+
+            SqlDataAdapter command = new SqlDataAdapter("SELECT COUNT(*) FROM Manager WHERE Username ='" + usernameTextBox.Text + "' AND Password='" + passwordTextBox.Text + "'", conn);
+            DataTable mt = new DataTable();
+            command.Fill(mt);
+
             SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT(*) FROM Client WHERE Username ='" + usernameTextBox.Text + "' AND Password='" + passwordTextBox.Text + "'", conn);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            if (dt.Rows[0][0].ToString() == "1")
+            DataTable ct = new DataTable();
+            sda.Fill(ct);
+            if (ct.Rows[0][0].ToString() == "1")
             {
                 MessageBox.Show("YESSSS");
-
             }
-            else
+            else if (mt.Rows[0][0].ToString() == "1")
             {
-                MessageBox.Show("Wrong username or password");
+                ManagerMenuForm managerMenu = new ManagerMenuForm();
+                managerMenu.ShowDialog();
             }
 
 
