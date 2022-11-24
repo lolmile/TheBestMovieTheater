@@ -31,14 +31,14 @@
             this.MovieTheatreLabel = new System.Windows.Forms.Label();
             this.UserTitleLabel = new System.Windows.Forms.Label();
             this.consultGroupBox = new System.Windows.Forms.GroupBox();
-            this.modifyGroupBox = new System.Windows.Forms.GroupBox();
-            this.consultLabel = new System.Windows.Forms.Label();
-            this.ViewButton = new System.Windows.Forms.Button();
             this.viewsComboBox = new System.Windows.Forms.ComboBox();
-            this.modifyLabel = new System.Windows.Forms.Label();
-            this.ModifyButton = new System.Windows.Forms.Button();
-            this.LogoutButton = new System.Windows.Forms.Button();
+            this.ViewButton = new System.Windows.Forms.Button();
+            this.consultLabel = new System.Windows.Forms.Label();
+            this.modifyGroupBox = new System.Windows.Forms.GroupBox();
             this.modifyComboBox = new System.Windows.Forms.ComboBox();
+            this.ModifyButton = new System.Windows.Forms.Button();
+            this.modifyLabel = new System.Windows.Forms.Label();
+            this.LogoutButton = new System.Windows.Forms.Button();
             this.consultGroupBox.SuspendLayout();
             this.modifyGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -76,38 +76,6 @@
             this.consultGroupBox.TabIndex = 2;
             this.consultGroupBox.TabStop = false;
             // 
-            // modifyGroupBox
-            // 
-            this.modifyGroupBox.Controls.Add(this.modifyComboBox);
-            this.modifyGroupBox.Controls.Add(this.ModifyButton);
-            this.modifyGroupBox.Controls.Add(this.modifyLabel);
-            this.modifyGroupBox.Location = new System.Drawing.Point(243, 106);
-            this.modifyGroupBox.Name = "modifyGroupBox";
-            this.modifyGroupBox.Size = new System.Drawing.Size(270, 165);
-            this.modifyGroupBox.TabIndex = 3;
-            this.modifyGroupBox.TabStop = false;
-            // 
-            // consultLabel
-            // 
-            this.consultLabel.AutoSize = true;
-            this.consultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.consultLabel.Location = new System.Drawing.Point(68, 18);
-            this.consultLabel.Name = "consultLabel";
-            this.consultLabel.Size = new System.Drawing.Size(86, 25);
-            this.consultLabel.TabIndex = 4;
-            this.consultLabel.Text = "Consult";
-            this.consultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ViewButton
-            // 
-            this.ViewButton.Location = new System.Drawing.Point(73, 102);
-            this.ViewButton.Name = "ViewButton";
-            this.ViewButton.Size = new System.Drawing.Size(81, 38);
-            this.ViewButton.TabIndex = 5;
-            this.ViewButton.Text = "View";
-            this.ViewButton.UseVisualStyleBackColor = true;
-            this.ViewButton.Click += new System.EventHandler(this.ViewButton_Click);
-            // 
             // viewsComboBox
             // 
             this.viewsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -121,36 +89,37 @@
             this.viewsComboBox.Size = new System.Drawing.Size(186, 24);
             this.viewsComboBox.TabIndex = 6;
             // 
-            // modifyLabel
+            // ViewButton
             // 
-            this.modifyLabel.AutoSize = true;
-            this.modifyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifyLabel.Location = new System.Drawing.Point(44, 18);
-            this.modifyLabel.Name = "modifyLabel";
-            this.modifyLabel.Size = new System.Drawing.Size(191, 25);
-            this.modifyLabel.TabIndex = 7;
-            this.modifyLabel.Text = "Add/Modify/Delete";
-            this.modifyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ViewButton.Location = new System.Drawing.Point(73, 102);
+            this.ViewButton.Name = "ViewButton";
+            this.ViewButton.Size = new System.Drawing.Size(81, 38);
+            this.ViewButton.TabIndex = 5;
+            this.ViewButton.Text = "View";
+            this.ViewButton.UseVisualStyleBackColor = true;
+            this.ViewButton.Click += new System.EventHandler(this.ViewButton_Click);
             // 
-            // ModifyButton
+            // consultLabel
             // 
-            this.ModifyButton.Location = new System.Drawing.Point(91, 102);
-            this.ModifyButton.Name = "ModifyButton";
-            this.ModifyButton.Size = new System.Drawing.Size(89, 38);
-            this.ModifyButton.TabIndex = 4;
-            this.ModifyButton.Text = "Modify";
-            this.ModifyButton.UseVisualStyleBackColor = true;
-            this.ModifyButton.Click += new System.EventHandler(this.ModifyButton_Click);
+            this.consultLabel.AutoSize = true;
+            this.consultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.consultLabel.Location = new System.Drawing.Point(68, 18);
+            this.consultLabel.Name = "consultLabel";
+            this.consultLabel.Size = new System.Drawing.Size(86, 25);
+            this.consultLabel.TabIndex = 4;
+            this.consultLabel.Text = "Consult";
+            this.consultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LogoutButton
+            // modifyGroupBox
             // 
-            this.LogoutButton.Location = new System.Drawing.Point(418, 288);
-            this.LogoutButton.Name = "LogoutButton";
-            this.LogoutButton.Size = new System.Drawing.Size(75, 32);
-            this.LogoutButton.TabIndex = 4;
-            this.LogoutButton.Text = "Logout";
-            this.LogoutButton.UseVisualStyleBackColor = true;
-            this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
+            this.modifyGroupBox.Controls.Add(this.modifyComboBox);
+            this.modifyGroupBox.Controls.Add(this.ModifyButton);
+            this.modifyGroupBox.Controls.Add(this.modifyLabel);
+            this.modifyGroupBox.Location = new System.Drawing.Point(243, 106);
+            this.modifyGroupBox.Name = "modifyGroupBox";
+            this.modifyGroupBox.Size = new System.Drawing.Size(270, 165);
+            this.modifyGroupBox.TabIndex = 3;
+            this.modifyGroupBox.TabStop = false;
             // 
             // modifyComboBox
             // 
@@ -166,17 +135,50 @@
             this.modifyComboBox.Size = new System.Drawing.Size(186, 24);
             this.modifyComboBox.TabIndex = 7;
             // 
+            // ModifyButton
+            // 
+            this.ModifyButton.Location = new System.Drawing.Point(91, 102);
+            this.ModifyButton.Name = "ModifyButton";
+            this.ModifyButton.Size = new System.Drawing.Size(89, 38);
+            this.ModifyButton.TabIndex = 4;
+            this.ModifyButton.Text = "Modify";
+            this.ModifyButton.UseVisualStyleBackColor = true;
+            this.ModifyButton.Click += new System.EventHandler(this.ModifyButton_Click);
+            // 
+            // modifyLabel
+            // 
+            this.modifyLabel.AutoSize = true;
+            this.modifyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifyLabel.Location = new System.Drawing.Point(44, 18);
+            this.modifyLabel.Name = "modifyLabel";
+            this.modifyLabel.Size = new System.Drawing.Size(191, 25);
+            this.modifyLabel.TabIndex = 7;
+            this.modifyLabel.Text = "Add/Modify/Delete";
+            this.modifyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LogoutButton
+            // 
+            this.LogoutButton.Location = new System.Drawing.Point(418, 288);
+            this.LogoutButton.Name = "LogoutButton";
+            this.LogoutButton.Size = new System.Drawing.Size(75, 32);
+            this.LogoutButton.TabIndex = 4;
+            this.LogoutButton.Text = "Logout";
+            this.LogoutButton.UseVisualStyleBackColor = true;
+            this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
+            // 
             // ManagerMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 332);
+            this.ControlBox = false;
             this.Controls.Add(this.LogoutButton);
             this.Controls.Add(this.modifyGroupBox);
             this.Controls.Add(this.consultGroupBox);
             this.Controls.Add(this.UserTitleLabel);
             this.Controls.Add(this.MovieTheatreLabel);
             this.Name = "ManagerMenuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManagerMenuForm";
             this.consultGroupBox.ResumeLayout(false);
             this.consultGroupBox.PerformLayout();

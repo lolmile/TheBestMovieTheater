@@ -132,7 +132,7 @@ namespace TheBestMovieTheater
         private void LogoutButton_Click(object sender, EventArgs e)
         {
             loginForm loginForm = new loginForm();
-            loginForm.ShowDialog();
+            loginForm.Show();
 
             this.Close();
         }
