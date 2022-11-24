@@ -83,13 +83,13 @@ namespace TheBestMovieTheater
             switch (this.modifyComboBox.SelectedIndex)
             {
                 case 0:
-                    MovieModifyForm movieModifyForm = new MovieModifyForm();
-                    movieModifyForm.Show();
-                    this.Close();
+                    this.Hide();
 
-                    // For testing.
-                    // this.modifySelection = this.modifyComboBox.SelectedItem.ToString();
-                    // MessageBox.Show(this.modifySelection);
+                    MovieModifyForm movieModifyForm = new MovieModifyForm();
+                    movieModifyForm.ShowDialog();
+
+                    this.Show();
+
                     break;
 
                 case 1:
