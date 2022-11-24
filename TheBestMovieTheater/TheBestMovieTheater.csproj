@@ -54,6 +54,12 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
+    <Compile Include="MovieModifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MovieModifyForm.Designer.cs">
+      <DependentUpon>MovieModifyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Person.cs" />
     <Compile Include="ManagerMenuForm.cs">
       <SubType>Form</SubType>
@@ -79,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerMenuForm.resx">
       <DependentUpon>ManagerMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MovieModifyForm.resx">
+      <DependentUpon>MovieModifyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
