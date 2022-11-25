@@ -22,18 +22,10 @@ namespace TheBestMovieTheater
             this.Close();
         }
 
-        private void ShowtimeBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.showtimeBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.tBMT_DBDataSetLocal);
-
-        }
-
         private void ShowtimeModifyForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'tBMT_DBDataSetLocal.Showtime' table. You can move, or remove it, as needed.
-            this.showtimeTableAdapter.Fill(this.tBMT_DBDataSetLocal.Showtime);
+            // TODO: This line of code loads data into the 'tBMT_DBDataSetLocal.vManager_Showtimes' table. You can move, or remove it, as needed.
+            this.vManager_ShowtimesTableAdapter.Fill(this.tBMT_DBDataSetLocal.vManager_Showtimes);
 
         }
     }
