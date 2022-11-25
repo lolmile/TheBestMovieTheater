@@ -75,6 +75,12 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScreeningRoomModifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreeningRoomModifyForm.Designer.cs">
+      <DependentUpon>ScreeningRoomModifyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShowtimeModifyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScreeningRoomModifyForm.resx">
+      <DependentUpon>ScreeningRoomModifyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ShowtimeModifyForm.resx">
       <DependentUpon>ShowtimeModifyForm.cs</DependentUpon>
