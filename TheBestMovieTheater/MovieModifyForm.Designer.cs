@@ -96,7 +96,6 @@
             this.tableAdapterManager.MovieShowtimeTableAdapter = null;
             this.tableAdapterManager.MovieTableAdapter = this.movieTableAdapter;
             this.tableAdapterManager.ScreeningRoomTableAdapter = null;
-            this.tableAdapterManager.ShowtimeScreeningRoomTableAdapter = null;
             this.tableAdapterManager.ShowtimeTableAdapter = null;
             this.tableAdapterManager.ShowtimeTicketPriceTableAdapter = null;
             this.tableAdapterManager.TicketPriceTableAdapter = null;
