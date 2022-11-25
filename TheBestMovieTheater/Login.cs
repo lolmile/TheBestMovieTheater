@@ -25,25 +25,36 @@ namespace TheBestMovieTheater
         /// <param name="e"></param>
         private void loginButton_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection("Data Source=CRCL-CST-027;Initial Catalog=TBMT_DB;Integrated Security=True");
-
-            SqlDataAdapter command = new SqlDataAdapter("SELECT COUNT(*) FROM Manager WHERE Username ='" + usernameTextBox.Text + "' AND Password='" + passwordTextBox.Text + "'", conn);
-            DataTable mt = new DataTable();
-            command.Fill(mt);
-
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT(*) FROM Client WHERE Username ='" + usernameTextBox.Text + "' AND Password='" + passwordTextBox.Text + "'", conn);
-            DataTable ct = new DataTable();
-            sda.Fill(ct);
-            if (ct.Rows[0][0].ToString() == "1")
+            try
             {
+                SqlConnection conn = new SqlConnection("Data Source=CRCL-CST-027;Initial Catalog=TBMT_DB;Integrated Security=True");
 
+                SqlDataAdapter command = new SqlDataAdapter("SELECT COUNT(*) FROM Manager WHERE Username ='" + usernameTextBox.Text + "' AND Password='" + passwordTextBox.Text + "'", conn);
+                DataTable mt = new DataTable();
+                command.Fill(mt);
+
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT(*) FROM Client WHERE Username ='" + usernameTextBox.Text + "' AND Password='" + passwordTextBox.Text + "'", conn);
+                DataTable ct = new DataTable();
+                sda.Fill(ct);
+                if (ct.Rows[0][0].ToString() == "1")
+                {
+
+                }
+                else if (mt.Rows[0][0].ToString() == "1")
+                {
+                    ManagerMenuForm managerMenu = new ManagerMenuForm();
+                    managerMenu.Show();
+
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong username or password");
+                }
             }
-            else if (mt.Rows[0][0].ToString() == "1")
+            catch (Exception ex)
             {
-                ManagerMenuForm managerMenu = new ManagerMenuForm();
-                managerMenu.Show();
-
-                this.Hide();
+                MessageBox.Show(ex.Message);
             }
 
 

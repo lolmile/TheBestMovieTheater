@@ -46,7 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvailableMovies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AvailableMovies.Designer.cs">
+      <DependentUpon>AvailableMovies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client.cs" />
+    <Compile Include="ClientMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientMenuForm.Designer.cs">
+      <DependentUpon>ClientMenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +86,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TBMT_DBDataSet1.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AvailableMovies.resx">
+      <DependentUpon>AvailableMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientMenuForm.resx">
+      <DependentUpon>ClientMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
