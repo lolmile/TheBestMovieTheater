@@ -2719,8 +2719,6 @@ namespace TheBestMovieTheater {
             
             private global::System.Data.DataColumn columnShowtimeID;
             
-            private global::System.Data.DataColumn columnTicketCount;
-            
             private global::System.Data.DataColumn columnHour;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2761,14 +2759,6 @@ namespace TheBestMovieTheater {
             public global::System.Data.DataColumn ShowtimeIDColumn {
                 get {
                     return this.columnShowtimeID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TicketCountColumn {
-                get {
-                    return this.columnTicketCount;
                 }
             }
             
@@ -2817,11 +2807,10 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShowtimeRow AddShowtimeRow(int TicketCount, string Hour) {
+            public ShowtimeRow AddShowtimeRow(string Hour) {
                 ShowtimeRow rowShowtimeRow = ((ShowtimeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        TicketCount,
                         Hour};
                 rowShowtimeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowShowtimeRow);
@@ -2853,7 +2842,6 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnShowtimeID = base.Columns["ShowtimeID"];
-                this.columnTicketCount = base.Columns["TicketCount"];
                 this.columnHour = base.Columns["Hour"];
             }
             
@@ -2862,8 +2850,6 @@ namespace TheBestMovieTheater {
             private void InitClass() {
                 this.columnShowtimeID = new global::System.Data.DataColumn("ShowtimeID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnShowtimeID);
-                this.columnTicketCount = new global::System.Data.DataColumn("TicketCount", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTicketCount);
                 this.columnHour = new global::System.Data.DataColumn("Hour", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHour);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -2874,7 +2860,6 @@ namespace TheBestMovieTheater {
                 this.columnShowtimeID.AllowDBNull = false;
                 this.columnShowtimeID.ReadOnly = true;
                 this.columnShowtimeID.Unique = true;
-                this.columnTicketCount.AllowDBNull = false;
                 this.columnHour.AllowDBNull = false;
                 this.columnHour.MaxLength = 5;
             }
@@ -4626,17 +4611,6 @@ namespace TheBestMovieTheater {
                 }
                 set {
                     this[this.tableShowtime.ShowtimeIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int TicketCount {
-                get {
-                    return ((int)(this[this.tableShowtime.TicketCountColumn]));
-                }
-                set {
-                    this[this.tableShowtime.TicketCountColumn] = value;
                 }
             }
             
@@ -7876,34 +7850,29 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Showtime";
             tableMapping.ColumnMappings.Add("ShowtimeID", "ShowtimeID");
-            tableMapping.ColumnMappings.Add("TicketCount", "TicketCount");
             tableMapping.ColumnMappings.Add("Hour", "Hour");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Showtime] WHERE (([ShowtimeID] = @Original_ShowtimeID) AND ([T" +
-                "icketCount] = @Original_TicketCount) AND ([Hour] = @Original_Hour))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Showtime] WHERE (([ShowtimeID] = @Original_ShowtimeID) AND ([Hour] =" +
+                " @Original_Hour))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TicketCount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TicketCount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hour", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hour", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Showtime] ([TicketCount], [Hour]) VALUES (@TicketCount, @Hour)" +
-                ";\r\nSELECT ShowtimeID, TicketCount, Hour FROM Showtime WHERE (ShowtimeID = SCOPE_" +
-                "IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Showtime] ([Hour]) VALUES (@Hour);\r\nSELECT ShowtimeID, Hour FROM Sho" +
+                "wtime WHERE (ShowtimeID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TicketCount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TicketCount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hour", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hour", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Showtime] SET [TicketCount] = @TicketCount, [Hour] = @Hour WHERE (([ShowtimeID] = @Original_ShowtimeID) AND ([TicketCount] = @Original_TicketCount) AND ([Hour] = @Original_Hour));
-SELECT ShowtimeID, TicketCount, Hour FROM Showtime WHERE (ShowtimeID = @ShowtimeID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [Showtime] SET [Hour] = @Hour WHERE (([ShowtimeID] = @Original_ShowtimeID)" +
+                " AND ([Hour] = @Original_Hour));\r\nSELECT ShowtimeID, Hour FROM Showtime WHERE (S" +
+                "howtimeID = @ShowtimeID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TicketCount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TicketCount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hour", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hour", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TicketCount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TicketCount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hour", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hour", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShowtimeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -7921,7 +7890,7 @@ SELECT ShowtimeID, TicketCount, Hour FROM Showtime WHERE (ShowtimeID = @Showtime
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ShowtimeID, TicketCount, Hour FROM dbo.Showtime";
+            this._commandCollection[0].CommandText = "SELECT ShowtimeID, Hour FROM Showtime";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7982,14 +7951,13 @@ SELECT ShowtimeID, TicketCount, Hour FROM Showtime WHERE (ShowtimeID = @Showtime
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ShowtimeID, int Original_TicketCount, string Original_Hour) {
+        public virtual int Delete(int Original_ShowtimeID, string Original_Hour) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ShowtimeID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_TicketCount));
             if ((Original_Hour == null)) {
                 throw new global::System.ArgumentNullException("Original_Hour");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Hour));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Hour));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8011,13 +7979,12 @@ SELECT ShowtimeID, TicketCount, Hour FROM Showtime WHERE (ShowtimeID = @Showtime
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int TicketCount, string Hour) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(TicketCount));
+        public virtual int Insert(string Hour) {
             if ((Hour == null)) {
                 throw new global::System.ArgumentNullException("Hour");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Hour));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Hour));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8039,23 +8006,21 @@ SELECT ShowtimeID, TicketCount, Hour FROM Showtime WHERE (ShowtimeID = @Showtime
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int TicketCount, string Hour, int Original_ShowtimeID, int Original_TicketCount, string Original_Hour, int ShowtimeID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(TicketCount));
+        public virtual int Update(string Hour, int Original_ShowtimeID, string Original_Hour, int ShowtimeID) {
             if ((Hour == null)) {
                 throw new global::System.ArgumentNullException("Hour");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Hour));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Hour));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_ShowtimeID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_TicketCount));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_ShowtimeID));
             if ((Original_Hour == null)) {
                 throw new global::System.ArgumentNullException("Original_Hour");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Hour));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_Hour));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(ShowtimeID));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(ShowtimeID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8076,8 +8041,8 @@ SELECT ShowtimeID, TicketCount, Hour FROM Showtime WHERE (ShowtimeID = @Showtime
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int TicketCount, string Hour, int Original_ShowtimeID, int Original_TicketCount, string Original_Hour) {
-            return this.Update(TicketCount, Hour, Original_ShowtimeID, Original_TicketCount, Original_Hour, Original_ShowtimeID);
+        public virtual int Update(string Hour, int Original_ShowtimeID, string Original_Hour) {
+            return this.Update(Hour, Original_ShowtimeID, Original_Hour, Original_ShowtimeID);
         }
     }
     

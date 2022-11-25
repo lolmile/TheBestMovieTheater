@@ -31,32 +31,31 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowtimeModifyForm));
             this.BackButton = new System.Windows.Forms.Button();
-            this.tBMT_DBDataSetLocal = new TheBestMovieTheater.TBMT_DBDataSetLocal();
-            this.showtimeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.showtimeTableAdapter = new TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.ShowtimeTableAdapter();
-            this.tableAdapterManager = new TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.TableAdapterManager();
             this.showtimeBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.showtimeBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.showtimeDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.tBMT_DBDataSetLocal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.showtimeBindingSource)).BeginInit();
+            this.showtimeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tBMT_DBDataSetLocal = new TheBestMovieTheater.TBMT_DBDataSetLocal();
+            this.showtimeTableAdapter = new TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.ShowtimeTableAdapter();
+            this.tableAdapterManager = new TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.showtimeBindingNavigator)).BeginInit();
             this.showtimeBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.showtimeDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showtimeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBMT_DBDataSetLocal)).BeginInit();
             this.SuspendLayout();
             // 
             // BackButton
@@ -68,35 +67,6 @@
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
-            // 
-            // tBMT_DBDataSetLocal
-            // 
-            this.tBMT_DBDataSetLocal.DataSetName = "TBMT_DBDataSetLocal";
-            this.tBMT_DBDataSetLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // showtimeBindingSource
-            // 
-            this.showtimeBindingSource.DataMember = "Showtime";
-            this.showtimeBindingSource.DataSource = this.tBMT_DBDataSetLocal;
-            // 
-            // showtimeTableAdapter
-            // 
-            this.showtimeTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ClientMovieShowtimeTableAdapter = null;
-            this.tableAdapterManager.ClientTableAdapter = null;
-            this.tableAdapterManager.ManagerTableAdapter = null;
-            this.tableAdapterManager.MovieShowtimeTableAdapter = null;
-            this.tableAdapterManager.MovieTableAdapter = null;
-            this.tableAdapterManager.ScreeningRoomTableAdapter = null;
-            this.tableAdapterManager.ShowtimeScreeningRoomTableAdapter = null;
-            this.tableAdapterManager.ShowtimeTableAdapter = this.showtimeTableAdapter;
-            this.tableAdapterManager.ShowtimeTicketPriceTableAdapter = null;
-            this.tableAdapterManager.TicketPriceTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // showtimeBindingNavigator
             // 
@@ -119,16 +89,41 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.showtimeBindingNavigatorSaveItem});
-            this.showtimeBindingNavigator.Location = new System.Drawing.Point(106, 256);
+            this.showtimeBindingNavigator.Location = new System.Drawing.Point(90, 256);
             this.showtimeBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.showtimeBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.showtimeBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.showtimeBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.showtimeBindingNavigator.Name = "showtimeBindingNavigator";
             this.showtimeBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.showtimeBindingNavigator.Size = new System.Drawing.Size(331, 27);
+            this.showtimeBindingNavigator.Size = new System.Drawing.Size(370, 27);
             this.showtimeBindingNavigator.TabIndex = 7;
             this.showtimeBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -136,7 +131,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -145,34 +140,28 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 20);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -194,45 +183,26 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // showtimeBindingNavigatorSaveItem
             // 
             this.showtimeBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.showtimeBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("showtimeBindingNavigatorSaveItem.Image")));
             this.showtimeBindingNavigatorSaveItem.Name = "showtimeBindingNavigatorSaveItem";
-            this.showtimeBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.showtimeBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
             this.showtimeBindingNavigatorSaveItem.Text = "Save Data";
             this.showtimeBindingNavigatorSaveItem.Click += new System.EventHandler(this.ShowtimeBindingNavigatorSaveItem_Click);
             // 
             // showtimeDataGridView
             // 
             this.showtimeDataGridView.AutoGenerateColumns = false;
-            this.showtimeDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.showtimeDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.showtimeDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.showtimeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.showtimeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
             this.showtimeDataGridView.DataSource = this.showtimeBindingSource;
             this.showtimeDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
@@ -240,7 +210,7 @@
             this.showtimeDataGridView.Name = "showtimeDataGridView";
             this.showtimeDataGridView.RowHeadersWidth = 51;
             this.showtimeDataGridView.RowTemplate.Height = 24;
-            this.showtimeDataGridView.Size = new System.Drawing.Size(438, 250);
+            this.showtimeDataGridView.Size = new System.Drawing.Size(454, 250);
             this.showtimeDataGridView.TabIndex = 7;
             // 
             // dataGridViewTextBoxColumn1
@@ -250,15 +220,6 @@
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 107;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "TicketCount";
-            this.dataGridViewTextBoxColumn2.HeaderText = "TicketCount";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 107;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -266,13 +227,41 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Hour";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 65;
+            // 
+            // showtimeBindingSource
+            // 
+            this.showtimeBindingSource.DataMember = "Showtime";
+            this.showtimeBindingSource.DataSource = this.tBMT_DBDataSetLocal;
+            // 
+            // tBMT_DBDataSetLocal
+            // 
+            this.tBMT_DBDataSetLocal.DataSetName = "TBMT_DBDataSetLocal";
+            this.tBMT_DBDataSetLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // showtimeTableAdapter
+            // 
+            this.showtimeTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.ClientMovieShowtimeTableAdapter = null;
+            this.tableAdapterManager.ClientTableAdapter = null;
+            this.tableAdapterManager.ManagerTableAdapter = null;
+            this.tableAdapterManager.MovieShowtimeTableAdapter = null;
+            this.tableAdapterManager.MovieTableAdapter = null;
+            this.tableAdapterManager.ScreeningRoomTableAdapter = null;
+            this.tableAdapterManager.ShowtimeScreeningRoomTableAdapter = null;
+            this.tableAdapterManager.ShowtimeTableAdapter = this.showtimeTableAdapter;
+            this.tableAdapterManager.ShowtimeTicketPriceTableAdapter = null;
+            this.tableAdapterManager.TicketPriceTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // ShowtimeModifyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 299);
+            this.ClientSize = new System.Drawing.Size(454, 299);
             this.Controls.Add(this.showtimeDataGridView);
             this.Controls.Add(this.showtimeBindingNavigator);
             this.Controls.Add(this.BackButton);
@@ -280,12 +269,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ShowtimeModifyForm";
             this.Load += new System.EventHandler(this.ShowtimeModifyForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.tBMT_DBDataSetLocal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.showtimeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.showtimeBindingNavigator)).EndInit();
             this.showtimeBindingNavigator.ResumeLayout(false);
             this.showtimeBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.showtimeDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showtimeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBMT_DBDataSetLocal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
