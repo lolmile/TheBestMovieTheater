@@ -119,13 +119,10 @@ namespace TheBestMovieTheater
             if (validate == 6)
             {
 
-                TBMT_DBDataSetTableAdapters.ClientTableAdapter clientTableAdapter = new TBMT_DBDataSetTableAdapters.ClientTableAdapter();
-                clientTableAdapter.Insert(newClient.firstName, newClient.lastName, newClient.emailAddress, newClient.username, newClient.password, now, null);
+                // TBMT_DBDataSetTableAdapters.ClientTableAdapter clientTableAdapter = new TBMT_DBDataSetTableAdapters.ClientTableAdapter();
+                // clientTableAdapter.Insert(newClient.firstName, newClient.lastName, newClient.emailAddress, newClient.username, newClient.password, now, null);
 
-                this.Close();
             }
-
-
         }
     }
 }
