@@ -95,12 +95,8 @@ namespace TheBestMovieTheater
                 case 1:
                     this.Hide();
 
-                    // ManagerModifyForm modifyRoomForm = new ManagerModifyForm("Rooms");
-                    // modifyRoomForm.ShowDialog();
-
-                    // For testing.
-                    this.modifySelection = this.modifyComboBox.SelectedItem.ToString();
-                    MessageBox.Show(this.modifySelection);
+                    ScreeningRoomModifyForm roomModifyForm = new ScreeningRoomModifyForm();
+                    roomModifyForm.ShowDialog();
 
                     this.Show();
                     break;
@@ -108,7 +104,7 @@ namespace TheBestMovieTheater
                 case 2:
                     this.Hide();
 
-                    ShowtimeModifyForm showtimeModifyForm= new ShowtimeModifyForm();
+                    ShowtimeModifyForm showtimeModifyForm = new ShowtimeModifyForm();
                     showtimeModifyForm.ShowDialog();
 
                     this.Show();
@@ -116,6 +112,7 @@ namespace TheBestMovieTheater
 
                 case 3:
                     this.Hide();
+
                     // ManagerModifyForm modifyPriceForm = new ManagerModifyForm("Prices");
                     // modifyPriceForm.ShowDialog();
 

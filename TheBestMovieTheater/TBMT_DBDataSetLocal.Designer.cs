@@ -4470,11 +4470,7 @@ namespace TheBestMovieTheater {
                 base.Columns.Add(this.columnMovieID);
                 this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTitle);
-                this.columnRoom.AllowDBNull = false;
                 this.columnRoom.MaxLength = 255;
-                this.columnRoomID.AllowDBNull = false;
-                this.columnMovieID.AllowDBNull = false;
-                this.columnTitle.AllowDBNull = false;
                 this.columnTitle.MaxLength = 255;
             }
             
@@ -6004,7 +6000,12 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Room {
                 get {
-                    return ((string)(this[this.tablevManager_Rooms.RoomColumn]));
+                    try {
+                        return ((string)(this[this.tablevManager_Rooms.RoomColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Room\' in table \'vManager_Rooms\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablevManager_Rooms.RoomColumn] = value;
@@ -6015,7 +6016,12 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int RoomID {
                 get {
-                    return ((int)(this[this.tablevManager_Rooms.RoomIDColumn]));
+                    try {
+                        return ((int)(this[this.tablevManager_Rooms.RoomIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RoomID\' in table \'vManager_Rooms\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablevManager_Rooms.RoomIDColumn] = value;
@@ -6026,7 +6032,12 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int MovieID {
                 get {
-                    return ((int)(this[this.tablevManager_Rooms.MovieIDColumn]));
+                    try {
+                        return ((int)(this[this.tablevManager_Rooms.MovieIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MovieID\' in table \'vManager_Rooms\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablevManager_Rooms.MovieIDColumn] = value;
@@ -6037,11 +6048,64 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Title {
                 get {
-                    return ((string)(this[this.tablevManager_Rooms.TitleColumn]));
+                    try {
+                        return ((string)(this[this.tablevManager_Rooms.TitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'vManager_Rooms\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablevManager_Rooms.TitleColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRoomNull() {
+                return this.IsNull(this.tablevManager_Rooms.RoomColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRoomNull() {
+                this[this.tablevManager_Rooms.RoomColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRoomIDNull() {
+                return this.IsNull(this.tablevManager_Rooms.RoomIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRoomIDNull() {
+                this[this.tablevManager_Rooms.RoomIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsMovieIDNull() {
+                return this.IsNull(this.tablevManager_Rooms.MovieIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetMovieIDNull() {
+                this[this.tablevManager_Rooms.MovieIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTitleNull() {
+                return this.IsNull(this.tablevManager_Rooms.TitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTitleNull() {
+                this[this.tablevManager_Rooms.TitleColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10712,7 +10776,7 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Room, RoomID, MovieID, Title FROM dbo.vManager_Rooms";
+            this._commandCollection[0].CommandText = "SELECT Room, RoomID, MovieID, Title FROM dbo.vManager_Rooms ORDER BY RoomID ASC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
