@@ -36,8 +36,8 @@ namespace TheBestMovieTheater.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\TBMT_DB.mdf;I" +
-            "ntegrated Security=True;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\TBMT\\TBMT_DB.mdf;Integrate" +
+            "d Security=True;Connect Timeout=30")]
         public string TBMT_DBConnectionStringLocal {
             get {
                 return ((string)(this["TBMT_DBConnectionStringLocal"]));
