@@ -4765,11 +4765,7 @@ namespace TheBestMovieTheater {
                 base.Columns.Add(this.columnMovieID);
                 this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTitle);
-                this.columnShowtime.AllowDBNull = false;
                 this.columnShowtime.MaxLength = 5;
-                this.columnShowtimeID.AllowDBNull = false;
-                this.columnMovieID.AllowDBNull = false;
-                this.columnTitle.AllowDBNull = false;
                 this.columnTitle.MaxLength = 255;
             }
             
@@ -6067,7 +6063,12 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Showtime {
                 get {
-                    return ((string)(this[this.tablevManager_Showtimes.ShowtimeColumn]));
+                    try {
+                        return ((string)(this[this.tablevManager_Showtimes.ShowtimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Showtime\' in table \'vManager_Showtimes\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablevManager_Showtimes.ShowtimeColumn] = value;
@@ -6078,7 +6079,12 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int ShowtimeID {
                 get {
-                    return ((int)(this[this.tablevManager_Showtimes.ShowtimeIDColumn]));
+                    try {
+                        return ((int)(this[this.tablevManager_Showtimes.ShowtimeIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ShowtimeID\' in table \'vManager_Showtimes\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablevManager_Showtimes.ShowtimeIDColumn] = value;
@@ -6089,7 +6095,12 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int MovieID {
                 get {
-                    return ((int)(this[this.tablevManager_Showtimes.MovieIDColumn]));
+                    try {
+                        return ((int)(this[this.tablevManager_Showtimes.MovieIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MovieID\' in table \'vManager_Showtimes\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablevManager_Showtimes.MovieIDColumn] = value;
@@ -6100,11 +6111,64 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Title {
                 get {
-                    return ((string)(this[this.tablevManager_Showtimes.TitleColumn]));
+                    try {
+                        return ((string)(this[this.tablevManager_Showtimes.TitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'vManager_Showtimes\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablevManager_Showtimes.TitleColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsShowtimeNull() {
+                return this.IsNull(this.tablevManager_Showtimes.ShowtimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetShowtimeNull() {
+                this[this.tablevManager_Showtimes.ShowtimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsShowtimeIDNull() {
+                return this.IsNull(this.tablevManager_Showtimes.ShowtimeIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetShowtimeIDNull() {
+                this[this.tablevManager_Showtimes.ShowtimeIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsMovieIDNull() {
+                return this.IsNull(this.tablevManager_Showtimes.MovieIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetMovieIDNull() {
+                this[this.tablevManager_Showtimes.MovieIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTitleNull() {
+                return this.IsNull(this.tablevManager_Showtimes.TitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTitleNull() {
+                this[this.tablevManager_Showtimes.TitleColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10818,7 +10882,8 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Showtime, ShowtimeID, MovieID, Title FROM dbo.vManager_Showtimes";
+            this._commandCollection[0].CommandText = "SELECT Showtime, ShowtimeID, MovieID, Title FROM dbo.vManager_Showtimes ORDER BY " +
+                "ShowtimeID ASC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

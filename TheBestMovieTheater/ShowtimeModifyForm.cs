@@ -26,7 +26,6 @@ namespace TheBestMovieTheater
         {
             // TODO: This line of code loads data into the 'tBMT_DBDataSetLocal.vManager_Showtimes' table. You can move, or remove it, as needed.
             this.vManager_ShowtimesTableAdapter.Fill(this.tBMT_DBDataSetLocal.vManager_Showtimes);
-
         }
     }
 }
