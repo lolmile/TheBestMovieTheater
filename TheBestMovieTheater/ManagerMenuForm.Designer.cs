@@ -81,6 +81,7 @@
             this.viewsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.viewsComboBox.FormattingEnabled = true;
             this.viewsComboBox.Items.AddRange(new object[] {
+            "Movie Information",
             "Client List",
             "Ticket Sales (Movies)",
             "Ticket Sales (Showtime)"});
@@ -126,10 +127,10 @@
             this.modifyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.modifyComboBox.FormattingEnabled = true;
             this.modifyComboBox.Items.AddRange(new object[] {
-            "Available Movies",
+            "Movies",
             "Screening Rooms",
             "Showtimes",
-            "TIcket Prices"});
+            "Prices"});
             this.modifyComboBox.Location = new System.Drawing.Point(49, 65);
             this.modifyComboBox.Name = "modifyComboBox";
             this.modifyComboBox.Size = new System.Drawing.Size(186, 24);

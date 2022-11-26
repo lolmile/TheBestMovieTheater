@@ -30,16 +30,5 @@ namespace TheBestMovieTheater
         {
             this.Close();
         }
-
-        /// <summary>
-        /// Loads data into objects while the form loads.
-        /// </summary>
-        /// <param name="sender">The object to be loaded.</param>
-        /// <param name="e">Additional event arguments.</param>
-        private void ShowtimeModifyForm_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'tBMT_DBDataSetLocal.vManager_Showtimes' table. You can move, or remove it, as needed.
-            this.vManager_ShowtimesTableAdapter.Fill(this.tBMT_DBDataSetLocal.vManager_Showtimes);
-        }
     }
 }
