@@ -16,5 +16,16 @@ namespace TheBestMovieTheater
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Opens available movie form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void availableMovieButton_Click(object sender, EventArgs e)
+        {
+            availableMoviesForm availableMoviesForm= new availableMoviesForm();
+            availableMoviesForm.ShowDialog();
+        }
     }
 }

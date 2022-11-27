@@ -18,9 +18,6 @@ namespace TheBestMovieTheater
             InitializeComponent();
         }
 
-        // database connection string
-        private readonly SqlConnection conn = new SqlConnection("Data Source=CRCL-CST-027;Initial Catalog=TBMT_DB;Integrated Security=True");
-
         /// <summary>
         /// Verifies the information then enters the client data in the database.
         /// </summary>
@@ -118,10 +115,10 @@ namespace TheBestMovieTheater
             // If all verifications are ok, we create the enter for the DB table and close the Form
             if (validate == 6)
             {
+                TBMT_DBDataSetLocalTableAdapters.ClientTableAdapter clientTableAdapter = new TBMT_DBDataSetLocalTableAdapters.ClientTableAdapter();
+                clientTableAdapter.Insert(newClient.firstName, newClient.lastName, newClient.emailAddress, newClient.username, newClient.password, now, null);
 
-                // TBMT_DBDataSetTableAdapters.ClientTableAdapter clientTableAdapter = new TBMT_DBDataSetTableAdapters.ClientTableAdapter();
-                // clientTableAdapter.Insert(newClient.firstName, newClient.lastName, newClient.emailAddress, newClient.username, newClient.password, now, null);
-
+                this.Close();
             }
         }
     }

@@ -52,6 +52,12 @@
     <Compile Include="AvailableMovies.Designer.cs">
       <DependentUpon>AvailableMovies.cs</DependentUpon>
     </Compile>
+    <Compile Include="availableMoviesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="availableMoviesForm.Designer.cs">
+      <DependentUpon>availableMoviesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client.cs" />
     <Compile Include="ClientMenuForm.cs">
       <SubType>Form</SubType>
@@ -99,11 +105,6 @@
     <Compile Include="ShowtimeModifyForm.Designer.cs">
       <DependentUpon>ShowtimeModifyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TBMT_DBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TBMT_DBDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="TBMT_DBDataSetLocal.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -111,6 +112,9 @@
     </Compile>
     <EmbeddedResource Include="AvailableMovies.resx">
       <DependentUpon>AvailableMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="availableMoviesForm.resx">
+      <DependentUpon>availableMoviesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientMenuForm.resx">
       <DependentUpon>ClientMenuForm.cs</DependentUpon>
@@ -152,17 +156,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="TBMT_DBDataSet.xsc">
-      <DependentUpon>TBMT_DBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="TBMT_DBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TBMT_DBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="TBMT_DBDataSet.xss">
-      <DependentUpon>TBMT_DBDataSet.xsd</DependentUpon>
-    </None>
     <None Include="TBMT_DBDataSetLocal.xsc">
       <DependentUpon>TBMT_DBDataSetLocal.xsd</DependentUpon>
     </None>
