@@ -26,47 +26,43 @@ namespace TheBestMovieTheater {
         
         private ClientDataTable tableClient;
         
-        private ClientMovieShowtimeDataTable tableClientMovieShowtime;
-        
         private ManagerDataTable tableManager;
         
         private MovieDataTable tableMovie;
-        
-        private MovieShowtimeDataTable tableMovieShowtime;
         
         private ScreeningRoomDataTable tableScreeningRoom;
         
         private ShowtimeDataTable tableShowtime;
         
-        private ShowtimeTicketPriceDataTable tableShowtimeTicketPrice;
+        private ClientTicketDataTable tableClientTicket;
         
-        private TicketPriceDataTable tableTicketPrice;
+        private MovieInfoBridgeDataTable tableMovieInfoBridge;
         
-        private MovieScreeningRoomDataTable tableMovieScreeningRoom;
+        private PriceDataTable tablePrice;
         
-        private vClient_MovieScreeningsDataTable tablevClient_MovieScreenings;
+        private TicketDataTable tableTicket;
         
-        private vManager_RoomsDataTable tablevManager_Rooms;
+        private vManager_ShowtimeCapacityDataTable tablevManager_ShowtimeCapacity;
         
         private vManager_ShowtimesDataTable tablevManager_Showtimes;
         
-        private global::System.Data.DataRelation relationFK__ClientMov__Clien__4D94879B;
+        private global::System.Data.DataRelation relationFK__ClientTic__Clien__3493CFA7;
         
-        private global::System.Data.DataRelation relationFK__ClientMov__Movie__4E88ABD4;
+        private global::System.Data.DataRelation relationFK__ClientTic__Ticke__3587F3E0;
         
-        private global::System.Data.DataRelation relationFK__ClientMov__Showt__4F7CD00D;
+        private global::System.Data.DataRelation relationFK__MovieInfo__Movie__2FCF1A8A;
         
-        private global::System.Data.DataRelation relationFK__MovieShow__Movie__3E52440B;
+        private global::System.Data.DataRelation relationFK__MovieInfo__Scree__31B762FC;
         
-        private global::System.Data.DataRelation relationFK__MovieShow__Showt__3F466844;
+        private global::System.Data.DataRelation relationFK__MovieInfo__Showt__30C33EC3;
         
-        private global::System.Data.DataRelation relationFK__ShowtimeT__Price__4316F928;
+        private global::System.Data.DataRelation relationFK__Ticket__MovieID__2B0A656D;
         
-        private global::System.Data.DataRelation relationFK__ShowtimeT__Showt__4222D4EF;
+        private global::System.Data.DataRelation relationFK__Ticket__PriceID__2A164134;
         
-        private global::System.Data.DataRelation relationFK__MovieScre__Movie__02FC7413;
+        private global::System.Data.DataRelation relationFK__Ticket__Screenin__2CF2ADDF;
         
-        private global::System.Data.DataRelation relationFK__MovieScre__Scree__03F0984C;
+        private global::System.Data.DataRelation relationFK__Ticket__Showtime__2BFE89A6;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -99,17 +95,11 @@ namespace TheBestMovieTheater {
                 if ((ds.Tables["Client"] != null)) {
                     base.Tables.Add(new ClientDataTable(ds.Tables["Client"]));
                 }
-                if ((ds.Tables["ClientMovieShowtime"] != null)) {
-                    base.Tables.Add(new ClientMovieShowtimeDataTable(ds.Tables["ClientMovieShowtime"]));
-                }
                 if ((ds.Tables["Manager"] != null)) {
                     base.Tables.Add(new ManagerDataTable(ds.Tables["Manager"]));
                 }
                 if ((ds.Tables["Movie"] != null)) {
                     base.Tables.Add(new MovieDataTable(ds.Tables["Movie"]));
-                }
-                if ((ds.Tables["MovieShowtime"] != null)) {
-                    base.Tables.Add(new MovieShowtimeDataTable(ds.Tables["MovieShowtime"]));
                 }
                 if ((ds.Tables["ScreeningRoom"] != null)) {
                     base.Tables.Add(new ScreeningRoomDataTable(ds.Tables["ScreeningRoom"]));
@@ -117,20 +107,20 @@ namespace TheBestMovieTheater {
                 if ((ds.Tables["Showtime"] != null)) {
                     base.Tables.Add(new ShowtimeDataTable(ds.Tables["Showtime"]));
                 }
-                if ((ds.Tables["ShowtimeTicketPrice"] != null)) {
-                    base.Tables.Add(new ShowtimeTicketPriceDataTable(ds.Tables["ShowtimeTicketPrice"]));
+                if ((ds.Tables["ClientTicket"] != null)) {
+                    base.Tables.Add(new ClientTicketDataTable(ds.Tables["ClientTicket"]));
                 }
-                if ((ds.Tables["TicketPrice"] != null)) {
-                    base.Tables.Add(new TicketPriceDataTable(ds.Tables["TicketPrice"]));
+                if ((ds.Tables["MovieInfoBridge"] != null)) {
+                    base.Tables.Add(new MovieInfoBridgeDataTable(ds.Tables["MovieInfoBridge"]));
                 }
-                if ((ds.Tables["MovieScreeningRoom"] != null)) {
-                    base.Tables.Add(new MovieScreeningRoomDataTable(ds.Tables["MovieScreeningRoom"]));
+                if ((ds.Tables["Price"] != null)) {
+                    base.Tables.Add(new PriceDataTable(ds.Tables["Price"]));
                 }
-                if ((ds.Tables["vClient_MovieScreenings"] != null)) {
-                    base.Tables.Add(new vClient_MovieScreeningsDataTable(ds.Tables["vClient_MovieScreenings"]));
+                if ((ds.Tables["Ticket"] != null)) {
+                    base.Tables.Add(new TicketDataTable(ds.Tables["Ticket"]));
                 }
-                if ((ds.Tables["vManager_Rooms"] != null)) {
-                    base.Tables.Add(new vManager_RoomsDataTable(ds.Tables["vManager_Rooms"]));
+                if ((ds.Tables["vManager_ShowtimeCapacity"] != null)) {
+                    base.Tables.Add(new vManager_ShowtimeCapacityDataTable(ds.Tables["vManager_ShowtimeCapacity"]));
                 }
                 if ((ds.Tables["vManager_Showtimes"] != null)) {
                     base.Tables.Add(new vManager_ShowtimesDataTable(ds.Tables["vManager_Showtimes"]));
@@ -167,16 +157,6 @@ namespace TheBestMovieTheater {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ClientMovieShowtimeDataTable ClientMovieShowtime {
-            get {
-                return this.tableClientMovieShowtime;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public ManagerDataTable Manager {
             get {
                 return this.tableManager;
@@ -190,16 +170,6 @@ namespace TheBestMovieTheater {
         public MovieDataTable Movie {
             get {
                 return this.tableMovie;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public MovieShowtimeDataTable MovieShowtime {
-            get {
-                return this.tableMovieShowtime;
             }
         }
         
@@ -227,9 +197,9 @@ namespace TheBestMovieTheater {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ShowtimeTicketPriceDataTable ShowtimeTicketPrice {
+        public ClientTicketDataTable ClientTicket {
             get {
-                return this.tableShowtimeTicketPrice;
+                return this.tableClientTicket;
             }
         }
         
@@ -237,9 +207,9 @@ namespace TheBestMovieTheater {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public TicketPriceDataTable TicketPrice {
+        public MovieInfoBridgeDataTable MovieInfoBridge {
             get {
-                return this.tableTicketPrice;
+                return this.tableMovieInfoBridge;
             }
         }
         
@@ -247,9 +217,9 @@ namespace TheBestMovieTheater {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public MovieScreeningRoomDataTable MovieScreeningRoom {
+        public PriceDataTable Price {
             get {
-                return this.tableMovieScreeningRoom;
+                return this.tablePrice;
             }
         }
         
@@ -257,9 +227,9 @@ namespace TheBestMovieTheater {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public vClient_MovieScreeningsDataTable vClient_MovieScreenings {
+        public TicketDataTable Ticket {
             get {
-                return this.tablevClient_MovieScreenings;
+                return this.tableTicket;
             }
         }
         
@@ -267,9 +237,9 @@ namespace TheBestMovieTheater {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public vManager_RoomsDataTable vManager_Rooms {
+        public vManager_ShowtimeCapacityDataTable vManager_ShowtimeCapacity {
             get {
-                return this.tablevManager_Rooms;
+                return this.tablevManager_ShowtimeCapacity;
             }
         }
         
@@ -353,17 +323,11 @@ namespace TheBestMovieTheater {
                 if ((ds.Tables["Client"] != null)) {
                     base.Tables.Add(new ClientDataTable(ds.Tables["Client"]));
                 }
-                if ((ds.Tables["ClientMovieShowtime"] != null)) {
-                    base.Tables.Add(new ClientMovieShowtimeDataTable(ds.Tables["ClientMovieShowtime"]));
-                }
                 if ((ds.Tables["Manager"] != null)) {
                     base.Tables.Add(new ManagerDataTable(ds.Tables["Manager"]));
                 }
                 if ((ds.Tables["Movie"] != null)) {
                     base.Tables.Add(new MovieDataTable(ds.Tables["Movie"]));
-                }
-                if ((ds.Tables["MovieShowtime"] != null)) {
-                    base.Tables.Add(new MovieShowtimeDataTable(ds.Tables["MovieShowtime"]));
                 }
                 if ((ds.Tables["ScreeningRoom"] != null)) {
                     base.Tables.Add(new ScreeningRoomDataTable(ds.Tables["ScreeningRoom"]));
@@ -371,20 +335,20 @@ namespace TheBestMovieTheater {
                 if ((ds.Tables["Showtime"] != null)) {
                     base.Tables.Add(new ShowtimeDataTable(ds.Tables["Showtime"]));
                 }
-                if ((ds.Tables["ShowtimeTicketPrice"] != null)) {
-                    base.Tables.Add(new ShowtimeTicketPriceDataTable(ds.Tables["ShowtimeTicketPrice"]));
+                if ((ds.Tables["ClientTicket"] != null)) {
+                    base.Tables.Add(new ClientTicketDataTable(ds.Tables["ClientTicket"]));
                 }
-                if ((ds.Tables["TicketPrice"] != null)) {
-                    base.Tables.Add(new TicketPriceDataTable(ds.Tables["TicketPrice"]));
+                if ((ds.Tables["MovieInfoBridge"] != null)) {
+                    base.Tables.Add(new MovieInfoBridgeDataTable(ds.Tables["MovieInfoBridge"]));
                 }
-                if ((ds.Tables["MovieScreeningRoom"] != null)) {
-                    base.Tables.Add(new MovieScreeningRoomDataTable(ds.Tables["MovieScreeningRoom"]));
+                if ((ds.Tables["Price"] != null)) {
+                    base.Tables.Add(new PriceDataTable(ds.Tables["Price"]));
                 }
-                if ((ds.Tables["vClient_MovieScreenings"] != null)) {
-                    base.Tables.Add(new vClient_MovieScreeningsDataTable(ds.Tables["vClient_MovieScreenings"]));
+                if ((ds.Tables["Ticket"] != null)) {
+                    base.Tables.Add(new TicketDataTable(ds.Tables["Ticket"]));
                 }
-                if ((ds.Tables["vManager_Rooms"] != null)) {
-                    base.Tables.Add(new vManager_RoomsDataTable(ds.Tables["vManager_Rooms"]));
+                if ((ds.Tables["vManager_ShowtimeCapacity"] != null)) {
+                    base.Tables.Add(new vManager_ShowtimeCapacityDataTable(ds.Tables["vManager_ShowtimeCapacity"]));
                 }
                 if ((ds.Tables["vManager_Showtimes"] != null)) {
                     base.Tables.Add(new vManager_ShowtimesDataTable(ds.Tables["vManager_Showtimes"]));
@@ -428,12 +392,6 @@ namespace TheBestMovieTheater {
                     this.tableClient.InitVars();
                 }
             }
-            this.tableClientMovieShowtime = ((ClientMovieShowtimeDataTable)(base.Tables["ClientMovieShowtime"]));
-            if ((initTable == true)) {
-                if ((this.tableClientMovieShowtime != null)) {
-                    this.tableClientMovieShowtime.InitVars();
-                }
-            }
             this.tableManager = ((ManagerDataTable)(base.Tables["Manager"]));
             if ((initTable == true)) {
                 if ((this.tableManager != null)) {
@@ -444,12 +402,6 @@ namespace TheBestMovieTheater {
             if ((initTable == true)) {
                 if ((this.tableMovie != null)) {
                     this.tableMovie.InitVars();
-                }
-            }
-            this.tableMovieShowtime = ((MovieShowtimeDataTable)(base.Tables["MovieShowtime"]));
-            if ((initTable == true)) {
-                if ((this.tableMovieShowtime != null)) {
-                    this.tableMovieShowtime.InitVars();
                 }
             }
             this.tableScreeningRoom = ((ScreeningRoomDataTable)(base.Tables["ScreeningRoom"]));
@@ -464,34 +416,34 @@ namespace TheBestMovieTheater {
                     this.tableShowtime.InitVars();
                 }
             }
-            this.tableShowtimeTicketPrice = ((ShowtimeTicketPriceDataTable)(base.Tables["ShowtimeTicketPrice"]));
+            this.tableClientTicket = ((ClientTicketDataTable)(base.Tables["ClientTicket"]));
             if ((initTable == true)) {
-                if ((this.tableShowtimeTicketPrice != null)) {
-                    this.tableShowtimeTicketPrice.InitVars();
+                if ((this.tableClientTicket != null)) {
+                    this.tableClientTicket.InitVars();
                 }
             }
-            this.tableTicketPrice = ((TicketPriceDataTable)(base.Tables["TicketPrice"]));
+            this.tableMovieInfoBridge = ((MovieInfoBridgeDataTable)(base.Tables["MovieInfoBridge"]));
             if ((initTable == true)) {
-                if ((this.tableTicketPrice != null)) {
-                    this.tableTicketPrice.InitVars();
+                if ((this.tableMovieInfoBridge != null)) {
+                    this.tableMovieInfoBridge.InitVars();
                 }
             }
-            this.tableMovieScreeningRoom = ((MovieScreeningRoomDataTable)(base.Tables["MovieScreeningRoom"]));
+            this.tablePrice = ((PriceDataTable)(base.Tables["Price"]));
             if ((initTable == true)) {
-                if ((this.tableMovieScreeningRoom != null)) {
-                    this.tableMovieScreeningRoom.InitVars();
+                if ((this.tablePrice != null)) {
+                    this.tablePrice.InitVars();
                 }
             }
-            this.tablevClient_MovieScreenings = ((vClient_MovieScreeningsDataTable)(base.Tables["vClient_MovieScreenings"]));
+            this.tableTicket = ((TicketDataTable)(base.Tables["Ticket"]));
             if ((initTable == true)) {
-                if ((this.tablevClient_MovieScreenings != null)) {
-                    this.tablevClient_MovieScreenings.InitVars();
+                if ((this.tableTicket != null)) {
+                    this.tableTicket.InitVars();
                 }
             }
-            this.tablevManager_Rooms = ((vManager_RoomsDataTable)(base.Tables["vManager_Rooms"]));
+            this.tablevManager_ShowtimeCapacity = ((vManager_ShowtimeCapacityDataTable)(base.Tables["vManager_ShowtimeCapacity"]));
             if ((initTable == true)) {
-                if ((this.tablevManager_Rooms != null)) {
-                    this.tablevManager_Rooms.InitVars();
+                if ((this.tablevManager_ShowtimeCapacity != null)) {
+                    this.tablevManager_ShowtimeCapacity.InitVars();
                 }
             }
             this.tablevManager_Showtimes = ((vManager_ShowtimesDataTable)(base.Tables["vManager_Showtimes"]));
@@ -500,15 +452,15 @@ namespace TheBestMovieTheater {
                     this.tablevManager_Showtimes.InitVars();
                 }
             }
-            this.relationFK__ClientMov__Clien__4D94879B = this.Relations["FK__ClientMov__Clien__4D94879B"];
-            this.relationFK__ClientMov__Movie__4E88ABD4 = this.Relations["FK__ClientMov__Movie__4E88ABD4"];
-            this.relationFK__ClientMov__Showt__4F7CD00D = this.Relations["FK__ClientMov__Showt__4F7CD00D"];
-            this.relationFK__MovieShow__Movie__3E52440B = this.Relations["FK__MovieShow__Movie__3E52440B"];
-            this.relationFK__MovieShow__Showt__3F466844 = this.Relations["FK__MovieShow__Showt__3F466844"];
-            this.relationFK__ShowtimeT__Price__4316F928 = this.Relations["FK__ShowtimeT__Price__4316F928"];
-            this.relationFK__ShowtimeT__Showt__4222D4EF = this.Relations["FK__ShowtimeT__Showt__4222D4EF"];
-            this.relationFK__MovieScre__Movie__02FC7413 = this.Relations["FK__MovieScre__Movie__02FC7413"];
-            this.relationFK__MovieScre__Scree__03F0984C = this.Relations["FK__MovieScre__Scree__03F0984C"];
+            this.relationFK__ClientTic__Clien__3493CFA7 = this.Relations["FK__ClientTic__Clien__3493CFA7"];
+            this.relationFK__ClientTic__Ticke__3587F3E0 = this.Relations["FK__ClientTic__Ticke__3587F3E0"];
+            this.relationFK__MovieInfo__Movie__2FCF1A8A = this.Relations["FK__MovieInfo__Movie__2FCF1A8A"];
+            this.relationFK__MovieInfo__Scree__31B762FC = this.Relations["FK__MovieInfo__Scree__31B762FC"];
+            this.relationFK__MovieInfo__Showt__30C33EC3 = this.Relations["FK__MovieInfo__Showt__30C33EC3"];
+            this.relationFK__Ticket__MovieID__2B0A656D = this.Relations["FK__Ticket__MovieID__2B0A656D"];
+            this.relationFK__Ticket__PriceID__2A164134 = this.Relations["FK__Ticket__PriceID__2A164134"];
+            this.relationFK__Ticket__Screenin__2CF2ADDF = this.Relations["FK__Ticket__Screenin__2CF2ADDF"];
+            this.relationFK__Ticket__Showtime__2BFE89A6 = this.Relations["FK__Ticket__Showtime__2BFE89A6"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -521,77 +473,67 @@ namespace TheBestMovieTheater {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableClient = new ClientDataTable();
             base.Tables.Add(this.tableClient);
-            this.tableClientMovieShowtime = new ClientMovieShowtimeDataTable();
-            base.Tables.Add(this.tableClientMovieShowtime);
             this.tableManager = new ManagerDataTable();
             base.Tables.Add(this.tableManager);
             this.tableMovie = new MovieDataTable();
             base.Tables.Add(this.tableMovie);
-            this.tableMovieShowtime = new MovieShowtimeDataTable();
-            base.Tables.Add(this.tableMovieShowtime);
             this.tableScreeningRoom = new ScreeningRoomDataTable();
             base.Tables.Add(this.tableScreeningRoom);
             this.tableShowtime = new ShowtimeDataTable();
             base.Tables.Add(this.tableShowtime);
-            this.tableShowtimeTicketPrice = new ShowtimeTicketPriceDataTable();
-            base.Tables.Add(this.tableShowtimeTicketPrice);
-            this.tableTicketPrice = new TicketPriceDataTable();
-            base.Tables.Add(this.tableTicketPrice);
-            this.tableMovieScreeningRoom = new MovieScreeningRoomDataTable();
-            base.Tables.Add(this.tableMovieScreeningRoom);
-            this.tablevClient_MovieScreenings = new vClient_MovieScreeningsDataTable();
-            base.Tables.Add(this.tablevClient_MovieScreenings);
-            this.tablevManager_Rooms = new vManager_RoomsDataTable();
-            base.Tables.Add(this.tablevManager_Rooms);
+            this.tableClientTicket = new ClientTicketDataTable();
+            base.Tables.Add(this.tableClientTicket);
+            this.tableMovieInfoBridge = new MovieInfoBridgeDataTable();
+            base.Tables.Add(this.tableMovieInfoBridge);
+            this.tablePrice = new PriceDataTable();
+            base.Tables.Add(this.tablePrice);
+            this.tableTicket = new TicketDataTable();
+            base.Tables.Add(this.tableTicket);
+            this.tablevManager_ShowtimeCapacity = new vManager_ShowtimeCapacityDataTable();
+            base.Tables.Add(this.tablevManager_ShowtimeCapacity);
             this.tablevManager_Showtimes = new vManager_ShowtimesDataTable();
             base.Tables.Add(this.tablevManager_Showtimes);
-            this.relationFK__ClientMov__Clien__4D94879B = new global::System.Data.DataRelation("FK__ClientMov__Clien__4D94879B", new global::System.Data.DataColumn[] {
+            this.relationFK__ClientTic__Clien__3493CFA7 = new global::System.Data.DataRelation("FK__ClientTic__Clien__3493CFA7", new global::System.Data.DataColumn[] {
                         this.tableClient.ClientIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableClientMovieShowtime.ClientIDColumn}, false);
-            this.Relations.Add(this.relationFK__ClientMov__Clien__4D94879B);
-            this.relationFK__ClientMov__Movie__4E88ABD4 = new global::System.Data.DataRelation("FK__ClientMov__Movie__4E88ABD4", new global::System.Data.DataColumn[] {
+                        this.tableClientTicket.ClientIDColumn}, false);
+            this.Relations.Add(this.relationFK__ClientTic__Clien__3493CFA7);
+            this.relationFK__ClientTic__Ticke__3587F3E0 = new global::System.Data.DataRelation("FK__ClientTic__Ticke__3587F3E0", new global::System.Data.DataColumn[] {
+                        this.tableTicket.TicketIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableClientTicket.TicketIDColumn}, false);
+            this.Relations.Add(this.relationFK__ClientTic__Ticke__3587F3E0);
+            this.relationFK__MovieInfo__Movie__2FCF1A8A = new global::System.Data.DataRelation("FK__MovieInfo__Movie__2FCF1A8A", new global::System.Data.DataColumn[] {
                         this.tableMovie.MovieIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableClientMovieShowtime.MovieIDColumn}, false);
-            this.Relations.Add(this.relationFK__ClientMov__Movie__4E88ABD4);
-            this.relationFK__ClientMov__Showt__4F7CD00D = new global::System.Data.DataRelation("FK__ClientMov__Showt__4F7CD00D", new global::System.Data.DataColumn[] {
+                        this.tableMovieInfoBridge.MovieIDColumn}, false);
+            this.Relations.Add(this.relationFK__MovieInfo__Movie__2FCF1A8A);
+            this.relationFK__MovieInfo__Scree__31B762FC = new global::System.Data.DataRelation("FK__MovieInfo__Scree__31B762FC", new global::System.Data.DataColumn[] {
+                        this.tableScreeningRoom.ScreeningRoomIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableMovieInfoBridge.ScreeningRoomIDColumn}, false);
+            this.Relations.Add(this.relationFK__MovieInfo__Scree__31B762FC);
+            this.relationFK__MovieInfo__Showt__30C33EC3 = new global::System.Data.DataRelation("FK__MovieInfo__Showt__30C33EC3", new global::System.Data.DataColumn[] {
                         this.tableShowtime.ShowtimeIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableClientMovieShowtime.ShowtimeIDColumn}, false);
-            this.Relations.Add(this.relationFK__ClientMov__Showt__4F7CD00D);
-            this.relationFK__MovieShow__Movie__3E52440B = new global::System.Data.DataRelation("FK__MovieShow__Movie__3E52440B", new global::System.Data.DataColumn[] {
+                        this.tableMovieInfoBridge.ShowtimeIDColumn}, false);
+            this.Relations.Add(this.relationFK__MovieInfo__Showt__30C33EC3);
+            this.relationFK__Ticket__MovieID__2B0A656D = new global::System.Data.DataRelation("FK__Ticket__MovieID__2B0A656D", new global::System.Data.DataColumn[] {
                         this.tableMovie.MovieIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableMovieShowtime.MovieIDColumn}, false);
-            this.Relations.Add(this.relationFK__MovieShow__Movie__3E52440B);
-            this.relationFK__MovieShow__Showt__3F466844 = new global::System.Data.DataRelation("FK__MovieShow__Showt__3F466844", new global::System.Data.DataColumn[] {
+                        this.tableTicket.MovieIDColumn}, false);
+            this.Relations.Add(this.relationFK__Ticket__MovieID__2B0A656D);
+            this.relationFK__Ticket__PriceID__2A164134 = new global::System.Data.DataRelation("FK__Ticket__PriceID__2A164134", new global::System.Data.DataColumn[] {
+                        this.tablePrice.PriceIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTicket.PriceIDColumn}, false);
+            this.Relations.Add(this.relationFK__Ticket__PriceID__2A164134);
+            this.relationFK__Ticket__Screenin__2CF2ADDF = new global::System.Data.DataRelation("FK__Ticket__Screenin__2CF2ADDF", new global::System.Data.DataColumn[] {
+                        this.tableScreeningRoom.ScreeningRoomIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTicket.ScreeningRoomIDColumn}, false);
+            this.Relations.Add(this.relationFK__Ticket__Screenin__2CF2ADDF);
+            this.relationFK__Ticket__Showtime__2BFE89A6 = new global::System.Data.DataRelation("FK__Ticket__Showtime__2BFE89A6", new global::System.Data.DataColumn[] {
                         this.tableShowtime.ShowtimeIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableMovieShowtime.ShowtimeIDColumn}, false);
-            this.Relations.Add(this.relationFK__MovieShow__Showt__3F466844);
-            this.relationFK__ShowtimeT__Price__4316F928 = new global::System.Data.DataRelation("FK__ShowtimeT__Price__4316F928", new global::System.Data.DataColumn[] {
-                        this.tableTicketPrice.PriceIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableShowtimeTicketPrice.PriceIDColumn}, false);
-            this.Relations.Add(this.relationFK__ShowtimeT__Price__4316F928);
-            this.relationFK__ShowtimeT__Showt__4222D4EF = new global::System.Data.DataRelation("FK__ShowtimeT__Showt__4222D4EF", new global::System.Data.DataColumn[] {
-                        this.tableShowtime.ShowtimeIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableShowtimeTicketPrice.ShowtimeIDColumn}, false);
-            this.Relations.Add(this.relationFK__ShowtimeT__Showt__4222D4EF);
-            this.relationFK__MovieScre__Movie__02FC7413 = new global::System.Data.DataRelation("FK__MovieScre__Movie__02FC7413", new global::System.Data.DataColumn[] {
-                        this.tableMovie.MovieIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableMovieScreeningRoom.MovieIDColumn}, false);
-            this.Relations.Add(this.relationFK__MovieScre__Movie__02FC7413);
-            this.relationFK__MovieScre__Scree__03F0984C = new global::System.Data.DataRelation("FK__MovieScre__Scree__03F0984C", new global::System.Data.DataColumn[] {
-                        this.tableScreeningRoom.RoomIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableMovieScreeningRoom.ScreeningRoomIDColumn}, false);
-            this.Relations.Add(this.relationFK__MovieScre__Scree__03F0984C);
+                        this.tableTicket.ShowtimeIDColumn}, false);
+            this.Relations.Add(this.relationFK__Ticket__Showtime__2BFE89A6);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeClient() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeClientMovieShowtime() {
             return false;
         }
         
@@ -609,12 +551,6 @@ namespace TheBestMovieTheater {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeMovieShowtime() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeScreeningRoom() {
             return false;
         }
@@ -627,31 +563,31 @@ namespace TheBestMovieTheater {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeShowtimeTicketPrice() {
+        private bool ShouldSerializeClientTicket() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeTicketPrice() {
+        private bool ShouldSerializeMovieInfoBridge() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeMovieScreeningRoom() {
+        private bool ShouldSerializePrice() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializevClient_MovieScreenings() {
+        private bool ShouldSerializeTicket() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializevManager_Rooms() {
+        private bool ShouldSerializevManager_ShowtimeCapacity() {
             return false;
         }
         
@@ -720,16 +656,10 @@ namespace TheBestMovieTheater {
         public delegate void ClientRowChangeEventHandler(object sender, ClientRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void ClientMovieShowtimeRowChangeEventHandler(object sender, ClientMovieShowtimeRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void ManagerRowChangeEventHandler(object sender, ManagerRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void MovieRowChangeEventHandler(object sender, MovieRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void MovieShowtimeRowChangeEventHandler(object sender, MovieShowtimeRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void ScreeningRoomRowChangeEventHandler(object sender, ScreeningRoomRowChangeEvent e);
@@ -738,19 +668,19 @@ namespace TheBestMovieTheater {
         public delegate void ShowtimeRowChangeEventHandler(object sender, ShowtimeRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void ShowtimeTicketPriceRowChangeEventHandler(object sender, ShowtimeTicketPriceRowChangeEvent e);
+        public delegate void ClientTicketRowChangeEventHandler(object sender, ClientTicketRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void TicketPriceRowChangeEventHandler(object sender, TicketPriceRowChangeEvent e);
+        public delegate void MovieInfoBridgeRowChangeEventHandler(object sender, MovieInfoBridgeRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void MovieScreeningRoomRowChangeEventHandler(object sender, MovieScreeningRoomRowChangeEvent e);
+        public delegate void PriceRowChangeEventHandler(object sender, PriceRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void vClient_MovieScreeningsRowChangeEventHandler(object sender, vClient_MovieScreeningsRowChangeEvent e);
+        public delegate void TicketRowChangeEventHandler(object sender, TicketRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void vManager_RoomsRowChangeEventHandler(object sender, vManager_RoomsRowChangeEvent e);
+        public delegate void vManager_ShowtimeCapacityRowChangeEventHandler(object sender, vManager_ShowtimeCapacityRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void vManager_ShowtimesRowChangeEventHandler(object sender, vManager_ShowtimesRowChangeEvent e);
@@ -1086,337 +1016,6 @@ namespace TheBestMovieTheater {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "ClientDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ClientMovieShowtimeDataTable : global::System.Data.TypedTableBase<ClientMovieShowtimeRow> {
-            
-            private global::System.Data.DataColumn columnClientMovieShowtimeID;
-            
-            private global::System.Data.DataColumn columnClientID;
-            
-            private global::System.Data.DataColumn columnMovieID;
-            
-            private global::System.Data.DataColumn columnShowtimeID;
-            
-            private global::System.Data.DataColumn columnDateBought;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientMovieShowtimeDataTable() {
-                this.TableName = "ClientMovieShowtime";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal ClientMovieShowtimeDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected ClientMovieShowtimeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ClientMovieShowtimeIDColumn {
-                get {
-                    return this.columnClientMovieShowtimeID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ClientIDColumn {
-                get {
-                    return this.columnClientID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn MovieIDColumn {
-                get {
-                    return this.columnMovieID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ShowtimeIDColumn {
-                get {
-                    return this.columnShowtimeID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DateBoughtColumn {
-                get {
-                    return this.columnDateBought;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientMovieShowtimeRow this[int index] {
-                get {
-                    return ((ClientMovieShowtimeRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ClientMovieShowtimeRowChangeEventHandler ClientMovieShowtimeRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ClientMovieShowtimeRowChangeEventHandler ClientMovieShowtimeRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ClientMovieShowtimeRowChangeEventHandler ClientMovieShowtimeRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ClientMovieShowtimeRowChangeEventHandler ClientMovieShowtimeRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddClientMovieShowtimeRow(ClientMovieShowtimeRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientMovieShowtimeRow AddClientMovieShowtimeRow(ClientRow parentClientRowByFK__ClientMov__Clien__4D94879B, MovieRow parentMovieRowByFK__ClientMov__Movie__4E88ABD4, ShowtimeRow parentShowtimeRowByFK__ClientMov__Showt__4F7CD00D, System.DateTime DateBought) {
-                ClientMovieShowtimeRow rowClientMovieShowtimeRow = ((ClientMovieShowtimeRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        null,
-                        null,
-                        null,
-                        DateBought};
-                if ((parentClientRowByFK__ClientMov__Clien__4D94879B != null)) {
-                    columnValuesArray[1] = parentClientRowByFK__ClientMov__Clien__4D94879B[0];
-                }
-                if ((parentMovieRowByFK__ClientMov__Movie__4E88ABD4 != null)) {
-                    columnValuesArray[2] = parentMovieRowByFK__ClientMov__Movie__4E88ABD4[0];
-                }
-                if ((parentShowtimeRowByFK__ClientMov__Showt__4F7CD00D != null)) {
-                    columnValuesArray[3] = parentShowtimeRowByFK__ClientMov__Showt__4F7CD00D[0];
-                }
-                rowClientMovieShowtimeRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowClientMovieShowtimeRow);
-                return rowClientMovieShowtimeRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientMovieShowtimeRow FindByClientMovieShowtimeID(int ClientMovieShowtimeID) {
-                return ((ClientMovieShowtimeRow)(this.Rows.Find(new object[] {
-                            ClientMovieShowtimeID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                ClientMovieShowtimeDataTable cln = ((ClientMovieShowtimeDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new ClientMovieShowtimeDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnClientMovieShowtimeID = base.Columns["ClientMovieShowtimeID"];
-                this.columnClientID = base.Columns["ClientID"];
-                this.columnMovieID = base.Columns["MovieID"];
-                this.columnShowtimeID = base.Columns["ShowtimeID"];
-                this.columnDateBought = base.Columns["DateBought"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnClientMovieShowtimeID = new global::System.Data.DataColumn("ClientMovieShowtimeID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnClientMovieShowtimeID);
-                this.columnClientID = new global::System.Data.DataColumn("ClientID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnClientID);
-                this.columnMovieID = new global::System.Data.DataColumn("MovieID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMovieID);
-                this.columnShowtimeID = new global::System.Data.DataColumn("ShowtimeID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShowtimeID);
-                this.columnDateBought = new global::System.Data.DataColumn("DateBought", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDateBought);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnClientMovieShowtimeID}, true));
-                this.columnClientMovieShowtimeID.AutoIncrement = true;
-                this.columnClientMovieShowtimeID.AutoIncrementSeed = -1;
-                this.columnClientMovieShowtimeID.AutoIncrementStep = -1;
-                this.columnClientMovieShowtimeID.AllowDBNull = false;
-                this.columnClientMovieShowtimeID.ReadOnly = true;
-                this.columnClientMovieShowtimeID.Unique = true;
-                this.columnClientID.AllowDBNull = false;
-                this.columnMovieID.AllowDBNull = false;
-                this.columnShowtimeID.AllowDBNull = false;
-                this.columnDateBought.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientMovieShowtimeRow NewClientMovieShowtimeRow() {
-                return ((ClientMovieShowtimeRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ClientMovieShowtimeRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(ClientMovieShowtimeRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.ClientMovieShowtimeRowChanged != null)) {
-                    this.ClientMovieShowtimeRowChanged(this, new ClientMovieShowtimeRowChangeEvent(((ClientMovieShowtimeRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.ClientMovieShowtimeRowChanging != null)) {
-                    this.ClientMovieShowtimeRowChanging(this, new ClientMovieShowtimeRowChangeEvent(((ClientMovieShowtimeRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.ClientMovieShowtimeRowDeleted != null)) {
-                    this.ClientMovieShowtimeRowDeleted(this, new ClientMovieShowtimeRowChangeEvent(((ClientMovieShowtimeRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.ClientMovieShowtimeRowDeleting != null)) {
-                    this.ClientMovieShowtimeRowDeleting(this, new ClientMovieShowtimeRowChangeEvent(((ClientMovieShowtimeRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveClientMovieShowtimeRow(ClientMovieShowtimeRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TBMT_DBDataSetLocal ds = new TBMT_DBDataSetLocal();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ClientMovieShowtimeDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2229,311 +1828,13 @@ namespace TheBestMovieTheater {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class MovieShowtimeDataTable : global::System.Data.TypedTableBase<MovieShowtimeRow> {
-            
-            private global::System.Data.DataColumn columnMovieShowTimeID;
-            
-            private global::System.Data.DataColumn columnMovieID;
-            
-            private global::System.Data.DataColumn columnShowtimeID;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieShowtimeDataTable() {
-                this.TableName = "MovieShowtime";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal MovieShowtimeDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected MovieShowtimeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn MovieShowTimeIDColumn {
-                get {
-                    return this.columnMovieShowTimeID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn MovieIDColumn {
-                get {
-                    return this.columnMovieID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ShowtimeIDColumn {
-                get {
-                    return this.columnShowtimeID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieShowtimeRow this[int index] {
-                get {
-                    return ((MovieShowtimeRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event MovieShowtimeRowChangeEventHandler MovieShowtimeRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event MovieShowtimeRowChangeEventHandler MovieShowtimeRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event MovieShowtimeRowChangeEventHandler MovieShowtimeRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event MovieShowtimeRowChangeEventHandler MovieShowtimeRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddMovieShowtimeRow(MovieShowtimeRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieShowtimeRow AddMovieShowtimeRow(MovieRow parentMovieRowByFK__MovieShow__Movie__3E52440B, ShowtimeRow parentShowtimeRowByFK__MovieShow__Showt__3F466844) {
-                MovieShowtimeRow rowMovieShowtimeRow = ((MovieShowtimeRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        null,
-                        null};
-                if ((parentMovieRowByFK__MovieShow__Movie__3E52440B != null)) {
-                    columnValuesArray[1] = parentMovieRowByFK__MovieShow__Movie__3E52440B[0];
-                }
-                if ((parentShowtimeRowByFK__MovieShow__Showt__3F466844 != null)) {
-                    columnValuesArray[2] = parentShowtimeRowByFK__MovieShow__Showt__3F466844[0];
-                }
-                rowMovieShowtimeRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowMovieShowtimeRow);
-                return rowMovieShowtimeRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieShowtimeRow FindByMovieShowTimeID(int MovieShowTimeID) {
-                return ((MovieShowtimeRow)(this.Rows.Find(new object[] {
-                            MovieShowTimeID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                MovieShowtimeDataTable cln = ((MovieShowtimeDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new MovieShowtimeDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnMovieShowTimeID = base.Columns["MovieShowTimeID"];
-                this.columnMovieID = base.Columns["MovieID"];
-                this.columnShowtimeID = base.Columns["ShowtimeID"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnMovieShowTimeID = new global::System.Data.DataColumn("MovieShowTimeID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMovieShowTimeID);
-                this.columnMovieID = new global::System.Data.DataColumn("MovieID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMovieID);
-                this.columnShowtimeID = new global::System.Data.DataColumn("ShowtimeID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShowtimeID);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnMovieShowTimeID}, true));
-                this.columnMovieShowTimeID.AutoIncrement = true;
-                this.columnMovieShowTimeID.AutoIncrementSeed = -1;
-                this.columnMovieShowTimeID.AutoIncrementStep = -1;
-                this.columnMovieShowTimeID.AllowDBNull = false;
-                this.columnMovieShowTimeID.ReadOnly = true;
-                this.columnMovieShowTimeID.Unique = true;
-                this.columnMovieID.AllowDBNull = false;
-                this.columnShowtimeID.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieShowtimeRow NewMovieShowtimeRow() {
-                return ((MovieShowtimeRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new MovieShowtimeRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(MovieShowtimeRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.MovieShowtimeRowChanged != null)) {
-                    this.MovieShowtimeRowChanged(this, new MovieShowtimeRowChangeEvent(((MovieShowtimeRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.MovieShowtimeRowChanging != null)) {
-                    this.MovieShowtimeRowChanging(this, new MovieShowtimeRowChangeEvent(((MovieShowtimeRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.MovieShowtimeRowDeleted != null)) {
-                    this.MovieShowtimeRowDeleted(this, new MovieShowtimeRowChangeEvent(((MovieShowtimeRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.MovieShowtimeRowDeleting != null)) {
-                    this.MovieShowtimeRowDeleting(this, new MovieShowtimeRowChangeEvent(((MovieShowtimeRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveMovieShowtimeRow(MovieShowtimeRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TBMT_DBDataSetLocal ds = new TBMT_DBDataSetLocal();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "MovieShowtimeDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ScreeningRoomDataTable : global::System.Data.TypedTableBase<ScreeningRoomRow> {
-            
-            private global::System.Data.DataColumn columnRoomID;
             
             private global::System.Data.DataColumn columnRoom;
             
             private global::System.Data.DataColumn columnCapacity;
+            
+            private global::System.Data.DataColumn columnScreeningRoomID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2570,14 +1871,6 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn RoomIDColumn {
-                get {
-                    return this.columnRoomID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn RoomColumn {
                 get {
                     return this.columnRoom;
@@ -2589,6 +1882,14 @@ namespace TheBestMovieTheater {
             public global::System.Data.DataColumn CapacityColumn {
                 get {
                     return this.columnCapacity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ScreeningRoomIDColumn {
+                get {
+                    return this.columnScreeningRoomID;
                 }
             }
             
@@ -2632,9 +1933,9 @@ namespace TheBestMovieTheater {
             public ScreeningRoomRow AddScreeningRoomRow(string Room, int Capacity) {
                 ScreeningRoomRow rowScreeningRoomRow = ((ScreeningRoomRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
                         Room,
-                        Capacity};
+                        Capacity,
+                        null};
                 rowScreeningRoomRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowScreeningRoomRow);
                 return rowScreeningRoomRow;
@@ -2642,9 +1943,9 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ScreeningRoomRow FindByRoomID(int RoomID) {
+            public ScreeningRoomRow FindByScreeningRoomID(int ScreeningRoomID) {
                 return ((ScreeningRoomRow)(this.Rows.Find(new object[] {
-                            RoomID})));
+                            ScreeningRoomID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2664,31 +1965,31 @@ namespace TheBestMovieTheater {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnRoomID = base.Columns["RoomID"];
                 this.columnRoom = base.Columns["Room"];
                 this.columnCapacity = base.Columns["Capacity"];
+                this.columnScreeningRoomID = base.Columns["ScreeningRoomID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnRoomID = new global::System.Data.DataColumn("RoomID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRoomID);
                 this.columnRoom = new global::System.Data.DataColumn("Room", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRoom);
                 this.columnCapacity = new global::System.Data.DataColumn("Capacity", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCapacity);
+                this.columnScreeningRoomID = new global::System.Data.DataColumn("ScreeningRoomID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnScreeningRoomID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnRoomID}, true));
-                this.columnRoomID.AutoIncrement = true;
-                this.columnRoomID.AutoIncrementSeed = -1;
-                this.columnRoomID.AutoIncrementStep = -1;
-                this.columnRoomID.AllowDBNull = false;
-                this.columnRoomID.ReadOnly = true;
-                this.columnRoomID.Unique = true;
+                                this.columnScreeningRoomID}, true));
                 this.columnRoom.AllowDBNull = false;
                 this.columnRoom.MaxLength = 255;
                 this.columnCapacity.AllowDBNull = false;
+                this.columnScreeningRoomID.AutoIncrement = true;
+                this.columnScreeningRoomID.AutoIncrementSeed = -1;
+                this.columnScreeningRoomID.AutoIncrementStep = -1;
+                this.columnScreeningRoomID.AllowDBNull = false;
+                this.columnScreeningRoomID.ReadOnly = true;
+                this.columnScreeningRoomID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2824,7 +2125,7 @@ namespace TheBestMovieTheater {
             
             private global::System.Data.DataColumn columnShowtimeID;
             
-            private global::System.Data.DataColumn columnHour;
+            private global::System.Data.DataColumn columnShowtime;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2869,9 +2170,9 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn HourColumn {
+            public global::System.Data.DataColumn ShowtimeColumn {
                 get {
-                    return this.columnHour;
+                    return this.columnShowtime;
                 }
             }
             
@@ -2912,11 +2213,11 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShowtimeRow AddShowtimeRow(string Hour) {
+            public ShowtimeRow AddShowtimeRow(string Showtime) {
                 ShowtimeRow rowShowtimeRow = ((ShowtimeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Hour};
+                        Showtime};
                 rowShowtimeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowShowtimeRow);
                 return rowShowtimeRow;
@@ -2947,7 +2248,7 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnShowtimeID = base.Columns["ShowtimeID"];
-                this.columnHour = base.Columns["Hour"];
+                this.columnShowtime = base.Columns["Showtime"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2955,8 +2256,8 @@ namespace TheBestMovieTheater {
             private void InitClass() {
                 this.columnShowtimeID = new global::System.Data.DataColumn("ShowtimeID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnShowtimeID);
-                this.columnHour = new global::System.Data.DataColumn("Hour", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHour);
+                this.columnShowtime = new global::System.Data.DataColumn("Showtime", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShowtime);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnShowtimeID}, true));
                 this.columnShowtimeID.AutoIncrement = true;
@@ -2965,8 +2266,8 @@ namespace TheBestMovieTheater {
                 this.columnShowtimeID.AllowDBNull = false;
                 this.columnShowtimeID.ReadOnly = true;
                 this.columnShowtimeID.Unique = true;
-                this.columnHour.AllowDBNull = false;
-                this.columnHour.MaxLength = 5;
+                this.columnShowtime.AllowDBNull = false;
+                this.columnShowtime.MaxLength = 5;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3098,20 +2399,20 @@ namespace TheBestMovieTheater {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ShowtimeTicketPriceDataTable : global::System.Data.TypedTableBase<ShowtimeTicketPriceRow> {
+        public partial class ClientTicketDataTable : global::System.Data.TypedTableBase<ClientTicketRow> {
             
-            private global::System.Data.DataColumn columnShowtimeTicketPriceID;
+            private global::System.Data.DataColumn columnClientTicketID;
             
-            private global::System.Data.DataColumn columnShowtimeID;
+            private global::System.Data.DataColumn columnClientID;
             
-            private global::System.Data.DataColumn columnPriceID;
+            private global::System.Data.DataColumn columnTicketID;
             
-            private global::System.Data.DataColumn columnNumOfTickets;
+            private global::System.Data.DataColumn columnDateBought;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShowtimeTicketPriceDataTable() {
-                this.TableName = "ShowtimeTicketPrice";
+            public ClientTicketDataTable() {
+                this.TableName = "ClientTicket";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -3119,7 +2420,7 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal ShowtimeTicketPriceDataTable(global::System.Data.DataTable table) {
+            internal ClientTicketDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -3136,40 +2437,40 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected ShowtimeTicketPriceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected ClientTicketDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ShowtimeTicketPriceIDColumn {
+            public global::System.Data.DataColumn ClientTicketIDColumn {
                 get {
-                    return this.columnShowtimeTicketPriceID;
+                    return this.columnClientTicketID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ShowtimeIDColumn {
+            public global::System.Data.DataColumn ClientIDColumn {
                 get {
-                    return this.columnShowtimeID;
+                    return this.columnClientID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PriceIDColumn {
+            public global::System.Data.DataColumn TicketIDColumn {
                 get {
-                    return this.columnPriceID;
+                    return this.columnTicketID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NumOfTicketsColumn {
+            public global::System.Data.DataColumn DateBoughtColumn {
                 get {
-                    return this.columnNumOfTickets;
+                    return this.columnDateBought;
                 }
             }
             
@@ -3184,61 +2485,61 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShowtimeTicketPriceRow this[int index] {
+            public ClientTicketRow this[int index] {
                 get {
-                    return ((ShowtimeTicketPriceRow)(this.Rows[index]));
+                    return ((ClientTicketRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ShowtimeTicketPriceRowChangeEventHandler ShowtimeTicketPriceRowChanging;
+            public event ClientTicketRowChangeEventHandler ClientTicketRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ShowtimeTicketPriceRowChangeEventHandler ShowtimeTicketPriceRowChanged;
+            public event ClientTicketRowChangeEventHandler ClientTicketRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ShowtimeTicketPriceRowChangeEventHandler ShowtimeTicketPriceRowDeleting;
+            public event ClientTicketRowChangeEventHandler ClientTicketRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event ShowtimeTicketPriceRowChangeEventHandler ShowtimeTicketPriceRowDeleted;
+            public event ClientTicketRowChangeEventHandler ClientTicketRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddShowtimeTicketPriceRow(ShowtimeTicketPriceRow row) {
+            public void AddClientTicketRow(ClientTicketRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShowtimeTicketPriceRow AddShowtimeTicketPriceRow(ShowtimeRow parentShowtimeRowByFK__ShowtimeT__Showt__4222D4EF, TicketPriceRow parentTicketPriceRowByFK__ShowtimeT__Price__4316F928, int NumOfTickets) {
-                ShowtimeTicketPriceRow rowShowtimeTicketPriceRow = ((ShowtimeTicketPriceRow)(this.NewRow()));
+            public ClientTicketRow AddClientTicketRow(ClientRow parentClientRowByFK__ClientTic__Clien__3493CFA7, TicketRow parentTicketRowByFK__ClientTic__Ticke__3587F3E0, System.DateTime DateBought) {
+                ClientTicketRow rowClientTicketRow = ((ClientTicketRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
-                        NumOfTickets};
-                if ((parentShowtimeRowByFK__ShowtimeT__Showt__4222D4EF != null)) {
-                    columnValuesArray[1] = parentShowtimeRowByFK__ShowtimeT__Showt__4222D4EF[0];
+                        DateBought};
+                if ((parentClientRowByFK__ClientTic__Clien__3493CFA7 != null)) {
+                    columnValuesArray[1] = parentClientRowByFK__ClientTic__Clien__3493CFA7[0];
                 }
-                if ((parentTicketPriceRowByFK__ShowtimeT__Price__4316F928 != null)) {
-                    columnValuesArray[2] = parentTicketPriceRowByFK__ShowtimeT__Price__4316F928[0];
+                if ((parentTicketRowByFK__ClientTic__Ticke__3587F3E0 != null)) {
+                    columnValuesArray[2] = parentTicketRowByFK__ClientTic__Ticke__3587F3E0[0];
                 }
-                rowShowtimeTicketPriceRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowShowtimeTicketPriceRow);
-                return rowShowtimeTicketPriceRow;
+                rowClientTicketRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowClientTicketRow);
+                return rowClientTicketRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShowtimeTicketPriceRow FindByShowtimeTicketPriceID(int ShowtimeTicketPriceID) {
-                return ((ShowtimeTicketPriceRow)(this.Rows.Find(new object[] {
-                            ShowtimeTicketPriceID})));
+            public ClientTicketRow FindByClientTicketID(int ClientTicketID) {
+                return ((ClientTicketRow)(this.Rows.Find(new object[] {
+                            ClientTicketID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                ShowtimeTicketPriceDataTable cln = ((ShowtimeTicketPriceDataTable)(base.Clone()));
+                ClientTicketDataTable cln = ((ClientTicketDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -3246,65 +2547,66 @@ namespace TheBestMovieTheater {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new ShowtimeTicketPriceDataTable();
+                return new ClientTicketDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnShowtimeTicketPriceID = base.Columns["ShowtimeTicketPriceID"];
-                this.columnShowtimeID = base.Columns["ShowtimeID"];
-                this.columnPriceID = base.Columns["PriceID"];
-                this.columnNumOfTickets = base.Columns["NumOfTickets"];
+                this.columnClientTicketID = base.Columns["ClientTicketID"];
+                this.columnClientID = base.Columns["ClientID"];
+                this.columnTicketID = base.Columns["TicketID"];
+                this.columnDateBought = base.Columns["DateBought"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnShowtimeTicketPriceID = new global::System.Data.DataColumn("ShowtimeTicketPriceID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShowtimeTicketPriceID);
-                this.columnShowtimeID = new global::System.Data.DataColumn("ShowtimeID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShowtimeID);
-                this.columnPriceID = new global::System.Data.DataColumn("PriceID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPriceID);
-                this.columnNumOfTickets = new global::System.Data.DataColumn("NumOfTickets", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNumOfTickets);
+                this.columnClientTicketID = new global::System.Data.DataColumn("ClientTicketID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClientTicketID);
+                this.columnClientID = new global::System.Data.DataColumn("ClientID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClientID);
+                this.columnTicketID = new global::System.Data.DataColumn("TicketID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTicketID);
+                this.columnDateBought = new global::System.Data.DataColumn("DateBought", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateBought);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnShowtimeTicketPriceID}, true));
-                this.columnShowtimeTicketPriceID.AutoIncrement = true;
-                this.columnShowtimeTicketPriceID.AutoIncrementSeed = -1;
-                this.columnShowtimeTicketPriceID.AutoIncrementStep = -1;
-                this.columnShowtimeTicketPriceID.AllowDBNull = false;
-                this.columnShowtimeTicketPriceID.ReadOnly = true;
-                this.columnShowtimeTicketPriceID.Unique = true;
-                this.columnShowtimeID.AllowDBNull = false;
-                this.columnPriceID.AllowDBNull = false;
+                                this.columnClientTicketID}, true));
+                this.columnClientTicketID.AutoIncrement = true;
+                this.columnClientTicketID.AutoIncrementSeed = -1;
+                this.columnClientTicketID.AutoIncrementStep = -1;
+                this.columnClientTicketID.AllowDBNull = false;
+                this.columnClientTicketID.ReadOnly = true;
+                this.columnClientTicketID.Unique = true;
+                this.columnClientID.AllowDBNull = false;
+                this.columnTicketID.AllowDBNull = false;
+                this.columnDateBought.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShowtimeTicketPriceRow NewShowtimeTicketPriceRow() {
-                return ((ShowtimeTicketPriceRow)(this.NewRow()));
+            public ClientTicketRow NewClientTicketRow() {
+                return ((ClientTicketRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ShowtimeTicketPriceRow(builder);
+                return new ClientTicketRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(ShowtimeTicketPriceRow);
+                return typeof(ClientTicketRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.ShowtimeTicketPriceRowChanged != null)) {
-                    this.ShowtimeTicketPriceRowChanged(this, new ShowtimeTicketPriceRowChangeEvent(((ShowtimeTicketPriceRow)(e.Row)), e.Action));
+                if ((this.ClientTicketRowChanged != null)) {
+                    this.ClientTicketRowChanged(this, new ClientTicketRowChangeEvent(((ClientTicketRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3312,8 +2614,8 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.ShowtimeTicketPriceRowChanging != null)) {
-                    this.ShowtimeTicketPriceRowChanging(this, new ShowtimeTicketPriceRowChangeEvent(((ShowtimeTicketPriceRow)(e.Row)), e.Action));
+                if ((this.ClientTicketRowChanging != null)) {
+                    this.ClientTicketRowChanging(this, new ClientTicketRowChangeEvent(((ClientTicketRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3321,8 +2623,8 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.ShowtimeTicketPriceRowDeleted != null)) {
-                    this.ShowtimeTicketPriceRowDeleted(this, new ShowtimeTicketPriceRowChangeEvent(((ShowtimeTicketPriceRow)(e.Row)), e.Action));
+                if ((this.ClientTicketRowDeleted != null)) {
+                    this.ClientTicketRowDeleted(this, new ClientTicketRowChangeEvent(((ClientTicketRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3330,14 +2632,14 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.ShowtimeTicketPriceRowDeleting != null)) {
-                    this.ShowtimeTicketPriceRowDeleting(this, new ShowtimeTicketPriceRowChangeEvent(((ShowtimeTicketPriceRow)(e.Row)), e.Action));
+                if ((this.ClientTicketRowDeleting != null)) {
+                    this.ClientTicketRowDeleting(this, new ClientTicketRowChangeEvent(((ClientTicketRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveShowtimeTicketPriceRow(ShowtimeTicketPriceRow row) {
+            public void RemoveClientTicketRow(ClientTicketRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -3364,7 +2666,7 @@ namespace TheBestMovieTheater {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ShowtimeTicketPriceDataTable";
+                attribute2.FixedValue = "ClientTicketDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3410,18 +2712,20 @@ namespace TheBestMovieTheater {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class TicketPriceDataTable : global::System.Data.TypedTableBase<TicketPriceRow> {
+        public partial class MovieInfoBridgeDataTable : global::System.Data.TypedTableBase<MovieInfoBridgeRow> {
             
-            private global::System.Data.DataColumn columnPriceID;
+            private global::System.Data.DataColumn columnMovieShowTimeID;
             
-            private global::System.Data.DataColumn columnAgeGroup;
+            private global::System.Data.DataColumn columnMovieID;
             
-            private global::System.Data.DataColumn columnPrice;
+            private global::System.Data.DataColumn columnShowtimeID;
+            
+            private global::System.Data.DataColumn columnScreeningRoomID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TicketPriceDataTable() {
-                this.TableName = "TicketPrice";
+            public MovieInfoBridgeDataTable() {
+                this.TableName = "MovieInfoBridge";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -3429,7 +2733,7 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal TicketPriceDataTable(global::System.Data.DataTable table) {
+            internal MovieInfoBridgeDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -3446,7 +2750,321 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected TicketPriceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected MovieInfoBridgeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn MovieShowTimeIDColumn {
+                get {
+                    return this.columnMovieShowTimeID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn MovieIDColumn {
+                get {
+                    return this.columnMovieID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ShowtimeIDColumn {
+                get {
+                    return this.columnShowtimeID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ScreeningRoomIDColumn {
+                get {
+                    return this.columnScreeningRoomID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MovieInfoBridgeRow this[int index] {
+                get {
+                    return ((MovieInfoBridgeRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event MovieInfoBridgeRowChangeEventHandler MovieInfoBridgeRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event MovieInfoBridgeRowChangeEventHandler MovieInfoBridgeRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event MovieInfoBridgeRowChangeEventHandler MovieInfoBridgeRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event MovieInfoBridgeRowChangeEventHandler MovieInfoBridgeRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddMovieInfoBridgeRow(MovieInfoBridgeRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MovieInfoBridgeRow AddMovieInfoBridgeRow(MovieRow parentMovieRowByFK__MovieInfo__Movie__2FCF1A8A, ShowtimeRow parentShowtimeRowByFK__MovieInfo__Showt__30C33EC3, ScreeningRoomRow parentScreeningRoomRowByFK__MovieInfo__Scree__31B762FC) {
+                MovieInfoBridgeRow rowMovieInfoBridgeRow = ((MovieInfoBridgeRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        null,
+                        null};
+                if ((parentMovieRowByFK__MovieInfo__Movie__2FCF1A8A != null)) {
+                    columnValuesArray[1] = parentMovieRowByFK__MovieInfo__Movie__2FCF1A8A[0];
+                }
+                if ((parentShowtimeRowByFK__MovieInfo__Showt__30C33EC3 != null)) {
+                    columnValuesArray[2] = parentShowtimeRowByFK__MovieInfo__Showt__30C33EC3[0];
+                }
+                if ((parentScreeningRoomRowByFK__MovieInfo__Scree__31B762FC != null)) {
+                    columnValuesArray[3] = parentScreeningRoomRowByFK__MovieInfo__Scree__31B762FC[2];
+                }
+                rowMovieInfoBridgeRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowMovieInfoBridgeRow);
+                return rowMovieInfoBridgeRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MovieInfoBridgeRow FindByMovieShowTimeID(int MovieShowTimeID) {
+                return ((MovieInfoBridgeRow)(this.Rows.Find(new object[] {
+                            MovieShowTimeID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                MovieInfoBridgeDataTable cln = ((MovieInfoBridgeDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new MovieInfoBridgeDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnMovieShowTimeID = base.Columns["MovieShowTimeID"];
+                this.columnMovieID = base.Columns["MovieID"];
+                this.columnShowtimeID = base.Columns["ShowtimeID"];
+                this.columnScreeningRoomID = base.Columns["ScreeningRoomID"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnMovieShowTimeID = new global::System.Data.DataColumn("MovieShowTimeID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMovieShowTimeID);
+                this.columnMovieID = new global::System.Data.DataColumn("MovieID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMovieID);
+                this.columnShowtimeID = new global::System.Data.DataColumn("ShowtimeID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShowtimeID);
+                this.columnScreeningRoomID = new global::System.Data.DataColumn("ScreeningRoomID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnScreeningRoomID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnMovieShowTimeID}, true));
+                this.columnMovieShowTimeID.AutoIncrement = true;
+                this.columnMovieShowTimeID.AutoIncrementSeed = -1;
+                this.columnMovieShowTimeID.AutoIncrementStep = -1;
+                this.columnMovieShowTimeID.AllowDBNull = false;
+                this.columnMovieShowTimeID.ReadOnly = true;
+                this.columnMovieShowTimeID.Unique = true;
+                this.columnMovieID.AllowDBNull = false;
+                this.columnShowtimeID.AllowDBNull = false;
+                this.columnScreeningRoomID.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MovieInfoBridgeRow NewMovieInfoBridgeRow() {
+                return ((MovieInfoBridgeRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new MovieInfoBridgeRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(MovieInfoBridgeRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.MovieInfoBridgeRowChanged != null)) {
+                    this.MovieInfoBridgeRowChanged(this, new MovieInfoBridgeRowChangeEvent(((MovieInfoBridgeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.MovieInfoBridgeRowChanging != null)) {
+                    this.MovieInfoBridgeRowChanging(this, new MovieInfoBridgeRowChangeEvent(((MovieInfoBridgeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.MovieInfoBridgeRowDeleted != null)) {
+                    this.MovieInfoBridgeRowDeleted(this, new MovieInfoBridgeRowChangeEvent(((MovieInfoBridgeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.MovieInfoBridgeRowDeleting != null)) {
+                    this.MovieInfoBridgeRowDeleting(this, new MovieInfoBridgeRowChangeEvent(((MovieInfoBridgeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveMovieInfoBridgeRow(MovieInfoBridgeRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                TBMT_DBDataSetLocal ds = new TBMT_DBDataSetLocal();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "MovieInfoBridgeDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class PriceDataTable : global::System.Data.TypedTableBase<PriceRow> {
+            
+            private global::System.Data.DataColumn columnPriceID;
+            
+            private global::System.Data.DataColumn columnAgeGroup;
+            
+            private global::System.Data.DataColumn columnPrice;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PriceDataTable() {
+                this.TableName = "Price";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal PriceDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected PriceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -3486,54 +3104,54 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TicketPriceRow this[int index] {
+            public PriceRow this[int index] {
                 get {
-                    return ((TicketPriceRow)(this.Rows[index]));
+                    return ((PriceRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TicketPriceRowChangeEventHandler TicketPriceRowChanging;
+            public event PriceRowChangeEventHandler PriceRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TicketPriceRowChangeEventHandler TicketPriceRowChanged;
+            public event PriceRowChangeEventHandler PriceRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TicketPriceRowChangeEventHandler TicketPriceRowDeleting;
+            public event PriceRowChangeEventHandler PriceRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TicketPriceRowChangeEventHandler TicketPriceRowDeleted;
+            public event PriceRowChangeEventHandler PriceRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddTicketPriceRow(TicketPriceRow row) {
+            public void AddPriceRow(PriceRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TicketPriceRow AddTicketPriceRow(string AgeGroup, decimal Price) {
-                TicketPriceRow rowTicketPriceRow = ((TicketPriceRow)(this.NewRow()));
+            public PriceRow AddPriceRow(string AgeGroup, decimal Price) {
+                PriceRow rowPriceRow = ((PriceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         AgeGroup,
                         Price};
-                rowTicketPriceRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowTicketPriceRow);
-                return rowTicketPriceRow;
+                rowPriceRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPriceRow);
+                return rowPriceRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TicketPriceRow FindByPriceID(int PriceID) {
-                return ((TicketPriceRow)(this.Rows.Find(new object[] {
+            public PriceRow FindByPriceID(int PriceID) {
+                return ((PriceRow)(this.Rows.Find(new object[] {
                             PriceID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                TicketPriceDataTable cln = ((TicketPriceDataTable)(base.Clone()));
+                PriceDataTable cln = ((PriceDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -3541,7 +3159,7 @@ namespace TheBestMovieTheater {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new TicketPriceDataTable();
+                return new PriceDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3576,28 +3194,28 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TicketPriceRow NewTicketPriceRow() {
-                return ((TicketPriceRow)(this.NewRow()));
+            public PriceRow NewPriceRow() {
+                return ((PriceRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new TicketPriceRow(builder);
+                return new PriceRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(TicketPriceRow);
+                return typeof(PriceRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.TicketPriceRowChanged != null)) {
-                    this.TicketPriceRowChanged(this, new TicketPriceRowChangeEvent(((TicketPriceRow)(e.Row)), e.Action));
+                if ((this.PriceRowChanged != null)) {
+                    this.PriceRowChanged(this, new PriceRowChangeEvent(((PriceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3605,8 +3223,8 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.TicketPriceRowChanging != null)) {
-                    this.TicketPriceRowChanging(this, new TicketPriceRowChangeEvent(((TicketPriceRow)(e.Row)), e.Action));
+                if ((this.PriceRowChanging != null)) {
+                    this.PriceRowChanging(this, new PriceRowChangeEvent(((PriceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3614,8 +3232,8 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.TicketPriceRowDeleted != null)) {
-                    this.TicketPriceRowDeleted(this, new TicketPriceRowChangeEvent(((TicketPriceRow)(e.Row)), e.Action));
+                if ((this.PriceRowDeleted != null)) {
+                    this.PriceRowDeleted(this, new PriceRowChangeEvent(((PriceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3623,14 +3241,14 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.TicketPriceRowDeleting != null)) {
-                    this.TicketPriceRowDeleting(this, new TicketPriceRowChangeEvent(((TicketPriceRow)(e.Row)), e.Action));
+                if ((this.PriceRowDeleting != null)) {
+                    this.PriceRowDeleting(this, new PriceRowChangeEvent(((PriceRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveTicketPriceRow(TicketPriceRow row) {
+            public void RemovePriceRow(PriceRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -3657,7 +3275,7 @@ namespace TheBestMovieTheater {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "TicketPriceDataTable";
+                attribute2.FixedValue = "PriceDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3703,18 +3321,24 @@ namespace TheBestMovieTheater {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class MovieScreeningRoomDataTable : global::System.Data.TypedTableBase<MovieScreeningRoomRow> {
+        public partial class TicketDataTable : global::System.Data.TypedTableBase<TicketRow> {
             
-            private global::System.Data.DataColumn columnShowtimeScreeningRoomID;
+            private global::System.Data.DataColumn columnTicketID;
+            
+            private global::System.Data.DataColumn columnTicketNumber;
+            
+            private global::System.Data.DataColumn columnPriceID;
             
             private global::System.Data.DataColumn columnMovieID;
+            
+            private global::System.Data.DataColumn columnShowtimeID;
             
             private global::System.Data.DataColumn columnScreeningRoomID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieScreeningRoomDataTable() {
-                this.TableName = "MovieScreeningRoom";
+            public TicketDataTable() {
+                this.TableName = "Ticket";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -3722,7 +3346,7 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal MovieScreeningRoomDataTable(global::System.Data.DataTable table) {
+            internal TicketDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -3739,16 +3363,32 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected MovieScreeningRoomDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected TicketDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ShowtimeScreeningRoomIDColumn {
+            public global::System.Data.DataColumn TicketIDColumn {
                 get {
-                    return this.columnShowtimeScreeningRoomID;
+                    return this.columnTicketID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TicketNumberColumn {
+                get {
+                    return this.columnTicketNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PriceIDColumn {
+                get {
+                    return this.columnPriceID;
                 }
             }
             
@@ -3757,6 +3397,14 @@ namespace TheBestMovieTheater {
             public global::System.Data.DataColumn MovieIDColumn {
                 get {
                     return this.columnMovieID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ShowtimeIDColumn {
+                get {
+                    return this.columnShowtimeID;
                 }
             }
             
@@ -3779,60 +3427,69 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieScreeningRoomRow this[int index] {
+            public TicketRow this[int index] {
                 get {
-                    return ((MovieScreeningRoomRow)(this.Rows[index]));
+                    return ((TicketRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event MovieScreeningRoomRowChangeEventHandler MovieScreeningRoomRowChanging;
+            public event TicketRowChangeEventHandler TicketRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event MovieScreeningRoomRowChangeEventHandler MovieScreeningRoomRowChanged;
+            public event TicketRowChangeEventHandler TicketRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event MovieScreeningRoomRowChangeEventHandler MovieScreeningRoomRowDeleting;
+            public event TicketRowChangeEventHandler TicketRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event MovieScreeningRoomRowChangeEventHandler MovieScreeningRoomRowDeleted;
+            public event TicketRowChangeEventHandler TicketRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddMovieScreeningRoomRow(MovieScreeningRoomRow row) {
+            public void AddTicketRow(TicketRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieScreeningRoomRow AddMovieScreeningRoomRow(MovieRow parentMovieRowByFK__MovieScre__Movie__02FC7413, ScreeningRoomRow parentScreeningRoomRowByFK__MovieScre__Scree__03F0984C) {
-                MovieScreeningRoomRow rowMovieScreeningRoomRow = ((MovieScreeningRoomRow)(this.NewRow()));
+            public TicketRow AddTicketRow(int TicketNumber, PriceRow parentPriceRowByFK__Ticket__PriceID__2A164134, MovieRow parentMovieRowByFK__Ticket__MovieID__2B0A656D, ShowtimeRow parentShowtimeRowByFK__Ticket__Showtime__2BFE89A6, ScreeningRoomRow parentScreeningRoomRowByFK__Ticket__Screenin__2CF2ADDF) {
+                TicketRow rowTicketRow = ((TicketRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        null,
+                        TicketNumber,
+                        null,
                         null,
                         null,
                         null};
-                if ((parentMovieRowByFK__MovieScre__Movie__02FC7413 != null)) {
-                    columnValuesArray[1] = parentMovieRowByFK__MovieScre__Movie__02FC7413[0];
+                if ((parentPriceRowByFK__Ticket__PriceID__2A164134 != null)) {
+                    columnValuesArray[2] = parentPriceRowByFK__Ticket__PriceID__2A164134[0];
                 }
-                if ((parentScreeningRoomRowByFK__MovieScre__Scree__03F0984C != null)) {
-                    columnValuesArray[2] = parentScreeningRoomRowByFK__MovieScre__Scree__03F0984C[0];
+                if ((parentMovieRowByFK__Ticket__MovieID__2B0A656D != null)) {
+                    columnValuesArray[3] = parentMovieRowByFK__Ticket__MovieID__2B0A656D[0];
                 }
-                rowMovieScreeningRoomRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowMovieScreeningRoomRow);
-                return rowMovieScreeningRoomRow;
+                if ((parentShowtimeRowByFK__Ticket__Showtime__2BFE89A6 != null)) {
+                    columnValuesArray[4] = parentShowtimeRowByFK__Ticket__Showtime__2BFE89A6[0];
+                }
+                if ((parentScreeningRoomRowByFK__Ticket__Screenin__2CF2ADDF != null)) {
+                    columnValuesArray[5] = parentScreeningRoomRowByFK__Ticket__Screenin__2CF2ADDF[2];
+                }
+                rowTicketRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTicketRow);
+                return rowTicketRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieScreeningRoomRow FindByShowtimeScreeningRoomID(int ShowtimeScreeningRoomID) {
-                return ((MovieScreeningRoomRow)(this.Rows.Find(new object[] {
-                            ShowtimeScreeningRoomID})));
+            public TicketRow FindByTicketID(int TicketID) {
+                return ((TicketRow)(this.Rows.Find(new object[] {
+                            TicketID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                MovieScreeningRoomDataTable cln = ((MovieScreeningRoomDataTable)(base.Clone()));
+                TicketDataTable cln = ((TicketDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -3840,62 +3497,74 @@ namespace TheBestMovieTheater {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new MovieScreeningRoomDataTable();
+                return new TicketDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnShowtimeScreeningRoomID = base.Columns["ShowtimeScreeningRoomID"];
+                this.columnTicketID = base.Columns["TicketID"];
+                this.columnTicketNumber = base.Columns["TicketNumber"];
+                this.columnPriceID = base.Columns["PriceID"];
                 this.columnMovieID = base.Columns["MovieID"];
+                this.columnShowtimeID = base.Columns["ShowtimeID"];
                 this.columnScreeningRoomID = base.Columns["ScreeningRoomID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnShowtimeScreeningRoomID = new global::System.Data.DataColumn("ShowtimeScreeningRoomID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShowtimeScreeningRoomID);
+                this.columnTicketID = new global::System.Data.DataColumn("TicketID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTicketID);
+                this.columnTicketNumber = new global::System.Data.DataColumn("TicketNumber", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTicketNumber);
+                this.columnPriceID = new global::System.Data.DataColumn("PriceID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPriceID);
                 this.columnMovieID = new global::System.Data.DataColumn("MovieID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMovieID);
+                this.columnShowtimeID = new global::System.Data.DataColumn("ShowtimeID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShowtimeID);
                 this.columnScreeningRoomID = new global::System.Data.DataColumn("ScreeningRoomID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnScreeningRoomID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnShowtimeScreeningRoomID}, true));
-                this.columnShowtimeScreeningRoomID.AutoIncrement = true;
-                this.columnShowtimeScreeningRoomID.AutoIncrementSeed = -1;
-                this.columnShowtimeScreeningRoomID.AutoIncrementStep = -1;
-                this.columnShowtimeScreeningRoomID.AllowDBNull = false;
-                this.columnShowtimeScreeningRoomID.ReadOnly = true;
-                this.columnShowtimeScreeningRoomID.Unique = true;
+                                this.columnTicketID}, true));
+                this.columnTicketID.AutoIncrement = true;
+                this.columnTicketID.AutoIncrementSeed = -1;
+                this.columnTicketID.AutoIncrementStep = -1;
+                this.columnTicketID.AllowDBNull = false;
+                this.columnTicketID.ReadOnly = true;
+                this.columnTicketID.Unique = true;
+                this.columnTicketNumber.AllowDBNull = false;
+                this.columnPriceID.AllowDBNull = false;
                 this.columnMovieID.AllowDBNull = false;
+                this.columnShowtimeID.AllowDBNull = false;
                 this.columnScreeningRoomID.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieScreeningRoomRow NewMovieScreeningRoomRow() {
-                return ((MovieScreeningRoomRow)(this.NewRow()));
+            public TicketRow NewTicketRow() {
+                return ((TicketRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new MovieScreeningRoomRow(builder);
+                return new TicketRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(MovieScreeningRoomRow);
+                return typeof(TicketRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.MovieScreeningRoomRowChanged != null)) {
-                    this.MovieScreeningRoomRowChanged(this, new MovieScreeningRoomRowChangeEvent(((MovieScreeningRoomRow)(e.Row)), e.Action));
+                if ((this.TicketRowChanged != null)) {
+                    this.TicketRowChanged(this, new TicketRowChangeEvent(((TicketRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3903,8 +3572,8 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.MovieScreeningRoomRowChanging != null)) {
-                    this.MovieScreeningRoomRowChanging(this, new MovieScreeningRoomRowChangeEvent(((MovieScreeningRoomRow)(e.Row)), e.Action));
+                if ((this.TicketRowChanging != null)) {
+                    this.TicketRowChanging(this, new TicketRowChangeEvent(((TicketRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3912,8 +3581,8 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.MovieScreeningRoomRowDeleted != null)) {
-                    this.MovieScreeningRoomRowDeleted(this, new MovieScreeningRoomRowChangeEvent(((MovieScreeningRoomRow)(e.Row)), e.Action));
+                if ((this.TicketRowDeleted != null)) {
+                    this.TicketRowDeleted(this, new TicketRowChangeEvent(((TicketRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3921,14 +3590,14 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.MovieScreeningRoomRowDeleting != null)) {
-                    this.MovieScreeningRoomRowDeleting(this, new MovieScreeningRoomRowChangeEvent(((MovieScreeningRoomRow)(e.Row)), e.Action));
+                if ((this.TicketRowDeleting != null)) {
+                    this.TicketRowDeleting(this, new TicketRowChangeEvent(((TicketRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveMovieScreeningRoomRow(MovieScreeningRoomRow row) {
+            public void RemoveTicketRow(TicketRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -3955,7 +3624,7 @@ namespace TheBestMovieTheater {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "MovieScreeningRoomDataTable";
+                attribute2.FixedValue = "TicketDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4001,11 +3670,9 @@ namespace TheBestMovieTheater {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class vClient_MovieScreeningsDataTable : global::System.Data.TypedTableBase<vClient_MovieScreeningsRow> {
+        public partial class vManager_ShowtimeCapacityDataTable : global::System.Data.TypedTableBase<vManager_ShowtimeCapacityRow> {
             
             private global::System.Data.DataColumn columnTitle;
-            
-            private global::System.Data.DataColumn columnGenre;
             
             private global::System.Data.DataColumn columnMinutes;
             
@@ -4013,10 +3680,16 @@ namespace TheBestMovieTheater {
             
             private global::System.Data.DataColumn columnRoom;
             
+            private global::System.Data.DataColumn columnCapacity;
+            
+            private global::System.Data.DataColumn columnPurchasedTickets;
+            
+            private global::System.Data.DataColumn columnRemainingSeats;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vClient_MovieScreeningsDataTable() {
-                this.TableName = "vClient_MovieScreenings";
+            public vManager_ShowtimeCapacityDataTable() {
+                this.TableName = "vManager_ShowtimeCapacity";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -4024,7 +3697,7 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal vClient_MovieScreeningsDataTable(global::System.Data.DataTable table) {
+            internal vManager_ShowtimeCapacityDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -4041,7 +3714,7 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected vClient_MovieScreeningsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected vManager_ShowtimeCapacityDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -4051,14 +3724,6 @@ namespace TheBestMovieTheater {
             public global::System.Data.DataColumn TitleColumn {
                 get {
                     return this.columnTitle;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn GenreColumn {
-                get {
-                    return this.columnGenre;
                 }
             }
             
@@ -4088,6 +3753,30 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CapacityColumn {
+                get {
+                    return this.columnCapacity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PurchasedTicketsColumn {
+                get {
+                    return this.columnPurchasedTickets;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RemainingSeatsColumn {
+                get {
+                    return this.columnRemainingSeats;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4097,49 +3786,51 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vClient_MovieScreeningsRow this[int index] {
+            public vManager_ShowtimeCapacityRow this[int index] {
                 get {
-                    return ((vClient_MovieScreeningsRow)(this.Rows[index]));
+                    return ((vManager_ShowtimeCapacityRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vClient_MovieScreeningsRowChangeEventHandler vClient_MovieScreeningsRowChanging;
+            public event vManager_ShowtimeCapacityRowChangeEventHandler vManager_ShowtimeCapacityRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vClient_MovieScreeningsRowChangeEventHandler vClient_MovieScreeningsRowChanged;
+            public event vManager_ShowtimeCapacityRowChangeEventHandler vManager_ShowtimeCapacityRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vClient_MovieScreeningsRowChangeEventHandler vClient_MovieScreeningsRowDeleting;
+            public event vManager_ShowtimeCapacityRowChangeEventHandler vManager_ShowtimeCapacityRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vClient_MovieScreeningsRowChangeEventHandler vClient_MovieScreeningsRowDeleted;
+            public event vManager_ShowtimeCapacityRowChangeEventHandler vManager_ShowtimeCapacityRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddvClient_MovieScreeningsRow(vClient_MovieScreeningsRow row) {
+            public void AddvManager_ShowtimeCapacityRow(vManager_ShowtimeCapacityRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vClient_MovieScreeningsRow AddvClient_MovieScreeningsRow(string Title, string Genre, int Minutes, string Showtime, string Room) {
-                vClient_MovieScreeningsRow rowvClient_MovieScreeningsRow = ((vClient_MovieScreeningsRow)(this.NewRow()));
+            public vManager_ShowtimeCapacityRow AddvManager_ShowtimeCapacityRow(string Title, int Minutes, string Showtime, string Room, int Capacity, int PurchasedTickets, int RemainingSeats) {
+                vManager_ShowtimeCapacityRow rowvManager_ShowtimeCapacityRow = ((vManager_ShowtimeCapacityRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Title,
-                        Genre,
                         Minutes,
                         Showtime,
-                        Room};
-                rowvClient_MovieScreeningsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowvClient_MovieScreeningsRow);
-                return rowvClient_MovieScreeningsRow;
+                        Room,
+                        Capacity,
+                        PurchasedTickets,
+                        RemainingSeats};
+                rowvManager_ShowtimeCapacityRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowvManager_ShowtimeCapacityRow);
+                return rowvManager_ShowtimeCapacityRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                vClient_MovieScreeningsDataTable cln = ((vClient_MovieScreeningsDataTable)(base.Clone()));
+                vManager_ShowtimeCapacityDataTable cln = ((vManager_ShowtimeCapacityDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -4147,17 +3838,19 @@ namespace TheBestMovieTheater {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new vClient_MovieScreeningsDataTable();
+                return new vManager_ShowtimeCapacityDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnTitle = base.Columns["Title"];
-                this.columnGenre = base.Columns["Genre"];
                 this.columnMinutes = base.Columns["Minutes"];
                 this.columnShowtime = base.Columns["Showtime"];
                 this.columnRoom = base.Columns["Room"];
+                this.columnCapacity = base.Columns["Capacity"];
+                this.columnPurchasedTickets = base.Columns["PurchasedTickets"];
+                this.columnRemainingSeats = base.Columns["RemainingSeats"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4165,48 +3858,53 @@ namespace TheBestMovieTheater {
             private void InitClass() {
                 this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTitle);
-                this.columnGenre = new global::System.Data.DataColumn("Genre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGenre);
                 this.columnMinutes = new global::System.Data.DataColumn("Minutes", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMinutes);
                 this.columnShowtime = new global::System.Data.DataColumn("Showtime", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnShowtime);
                 this.columnRoom = new global::System.Data.DataColumn("Room", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRoom);
+                this.columnCapacity = new global::System.Data.DataColumn("Capacity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCapacity);
+                this.columnPurchasedTickets = new global::System.Data.DataColumn("PurchasedTickets", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPurchasedTickets);
+                this.columnRemainingSeats = new global::System.Data.DataColumn("RemainingSeats", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRemainingSeats);
                 this.columnTitle.AllowDBNull = false;
                 this.columnTitle.MaxLength = 255;
-                this.columnGenre.MaxLength = 255;
                 this.columnMinutes.AllowDBNull = false;
                 this.columnShowtime.AllowDBNull = false;
                 this.columnShowtime.MaxLength = 5;
                 this.columnRoom.AllowDBNull = false;
                 this.columnRoom.MaxLength = 255;
+                this.columnCapacity.AllowDBNull = false;
+                this.columnRemainingSeats.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vClient_MovieScreeningsRow NewvClient_MovieScreeningsRow() {
-                return ((vClient_MovieScreeningsRow)(this.NewRow()));
+            public vManager_ShowtimeCapacityRow NewvManager_ShowtimeCapacityRow() {
+                return ((vManager_ShowtimeCapacityRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new vClient_MovieScreeningsRow(builder);
+                return new vManager_ShowtimeCapacityRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(vClient_MovieScreeningsRow);
+                return typeof(vManager_ShowtimeCapacityRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.vClient_MovieScreeningsRowChanged != null)) {
-                    this.vClient_MovieScreeningsRowChanged(this, new vClient_MovieScreeningsRowChangeEvent(((vClient_MovieScreeningsRow)(e.Row)), e.Action));
+                if ((this.vManager_ShowtimeCapacityRowChanged != null)) {
+                    this.vManager_ShowtimeCapacityRowChanged(this, new vManager_ShowtimeCapacityRowChangeEvent(((vManager_ShowtimeCapacityRow)(e.Row)), e.Action));
                 }
             }
             
@@ -4214,8 +3912,8 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.vClient_MovieScreeningsRowChanging != null)) {
-                    this.vClient_MovieScreeningsRowChanging(this, new vClient_MovieScreeningsRowChangeEvent(((vClient_MovieScreeningsRow)(e.Row)), e.Action));
+                if ((this.vManager_ShowtimeCapacityRowChanging != null)) {
+                    this.vManager_ShowtimeCapacityRowChanging(this, new vManager_ShowtimeCapacityRowChangeEvent(((vManager_ShowtimeCapacityRow)(e.Row)), e.Action));
                 }
             }
             
@@ -4223,8 +3921,8 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.vClient_MovieScreeningsRowDeleted != null)) {
-                    this.vClient_MovieScreeningsRowDeleted(this, new vClient_MovieScreeningsRowChangeEvent(((vClient_MovieScreeningsRow)(e.Row)), e.Action));
+                if ((this.vManager_ShowtimeCapacityRowDeleted != null)) {
+                    this.vManager_ShowtimeCapacityRowDeleted(this, new vManager_ShowtimeCapacityRowChangeEvent(((vManager_ShowtimeCapacityRow)(e.Row)), e.Action));
                 }
             }
             
@@ -4232,14 +3930,14 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.vClient_MovieScreeningsRowDeleting != null)) {
-                    this.vClient_MovieScreeningsRowDeleting(this, new vClient_MovieScreeningsRowChangeEvent(((vClient_MovieScreeningsRow)(e.Row)), e.Action));
+                if ((this.vManager_ShowtimeCapacityRowDeleting != null)) {
+                    this.vManager_ShowtimeCapacityRowDeleting(this, new vManager_ShowtimeCapacityRowChangeEvent(((vManager_ShowtimeCapacityRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemovevClient_MovieScreeningsRow(vClient_MovieScreeningsRow row) {
+            public void RemovevManager_ShowtimeCapacityRow(vManager_ShowtimeCapacityRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -4266,298 +3964,7 @@ namespace TheBestMovieTheater {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "vClient_MovieScreeningsDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class vManager_RoomsDataTable : global::System.Data.TypedTableBase<vManager_RoomsRow> {
-            
-            private global::System.Data.DataColumn columnRoom;
-            
-            private global::System.Data.DataColumn columnRoomID;
-            
-            private global::System.Data.DataColumn columnMovieID;
-            
-            private global::System.Data.DataColumn columnTitle;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vManager_RoomsDataTable() {
-                this.TableName = "vManager_Rooms";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal vManager_RoomsDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected vManager_RoomsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn RoomColumn {
-                get {
-                    return this.columnRoom;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn RoomIDColumn {
-                get {
-                    return this.columnRoomID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn MovieIDColumn {
-                get {
-                    return this.columnMovieID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TitleColumn {
-                get {
-                    return this.columnTitle;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vManager_RoomsRow this[int index] {
-                get {
-                    return ((vManager_RoomsRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vManager_RoomsRowChangeEventHandler vManager_RoomsRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vManager_RoomsRowChangeEventHandler vManager_RoomsRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vManager_RoomsRowChangeEventHandler vManager_RoomsRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vManager_RoomsRowChangeEventHandler vManager_RoomsRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddvManager_RoomsRow(vManager_RoomsRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vManager_RoomsRow AddvManager_RoomsRow(string Room, int RoomID, int MovieID, string Title) {
-                vManager_RoomsRow rowvManager_RoomsRow = ((vManager_RoomsRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        Room,
-                        RoomID,
-                        MovieID,
-                        Title};
-                rowvManager_RoomsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowvManager_RoomsRow);
-                return rowvManager_RoomsRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                vManager_RoomsDataTable cln = ((vManager_RoomsDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new vManager_RoomsDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnRoom = base.Columns["Room"];
-                this.columnRoomID = base.Columns["RoomID"];
-                this.columnMovieID = base.Columns["MovieID"];
-                this.columnTitle = base.Columns["Title"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnRoom = new global::System.Data.DataColumn("Room", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRoom);
-                this.columnRoomID = new global::System.Data.DataColumn("RoomID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRoomID);
-                this.columnMovieID = new global::System.Data.DataColumn("MovieID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMovieID);
-                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTitle);
-                this.columnRoom.MaxLength = 255;
-                this.columnTitle.MaxLength = 255;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vManager_RoomsRow NewvManager_RoomsRow() {
-                return ((vManager_RoomsRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new vManager_RoomsRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(vManager_RoomsRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.vManager_RoomsRowChanged != null)) {
-                    this.vManager_RoomsRowChanged(this, new vManager_RoomsRowChangeEvent(((vManager_RoomsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.vManager_RoomsRowChanging != null)) {
-                    this.vManager_RoomsRowChanging(this, new vManager_RoomsRowChangeEvent(((vManager_RoomsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.vManager_RoomsRowDeleted != null)) {
-                    this.vManager_RoomsRowDeleted(this, new vManager_RoomsRowChangeEvent(((vManager_RoomsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.vManager_RoomsRowDeleting != null)) {
-                    this.vManager_RoomsRowDeleting(this, new vManager_RoomsRowChangeEvent(((vManager_RoomsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemovevManager_RoomsRow(vManager_RoomsRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TBMT_DBDataSetLocal ds = new TBMT_DBDataSetLocal();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "vManager_RoomsDataTable";
+                attribute2.FixedValue = "vManager_ShowtimeCapacityDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4605,13 +4012,13 @@ namespace TheBestMovieTheater {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class vManager_ShowtimesDataTable : global::System.Data.TypedTableBase<vManager_ShowtimesRow> {
             
+            private global::System.Data.DataColumn columnTitle;
+            
+            private global::System.Data.DataColumn columnMinutes;
+            
             private global::System.Data.DataColumn columnShowtime;
             
-            private global::System.Data.DataColumn columnShowtimeID;
-            
-            private global::System.Data.DataColumn columnMovieID;
-            
-            private global::System.Data.DataColumn columnTitle;
+            private global::System.Data.DataColumn columnRoom;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -4648,6 +4055,22 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TitleColumn {
+                get {
+                    return this.columnTitle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn MinutesColumn {
+                get {
+                    return this.columnMinutes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn ShowtimeColumn {
                 get {
                     return this.columnShowtime;
@@ -4656,25 +4079,9 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ShowtimeIDColumn {
+            public global::System.Data.DataColumn RoomColumn {
                 get {
-                    return this.columnShowtimeID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn MovieIDColumn {
-                get {
-                    return this.columnMovieID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TitleColumn {
-                get {
-                    return this.columnTitle;
+                    return this.columnRoom;
                 }
             }
             
@@ -4715,13 +4122,13 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vManager_ShowtimesRow AddvManager_ShowtimesRow(string Showtime, int ShowtimeID, int MovieID, string Title) {
+            public vManager_ShowtimesRow AddvManager_ShowtimesRow(string Title, int Minutes, string Showtime, string Room) {
                 vManager_ShowtimesRow rowvManager_ShowtimesRow = ((vManager_ShowtimesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        Title,
+                        Minutes,
                         Showtime,
-                        ShowtimeID,
-                        MovieID,
-                        Title};
+                        Room};
                 rowvManager_ShowtimesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowvManager_ShowtimesRow);
                 return rowvManager_ShowtimesRow;
@@ -4744,25 +4151,30 @@ namespace TheBestMovieTheater {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnShowtime = base.Columns["Showtime"];
-                this.columnShowtimeID = base.Columns["ShowtimeID"];
-                this.columnMovieID = base.Columns["MovieID"];
                 this.columnTitle = base.Columns["Title"];
+                this.columnMinutes = base.Columns["Minutes"];
+                this.columnShowtime = base.Columns["Showtime"];
+                this.columnRoom = base.Columns["Room"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnShowtime = new global::System.Data.DataColumn("Showtime", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShowtime);
-                this.columnShowtimeID = new global::System.Data.DataColumn("ShowtimeID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShowtimeID);
-                this.columnMovieID = new global::System.Data.DataColumn("MovieID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMovieID);
                 this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTitle);
-                this.columnShowtime.MaxLength = 5;
+                this.columnMinutes = new global::System.Data.DataColumn("Minutes", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMinutes);
+                this.columnShowtime = new global::System.Data.DataColumn("Showtime", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShowtime);
+                this.columnRoom = new global::System.Data.DataColumn("Room", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRoom);
+                this.columnTitle.AllowDBNull = false;
                 this.columnTitle.MaxLength = 255;
+                this.columnMinutes.AllowDBNull = false;
+                this.columnShowtime.AllowDBNull = false;
+                this.columnShowtime.MaxLength = 5;
+                this.columnRoom.AllowDBNull = false;
+                this.columnRoom.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5010,115 +4422,12 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientMovieShowtimeRow[] GetClientMovieShowtimeRows() {
-                if ((this.Table.ChildRelations["FK__ClientMov__Clien__4D94879B"] == null)) {
-                    return new ClientMovieShowtimeRow[0];
+            public ClientTicketRow[] GetClientTicketRows() {
+                if ((this.Table.ChildRelations["FK__ClientTic__Clien__3493CFA7"] == null)) {
+                    return new ClientTicketRow[0];
                 }
                 else {
-                    return ((ClientMovieShowtimeRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ClientMov__Clien__4D94879B"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class ClientMovieShowtimeRow : global::System.Data.DataRow {
-            
-            private ClientMovieShowtimeDataTable tableClientMovieShowtime;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal ClientMovieShowtimeRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableClientMovieShowtime = ((ClientMovieShowtimeDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ClientMovieShowtimeID {
-                get {
-                    return ((int)(this[this.tableClientMovieShowtime.ClientMovieShowtimeIDColumn]));
-                }
-                set {
-                    this[this.tableClientMovieShowtime.ClientMovieShowtimeIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ClientID {
-                get {
-                    return ((int)(this[this.tableClientMovieShowtime.ClientIDColumn]));
-                }
-                set {
-                    this[this.tableClientMovieShowtime.ClientIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int MovieID {
-                get {
-                    return ((int)(this[this.tableClientMovieShowtime.MovieIDColumn]));
-                }
-                set {
-                    this[this.tableClientMovieShowtime.MovieIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ShowtimeID {
-                get {
-                    return ((int)(this[this.tableClientMovieShowtime.ShowtimeIDColumn]));
-                }
-                set {
-                    this[this.tableClientMovieShowtime.ShowtimeIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime DateBought {
-                get {
-                    return ((global::System.DateTime)(this[this.tableClientMovieShowtime.DateBoughtColumn]));
-                }
-                set {
-                    this[this.tableClientMovieShowtime.DateBoughtColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientRow ClientRow {
-                get {
-                    return ((ClientRow)(this.GetParentRow(this.Table.ParentRelations["FK__ClientMov__Clien__4D94879B"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__ClientMov__Clien__4D94879B"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieRow MovieRow {
-                get {
-                    return ((MovieRow)(this.GetParentRow(this.Table.ParentRelations["FK__ClientMov__Movie__4E88ABD4"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__ClientMov__Movie__4E88ABD4"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShowtimeRow ShowtimeRow {
-                get {
-                    return ((ShowtimeRow)(this.GetParentRow(this.Table.ParentRelations["FK__ClientMov__Showt__4F7CD00D"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__ClientMov__Showt__4F7CD00D"]);
+                    return ((ClientTicketRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ClientTic__Clien__3493CFA7"])));
                 }
             }
         }
@@ -5437,104 +4746,23 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientMovieShowtimeRow[] GetClientMovieShowtimeRows() {
-                if ((this.Table.ChildRelations["FK__ClientMov__Movie__4E88ABD4"] == null)) {
-                    return new ClientMovieShowtimeRow[0];
+            public MovieInfoBridgeRow[] GetMovieInfoBridgeRows() {
+                if ((this.Table.ChildRelations["FK__MovieInfo__Movie__2FCF1A8A"] == null)) {
+                    return new MovieInfoBridgeRow[0];
                 }
                 else {
-                    return ((ClientMovieShowtimeRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ClientMov__Movie__4E88ABD4"])));
+                    return ((MovieInfoBridgeRow[])(base.GetChildRows(this.Table.ChildRelations["FK__MovieInfo__Movie__2FCF1A8A"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieShowtimeRow[] GetMovieShowtimeRows() {
-                if ((this.Table.ChildRelations["FK__MovieShow__Movie__3E52440B"] == null)) {
-                    return new MovieShowtimeRow[0];
+            public TicketRow[] GetTicketRows() {
+                if ((this.Table.ChildRelations["FK__Ticket__MovieID__2B0A656D"] == null)) {
+                    return new TicketRow[0];
                 }
                 else {
-                    return ((MovieShowtimeRow[])(base.GetChildRows(this.Table.ChildRelations["FK__MovieShow__Movie__3E52440B"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieScreeningRoomRow[] GetMovieScreeningRoomRows() {
-                if ((this.Table.ChildRelations["FK__MovieScre__Movie__02FC7413"] == null)) {
-                    return new MovieScreeningRoomRow[0];
-                }
-                else {
-                    return ((MovieScreeningRoomRow[])(base.GetChildRows(this.Table.ChildRelations["FK__MovieScre__Movie__02FC7413"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class MovieShowtimeRow : global::System.Data.DataRow {
-            
-            private MovieShowtimeDataTable tableMovieShowtime;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal MovieShowtimeRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableMovieShowtime = ((MovieShowtimeDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int MovieShowTimeID {
-                get {
-                    return ((int)(this[this.tableMovieShowtime.MovieShowTimeIDColumn]));
-                }
-                set {
-                    this[this.tableMovieShowtime.MovieShowTimeIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int MovieID {
-                get {
-                    return ((int)(this[this.tableMovieShowtime.MovieIDColumn]));
-                }
-                set {
-                    this[this.tableMovieShowtime.MovieIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ShowtimeID {
-                get {
-                    return ((int)(this[this.tableMovieShowtime.ShowtimeIDColumn]));
-                }
-                set {
-                    this[this.tableMovieShowtime.ShowtimeIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieRow MovieRow {
-                get {
-                    return ((MovieRow)(this.GetParentRow(this.Table.ParentRelations["FK__MovieShow__Movie__3E52440B"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__MovieShow__Movie__3E52440B"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShowtimeRow ShowtimeRow {
-                get {
-                    return ((ShowtimeRow)(this.GetParentRow(this.Table.ParentRelations["FK__MovieShow__Showt__3F466844"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__MovieShow__Showt__3F466844"]);
+                    return ((TicketRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Ticket__MovieID__2B0A656D"])));
                 }
             }
         }
@@ -5551,17 +4779,6 @@ namespace TheBestMovieTheater {
             internal ScreeningRoomRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableScreeningRoom = ((ScreeningRoomDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int RoomID {
-                get {
-                    return ((int)(this[this.tableScreeningRoom.RoomIDColumn]));
-                }
-                set {
-                    this[this.tableScreeningRoom.RoomIDColumn] = value;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5588,12 +4805,34 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieScreeningRoomRow[] GetMovieScreeningRoomRows() {
-                if ((this.Table.ChildRelations["FK__MovieScre__Scree__03F0984C"] == null)) {
-                    return new MovieScreeningRoomRow[0];
+            public int ScreeningRoomID {
+                get {
+                    return ((int)(this[this.tableScreeningRoom.ScreeningRoomIDColumn]));
+                }
+                set {
+                    this[this.tableScreeningRoom.ScreeningRoomIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MovieInfoBridgeRow[] GetMovieInfoBridgeRows() {
+                if ((this.Table.ChildRelations["FK__MovieInfo__Scree__31B762FC"] == null)) {
+                    return new MovieInfoBridgeRow[0];
                 }
                 else {
-                    return ((MovieScreeningRoomRow[])(base.GetChildRows(this.Table.ChildRelations["FK__MovieScre__Scree__03F0984C"])));
+                    return ((MovieInfoBridgeRow[])(base.GetChildRows(this.Table.ChildRelations["FK__MovieInfo__Scree__31B762FC"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public TicketRow[] GetTicketRows() {
+                if ((this.Table.ChildRelations["FK__Ticket__Screenin__2CF2ADDF"] == null)) {
+                    return new TicketRow[0];
+                }
+                else {
+                    return ((TicketRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Ticket__Screenin__2CF2ADDF"])));
                 }
             }
         }
@@ -5625,45 +4864,34 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Hour {
+            public string Showtime {
                 get {
-                    return ((string)(this[this.tableShowtime.HourColumn]));
+                    return ((string)(this[this.tableShowtime.ShowtimeColumn]));
                 }
                 set {
-                    this[this.tableShowtime.HourColumn] = value;
+                    this[this.tableShowtime.ShowtimeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientMovieShowtimeRow[] GetClientMovieShowtimeRows() {
-                if ((this.Table.ChildRelations["FK__ClientMov__Showt__4F7CD00D"] == null)) {
-                    return new ClientMovieShowtimeRow[0];
+            public MovieInfoBridgeRow[] GetMovieInfoBridgeRows() {
+                if ((this.Table.ChildRelations["FK__MovieInfo__Showt__30C33EC3"] == null)) {
+                    return new MovieInfoBridgeRow[0];
                 }
                 else {
-                    return ((ClientMovieShowtimeRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ClientMov__Showt__4F7CD00D"])));
+                    return ((MovieInfoBridgeRow[])(base.GetChildRows(this.Table.ChildRelations["FK__MovieInfo__Showt__30C33EC3"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieShowtimeRow[] GetMovieShowtimeRows() {
-                if ((this.Table.ChildRelations["FK__MovieShow__Showt__3F466844"] == null)) {
-                    return new MovieShowtimeRow[0];
+            public TicketRow[] GetTicketRows() {
+                if ((this.Table.ChildRelations["FK__Ticket__Showtime__2BFE89A6"] == null)) {
+                    return new TicketRow[0];
                 }
                 else {
-                    return ((MovieShowtimeRow[])(base.GetChildRows(this.Table.ChildRelations["FK__MovieShow__Showt__3F466844"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShowtimeTicketPriceRow[] GetShowtimeTicketPriceRows() {
-                if ((this.Table.ChildRelations["FK__ShowtimeT__Showt__4222D4EF"] == null)) {
-                    return new ShowtimeTicketPriceRow[0];
-                }
-                else {
-                    return ((ShowtimeTicketPriceRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ShowtimeT__Showt__4222D4EF"])));
+                    return ((TicketRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Ticket__Showtime__2BFE89A6"])));
                 }
             }
         }
@@ -5671,25 +4899,117 @@ namespace TheBestMovieTheater {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ShowtimeTicketPriceRow : global::System.Data.DataRow {
+        public partial class ClientTicketRow : global::System.Data.DataRow {
             
-            private ShowtimeTicketPriceDataTable tableShowtimeTicketPrice;
+            private ClientTicketDataTable tableClientTicket;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal ShowtimeTicketPriceRow(global::System.Data.DataRowBuilder rb) : 
+            internal ClientTicketRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableShowtimeTicketPrice = ((ShowtimeTicketPriceDataTable)(this.Table));
+                this.tableClientTicket = ((ClientTicketDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ShowtimeTicketPriceID {
+            public int ClientTicketID {
                 get {
-                    return ((int)(this[this.tableShowtimeTicketPrice.ShowtimeTicketPriceIDColumn]));
+                    return ((int)(this[this.tableClientTicket.ClientTicketIDColumn]));
                 }
                 set {
-                    this[this.tableShowtimeTicketPrice.ShowtimeTicketPriceIDColumn] = value;
+                    this[this.tableClientTicket.ClientTicketIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ClientID {
+                get {
+                    return ((int)(this[this.tableClientTicket.ClientIDColumn]));
+                }
+                set {
+                    this[this.tableClientTicket.ClientIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int TicketID {
+                get {
+                    return ((int)(this[this.tableClientTicket.TicketIDColumn]));
+                }
+                set {
+                    this[this.tableClientTicket.TicketIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime DateBought {
+                get {
+                    return ((global::System.DateTime)(this[this.tableClientTicket.DateBoughtColumn]));
+                }
+                set {
+                    this[this.tableClientTicket.DateBoughtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ClientRow ClientRow {
+                get {
+                    return ((ClientRow)(this.GetParentRow(this.Table.ParentRelations["FK__ClientTic__Clien__3493CFA7"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__ClientTic__Clien__3493CFA7"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public TicketRow TicketRow {
+                get {
+                    return ((TicketRow)(this.GetParentRow(this.Table.ParentRelations["FK__ClientTic__Ticke__3587F3E0"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__ClientTic__Ticke__3587F3E0"]);
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class MovieInfoBridgeRow : global::System.Data.DataRow {
+            
+            private MovieInfoBridgeDataTable tableMovieInfoBridge;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal MovieInfoBridgeRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableMovieInfoBridge = ((MovieInfoBridgeDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int MovieShowTimeID {
+                get {
+                    return ((int)(this[this.tableMovieInfoBridge.MovieShowTimeIDColumn]));
+                }
+                set {
+                    this[this.tableMovieInfoBridge.MovieShowTimeIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int MovieID {
+                get {
+                    return ((int)(this[this.tableMovieInfoBridge.MovieIDColumn]));
+                }
+                set {
+                    this[this.tableMovieInfoBridge.MovieIDColumn] = value;
                 }
             }
             
@@ -5697,167 +5017,10 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int ShowtimeID {
                 get {
-                    return ((int)(this[this.tableShowtimeTicketPrice.ShowtimeIDColumn]));
+                    return ((int)(this[this.tableMovieInfoBridge.ShowtimeIDColumn]));
                 }
                 set {
-                    this[this.tableShowtimeTicketPrice.ShowtimeIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int PriceID {
-                get {
-                    return ((int)(this[this.tableShowtimeTicketPrice.PriceIDColumn]));
-                }
-                set {
-                    this[this.tableShowtimeTicketPrice.PriceIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int NumOfTickets {
-                get {
-                    try {
-                        return ((int)(this[this.tableShowtimeTicketPrice.NumOfTicketsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NumOfTickets\' in table \'ShowtimeTicketPrice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableShowtimeTicketPrice.NumOfTicketsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TicketPriceRow TicketPriceRow {
-                get {
-                    return ((TicketPriceRow)(this.GetParentRow(this.Table.ParentRelations["FK__ShowtimeT__Price__4316F928"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__ShowtimeT__Price__4316F928"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShowtimeRow ShowtimeRow {
-                get {
-                    return ((ShowtimeRow)(this.GetParentRow(this.Table.ParentRelations["FK__ShowtimeT__Showt__4222D4EF"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__ShowtimeT__Showt__4222D4EF"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNumOfTicketsNull() {
-                return this.IsNull(this.tableShowtimeTicketPrice.NumOfTicketsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNumOfTicketsNull() {
-                this[this.tableShowtimeTicketPrice.NumOfTicketsColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class TicketPriceRow : global::System.Data.DataRow {
-            
-            private TicketPriceDataTable tableTicketPrice;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal TicketPriceRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableTicketPrice = ((TicketPriceDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int PriceID {
-                get {
-                    return ((int)(this[this.tableTicketPrice.PriceIDColumn]));
-                }
-                set {
-                    this[this.tableTicketPrice.PriceIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string AgeGroup {
-                get {
-                    return ((string)(this[this.tableTicketPrice.AgeGroupColumn]));
-                }
-                set {
-                    this[this.tableTicketPrice.AgeGroupColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal Price {
-                get {
-                    return ((decimal)(this[this.tableTicketPrice.PriceColumn]));
-                }
-                set {
-                    this[this.tableTicketPrice.PriceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShowtimeTicketPriceRow[] GetShowtimeTicketPriceRows() {
-                if ((this.Table.ChildRelations["FK__ShowtimeT__Price__4316F928"] == null)) {
-                    return new ShowtimeTicketPriceRow[0];
-                }
-                else {
-                    return ((ShowtimeTicketPriceRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ShowtimeT__Price__4316F928"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class MovieScreeningRoomRow : global::System.Data.DataRow {
-            
-            private MovieScreeningRoomDataTable tableMovieScreeningRoom;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal MovieScreeningRoomRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableMovieScreeningRoom = ((MovieScreeningRoomDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ShowtimeScreeningRoomID {
-                get {
-                    return ((int)(this[this.tableMovieScreeningRoom.ShowtimeScreeningRoomIDColumn]));
-                }
-                set {
-                    this[this.tableMovieScreeningRoom.ShowtimeScreeningRoomIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int MovieID {
-                get {
-                    return ((int)(this[this.tableMovieScreeningRoom.MovieIDColumn]));
-                }
-                set {
-                    this[this.tableMovieScreeningRoom.MovieIDColumn] = value;
+                    this[this.tableMovieInfoBridge.ShowtimeIDColumn] = value;
                 }
             }
             
@@ -5865,10 +5028,10 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int ScreeningRoomID {
                 get {
-                    return ((int)(this[this.tableMovieScreeningRoom.ScreeningRoomIDColumn]));
+                    return ((int)(this[this.tableMovieInfoBridge.ScreeningRoomIDColumn]));
                 }
                 set {
-                    this[this.tableMovieScreeningRoom.ScreeningRoomIDColumn] = value;
+                    this[this.tableMovieInfoBridge.ScreeningRoomIDColumn] = value;
                 }
             }
             
@@ -5876,10 +5039,10 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public MovieRow MovieRow {
                 get {
-                    return ((MovieRow)(this.GetParentRow(this.Table.ParentRelations["FK__MovieScre__Movie__02FC7413"])));
+                    return ((MovieRow)(this.GetParentRow(this.Table.ParentRelations["FK__MovieInfo__Movie__2FCF1A8A"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__MovieScre__Movie__02FC7413"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__MovieInfo__Movie__2FCF1A8A"]);
                 }
             }
             
@@ -5887,10 +5050,21 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ScreeningRoomRow ScreeningRoomRow {
                 get {
-                    return ((ScreeningRoomRow)(this.GetParentRow(this.Table.ParentRelations["FK__MovieScre__Scree__03F0984C"])));
+                    return ((ScreeningRoomRow)(this.GetParentRow(this.Table.ParentRelations["FK__MovieInfo__Scree__31B762FC"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__MovieScre__Scree__03F0984C"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__MovieInfo__Scree__31B762FC"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ShowtimeRow ShowtimeRow {
+                get {
+                    return ((ShowtimeRow)(this.GetParentRow(this.Table.ParentRelations["FK__MovieInfo__Showt__30C33EC3"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__MovieInfo__Showt__30C33EC3"]);
                 }
             }
         }
@@ -5898,133 +5072,106 @@ namespace TheBestMovieTheater {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class vClient_MovieScreeningsRow : global::System.Data.DataRow {
+        public partial class PriceRow : global::System.Data.DataRow {
             
-            private vClient_MovieScreeningsDataTable tablevClient_MovieScreenings;
+            private PriceDataTable tablePrice;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal vClient_MovieScreeningsRow(global::System.Data.DataRowBuilder rb) : 
+            internal PriceRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablevClient_MovieScreenings = ((vClient_MovieScreeningsDataTable)(this.Table));
+                this.tablePrice = ((PriceDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Title {
+            public int PriceID {
                 get {
-                    return ((string)(this[this.tablevClient_MovieScreenings.TitleColumn]));
+                    return ((int)(this[this.tablePrice.PriceIDColumn]));
                 }
                 set {
-                    this[this.tablevClient_MovieScreenings.TitleColumn] = value;
+                    this[this.tablePrice.PriceIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Genre {
+            public string AgeGroup {
                 get {
-                    try {
-                        return ((string)(this[this.tablevClient_MovieScreenings.GenreColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Genre\' in table \'vClient_MovieScreenings\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tablePrice.AgeGroupColumn]));
                 }
                 set {
-                    this[this.tablevClient_MovieScreenings.GenreColumn] = value;
+                    this[this.tablePrice.AgeGroupColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Minutes {
+            public decimal Price {
                 get {
-                    return ((int)(this[this.tablevClient_MovieScreenings.MinutesColumn]));
+                    return ((decimal)(this[this.tablePrice.PriceColumn]));
                 }
                 set {
-                    this[this.tablevClient_MovieScreenings.MinutesColumn] = value;
+                    this[this.tablePrice.PriceColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Showtime {
-                get {
-                    return ((string)(this[this.tablevClient_MovieScreenings.ShowtimeColumn]));
+            public TicketRow[] GetTicketRows() {
+                if ((this.Table.ChildRelations["FK__Ticket__PriceID__2A164134"] == null)) {
+                    return new TicketRow[0];
                 }
-                set {
-                    this[this.tablevClient_MovieScreenings.ShowtimeColumn] = value;
+                else {
+                    return ((TicketRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Ticket__PriceID__2A164134"])));
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Room {
-                get {
-                    return ((string)(this[this.tablevClient_MovieScreenings.RoomColumn]));
-                }
-                set {
-                    this[this.tablevClient_MovieScreenings.RoomColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsGenreNull() {
-                return this.IsNull(this.tablevClient_MovieScreenings.GenreColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetGenreNull() {
-                this[this.tablevClient_MovieScreenings.GenreColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class vManager_RoomsRow : global::System.Data.DataRow {
+        public partial class TicketRow : global::System.Data.DataRow {
             
-            private vManager_RoomsDataTable tablevManager_Rooms;
+            private TicketDataTable tableTicket;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal vManager_RoomsRow(global::System.Data.DataRowBuilder rb) : 
+            internal TicketRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablevManager_Rooms = ((vManager_RoomsDataTable)(this.Table));
+                this.tableTicket = ((TicketDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Room {
+            public int TicketID {
                 get {
-                    try {
-                        return ((string)(this[this.tablevManager_Rooms.RoomColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Room\' in table \'vManager_Rooms\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableTicket.TicketIDColumn]));
                 }
                 set {
-                    this[this.tablevManager_Rooms.RoomColumn] = value;
+                    this[this.tableTicket.TicketIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int RoomID {
+            public int TicketNumber {
                 get {
-                    try {
-                        return ((int)(this[this.tablevManager_Rooms.RoomIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RoomID\' in table \'vManager_Rooms\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableTicket.TicketNumberColumn]));
                 }
                 set {
-                    this[this.tablevManager_Rooms.RoomIDColumn] = value;
+                    this[this.tableTicket.TicketNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int PriceID {
+                get {
+                    return ((int)(this[this.tableTicket.PriceIDColumn]));
+                }
+                set {
+                    this[this.tableTicket.PriceIDColumn] = value;
                 }
             }
             
@@ -6032,80 +5179,216 @@ namespace TheBestMovieTheater {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int MovieID {
                 get {
-                    try {
-                        return ((int)(this[this.tablevManager_Rooms.MovieIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MovieID\' in table \'vManager_Rooms\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableTicket.MovieIDColumn]));
                 }
                 set {
-                    this[this.tablevManager_Rooms.MovieIDColumn] = value;
+                    this[this.tableTicket.MovieIDColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ShowtimeID {
+                get {
+                    return ((int)(this[this.tableTicket.ShowtimeIDColumn]));
+                }
+                set {
+                    this[this.tableTicket.ShowtimeIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ScreeningRoomID {
+                get {
+                    return ((int)(this[this.tableTicket.ScreeningRoomIDColumn]));
+                }
+                set {
+                    this[this.tableTicket.ScreeningRoomIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MovieRow MovieRow {
+                get {
+                    return ((MovieRow)(this.GetParentRow(this.Table.ParentRelations["FK__Ticket__MovieID__2B0A656D"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Ticket__MovieID__2B0A656D"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PriceRow PriceRow {
+                get {
+                    return ((PriceRow)(this.GetParentRow(this.Table.ParentRelations["FK__Ticket__PriceID__2A164134"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Ticket__PriceID__2A164134"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ScreeningRoomRow ScreeningRoomRow {
+                get {
+                    return ((ScreeningRoomRow)(this.GetParentRow(this.Table.ParentRelations["FK__Ticket__Screenin__2CF2ADDF"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Ticket__Screenin__2CF2ADDF"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ShowtimeRow ShowtimeRow {
+                get {
+                    return ((ShowtimeRow)(this.GetParentRow(this.Table.ParentRelations["FK__Ticket__Showtime__2BFE89A6"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Ticket__Showtime__2BFE89A6"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ClientTicketRow[] GetClientTicketRows() {
+                if ((this.Table.ChildRelations["FK__ClientTic__Ticke__3587F3E0"] == null)) {
+                    return new ClientTicketRow[0];
+                }
+                else {
+                    return ((ClientTicketRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ClientTic__Ticke__3587F3E0"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class vManager_ShowtimeCapacityRow : global::System.Data.DataRow {
+            
+            private vManager_ShowtimeCapacityDataTable tablevManager_ShowtimeCapacity;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal vManager_ShowtimeCapacityRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablevManager_ShowtimeCapacity = ((vManager_ShowtimeCapacityDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Title {
                 get {
+                    return ((string)(this[this.tablevManager_ShowtimeCapacity.TitleColumn]));
+                }
+                set {
+                    this[this.tablevManager_ShowtimeCapacity.TitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Minutes {
+                get {
+                    return ((int)(this[this.tablevManager_ShowtimeCapacity.MinutesColumn]));
+                }
+                set {
+                    this[this.tablevManager_ShowtimeCapacity.MinutesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Showtime {
+                get {
+                    return ((string)(this[this.tablevManager_ShowtimeCapacity.ShowtimeColumn]));
+                }
+                set {
+                    this[this.tablevManager_ShowtimeCapacity.ShowtimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Room {
+                get {
+                    return ((string)(this[this.tablevManager_ShowtimeCapacity.RoomColumn]));
+                }
+                set {
+                    this[this.tablevManager_ShowtimeCapacity.RoomColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Capacity {
+                get {
+                    return ((int)(this[this.tablevManager_ShowtimeCapacity.CapacityColumn]));
+                }
+                set {
+                    this[this.tablevManager_ShowtimeCapacity.CapacityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int PurchasedTickets {
+                get {
                     try {
-                        return ((string)(this[this.tablevManager_Rooms.TitleColumn]));
+                        return ((int)(this[this.tablevManager_ShowtimeCapacity.PurchasedTicketsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'vManager_Rooms\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PurchasedTickets\' in table \'vManager_ShowtimeCapacity\' is D" +
+                                "BNull.", e);
                     }
                 }
                 set {
-                    this[this.tablevManager_Rooms.TitleColumn] = value;
+                    this[this.tablevManager_ShowtimeCapacity.PurchasedTicketsColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsRoomNull() {
-                return this.IsNull(this.tablevManager_Rooms.RoomColumn);
+            public int RemainingSeats {
+                get {
+                    try {
+                        return ((int)(this[this.tablevManager_ShowtimeCapacity.RemainingSeatsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RemainingSeats\' in table \'vManager_ShowtimeCapacity\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevManager_ShowtimeCapacity.RemainingSeatsColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetRoomNull() {
-                this[this.tablevManager_Rooms.RoomColumn] = global::System.Convert.DBNull;
+            public bool IsPurchasedTicketsNull() {
+                return this.IsNull(this.tablevManager_ShowtimeCapacity.PurchasedTicketsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsRoomIDNull() {
-                return this.IsNull(this.tablevManager_Rooms.RoomIDColumn);
+            public void SetPurchasedTicketsNull() {
+                this[this.tablevManager_ShowtimeCapacity.PurchasedTicketsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetRoomIDNull() {
-                this[this.tablevManager_Rooms.RoomIDColumn] = global::System.Convert.DBNull;
+            public bool IsRemainingSeatsNull() {
+                return this.IsNull(this.tablevManager_ShowtimeCapacity.RemainingSeatsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsMovieIDNull() {
-                return this.IsNull(this.tablevManager_Rooms.MovieIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetMovieIDNull() {
-                this[this.tablevManager_Rooms.MovieIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTitleNull() {
-                return this.IsNull(this.tablevManager_Rooms.TitleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTitleNull() {
-                this[this.tablevManager_Rooms.TitleColumn] = global::System.Convert.DBNull;
+            public void SetRemainingSeatsNull() {
+                this[this.tablevManager_ShowtimeCapacity.RemainingSeatsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6125,62 +5408,9 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Showtime {
-                get {
-                    try {
-                        return ((string)(this[this.tablevManager_Showtimes.ShowtimeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Showtime\' in table \'vManager_Showtimes\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevManager_Showtimes.ShowtimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ShowtimeID {
-                get {
-                    try {
-                        return ((int)(this[this.tablevManager_Showtimes.ShowtimeIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ShowtimeID\' in table \'vManager_Showtimes\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevManager_Showtimes.ShowtimeIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int MovieID {
-                get {
-                    try {
-                        return ((int)(this[this.tablevManager_Showtimes.MovieIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MovieID\' in table \'vManager_Showtimes\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevManager_Showtimes.MovieIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Title {
                 get {
-                    try {
-                        return ((string)(this[this.tablevManager_Showtimes.TitleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'vManager_Showtimes\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tablevManager_Showtimes.TitleColumn]));
                 }
                 set {
                     this[this.tablevManager_Showtimes.TitleColumn] = value;
@@ -6189,50 +5419,35 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsShowtimeNull() {
-                return this.IsNull(this.tablevManager_Showtimes.ShowtimeColumn);
+            public int Minutes {
+                get {
+                    return ((int)(this[this.tablevManager_Showtimes.MinutesColumn]));
+                }
+                set {
+                    this[this.tablevManager_Showtimes.MinutesColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetShowtimeNull() {
-                this[this.tablevManager_Showtimes.ShowtimeColumn] = global::System.Convert.DBNull;
+            public string Showtime {
+                get {
+                    return ((string)(this[this.tablevManager_Showtimes.ShowtimeColumn]));
+                }
+                set {
+                    this[this.tablevManager_Showtimes.ShowtimeColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsShowtimeIDNull() {
-                return this.IsNull(this.tablevManager_Showtimes.ShowtimeIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetShowtimeIDNull() {
-                this[this.tablevManager_Showtimes.ShowtimeIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsMovieIDNull() {
-                return this.IsNull(this.tablevManager_Showtimes.MovieIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetMovieIDNull() {
-                this[this.tablevManager_Showtimes.MovieIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTitleNull() {
-                return this.IsNull(this.tablevManager_Showtimes.TitleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTitleNull() {
-                this[this.tablevManager_Showtimes.TitleColumn] = global::System.Convert.DBNull;
+            public string Room {
+                get {
+                    return ((string)(this[this.tablevManager_Showtimes.RoomColumn]));
+                }
+                set {
+                    this[this.tablevManager_Showtimes.RoomColumn] = value;
+                }
             }
         }
         
@@ -6256,40 +5471,6 @@ namespace TheBestMovieTheater {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ClientRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class ClientMovieShowtimeRowChangeEvent : global::System.EventArgs {
-            
-            private ClientMovieShowtimeRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientMovieShowtimeRowChangeEvent(ClientMovieShowtimeRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ClientMovieShowtimeRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6376,40 +5557,6 @@ namespace TheBestMovieTheater {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class MovieShowtimeRowChangeEvent : global::System.EventArgs {
-            
-            private MovieShowtimeRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieShowtimeRowChangeEvent(MovieShowtimeRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieShowtimeRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public class ScreeningRoomRowChangeEvent : global::System.EventArgs {
             
             private ScreeningRoomRow eventRow;
@@ -6478,22 +5625,22 @@ namespace TheBestMovieTheater {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class ShowtimeTicketPriceRowChangeEvent : global::System.EventArgs {
+        public class ClientTicketRowChangeEvent : global::System.EventArgs {
             
-            private ShowtimeTicketPriceRow eventRow;
+            private ClientTicketRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShowtimeTicketPriceRowChangeEvent(ShowtimeTicketPriceRow row, global::System.Data.DataRowAction action) {
+            public ClientTicketRowChangeEvent(ClientTicketRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ShowtimeTicketPriceRow Row {
+            public ClientTicketRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6512,22 +5659,22 @@ namespace TheBestMovieTheater {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class TicketPriceRowChangeEvent : global::System.EventArgs {
+        public class MovieInfoBridgeRowChangeEvent : global::System.EventArgs {
             
-            private TicketPriceRow eventRow;
+            private MovieInfoBridgeRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TicketPriceRowChangeEvent(TicketPriceRow row, global::System.Data.DataRowAction action) {
+            public MovieInfoBridgeRowChangeEvent(MovieInfoBridgeRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TicketPriceRow Row {
+            public MovieInfoBridgeRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6546,22 +5693,22 @@ namespace TheBestMovieTheater {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class MovieScreeningRoomRowChangeEvent : global::System.EventArgs {
+        public class PriceRowChangeEvent : global::System.EventArgs {
             
-            private MovieScreeningRoomRow eventRow;
+            private PriceRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieScreeningRoomRowChangeEvent(MovieScreeningRoomRow row, global::System.Data.DataRowAction action) {
+            public PriceRowChangeEvent(PriceRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MovieScreeningRoomRow Row {
+            public PriceRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6580,22 +5727,22 @@ namespace TheBestMovieTheater {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class vClient_MovieScreeningsRowChangeEvent : global::System.EventArgs {
+        public class TicketRowChangeEvent : global::System.EventArgs {
             
-            private vClient_MovieScreeningsRow eventRow;
+            private TicketRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vClient_MovieScreeningsRowChangeEvent(vClient_MovieScreeningsRow row, global::System.Data.DataRowAction action) {
+            public TicketRowChangeEvent(TicketRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vClient_MovieScreeningsRow Row {
+            public TicketRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6614,22 +5761,22 @@ namespace TheBestMovieTheater {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class vManager_RoomsRowChangeEvent : global::System.EventArgs {
+        public class vManager_ShowtimeCapacityRowChangeEvent : global::System.EventArgs {
             
-            private vManager_RoomsRow eventRow;
+            private vManager_ShowtimeCapacityRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vManager_RoomsRowChangeEvent(vManager_RoomsRow row, global::System.Data.DataRowAction action) {
+            public vManager_ShowtimeCapacityRowChangeEvent(vManager_ShowtimeCapacityRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vManager_RoomsRow Row {
+            public vManager_ShowtimeCapacityRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7172,330 +6319,6 @@ SELECT ClientID, FirstName, LastName, Email, Username, Password, CreationDate, L
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string FirstName, string LastName, string Email, string Username, string Password, System.DateTime CreationDate, global::System.Nullable<global::System.DateTime> LastBoughtTicket, int Original_ClientID, string Original_FirstName, string Original_LastName, string Original_Email, string Original_Username, string Original_Password, System.DateTime Original_CreationDate, global::System.Nullable<global::System.DateTime> Original_LastBoughtTicket) {
             return this.Update(FirstName, LastName, Email, Username, Password, CreationDate, LastBoughtTicket, Original_ClientID, Original_FirstName, Original_LastName, Original_Email, Original_Username, Original_Password, Original_CreationDate, Original_LastBoughtTicket, Original_ClientID);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ClientMovieShowtimeTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public ClientMovieShowtimeTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ClientMovieShowtime";
-            tableMapping.ColumnMappings.Add("ClientMovieShowtimeID", "ClientMovieShowtimeID");
-            tableMapping.ColumnMappings.Add("ClientID", "ClientID");
-            tableMapping.ColumnMappings.Add("MovieID", "MovieID");
-            tableMapping.ColumnMappings.Add("ShowtimeID", "ShowtimeID");
-            tableMapping.ColumnMappings.Add("DateBought", "DateBought");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ClientMovieShowtime] WHERE (([ClientMovieShowtimeID] = @Original_ClientMovieShowtimeID) AND ([ClientID] = @Original_ClientID) AND ([MovieID] = @Original_MovieID) AND ([ShowtimeID] = @Original_ShowtimeID) AND ([DateBought] = @Original_DateBought))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClientMovieShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClientMovieShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClientID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateBought", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateBought", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ClientMovieShowtime] ([ClientID], [MovieID], [ShowtimeID], [DateBought]) VALUES (@ClientID, @MovieID, @ShowtimeID, @DateBought);
-SELECT ClientMovieShowtimeID, ClientID, MovieID, ShowtimeID, DateBought FROM ClientMovieShowtime WHERE (ClientMovieShowtimeID = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateBought", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateBought", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ClientMovieShowtime] SET [ClientID] = @ClientID, [MovieID] = @MovieID, [ShowtimeID] = @ShowtimeID, [DateBought] = @DateBought WHERE (([ClientMovieShowtimeID] = @Original_ClientMovieShowtimeID) AND ([ClientID] = @Original_ClientID) AND ([MovieID] = @Original_MovieID) AND ([ShowtimeID] = @Original_ShowtimeID) AND ([DateBought] = @Original_DateBought));
-SELECT ClientMovieShowtimeID, ClientID, MovieID, ShowtimeID, DateBought FROM ClientMovieShowtime WHERE (ClientMovieShowtimeID = @ClientMovieShowtimeID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateBought", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateBought", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClientMovieShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClientMovieShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClientID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateBought", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateBought", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClientMovieShowtimeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ClientMovieShowtimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::TheBestMovieTheater.Properties.Settings.Default.TBMT_DBConnectionStringLocal;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ClientMovieShowtimeID, ClientID, MovieID, ShowtimeID, DateBought FROM dbo." +
-                "ClientMovieShowtime";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TBMT_DBDataSetLocal.ClientMovieShowtimeDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TBMT_DBDataSetLocal.ClientMovieShowtimeDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            TBMT_DBDataSetLocal.ClientMovieShowtimeDataTable dataTable = new TBMT_DBDataSetLocal.ClientMovieShowtimeDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TBMT_DBDataSetLocal.ClientMovieShowtimeDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TBMT_DBDataSetLocal dataSet) {
-            return this.Adapter.Update(dataSet, "ClientMovieShowtime");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ClientMovieShowtimeID, int Original_ClientID, int Original_MovieID, int Original_ShowtimeID, System.DateTime Original_DateBought) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ClientMovieShowtimeID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_ClientID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_MovieID));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_ShowtimeID));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_DateBought));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ClientID, int MovieID, int ShowtimeID, System.DateTime DateBought) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ClientID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(MovieID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ShowtimeID));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(DateBought));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ClientID, int MovieID, int ShowtimeID, System.DateTime DateBought, int Original_ClientMovieShowtimeID, int Original_ClientID, int Original_MovieID, int Original_ShowtimeID, System.DateTime Original_DateBought, int ClientMovieShowtimeID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ClientID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(MovieID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(ShowtimeID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(DateBought));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ClientMovieShowtimeID));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ClientID));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_MovieID));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_ShowtimeID));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_DateBought));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(ClientMovieShowtimeID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ClientID, int MovieID, int ShowtimeID, System.DateTime DateBought, int Original_ClientMovieShowtimeID, int Original_ClientID, int Original_MovieID, int Original_ShowtimeID, System.DateTime Original_DateBought) {
-            return this.Update(ClientID, MovieID, ShowtimeID, DateBought, Original_ClientMovieShowtimeID, Original_ClientID, Original_MovieID, Original_ShowtimeID, Original_DateBought, Original_ClientMovieShowtimeID);
         }
     }
     
@@ -8541,314 +7364,6 @@ SELECT MovieID, Title, Genre, Minutes, Year, FirstShowingDate, LastShowingDate F
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class MovieShowtimeTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public MovieShowtimeTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "MovieShowtime";
-            tableMapping.ColumnMappings.Add("MovieShowTimeID", "MovieShowTimeID");
-            tableMapping.ColumnMappings.Add("MovieID", "MovieID");
-            tableMapping.ColumnMappings.Add("ShowtimeID", "ShowtimeID");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[MovieShowtime] WHERE (([MovieShowTimeID] = @Original_MovieShow" +
-                "TimeID) AND ([MovieID] = @Original_MovieID) AND ([ShowtimeID] = @Original_Showti" +
-                "meID))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MovieShowTimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieShowTimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[MovieShowtime] ([MovieID], [ShowtimeID]) VALUES (@MovieID, @Sh" +
-                "owtimeID);\r\nSELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE" +
-                " (MovieShowTimeID = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[MovieShowtime] SET [MovieID] = @MovieID, [ShowtimeID] = @ShowtimeID WHERE (([MovieShowTimeID] = @Original_MovieShowTimeID) AND ([MovieID] = @Original_MovieID) AND ([ShowtimeID] = @Original_ShowtimeID));
-SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowTimeID = @MovieShowTimeID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MovieShowTimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieShowTimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MovieShowTimeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MovieShowTimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::TheBestMovieTheater.Properties.Settings.Default.TBMT_DBConnectionStringLocal;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT MovieShowTimeID, MovieID, ShowtimeID FROM dbo.MovieShowtime";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TBMT_DBDataSetLocal.MovieShowtimeDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TBMT_DBDataSetLocal.MovieShowtimeDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            TBMT_DBDataSetLocal.MovieShowtimeDataTable dataTable = new TBMT_DBDataSetLocal.MovieShowtimeDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TBMT_DBDataSetLocal.MovieShowtimeDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TBMT_DBDataSetLocal dataSet) {
-            return this.Adapter.Update(dataSet, "MovieShowtime");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_MovieShowTimeID, int Original_MovieID, int Original_ShowtimeID) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_MovieShowTimeID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_MovieID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_ShowtimeID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int MovieID, int ShowtimeID) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(MovieID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ShowtimeID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int MovieID, int ShowtimeID, int Original_MovieShowTimeID, int Original_MovieID, int Original_ShowtimeID, int MovieShowTimeID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(MovieID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(ShowtimeID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_MovieShowTimeID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_MovieID));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ShowtimeID));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(MovieShowTimeID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int MovieID, int ShowtimeID, int Original_MovieShowTimeID, int Original_MovieID, int Original_ShowtimeID) {
-            return this.Update(MovieID, ShowtimeID, Original_MovieShowTimeID, Original_MovieID, Original_ShowtimeID, Original_MovieShowTimeID);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class ScreeningRoomTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -8961,39 +7476,37 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "ScreeningRoom";
-            tableMapping.ColumnMappings.Add("RoomID", "RoomID");
             tableMapping.ColumnMappings.Add("Room", "Room");
             tableMapping.ColumnMappings.Add("Capacity", "Capacity");
+            tableMapping.ColumnMappings.Add("ScreeningRoomID", "ScreeningRoomID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[ScreeningRoom] WHERE (([RoomID] = @Original_RoomID) AND ([Room" +
-                "] = @Original_Room) AND ([Capacity] = @Original_Capacity))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [ScreeningRoom] WHERE (([Room] = @Original_Room) AND ([Capacity] = @O" +
+                "riginal_Capacity) AND ([ScreeningRoomID] = @Original_ScreeningRoomID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RoomID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Room", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Capacity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Capacity", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ScreeningRoom] ([Room], [Capacity]) VALUES (@Room, @Capacity);" +
-                "\r\nSELECT RoomID, Room, Capacity FROM ScreeningRoom WHERE (RoomID = SCOPE_IDENTIT" +
-                "Y())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [ScreeningRoom] ([Room], [Capacity]) VALUES (@Room, @Capacity);\r\nSELE" +
+                "CT Room, Capacity, ScreeningRoomID FROM ScreeningRoom WHERE (ScreeningRoomID = S" +
+                "COPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Room", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Capacity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Capacity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[ScreeningRoom] SET [Room] = @Room, [Capacity] = @Capacity WHERE (([" +
-                "RoomID] = @Original_RoomID) AND ([Room] = @Original_Room) AND ([Capacity] = @Ori" +
-                "ginal_Capacity));\r\nSELECT RoomID, Room, Capacity FROM ScreeningRoom WHERE (RoomI" +
-                "D = @RoomID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [ScreeningRoom] SET [Room] = @Room, [Capacity] = @Capacity WHERE (([Room] = @Original_Room) AND ([Capacity] = @Original_Capacity) AND ([ScreeningRoomID] = @Original_ScreeningRoomID));
+SELECT Room, Capacity, ScreeningRoomID FROM ScreeningRoom WHERE (ScreeningRoomID = @ScreeningRoomID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Room", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Capacity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Capacity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RoomID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Room", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Capacity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Capacity", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RoomID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RoomID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScreeningRoomID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9009,7 +7522,7 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT RoomID, Room, Capacity FROM dbo.ScreeningRoom";
+            this._commandCollection[0].CommandText = "SELECT Room, Capacity, ScreeningRoomID FROM ScreeningRoom";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9070,15 +7583,15 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_RoomID, string Original_Room, int Original_Capacity) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RoomID));
+        public virtual int Delete(string Original_Room, int Original_Capacity, int Original_ScreeningRoomID) {
             if ((Original_Room == null)) {
                 throw new global::System.ArgumentNullException("Original_Room");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Room));
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Room));
             }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Capacity));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Capacity));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_ScreeningRoomID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9127,7 +7640,7 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Room, int Capacity, int Original_RoomID, string Original_Room, int Original_Capacity, int RoomID) {
+        public virtual int Update(string Room, int Capacity, string Original_Room, int Original_Capacity, int Original_ScreeningRoomID, int ScreeningRoomID) {
             if ((Room == null)) {
                 throw new global::System.ArgumentNullException("Room");
             }
@@ -9135,15 +7648,15 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Room));
             }
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Capacity));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_RoomID));
             if ((Original_Room == null)) {
                 throw new global::System.ArgumentNullException("Original_Room");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_Room));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_Room));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Capacity));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(RoomID));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Capacity));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ScreeningRoomID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(ScreeningRoomID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9164,8 +7677,8 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Room, int Capacity, int Original_RoomID, string Original_Room, int Original_Capacity) {
-            return this.Update(Room, Capacity, Original_RoomID, Original_Room, Original_Capacity, Original_RoomID);
+        public virtual int Update(string Room, int Capacity, string Original_Room, int Original_Capacity, int Original_ScreeningRoomID) {
+            return this.Update(Room, Capacity, Original_Room, Original_Capacity, Original_ScreeningRoomID, Original_ScreeningRoomID);
         }
     }
     
@@ -9291,30 +7804,30 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Showtime";
             tableMapping.ColumnMappings.Add("ShowtimeID", "ShowtimeID");
-            tableMapping.ColumnMappings.Add("Hour", "Hour");
+            tableMapping.ColumnMappings.Add("Showtime", "Showtime");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Showtime] WHERE (([ShowtimeID] = @Original_ShowtimeID) AND ([Hour] =" +
-                " @Original_Hour))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Showtime] WHERE (([ShowtimeID] = @Original_ShowtimeID) AND ([Showtim" +
+                "e] = @Original_Showtime))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hour", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hour", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Showtime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Showtime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Showtime] ([Hour]) VALUES (@Hour);\r\nSELECT ShowtimeID, Hour FROM Sho" +
-                "wtime WHERE (ShowtimeID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Showtime] ([Showtime]) VALUES (@Showtime);\r\nSELECT ShowtimeID, Showt" +
+                "ime FROM Showtime WHERE (ShowtimeID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hour", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hour", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Showtime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Showtime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [Showtime] SET [Hour] = @Hour WHERE (([ShowtimeID] = @Original_ShowtimeID)" +
-                " AND ([Hour] = @Original_Hour));\r\nSELECT ShowtimeID, Hour FROM Showtime WHERE (S" +
-                "howtimeID = @ShowtimeID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [Showtime] SET [Showtime] = @Showtime WHERE (([ShowtimeID] = @Original_Sho" +
+                "wtimeID) AND ([Showtime] = @Original_Showtime));\r\nSELECT ShowtimeID, Showtime FR" +
+                "OM Showtime WHERE (ShowtimeID = @ShowtimeID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hour", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hour", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Showtime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Showtime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Hour", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hour", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Showtime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Showtime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShowtimeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -9331,7 +7844,7 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ShowtimeID, Hour FROM Showtime";
+            this._commandCollection[0].CommandText = "SELECT ShowtimeID, Showtime FROM Showtime";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9392,13 +7905,13 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ShowtimeID, string Original_Hour) {
+        public virtual int Delete(int Original_ShowtimeID, string Original_Showtime) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ShowtimeID));
-            if ((Original_Hour == null)) {
-                throw new global::System.ArgumentNullException("Original_Hour");
+            if ((Original_Showtime == null)) {
+                throw new global::System.ArgumentNullException("Original_Showtime");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Hour));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Showtime));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9420,12 +7933,12 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Hour) {
-            if ((Hour == null)) {
-                throw new global::System.ArgumentNullException("Hour");
+        public virtual int Insert(string Showtime) {
+            if ((Showtime == null)) {
+                throw new global::System.ArgumentNullException("Showtime");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Hour));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Showtime));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9447,19 +7960,19 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Hour, int Original_ShowtimeID, string Original_Hour, int ShowtimeID) {
-            if ((Hour == null)) {
-                throw new global::System.ArgumentNullException("Hour");
+        public virtual int Update(string Showtime, int Original_ShowtimeID, string Original_Showtime, int ShowtimeID) {
+            if ((Showtime == null)) {
+                throw new global::System.ArgumentNullException("Showtime");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Hour));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Showtime));
             }
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_ShowtimeID));
-            if ((Original_Hour == null)) {
-                throw new global::System.ArgumentNullException("Original_Hour");
+            if ((Original_Showtime == null)) {
+                throw new global::System.ArgumentNullException("Original_Showtime");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_Hour));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_Showtime));
             }
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(ShowtimeID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
@@ -9482,8 +7995,8 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Hour, int Original_ShowtimeID, string Original_Hour) {
-            return this.Update(Hour, Original_ShowtimeID, Original_Hour, Original_ShowtimeID);
+        public virtual int Update(string Showtime, int Original_ShowtimeID, string Original_Showtime) {
+            return this.Update(Showtime, Original_ShowtimeID, Original_Showtime, Original_ShowtimeID);
         }
     }
     
@@ -9496,7 +8009,7 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ShowtimeTicketPriceTableAdapter : global::System.ComponentModel.Component {
+    public partial class ClientTicketTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -9510,7 +8023,7 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public ShowtimeTicketPriceTableAdapter() {
+        public ClientTicketTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -9607,43 +8120,44 @@ SELECT MovieShowTimeID, MovieID, ShowtimeID FROM MovieShowtime WHERE (MovieShowT
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ShowtimeTicketPrice";
-            tableMapping.ColumnMappings.Add("ShowtimeTicketPriceID", "ShowtimeTicketPriceID");
-            tableMapping.ColumnMappings.Add("ShowtimeID", "ShowtimeID");
-            tableMapping.ColumnMappings.Add("PriceID", "PriceID");
-            tableMapping.ColumnMappings.Add("NumOfTickets", "NumOfTickets");
+            tableMapping.DataSetTable = "ClientTicket";
+            tableMapping.ColumnMappings.Add("ClientTicketID", "ClientTicketID");
+            tableMapping.ColumnMappings.Add("ClientID", "ClientID");
+            tableMapping.ColumnMappings.Add("TicketID", "TicketID");
+            tableMapping.ColumnMappings.Add("DateBought", "DateBought");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ShowtimeTicketPrice] WHERE (([ShowtimeTicketPriceID] = @Original_ShowtimeTicketPriceID) AND ([ShowtimeID] = @Original_ShowtimeID) AND ([PriceID] = @Original_PriceID) AND ((@IsNull_NumOfTickets = 1 AND [NumOfTickets] IS NULL) OR ([NumOfTickets] = @Original_NumOfTickets)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[ClientTicket] WHERE (([ClientTicketID] = @Original_ClientTicke" +
+                "tID) AND ([ClientID] = @Original_ClientID) AND ([TicketID] = @Original_TicketID)" +
+                " AND ([DateBought] = @Original_DateBought))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeTicketPriceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeTicketPriceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PriceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PriceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NumOfTickets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumOfTickets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumOfTickets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumOfTickets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClientTicketID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClientTicketID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClientID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TicketID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TicketID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateBought", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateBought", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ShowtimeTicketPrice] ([ShowtimeID], [PriceID], [NumOfTickets]) VALUES (@ShowtimeID, @PriceID, @NumOfTickets);
-SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM ShowtimeTicketPrice WHERE (ShowtimeTicketPriceID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ClientTicket] ([ClientID], [TicketID], [DateBought]) VALUES (@" +
+                "ClientID, @TicketID, @DateBought);\r\nSELECT ClientTicketID, ClientID, TicketID, D" +
+                "ateBought FROM ClientTicket WHERE (ClientTicketID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PriceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PriceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumOfTickets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumOfTickets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TicketID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TicketID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateBought", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateBought", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ShowtimeTicketPrice] SET [ShowtimeID] = @ShowtimeID, [PriceID] = @PriceID, [NumOfTickets] = @NumOfTickets WHERE (([ShowtimeTicketPriceID] = @Original_ShowtimeTicketPriceID) AND ([ShowtimeID] = @Original_ShowtimeID) AND ([PriceID] = @Original_PriceID) AND ((@IsNull_NumOfTickets = 1 AND [NumOfTickets] IS NULL) OR ([NumOfTickets] = @Original_NumOfTickets)));
-SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM ShowtimeTicketPrice WHERE (ShowtimeTicketPriceID = @ShowtimeTicketPriceID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ClientTicket] SET [ClientID] = @ClientID, [TicketID] = @TicketID, [DateBought] = @DateBought WHERE (([ClientTicketID] = @Original_ClientTicketID) AND ([ClientID] = @Original_ClientID) AND ([TicketID] = @Original_TicketID) AND ([DateBought] = @Original_DateBought));
+SELECT ClientTicketID, ClientID, TicketID, DateBought FROM ClientTicket WHERE (ClientTicketID = @ClientTicketID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PriceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PriceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumOfTickets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumOfTickets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeTicketPriceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeTicketPriceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PriceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PriceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NumOfTickets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumOfTickets", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumOfTickets", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumOfTickets", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShowtimeTicketPriceID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeTicketPriceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TicketID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TicketID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateBought", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateBought", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClientTicketID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClientTicketID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClientID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClientID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TicketID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TicketID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateBought", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateBought", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClientTicketID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ClientTicketID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9659,8 +8173,7 @@ SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM ShowtimeTic
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM dbo.Showtime" +
-                "TicketPrice";
+            this._commandCollection[0].CommandText = "SELECT ClientTicketID, ClientID, TicketID, DateBought FROM dbo.ClientTicket";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9668,7 +8181,7 @@ SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM ShowtimeTic
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TBMT_DBDataSetLocal.ShowtimeTicketPriceDataTable dataTable) {
+        public virtual int Fill(TBMT_DBDataSetLocal.ClientTicketDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -9681,9 +8194,9 @@ SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM ShowtimeTic
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TBMT_DBDataSetLocal.ShowtimeTicketPriceDataTable GetData() {
+        public virtual TBMT_DBDataSetLocal.ClientTicketDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TBMT_DBDataSetLocal.ShowtimeTicketPriceDataTable dataTable = new TBMT_DBDataSetLocal.ShowtimeTicketPriceDataTable();
+            TBMT_DBDataSetLocal.ClientTicketDataTable dataTable = new TBMT_DBDataSetLocal.ClientTicketDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -9691,7 +8204,7 @@ SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM ShowtimeTic
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TBMT_DBDataSetLocal.ShowtimeTicketPriceDataTable dataTable) {
+        public virtual int Update(TBMT_DBDataSetLocal.ClientTicketDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -9699,7 +8212,7 @@ SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM ShowtimeTic
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(TBMT_DBDataSetLocal dataSet) {
-            return this.Adapter.Update(dataSet, "ShowtimeTicketPrice");
+            return this.Adapter.Update(dataSet, "ClientTicket");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9721,18 +8234,11 @@ SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM ShowtimeTic
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ShowtimeTicketPriceID, int Original_ShowtimeID, int Original_PriceID, global::System.Nullable<int> Original_NumOfTickets) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ShowtimeTicketPriceID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_ShowtimeID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_PriceID));
-            if ((Original_NumOfTickets.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_NumOfTickets.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
+        public virtual int Delete(int Original_ClientTicketID, int Original_ClientID, int Original_TicketID, System.DateTime Original_DateBought) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ClientTicketID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_ClientID));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_TicketID));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_DateBought));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9753,15 +8259,10 @@ SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM ShowtimeTic
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ShowtimeID, int PriceID, global::System.Nullable<int> NumOfTickets) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ShowtimeID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PriceID));
-            if ((NumOfTickets.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(NumOfTickets.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
+        public virtual int Insert(int ClientID, int TicketID, System.DateTime DateBought) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ClientID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(TicketID));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(DateBought));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9782,27 +8283,15 @@ SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM ShowtimeTic
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ShowtimeID, int PriceID, global::System.Nullable<int> NumOfTickets, int Original_ShowtimeTicketPriceID, int Original_ShowtimeID, int Original_PriceID, global::System.Nullable<int> Original_NumOfTickets, int ShowtimeTicketPriceID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ShowtimeID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(PriceID));
-            if ((NumOfTickets.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(NumOfTickets.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ShowtimeTicketPriceID));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ShowtimeID));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_PriceID));
-            if ((Original_NumOfTickets.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_NumOfTickets.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(ShowtimeTicketPriceID));
+        public virtual int Update(int ClientID, int TicketID, System.DateTime DateBought, int Original_ClientTicketID, int Original_ClientID, int Original_TicketID, System.DateTime Original_DateBought, int ClientTicketID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ClientID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(TicketID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(DateBought));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ClientTicketID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ClientID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_TicketID));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Original_DateBought));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(ClientTicketID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9823,8 +8312,8 @@ SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM ShowtimeTic
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ShowtimeID, int PriceID, global::System.Nullable<int> NumOfTickets, int Original_ShowtimeTicketPriceID, int Original_ShowtimeID, int Original_PriceID, global::System.Nullable<int> Original_NumOfTickets) {
-            return this.Update(ShowtimeID, PriceID, NumOfTickets, Original_ShowtimeTicketPriceID, Original_ShowtimeID, Original_PriceID, Original_NumOfTickets, Original_ShowtimeTicketPriceID);
+        public virtual int Update(int ClientID, int TicketID, System.DateTime DateBought, int Original_ClientTicketID, int Original_ClientID, int Original_TicketID, System.DateTime Original_DateBought) {
+            return this.Update(ClientID, TicketID, DateBought, Original_ClientTicketID, Original_ClientID, Original_TicketID, Original_DateBought, Original_ClientTicketID);
         }
     }
     
@@ -9837,7 +8326,7 @@ SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM ShowtimeTic
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class TicketPriceTableAdapter : global::System.ComponentModel.Component {
+    public partial class MovieInfoBridgeTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -9851,7 +8340,7 @@ SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM ShowtimeTic
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public TicketPriceTableAdapter() {
+        public MovieInfoBridgeTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -9948,31 +8437,349 @@ SELECT ShowtimeTicketPriceID, ShowtimeID, PriceID, NumOfTickets FROM ShowtimeTic
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "TicketPrice";
+            tableMapping.DataSetTable = "MovieInfoBridge";
+            tableMapping.ColumnMappings.Add("MovieShowTimeID", "MovieShowTimeID");
+            tableMapping.ColumnMappings.Add("MovieID", "MovieID");
+            tableMapping.ColumnMappings.Add("ShowtimeID", "ShowtimeID");
+            tableMapping.ColumnMappings.Add("ScreeningRoomID", "ScreeningRoomID");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[MovieInfoBridge] WHERE (([MovieShowTimeID] = @Original_MovieSh" +
+                "owTimeID) AND ([MovieID] = @Original_MovieID) AND ([ShowtimeID] = @Original_Show" +
+                "timeID) AND ([ScreeningRoomID] = @Original_ScreeningRoomID))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MovieShowTimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieShowTimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[MovieInfoBridge] ([MovieID], [ShowtimeID], [ScreeningRoomID]) VALUES (@MovieID, @ShowtimeID, @ScreeningRoomID);
+SELECT MovieShowTimeID, MovieID, ShowtimeID, ScreeningRoomID FROM MovieInfoBridge WHERE (MovieShowTimeID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[MovieInfoBridge] SET [MovieID] = @MovieID, [ShowtimeID] = @ShowtimeID, [ScreeningRoomID] = @ScreeningRoomID WHERE (([MovieShowTimeID] = @Original_MovieShowTimeID) AND ([MovieID] = @Original_MovieID) AND ([ShowtimeID] = @Original_ShowtimeID) AND ([ScreeningRoomID] = @Original_ScreeningRoomID));
+SELECT MovieShowTimeID, MovieID, ShowtimeID, ScreeningRoomID FROM MovieInfoBridge WHERE (MovieShowTimeID = @MovieShowTimeID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MovieShowTimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieShowTimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MovieShowTimeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MovieShowTimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::TheBestMovieTheater.Properties.Settings.Default.TBMT_DBConnectionStringLocal;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT MovieShowTimeID, MovieID, ShowtimeID, ScreeningRoomID FROM dbo.MovieInfoBr" +
+                "idge";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(TBMT_DBDataSetLocal.MovieInfoBridgeDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual TBMT_DBDataSetLocal.MovieInfoBridgeDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            TBMT_DBDataSetLocal.MovieInfoBridgeDataTable dataTable = new TBMT_DBDataSetLocal.MovieInfoBridgeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(TBMT_DBDataSetLocal.MovieInfoBridgeDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(TBMT_DBDataSetLocal dataSet) {
+            return this.Adapter.Update(dataSet, "MovieInfoBridge");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_MovieShowTimeID, int Original_MovieID, int Original_ShowtimeID, int Original_ScreeningRoomID) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_MovieShowTimeID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_MovieID));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_ShowtimeID));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_ScreeningRoomID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int MovieID, int ShowtimeID, int ScreeningRoomID) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(MovieID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ShowtimeID));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ScreeningRoomID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int MovieID, int ShowtimeID, int ScreeningRoomID, int Original_MovieShowTimeID, int Original_MovieID, int Original_ShowtimeID, int Original_ScreeningRoomID, int MovieShowTimeID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(MovieID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(ShowtimeID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(ScreeningRoomID));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_MovieShowTimeID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_MovieID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ShowtimeID));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ScreeningRoomID));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(MovieShowTimeID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int MovieID, int ShowtimeID, int ScreeningRoomID, int Original_MovieShowTimeID, int Original_MovieID, int Original_ShowtimeID, int Original_ScreeningRoomID) {
+            return this.Update(MovieID, ShowtimeID, ScreeningRoomID, Original_MovieShowTimeID, Original_MovieID, Original_ShowtimeID, Original_ScreeningRoomID, Original_MovieShowTimeID);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class PriceTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public PriceTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Price";
             tableMapping.ColumnMappings.Add("PriceID", "PriceID");
             tableMapping.ColumnMappings.Add("AgeGroup", "AgeGroup");
             tableMapping.ColumnMappings.Add("Price", "Price");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TicketPrice] WHERE (([PriceID] = @Original_PriceID) AND ([AgeG" +
-                "roup] = @Original_AgeGroup) AND ([Price] = @Original_Price))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Price] WHERE (([PriceID] = @Original_PriceID) AND ([AgeGroup] " +
+                "= @Original_AgeGroup) AND ([Price] = @Original_Price))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PriceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PriceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AgeGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AgeGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TicketPrice] ([AgeGroup], [Price]) VALUES (@AgeGroup, @Price);" +
-                "\r\nSELECT PriceID, AgeGroup, Price FROM TicketPrice WHERE (PriceID = SCOPE_IDENTI" +
-                "TY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Price] ([AgeGroup], [Price]) VALUES (@AgeGroup, @Price);\r\nSELE" +
+                "CT PriceID, AgeGroup, Price FROM Price WHERE (PriceID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AgeGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AgeGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[TicketPrice] SET [AgeGroup] = @AgeGroup, [Price] = @Price WHERE (([PriceID] = @Original_PriceID) AND ([AgeGroup] = @Original_AgeGroup) AND ([Price] = @Original_Price));
-SELECT PriceID, AgeGroup, Price FROM TicketPrice WHERE (PriceID = @PriceID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Price] SET [AgeGroup] = @AgeGroup, [Price] = @Price WHERE (([PriceI" +
+                "D] = @Original_PriceID) AND ([AgeGroup] = @Original_AgeGroup) AND ([Price] = @Or" +
+                "iginal_Price));\r\nSELECT PriceID, AgeGroup, Price FROM Price WHERE (PriceID = @Pr" +
+                "iceID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AgeGroup", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AgeGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9995,7 +8802,7 @@ SELECT PriceID, AgeGroup, Price FROM TicketPrice WHERE (PriceID = @PriceID)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PriceID, AgeGroup, Price FROM dbo.TicketPrice";
+            this._commandCollection[0].CommandText = "SELECT PriceID, AgeGroup, Price FROM dbo.Price";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10003,7 +8810,7 @@ SELECT PriceID, AgeGroup, Price FROM TicketPrice WHERE (PriceID = @PriceID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TBMT_DBDataSetLocal.TicketPriceDataTable dataTable) {
+        public virtual int Fill(TBMT_DBDataSetLocal.PriceDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -10016,9 +8823,9 @@ SELECT PriceID, AgeGroup, Price FROM TicketPrice WHERE (PriceID = @PriceID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TBMT_DBDataSetLocal.TicketPriceDataTable GetData() {
+        public virtual TBMT_DBDataSetLocal.PriceDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TBMT_DBDataSetLocal.TicketPriceDataTable dataTable = new TBMT_DBDataSetLocal.TicketPriceDataTable();
+            TBMT_DBDataSetLocal.PriceDataTable dataTable = new TBMT_DBDataSetLocal.PriceDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -10026,7 +8833,7 @@ SELECT PriceID, AgeGroup, Price FROM TicketPrice WHERE (PriceID = @PriceID)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TBMT_DBDataSetLocal.TicketPriceDataTable dataTable) {
+        public virtual int Update(TBMT_DBDataSetLocal.PriceDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -10034,7 +8841,7 @@ SELECT PriceID, AgeGroup, Price FROM TicketPrice WHERE (PriceID = @PriceID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(TBMT_DBDataSetLocal dataSet) {
-            return this.Adapter.Update(dataSet, "TicketPrice");
+            return this.Adapter.Update(dataSet, "Price");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10164,7 +8971,7 @@ SELECT PriceID, AgeGroup, Price FROM TicketPrice WHERE (PriceID = @PriceID)";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class MovieScreeningRoomTableAdapter : global::System.ComponentModel.Component {
+    public partial class TicketTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -10178,7 +8985,7 @@ SELECT PriceID, AgeGroup, Price FROM TicketPrice WHERE (PriceID = @PriceID)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public MovieScreeningRoomTableAdapter() {
+        public TicketTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -10275,39 +9082,51 @@ SELECT PriceID, AgeGroup, Price FROM TicketPrice WHERE (PriceID = @PriceID)";
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "MovieScreeningRoom";
-            tableMapping.ColumnMappings.Add("ShowtimeScreeningRoomID", "ShowtimeScreeningRoomID");
+            tableMapping.DataSetTable = "Ticket";
+            tableMapping.ColumnMappings.Add("TicketID", "TicketID");
+            tableMapping.ColumnMappings.Add("TicketNumber", "TicketNumber");
+            tableMapping.ColumnMappings.Add("PriceID", "PriceID");
             tableMapping.ColumnMappings.Add("MovieID", "MovieID");
+            tableMapping.ColumnMappings.Add("ShowtimeID", "ShowtimeID");
             tableMapping.ColumnMappings.Add("ScreeningRoomID", "ScreeningRoomID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[MovieScreeningRoom] WHERE (([ShowtimeScreeningRoomID] = @Origi" +
-                "nal_ShowtimeScreeningRoomID) AND ([MovieID] = @Original_MovieID) AND ([Screening" +
-                "RoomID] = @Original_ScreeningRoomID))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Ticket] WHERE (([TicketID] = @Original_TicketID) AND ([TicketNumber] = @Original_TicketNumber) AND ([PriceID] = @Original_PriceID) AND ([MovieID] = @Original_MovieID) AND ([ShowtimeID] = @Original_ShowtimeID) AND ([ScreeningRoomID] = @Original_ScreeningRoomID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeScreeningRoomID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TicketID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TicketID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TicketNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TicketNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PriceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PriceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[MovieScreeningRoom] ([MovieID], [ScreeningRoomID]) VALUES (@Mo" +
-                "vieID, @ScreeningRoomID);\r\nSELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoo" +
-                "mID FROM MovieScreeningRoom WHERE (ShowtimeScreeningRoomID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Ticket] ([TicketNumber], [PriceID], [MovieID], [ShowtimeID], [ScreeningRoomID]) VALUES (@TicketNumber, @PriceID, @MovieID, @ShowtimeID, @ScreeningRoomID);
+SELECT TicketID, TicketNumber, PriceID, MovieID, ShowtimeID, ScreeningRoomID FROM Ticket WHERE (TicketID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TicketNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TicketNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PriceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PriceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[MovieScreeningRoom] SET [MovieID] = @MovieID, [ScreeningRoomID] = @ScreeningRoomID WHERE (([ShowtimeScreeningRoomID] = @Original_ShowtimeScreeningRoomID) AND ([MovieID] = @Original_MovieID) AND ([ScreeningRoomID] = @Original_ScreeningRoomID));
-SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom WHERE (ShowtimeScreeningRoomID = @ShowtimeScreeningRoomID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Ticket] SET [TicketNumber] = @TicketNumber, [PriceID] = @PriceID, [MovieID] = @MovieID, [ShowtimeID] = @ShowtimeID, [ScreeningRoomID] = @ScreeningRoomID WHERE (([TicketID] = @Original_TicketID) AND ([TicketNumber] = @Original_TicketNumber) AND ([PriceID] = @Original_PriceID) AND ([MovieID] = @Original_MovieID) AND ([ShowtimeID] = @Original_ShowtimeID) AND ([ScreeningRoomID] = @Original_ScreeningRoomID));
+SELECT TicketID, TicketNumber, PriceID, MovieID, ShowtimeID, ScreeningRoomID FROM Ticket WHERE (TicketID = @TicketID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TicketNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TicketNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PriceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PriceID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeScreeningRoomID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TicketID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TicketID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TicketNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TicketNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PriceID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PriceID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MovieID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MovieID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShowtimeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShowtimeScreeningRoomID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ShowtimeScreeningRoomID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TicketID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TicketID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10323,8 +9142,8 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM dbo.MovieScreeningR" +
-                "oom";
+            this._commandCollection[0].CommandText = "SELECT TicketID, TicketNumber, PriceID, MovieID, ShowtimeID, ScreeningRoomID FROM" +
+                " dbo.Ticket";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10332,7 +9151,7 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TBMT_DBDataSetLocal.MovieScreeningRoomDataTable dataTable) {
+        public virtual int Fill(TBMT_DBDataSetLocal.TicketDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -10345,9 +9164,9 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TBMT_DBDataSetLocal.MovieScreeningRoomDataTable GetData() {
+        public virtual TBMT_DBDataSetLocal.TicketDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TBMT_DBDataSetLocal.MovieScreeningRoomDataTable dataTable = new TBMT_DBDataSetLocal.MovieScreeningRoomDataTable();
+            TBMT_DBDataSetLocal.TicketDataTable dataTable = new TBMT_DBDataSetLocal.TicketDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -10355,7 +9174,7 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TBMT_DBDataSetLocal.MovieScreeningRoomDataTable dataTable) {
+        public virtual int Update(TBMT_DBDataSetLocal.TicketDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -10363,7 +9182,7 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(TBMT_DBDataSetLocal dataSet) {
-            return this.Adapter.Update(dataSet, "MovieScreeningRoom");
+            return this.Adapter.Update(dataSet, "Ticket");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10385,10 +9204,13 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ShowtimeScreeningRoomID, int Original_MovieID, int Original_ScreeningRoomID) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ShowtimeScreeningRoomID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_MovieID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_ScreeningRoomID));
+        public virtual int Delete(int Original_TicketID, int Original_TicketNumber, int Original_PriceID, int Original_MovieID, int Original_ShowtimeID, int Original_ScreeningRoomID) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_TicketID));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_TicketNumber));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_PriceID));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_MovieID));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_ShowtimeID));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_ScreeningRoomID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10409,9 +9231,12 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int MovieID, int ScreeningRoomID) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(MovieID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ScreeningRoomID));
+        public virtual int Insert(int TicketNumber, int PriceID, int MovieID, int ShowtimeID, int ScreeningRoomID) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(TicketNumber));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PriceID));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(MovieID));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(ShowtimeID));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(ScreeningRoomID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10432,13 +9257,19 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int MovieID, int ScreeningRoomID, int Original_ShowtimeScreeningRoomID, int Original_MovieID, int Original_ScreeningRoomID, int ShowtimeScreeningRoomID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(MovieID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(ScreeningRoomID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_ShowtimeScreeningRoomID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_MovieID));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ScreeningRoomID));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(ShowtimeScreeningRoomID));
+        public virtual int Update(int TicketNumber, int PriceID, int MovieID, int ShowtimeID, int ScreeningRoomID, int Original_TicketID, int Original_TicketNumber, int Original_PriceID, int Original_MovieID, int Original_ShowtimeID, int Original_ScreeningRoomID, int TicketID) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(TicketNumber));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(PriceID));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(MovieID));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(ShowtimeID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(ScreeningRoomID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_TicketID));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_TicketNumber));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_PriceID));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_MovieID));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ShowtimeID));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ScreeningRoomID));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(TicketID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10459,8 +9290,8 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int MovieID, int ScreeningRoomID, int Original_ShowtimeScreeningRoomID, int Original_MovieID, int Original_ScreeningRoomID) {
-            return this.Update(MovieID, ScreeningRoomID, Original_ShowtimeScreeningRoomID, Original_MovieID, Original_ScreeningRoomID, Original_ShowtimeScreeningRoomID);
+        public virtual int Update(int TicketNumber, int PriceID, int MovieID, int ShowtimeID, int ScreeningRoomID, int Original_TicketID, int Original_TicketNumber, int Original_PriceID, int Original_MovieID, int Original_ShowtimeID, int Original_ScreeningRoomID) {
+            return this.Update(TicketNumber, PriceID, MovieID, ShowtimeID, ScreeningRoomID, Original_TicketID, Original_TicketNumber, Original_PriceID, Original_MovieID, Original_ShowtimeID, Original_ScreeningRoomID, Original_TicketID);
         }
     }
     
@@ -10473,7 +9304,7 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class vClient_MovieScreeningsTableAdapter : global::System.ComponentModel.Component {
+    public partial class vManager_ShowtimeCapacityTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -10487,7 +9318,7 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public vClient_MovieScreeningsTableAdapter() {
+        public vManager_ShowtimeCapacityTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -10584,12 +9415,14 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "vClient_MovieScreenings";
+            tableMapping.DataSetTable = "vManager_ShowtimeCapacity";
             tableMapping.ColumnMappings.Add("Title", "Title");
-            tableMapping.ColumnMappings.Add("Genre", "Genre");
             tableMapping.ColumnMappings.Add("Minutes", "Minutes");
             tableMapping.ColumnMappings.Add("Showtime", "Showtime");
             tableMapping.ColumnMappings.Add("Room", "Room");
+            tableMapping.ColumnMappings.Add("Capacity", "Capacity");
+            tableMapping.ColumnMappings.Add("PurchasedTickets", "PurchasedTickets");
+            tableMapping.ColumnMappings.Add("RemainingSeats", "RemainingSeats");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -10606,7 +9439,8 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Title, Genre, Minutes, Showtime, Room FROM dbo.vClient_MovieScreenings";
+            this._commandCollection[0].CommandText = "SELECT Title, Minutes, Showtime, Room, Capacity, PurchasedTickets, RemainingSeats" +
+                " FROM dbo.vManager_ShowtimeCapacity";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10614,7 +9448,7 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TBMT_DBDataSetLocal.vClient_MovieScreeningsDataTable dataTable) {
+        public virtual int Fill(TBMT_DBDataSetLocal.vManager_ShowtimeCapacityDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -10627,179 +9461,9 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TBMT_DBDataSetLocal.vClient_MovieScreeningsDataTable GetData() {
+        public virtual TBMT_DBDataSetLocal.vManager_ShowtimeCapacityDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TBMT_DBDataSetLocal.vClient_MovieScreeningsDataTable dataTable = new TBMT_DBDataSetLocal.vClient_MovieScreeningsDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class vManager_RoomsTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public vManager_RoomsTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "vManager_Rooms";
-            tableMapping.ColumnMappings.Add("Room", "Room");
-            tableMapping.ColumnMappings.Add("RoomID", "RoomID");
-            tableMapping.ColumnMappings.Add("MovieID", "MovieID");
-            tableMapping.ColumnMappings.Add("Title", "Title");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::TheBestMovieTheater.Properties.Settings.Default.TBMT_DBConnectionStringLocal;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Room, RoomID, MovieID, Title FROM dbo.vManager_Rooms ORDER BY RoomID ASC";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TBMT_DBDataSetLocal.vManager_RoomsDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TBMT_DBDataSetLocal.vManager_RoomsDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            TBMT_DBDataSetLocal.vManager_RoomsDataTable dataTable = new TBMT_DBDataSetLocal.vManager_RoomsDataTable();
+            TBMT_DBDataSetLocal.vManager_ShowtimeCapacityDataTable dataTable = new TBMT_DBDataSetLocal.vManager_ShowtimeCapacityDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -10926,10 +9590,10 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "vManager_Showtimes";
-            tableMapping.ColumnMappings.Add("Showtime", "Showtime");
-            tableMapping.ColumnMappings.Add("ShowtimeID", "ShowtimeID");
-            tableMapping.ColumnMappings.Add("MovieID", "MovieID");
             tableMapping.ColumnMappings.Add("Title", "Title");
+            tableMapping.ColumnMappings.Add("Minutes", "Minutes");
+            tableMapping.ColumnMappings.Add("Showtime", "Showtime");
+            tableMapping.ColumnMappings.Add("Room", "Room");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -10946,8 +9610,7 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Showtime, ShowtimeID, MovieID, Title FROM dbo.vManager_Showtimes ORDER BY " +
-                "ShowtimeID ASC";
+            this._commandCollection[0].CommandText = "SELECT Title, Minutes, Showtime, Room FROM dbo.vManager_Showtimes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10990,23 +9653,21 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         
         private ClientTableAdapter _clientTableAdapter;
         
-        private ClientMovieShowtimeTableAdapter _clientMovieShowtimeTableAdapter;
-        
         private ManagerTableAdapter _managerTableAdapter;
         
         private MovieTableAdapter _movieTableAdapter;
-        
-        private MovieShowtimeTableAdapter _movieShowtimeTableAdapter;
         
         private ScreeningRoomTableAdapter _screeningRoomTableAdapter;
         
         private ShowtimeTableAdapter _showtimeTableAdapter;
         
-        private ShowtimeTicketPriceTableAdapter _showtimeTicketPriceTableAdapter;
+        private ClientTicketTableAdapter _clientTicketTableAdapter;
         
-        private TicketPriceTableAdapter _ticketPriceTableAdapter;
+        private MovieInfoBridgeTableAdapter _movieInfoBridgeTableAdapter;
         
-        private MovieScreeningRoomTableAdapter _movieScreeningRoomTableAdapter;
+        private PriceTableAdapter _priceTableAdapter;
+        
+        private TicketTableAdapter _ticketTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -11034,20 +9695,6 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
             }
             set {
                 this._clientTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public ClientMovieShowtimeTableAdapter ClientMovieShowtimeTableAdapter {
-            get {
-                return this._clientMovieShowtimeTableAdapter;
-            }
-            set {
-                this._clientMovieShowtimeTableAdapter = value;
             }
         }
         
@@ -11084,20 +9731,6 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public MovieShowtimeTableAdapter MovieShowtimeTableAdapter {
-            get {
-                return this._movieShowtimeTableAdapter;
-            }
-            set {
-                this._movieShowtimeTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
         public ScreeningRoomTableAdapter ScreeningRoomTableAdapter {
             get {
                 return this._screeningRoomTableAdapter;
@@ -11126,12 +9759,12 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public ShowtimeTicketPriceTableAdapter ShowtimeTicketPriceTableAdapter {
+        public ClientTicketTableAdapter ClientTicketTableAdapter {
             get {
-                return this._showtimeTicketPriceTableAdapter;
+                return this._clientTicketTableAdapter;
             }
             set {
-                this._showtimeTicketPriceTableAdapter = value;
+                this._clientTicketTableAdapter = value;
             }
         }
         
@@ -11140,12 +9773,12 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public TicketPriceTableAdapter TicketPriceTableAdapter {
+        public MovieInfoBridgeTableAdapter MovieInfoBridgeTableAdapter {
             get {
-                return this._ticketPriceTableAdapter;
+                return this._movieInfoBridgeTableAdapter;
             }
             set {
-                this._ticketPriceTableAdapter = value;
+                this._movieInfoBridgeTableAdapter = value;
             }
         }
         
@@ -11154,12 +9787,26 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public MovieScreeningRoomTableAdapter MovieScreeningRoomTableAdapter {
+        public PriceTableAdapter PriceTableAdapter {
             get {
-                return this._movieScreeningRoomTableAdapter;
+                return this._priceTableAdapter;
             }
             set {
-                this._movieScreeningRoomTableAdapter = value;
+                this._priceTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public TicketTableAdapter TicketTableAdapter {
+            get {
+                return this._ticketTableAdapter;
+            }
+            set {
+                this._ticketTableAdapter = value;
             }
         }
         
@@ -11186,10 +9833,6 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                             && (this._clientTableAdapter.Connection != null))) {
                     return this._clientTableAdapter.Connection;
                 }
-                if (((this._clientMovieShowtimeTableAdapter != null) 
-                            && (this._clientMovieShowtimeTableAdapter.Connection != null))) {
-                    return this._clientMovieShowtimeTableAdapter.Connection;
-                }
                 if (((this._managerTableAdapter != null) 
                             && (this._managerTableAdapter.Connection != null))) {
                     return this._managerTableAdapter.Connection;
@@ -11197,10 +9840,6 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                 if (((this._movieTableAdapter != null) 
                             && (this._movieTableAdapter.Connection != null))) {
                     return this._movieTableAdapter.Connection;
-                }
-                if (((this._movieShowtimeTableAdapter != null) 
-                            && (this._movieShowtimeTableAdapter.Connection != null))) {
-                    return this._movieShowtimeTableAdapter.Connection;
                 }
                 if (((this._screeningRoomTableAdapter != null) 
                             && (this._screeningRoomTableAdapter.Connection != null))) {
@@ -11210,17 +9849,21 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                             && (this._showtimeTableAdapter.Connection != null))) {
                     return this._showtimeTableAdapter.Connection;
                 }
-                if (((this._showtimeTicketPriceTableAdapter != null) 
-                            && (this._showtimeTicketPriceTableAdapter.Connection != null))) {
-                    return this._showtimeTicketPriceTableAdapter.Connection;
+                if (((this._clientTicketTableAdapter != null) 
+                            && (this._clientTicketTableAdapter.Connection != null))) {
+                    return this._clientTicketTableAdapter.Connection;
                 }
-                if (((this._ticketPriceTableAdapter != null) 
-                            && (this._ticketPriceTableAdapter.Connection != null))) {
-                    return this._ticketPriceTableAdapter.Connection;
+                if (((this._movieInfoBridgeTableAdapter != null) 
+                            && (this._movieInfoBridgeTableAdapter.Connection != null))) {
+                    return this._movieInfoBridgeTableAdapter.Connection;
                 }
-                if (((this._movieScreeningRoomTableAdapter != null) 
-                            && (this._movieScreeningRoomTableAdapter.Connection != null))) {
-                    return this._movieScreeningRoomTableAdapter.Connection;
+                if (((this._priceTableAdapter != null) 
+                            && (this._priceTableAdapter.Connection != null))) {
+                    return this._priceTableAdapter.Connection;
+                }
+                if (((this._ticketTableAdapter != null) 
+                            && (this._ticketTableAdapter.Connection != null))) {
+                    return this._ticketTableAdapter.Connection;
                 }
                 return null;
             }
@@ -11238,16 +9881,10 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                 if ((this._clientTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._clientMovieShowtimeTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._managerTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._movieTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._movieShowtimeTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._screeningRoomTableAdapter != null)) {
@@ -11256,13 +9893,16 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                 if ((this._showtimeTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._showtimeTicketPriceTableAdapter != null)) {
+                if ((this._clientTicketTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._ticketPriceTableAdapter != null)) {
+                if ((this._movieInfoBridgeTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._movieScreeningRoomTableAdapter != null)) {
+                if ((this._priceTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._ticketTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -11276,15 +9916,6 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateUpdatedRows(TBMT_DBDataSetLocal dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._clientTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Client.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._clientTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._movieTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Movie.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -11312,21 +9943,30 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._ticketPriceTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.TicketPrice.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._priceTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Price.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._ticketPriceTableAdapter.Update(updatedRows));
+                    result = (result + this._priceTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._clientMovieShowtimeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ClientMovieShowtime.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._clientTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Client.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._clientMovieShowtimeTableAdapter.Update(updatedRows));
+                    result = (result + this._clientTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._ticketTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Ticket.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._ticketTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -11339,30 +9979,21 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._movieShowtimeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.MovieShowtime.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._clientTicketTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ClientTicket.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._movieShowtimeTableAdapter.Update(updatedRows));
+                    result = (result + this._clientTicketTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._showtimeTicketPriceTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ShowtimeTicketPrice.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._movieInfoBridgeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.MovieInfoBridge.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._showtimeTicketPriceTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._movieScreeningRoomTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.MovieScreeningRoom.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._movieScreeningRoomTableAdapter.Update(updatedRows));
+                    result = (result + this._movieInfoBridgeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -11376,14 +10007,6 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateInsertedRows(TBMT_DBDataSetLocal dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._clientTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Client.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._clientTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._movieTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Movie.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -11408,19 +10031,27 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._ticketPriceTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.TicketPrice.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._priceTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Price.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._ticketPriceTableAdapter.Update(addedRows));
+                    result = (result + this._priceTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._clientMovieShowtimeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ClientMovieShowtime.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._clientTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Client.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._clientMovieShowtimeTableAdapter.Update(addedRows));
+                    result = (result + this._clientTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._ticketTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Ticket.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._ticketTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -11432,27 +10063,19 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._movieShowtimeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.MovieShowtime.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._clientTicketTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ClientTicket.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._movieShowtimeTableAdapter.Update(addedRows));
+                    result = (result + this._clientTicketTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._showtimeTicketPriceTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ShowtimeTicketPrice.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._movieInfoBridgeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.MovieInfoBridge.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._showtimeTicketPriceTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._movieScreeningRoomTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.MovieScreeningRoom.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._movieScreeningRoomTableAdapter.Update(addedRows));
+                    result = (result + this._movieInfoBridgeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -11466,27 +10089,19 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(TBMT_DBDataSetLocal dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._movieScreeningRoomTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.MovieScreeningRoom.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._movieInfoBridgeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.MovieInfoBridge.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._movieScreeningRoomTableAdapter.Update(deletedRows));
+                    result = (result + this._movieInfoBridgeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._showtimeTicketPriceTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ShowtimeTicketPrice.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._clientTicketTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ClientTicket.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._showtimeTicketPriceTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._movieShowtimeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.MovieShowtime.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._movieShowtimeTableAdapter.Update(deletedRows));
+                    result = (result + this._clientTicketTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -11498,19 +10113,27 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._clientMovieShowtimeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ClientMovieShowtime.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._ticketTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Ticket.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._clientMovieShowtimeTableAdapter.Update(deletedRows));
+                    result = (result + this._ticketTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._ticketPriceTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.TicketPrice.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._clientTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Client.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._ticketPriceTableAdapter.Update(deletedRows));
+                    result = (result + this._clientTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._priceTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Price.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._priceTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -11535,14 +10158,6 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._movieTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._clientTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Client.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._clientTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -11590,11 +10205,6 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._clientMovieShowtimeTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._clientMovieShowtimeTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._managerTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._managerTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -11602,11 +10212,6 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
             }
             if (((this._movieTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._movieTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._movieShowtimeTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._movieShowtimeTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -11620,18 +10225,23 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._showtimeTicketPriceTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._showtimeTicketPriceTableAdapter.Connection) == false))) {
+            if (((this._clientTicketTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._clientTicketTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._ticketPriceTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._ticketPriceTableAdapter.Connection) == false))) {
+            if (((this._movieInfoBridgeTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._movieInfoBridgeTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._movieScreeningRoomTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._movieScreeningRoomTableAdapter.Connection) == false))) {
+            if (((this._priceTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._priceTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._ticketTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._ticketTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -11676,15 +10286,6 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                         adaptersWithAcceptChangesDuringUpdate.Add(this._clientTableAdapter.Adapter);
                     }
                 }
-                if ((this._clientMovieShowtimeTableAdapter != null)) {
-                    revertConnections.Add(this._clientMovieShowtimeTableAdapter, this._clientMovieShowtimeTableAdapter.Connection);
-                    this._clientMovieShowtimeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._clientMovieShowtimeTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._clientMovieShowtimeTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._clientMovieShowtimeTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._clientMovieShowtimeTableAdapter.Adapter);
-                    }
-                }
                 if ((this._managerTableAdapter != null)) {
                     revertConnections.Add(this._managerTableAdapter, this._managerTableAdapter.Connection);
                     this._managerTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -11701,15 +10302,6 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                     if (this._movieTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._movieTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._movieTableAdapter.Adapter);
-                    }
-                }
-                if ((this._movieShowtimeTableAdapter != null)) {
-                    revertConnections.Add(this._movieShowtimeTableAdapter, this._movieShowtimeTableAdapter.Connection);
-                    this._movieShowtimeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._movieShowtimeTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._movieShowtimeTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._movieShowtimeTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._movieShowtimeTableAdapter.Adapter);
                     }
                 }
                 if ((this._screeningRoomTableAdapter != null)) {
@@ -11730,31 +10322,40 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                         adaptersWithAcceptChangesDuringUpdate.Add(this._showtimeTableAdapter.Adapter);
                     }
                 }
-                if ((this._showtimeTicketPriceTableAdapter != null)) {
-                    revertConnections.Add(this._showtimeTicketPriceTableAdapter, this._showtimeTicketPriceTableAdapter.Connection);
-                    this._showtimeTicketPriceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._showtimeTicketPriceTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._showtimeTicketPriceTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._showtimeTicketPriceTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._showtimeTicketPriceTableAdapter.Adapter);
+                if ((this._clientTicketTableAdapter != null)) {
+                    revertConnections.Add(this._clientTicketTableAdapter, this._clientTicketTableAdapter.Connection);
+                    this._clientTicketTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._clientTicketTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._clientTicketTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._clientTicketTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._clientTicketTableAdapter.Adapter);
                     }
                 }
-                if ((this._ticketPriceTableAdapter != null)) {
-                    revertConnections.Add(this._ticketPriceTableAdapter, this._ticketPriceTableAdapter.Connection);
-                    this._ticketPriceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._ticketPriceTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._ticketPriceTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._ticketPriceTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._ticketPriceTableAdapter.Adapter);
+                if ((this._movieInfoBridgeTableAdapter != null)) {
+                    revertConnections.Add(this._movieInfoBridgeTableAdapter, this._movieInfoBridgeTableAdapter.Connection);
+                    this._movieInfoBridgeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._movieInfoBridgeTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._movieInfoBridgeTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._movieInfoBridgeTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._movieInfoBridgeTableAdapter.Adapter);
                     }
                 }
-                if ((this._movieScreeningRoomTableAdapter != null)) {
-                    revertConnections.Add(this._movieScreeningRoomTableAdapter, this._movieScreeningRoomTableAdapter.Connection);
-                    this._movieScreeningRoomTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._movieScreeningRoomTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._movieScreeningRoomTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._movieScreeningRoomTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._movieScreeningRoomTableAdapter.Adapter);
+                if ((this._priceTableAdapter != null)) {
+                    revertConnections.Add(this._priceTableAdapter, this._priceTableAdapter.Connection);
+                    this._priceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._priceTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._priceTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._priceTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._priceTableAdapter.Adapter);
+                    }
+                }
+                if ((this._ticketTableAdapter != null)) {
+                    revertConnections.Add(this._ticketTableAdapter, this._ticketTableAdapter.Connection);
+                    this._ticketTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._ticketTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._ticketTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._ticketTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._ticketTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -11819,10 +10420,6 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                     this._clientTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._clientTableAdapter]));
                     this._clientTableAdapter.Transaction = null;
                 }
-                if ((this._clientMovieShowtimeTableAdapter != null)) {
-                    this._clientMovieShowtimeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._clientMovieShowtimeTableAdapter]));
-                    this._clientMovieShowtimeTableAdapter.Transaction = null;
-                }
                 if ((this._managerTableAdapter != null)) {
                     this._managerTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._managerTableAdapter]));
                     this._managerTableAdapter.Transaction = null;
@@ -11830,10 +10427,6 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                 if ((this._movieTableAdapter != null)) {
                     this._movieTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._movieTableAdapter]));
                     this._movieTableAdapter.Transaction = null;
-                }
-                if ((this._movieShowtimeTableAdapter != null)) {
-                    this._movieShowtimeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._movieShowtimeTableAdapter]));
-                    this._movieShowtimeTableAdapter.Transaction = null;
                 }
                 if ((this._screeningRoomTableAdapter != null)) {
                     this._screeningRoomTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._screeningRoomTableAdapter]));
@@ -11843,17 +10436,21 @@ SELECT ShowtimeScreeningRoomID, MovieID, ScreeningRoomID FROM MovieScreeningRoom
                     this._showtimeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._showtimeTableAdapter]));
                     this._showtimeTableAdapter.Transaction = null;
                 }
-                if ((this._showtimeTicketPriceTableAdapter != null)) {
-                    this._showtimeTicketPriceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._showtimeTicketPriceTableAdapter]));
-                    this._showtimeTicketPriceTableAdapter.Transaction = null;
+                if ((this._clientTicketTableAdapter != null)) {
+                    this._clientTicketTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._clientTicketTableAdapter]));
+                    this._clientTicketTableAdapter.Transaction = null;
                 }
-                if ((this._ticketPriceTableAdapter != null)) {
-                    this._ticketPriceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._ticketPriceTableAdapter]));
-                    this._ticketPriceTableAdapter.Transaction = null;
+                if ((this._movieInfoBridgeTableAdapter != null)) {
+                    this._movieInfoBridgeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._movieInfoBridgeTableAdapter]));
+                    this._movieInfoBridgeTableAdapter.Transaction = null;
                 }
-                if ((this._movieScreeningRoomTableAdapter != null)) {
-                    this._movieScreeningRoomTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._movieScreeningRoomTableAdapter]));
-                    this._movieScreeningRoomTableAdapter.Transaction = null;
+                if ((this._priceTableAdapter != null)) {
+                    this._priceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._priceTableAdapter]));
+                    this._priceTableAdapter.Transaction = null;
+                }
+                if ((this._ticketTableAdapter != null)) {
+                    this._ticketTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._ticketTableAdapter]));
+                    this._ticketTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

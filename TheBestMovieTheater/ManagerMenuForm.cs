@@ -8,7 +8,7 @@ namespace TheBestMovieTheater
     using System.Windows.Forms;
 
     /// <summary>
-    /// ManagerMenuForm Class contains the design and functions for manager options.
+    /// ManagerMenuForm contains the design and functions for manager options.
     /// </summary>
     public partial class ManagerMenuForm : Form
     {
@@ -41,6 +41,13 @@ namespace TheBestMovieTheater
             switch (this.viewsComboBox.SelectedIndex)
             {
                 case 0:
+
+                    // For testing
+                    this.consultSelection = this.viewsComboBox.SelectedItem.ToString();
+                    MessageBox.Show(this.consultSelection);
+                    break;
+
+                case 1:
                     // ClientListForm clientList = new ClientListForm();
                     // clientList.ShowDialog();
 
@@ -49,7 +56,7 @@ namespace TheBestMovieTheater
                     MessageBox.Show(this.consultSelection);
                     break;
 
-                case 1:
+                case 2:
                     // TicketSalesForm movieSalesForm = new TicketSalesForm("Movies");
                     // movieSalesForm.ShowDialog();
 
@@ -58,7 +65,7 @@ namespace TheBestMovieTheater
                     MessageBox.Show(this.consultSelection);
                     break;
 
-                case 2:
+                case 3:
                     // TicketSalesForm showtimeSalesForm = new TicketSalesForm("Showtimes");
                     // showtimeSalesForm.ShowDialog();
 

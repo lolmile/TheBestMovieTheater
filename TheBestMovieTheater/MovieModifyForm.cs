@@ -1,40 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿// <copyright file="MovieModifyForm.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace TheBestMovieTheater
 {
+    using System;
+    using System.Data;
+    using System.Windows.Forms;
+
+    /// <summary>
+    /// MovieModifyForm contains the design and functions for manager options.
+    /// </summary>
     public partial class MovieModifyForm : Form
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MovieModifyForm"/> class.
+        /// Default Constructor for MovieModifyForm.
+        /// </summary>
         public MovieModifyForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
+        /// <summary>
+        /// Closes the form on button click.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void BackButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void movieBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.movieBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.tBMT_DBDataSetLocal);
-
-        }
-
+        /// <summary>
+        /// Fills listview with data on form load.
+        /// </summary>
+        /// <param name="sender">The form that was loaded.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void MovieModifyForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'tBMT_DBDataSetLocal.Movie' table. You can move, or remove it, as needed.
-            this.movieTableAdapter.Fill(this.tBMT_DBDataSetLocal.Movie);
+            DataTable movie = this.movieTableAdapter.GetData();
 
+            ListViewHelper.ListViewHeaders(movie, this.MovieListView);
+
+            ListViewHelper.ListViewData(movie, this.MovieListView);
         }
     }
 }
