@@ -41,11 +41,9 @@ namespace TheBestMovieTheater
 
             for (int row = 0; row < rowCount; row++)
             {
-                int counter = row;
-
                 for (int column = 0; column < columnCount; column++)
                 {
-                    dataArray[column] = dataTable.Rows[counter][column].ToString();
+                    dataArray[column] = dataTable.Rows[row][column].ToString();
                 }
 
                 dataItems = new ListViewItem(dataArray);

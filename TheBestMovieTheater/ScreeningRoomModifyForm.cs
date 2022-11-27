@@ -22,11 +22,21 @@ namespace TheBestMovieTheater
             this.InitializeComponent();
         }
 
+        /// <summary>
+        /// Closes the form on button click.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void BackButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Fills listview with data on form load.
+        /// </summary>
+        /// <param name="sender">The form that was loaded.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void ScreeningRoomModifyForm_Load(object sender, EventArgs e)
         {
             DataTable screeningroom = this.screeningRoomTableAdapter.GetData();
