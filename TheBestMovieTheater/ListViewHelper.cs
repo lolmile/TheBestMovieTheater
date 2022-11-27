@@ -1,15 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿// <copyright file="ListViewHelper.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace TheBestMovieTheater
 {
+    using System.Data;
+    using System.Windows.Forms;
+
+    /// <summary>
+    /// A helper class containing methods for ListView objects.
+    /// </summary>
     internal static class ListViewHelper
     {
+        /// <summary>
+        /// Inserts column headers into the ListView.
+        /// </summary>
+        /// <param name="dataTable">Datatable to insert into ListView.</param>
+        /// <param name="listView">ListView object to insert data into.</param>
         public static void ListViewHeaders(DataTable dataTable, ListView listView)
         {
             int columnCount = dataTable.Columns.Count;
@@ -20,6 +27,11 @@ namespace TheBestMovieTheater
             }
         }
 
+        /// <summary>
+        /// Inserts data into ListView.
+        /// </summary>
+        /// <param name="dataTable">Datatable to insert into ListView.</param>
+        /// <param name="listView">ListView object to insert data into.</param>
         public static void ListViewData(DataTable dataTable, ListView listView)
         {
             ListViewItem dataItems;
