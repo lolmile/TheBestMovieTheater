@@ -5,6 +5,7 @@
 namespace TheBestMovieTheater
 {
     using System;
+    using System.Data;
     using System.Windows.Forms;
 
     /// <summary>
@@ -24,6 +25,15 @@ namespace TheBestMovieTheater
         private void BackButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ScreeningRoomModifyForm_Load(object sender, EventArgs e)
+        {
+            DataTable screeningroom = this.screeningRoomTableAdapter.GetData();
+
+            ListViewHelper.ListViewHeaders(screeningroom, this.ScreeningRoomListView);
+
+            ListViewHelper.ListViewData(screeningroom, this.ScreeningRoomListView);
         }
     }
 }
