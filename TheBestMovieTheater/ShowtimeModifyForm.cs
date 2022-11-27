@@ -23,7 +23,7 @@ namespace TheBestMovieTheater
         }
 
         /// <summary>
-        /// Closes the current form reopening ManagerMenuForm.
+        /// Closes the form on button click.
         /// </summary>
         /// <param name="sender">The button that was clicked.</param>
         /// <param name="e">Additional event arguments.</param>
@@ -32,6 +32,11 @@ namespace TheBestMovieTheater
             this.Close();
         }
 
+        /// <summary>
+        /// Fills listview with data on form load.
+        /// </summary>
+        /// <param name="sender">The form that was loaded.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void ShowtimeModifyForm_Load(object sender, EventArgs e)
         {
             DataTable showtime = this.showtimeTableAdapter.GetData();
