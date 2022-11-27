@@ -8,7 +8,7 @@ namespace TheBestMovieTheater
     using System.Windows.Forms;
 
     /// <summary>
-    /// ManagerMenuForm Class contains the design and functions for manager options.
+    /// ManagerMenuForm contains the design and functions for manager options.
     /// </summary>
     public partial class ManagerMenuForm : Form
     {
