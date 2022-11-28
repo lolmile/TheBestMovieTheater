@@ -11,8 +11,14 @@ using System.Windows.Forms;
 
 namespace TheBestMovieTheater
 {
+    /// <summary>
+    /// This Form takes the input from the client and if the info is alright, stores it in the data base.
+    /// </summary>
     public partial class Register : Form
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Register"/> class.
+        /// </summary>
         public Register()
         {
             InitializeComponent();

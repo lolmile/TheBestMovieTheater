@@ -11,8 +11,14 @@ using System.Data.SqlClient;
 
 namespace TheBestMovieTheater
 {
+    /// <summary>
+    /// Main login form, first form top en when program is launched.
+    /// </summary>
     public partial class loginForm : Form
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="loginForm"/> class.
+        /// </summary>
         public loginForm()
         {
             InitializeComponent();

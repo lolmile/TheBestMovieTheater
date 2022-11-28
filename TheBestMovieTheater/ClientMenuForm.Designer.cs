@@ -37,6 +37,7 @@
             this.availableMovieButton = new System.Windows.Forms.Button();
             this.upcomingMoviesButton = new System.Windows.Forms.Button();
             this.UserTitleLabel = new System.Windows.Forms.Label();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.priceGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,7 +107,7 @@
             // 
             // availableMovieButton
             // 
-            this.availableMovieButton.Location = new System.Drawing.Point(326, 131);
+            this.availableMovieButton.Location = new System.Drawing.Point(293, 113);
             this.availableMovieButton.Name = "availableMovieButton";
             this.availableMovieButton.Size = new System.Drawing.Size(281, 67);
             this.availableMovieButton.TabIndex = 3;
@@ -116,7 +117,7 @@
             // 
             // upcomingMoviesButton
             // 
-            this.upcomingMoviesButton.Location = new System.Drawing.Point(326, 236);
+            this.upcomingMoviesButton.Location = new System.Drawing.Point(293, 218);
             this.upcomingMoviesButton.Name = "upcomingMoviesButton";
             this.upcomingMoviesButton.Size = new System.Drawing.Size(281, 67);
             this.upcomingMoviesButton.TabIndex = 4;
@@ -134,11 +135,22 @@
             this.UserTitleLabel.Text = "Client Page";
             this.UserTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // logoutButton
+            // 
+            this.logoutButton.Location = new System.Drawing.Point(576, 322);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(108, 44);
+            this.logoutButton.TabIndex = 6;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
             // ClientMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 393);
+            this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.UserTitleLabel);
             this.Controls.Add(this.upcomingMoviesButton);
             this.Controls.Add(this.availableMovieButton);
@@ -164,5 +176,6 @@
         private System.Windows.Forms.Button availableMovieButton;
         private System.Windows.Forms.Button upcomingMoviesButton;
         private System.Windows.Forms.Label UserTitleLabel;
+        private System.Windows.Forms.Button logoutButton;
     }
 }
