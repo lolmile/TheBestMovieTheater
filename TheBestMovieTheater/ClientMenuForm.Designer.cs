@@ -44,7 +44,7 @@
             // 
             this.MovieTheatreLabel.AutoSize = true;
             this.MovieTheatreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MovieTheatreLabel.Location = new System.Drawing.Point(176, 9);
+            this.MovieTheatreLabel.Location = new System.Drawing.Point(207, 9);
             this.MovieTheatreLabel.Name = "MovieTheatreLabel";
             this.MovieTheatreLabel.Size = new System.Drawing.Size(325, 31);
             this.MovieTheatreLabel.TabIndex = 1;
@@ -112,6 +112,7 @@
             this.availableMovieButton.TabIndex = 3;
             this.availableMovieButton.Text = "Available Movies !";
             this.availableMovieButton.UseVisualStyleBackColor = true;
+            this.availableMovieButton.Click += new System.EventHandler(this.availableMovieButton_Click);
             // 
             // upcomingMoviesButton
             // 
@@ -126,7 +127,7 @@
             // 
             this.UserTitleLabel.AutoSize = true;
             this.UserTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserTitleLabel.Location = new System.Drawing.Point(287, 40);
+            this.UserTitleLabel.Location = new System.Drawing.Point(308, 40);
             this.UserTitleLabel.Name = "UserTitleLabel";
             this.UserTitleLabel.Size = new System.Drawing.Size(113, 25);
             this.UserTitleLabel.TabIndex = 5;
