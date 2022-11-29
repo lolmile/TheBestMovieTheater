@@ -61,16 +61,17 @@
             this.MovieListView.HideSelection = false;
             this.MovieListView.Location = new System.Drawing.Point(0, 0);
             this.MovieListView.Name = "MovieListView";
-            this.MovieListView.Size = new System.Drawing.Size(755, 172);
+            this.MovieListView.Size = new System.Drawing.Size(895, 172);
             this.MovieListView.TabIndex = 7;
             this.MovieListView.UseCompatibleStateImageBehavior = false;
             this.MovieListView.View = System.Windows.Forms.View.Details;
+            this.MovieListView.SelectedIndexChanged += new System.EventHandler(this.MovieListView_SelectedIndexChanged);
             // 
             // MovieModifyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 223);
+            this.ClientSize = new System.Drawing.Size(895, 220);
             this.ControlBox = false;
             this.Controls.Add(this.MovieListView);
             this.Controls.Add(this.BackButton);
