@@ -6,6 +6,7 @@ namespace TheBestMovieTheater
 {
     using System;
     using System.Data;
+    using System.Linq;
     using System.Windows.Forms;
 
     /// <summary>
@@ -13,6 +14,11 @@ namespace TheBestMovieTheater
     /// </summary>
     public partial class MovieModifyForm : Form
     {
+        /// <summary>
+        /// String array to hold the information of the selected movie.
+        /// </summary>
+        private string[] movieSelection;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MovieModifyForm"/> class.
         /// Default Constructor for MovieModifyForm.
@@ -48,16 +54,30 @@ namespace TheBestMovieTheater
             ListViewHelper.ListViewColumnAutoSize(movie, this.MovieListView);
         }
 
-        // WIP
         private void MovieListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.MovieListView.SelectedItems.Count >  0)
+            if (this.MovieListView.SelectedItems.Count > 0)
             {
-                ListViewItem item = this.MovieListView.SelectedItems[0];
+                this.movieSelection = ListViewHelper.GetSelectedRow(this.MovieListView);
 
-                MessageBox.Show(item.SubItems[1].ToString());
-                MessageBox.Show(item.ToString());
+                this.movieIDTextBox.Text = this.movieSelection[0];
+                this.movieTitleTextBox.Text = this.movieSelection[1];
+                this.movieGenreTextBox.Text = this.movieSelection[2];
+                this.movieLengthTextBox.Text = this.movieSelection[3];
+                this.movieYearTextBox.Text = this.movieSelection[4];
+                this.startDateTimePicker.Value = DateTime.Parse(this.movieSelection[5]);
+                this.endDateTimePicker.Value = DateTime.Parse(this.movieSelection[6]);
             }
         }
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ModifyButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
