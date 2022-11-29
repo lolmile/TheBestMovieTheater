@@ -89,5 +89,17 @@ namespace TheBestMovieTheater
                 }
             }
         }
+
+        public static string[] GetSelectedRow(ListView listView)
+        {
+            string[] listArray = new string[listView.SelectedItems[0].SubItems.Count];
+
+            for (int i = 0; i < listArray.Length; i++)
+            {
+                listArray[i] = listView.SelectedItems[0].SubItems[i].Text;
+            }
+
+            return listArray;
+        }
     }
 }
