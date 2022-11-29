@@ -17,8 +17,8 @@ namespace TheBestMovieTheater
         /// <summary>
         /// Inserts column headers into the ListView.
         /// </summary>
-        /// <param name="dataTable">Datatable to insert into ListView.</param>
-        /// <param name="listView">ListView object to insert data into.</param>
+        /// <param name="dataTable">Data source for the ListView.</param>
+        /// <param name="listView">ListView object to modify.</param>
         public static void ListViewHeaders(DataTable dataTable, ListView listView)
         {
             int columnCount = dataTable.Columns.Count;
@@ -30,10 +30,10 @@ namespace TheBestMovieTheater
         }
 
         /// <summary>
-        /// Inserts data into ListView.
+        /// Inserts source data into ListView.
         /// </summary>
-        /// <param name="dataTable">Datatable to insert into ListView.</param>
-        /// <param name="listView">ListView object to insert data into.</param>
+        /// <param name="dataTable">Data source for the ListView.</param>
+        /// <param name="listView">ListView object to modify.</param>
         public static void ListViewData(DataTable dataTable, ListView listView)
         {
             ListViewItem dataItems;
@@ -53,6 +53,11 @@ namespace TheBestMovieTheater
             }
         }
 
+        /// <summary>
+        /// Auto sizes each column by header size or row size, depending which has the largest length.
+        /// </summary>
+        /// <param name="dataTable">Data source for the ListView.</param>
+        /// <param name="listView">ListView object to modify.</param>
         public static void ListViewColumnAutoSize(DataTable dataTable, ListView listView)
         {
             int headerLength;
