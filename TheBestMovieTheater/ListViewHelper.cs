@@ -4,7 +4,9 @@
 
 namespace TheBestMovieTheater
 {
+    using System;
     using System.Data;
+    using System.Data.Common;
     using System.Windows.Forms;
 
     /// <summary>
@@ -48,6 +50,38 @@ namespace TheBestMovieTheater
 
                 dataItems = new ListViewItem(dataArray);
                 listView.Items.Add(dataItems);
+            }
+        }
+
+        public static void ListViewColumnAutoSize(DataTable dataTable, ListView listView)
+        {
+            int headerLength;
+            int rowLength;
+            int columnCount = dataTable.Columns.Count;
+            int rowCount = dataTable.Rows.Count;
+
+            for (int column = 0; column < columnCount; column++)
+            {
+                headerLength = listView.Columns[column].Text.Length;
+
+                rowLength = 0;
+
+                for (int row = 0; row < rowCount; row++)
+                {
+                    if (rowLength < listView.Items[row].SubItems[column].Text.Length)
+                    {
+                        rowLength = listView.Items[row].SubItems[column].Text.Length;
+                    }
+                }
+
+                if (headerLength > rowLength)
+                {
+                    listView.Columns[column].Width = -2;
+                }
+                else
+                {
+                    listView.Columns[column].Width = -1;
+                }
             }
         }
     }

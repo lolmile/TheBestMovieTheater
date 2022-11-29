@@ -44,6 +44,8 @@ namespace TheBestMovieTheater
             ListViewHelper.ListViewHeaders(screeningroom, this.ScreeningRoomListView);
 
             ListViewHelper.ListViewData(screeningroom, this.ScreeningRoomListView);
+
+            ListViewHelper.ListViewColumnAutoSize(screeningroom, this.ScreeningRoomListView);
         }
     }
 }

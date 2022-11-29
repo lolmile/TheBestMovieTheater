@@ -52,7 +52,7 @@
             this.ShowtimeListView.HideSelection = false;
             this.ShowtimeListView.Location = new System.Drawing.Point(0, 0);
             this.ShowtimeListView.Name = "ShowtimeListView";
-            this.ShowtimeListView.Size = new System.Drawing.Size(232, 260);
+            this.ShowtimeListView.Size = new System.Drawing.Size(244, 260);
             this.ShowtimeListView.TabIndex = 8;
             this.ShowtimeListView.UseCompatibleStateImageBehavior = false;
             this.ShowtimeListView.View = System.Windows.Forms.View.Details;
@@ -71,7 +71,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(232, 323);
+            this.ClientSize = new System.Drawing.Size(244, 323);
             this.ControlBox = false;
             this.Controls.Add(this.ShowtimeListView);
             this.Controls.Add(this.BackButton);
