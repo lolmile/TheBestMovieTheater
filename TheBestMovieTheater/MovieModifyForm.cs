@@ -7,10 +7,7 @@ namespace TheBestMovieTheater
     using System;
     using System.Data;
     using System.Drawing;
-    using System.Windows.Controls;
     using System.Windows.Forms;
-    using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-    using TextBox = System.Windows.Forms.TextBox;
 
     /// <summary>
     /// MovieModifyForm contains the design and functions for manager options.
@@ -22,6 +19,14 @@ namespace TheBestMovieTheater
         /// </summary>
         private string[] movieInfo;
 
+        private TextBox[] stringTextBoxArray;
+
+        private TextBox[] numericTextBoxArray;
+
+        private DateTimePicker[] datePickerTextBoxArray;
+
+        private int validCounter;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MovieModifyForm"/> class.
         /// Default Constructor for MovieModifyForm.
@@ -29,6 +34,13 @@ namespace TheBestMovieTheater
         public MovieModifyForm()
         {
             this.InitializeComponent();
+
+            this.movieLengthTextBox.KeyPress += new KeyPressEventHandler(UserInputValidation.DigitTextBox_KeyPress);
+            this.movieYearTextBox.KeyPress += new KeyPressEventHandler(UserInputValidation.DigitTextBox_KeyPress);
+
+            this.stringTextBoxArray = new TextBox[] { this.movieTitleTextBox, this.movieGenreTextBox };
+            this.numericTextBoxArray = new TextBox[] { this.movieLengthTextBox, this.movieYearTextBox };
+            this.datePickerTextBoxArray = new DateTimePicker[] { this.startDateTimePicker, this.endDateTimePicker };
         }
 
         /// <summary>
@@ -85,11 +97,24 @@ namespace TheBestMovieTheater
         /// <param name="e">Additional event arguments.</param>
         private void AddButton_Click(object sender, EventArgs e)
         {
-            //this.movieTableAdapter.AddMovie(this.movieTitleTextBox.Text, this.movieGenreTextBox.Text, int.Parse(this.movieLengthTextBox.Text), int.Parse(this.movieYearTextBox.Text), this.startDateTimePicker.Value.ToString(), this.endDateTimePicker.Value.ToString());
+            // TODO Wrap in a Validation.
+            this.validCounter = 0;
 
-            MessageBox.Show("Movie Added!");
+            this.validCounter += UserInputValidation.NumericValidationCheck(this.numericTextBoxArray);
+            this.validCounter += UserInputValidation.StringValidationCheck(this.stringTextBoxArray);
 
-            ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
+            if (this.validCounter == this.movieInfo.Length - 1)
+            {
+                // this.movieTableAdapter.AddMovie(this.movieTitleTextBox.Text, this.movieGenreTextBox.Text, int.Parse(this.movieLengthTextBox.Text), int.Parse(this.movieYearTextBox.Text), this.startDateTimePicker.Value.ToString(), this.endDateTimePicker.Value.ToString());
+
+                MessageBox.Show("Movie Added!");
+
+                ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
+            }
+            else
+            {
+                MessageBox.Show("Invalid Input");
+            }
         }
 
         private void ModifyButton_Click(object sender, EventArgs e)

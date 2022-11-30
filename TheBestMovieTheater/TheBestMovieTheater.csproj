@@ -106,6 +106,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TBMT_DBDataSetLocal.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UserInputValidation.cs" />
     <EmbeddedResource Include="AvailableMoviesForm.resx">
       <DependentUpon>AvailableMoviesForm.cs</DependentUpon>
     </EmbeddedResource>

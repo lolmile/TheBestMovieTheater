@@ -137,6 +137,7 @@
             // movieYearTextBox
             // 
             this.movieYearTextBox.Location = new System.Drawing.Point(245, 62);
+            this.movieYearTextBox.MaxLength = 4;
             this.movieYearTextBox.Name = "movieYearTextBox";
             this.movieYearTextBox.Size = new System.Drawing.Size(56, 22);
             this.movieYearTextBox.TabIndex = 24;
@@ -144,6 +145,7 @@
             // movieLengthTextBox
             // 
             this.movieLengthTextBox.Location = new System.Drawing.Point(104, 62);
+            this.movieLengthTextBox.MaxLength = 3;
             this.movieLengthTextBox.Name = "movieLengthTextBox";
             this.movieLengthTextBox.Size = new System.Drawing.Size(56, 22);
             this.movieLengthTextBox.TabIndex = 23;
