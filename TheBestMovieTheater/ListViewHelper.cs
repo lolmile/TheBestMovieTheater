@@ -41,6 +41,8 @@ namespace TheBestMovieTheater
             int columnCount = dataTable.Columns.Count;
             string[] dataArray = new string[columnCount];
 
+            listView.Items.Clear();
+
             for (int row = 0; row < rowCount; row++)
             {
                 for (int column = 0; column < columnCount; column++)

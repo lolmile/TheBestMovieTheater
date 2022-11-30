@@ -33,7 +33,7 @@
             this.movieTableAdapter = new TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.MovieTableAdapter();
             this.MovieListView = new System.Windows.Forms.ListView();
             this.AddButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.movieInfoGroupBox = new System.Windows.Forms.GroupBox();
             this.movieIDTextBox = new System.Windows.Forms.TextBox();
             this.movieYearTextBox = new System.Windows.Forms.TextBox();
             this.movieLengthTextBox = new System.Windows.Forms.TextBox();
@@ -52,7 +52,7 @@
             this.ModifyButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tbmT_DBDataSetLocal)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.movieInfoGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // BackButton
@@ -98,32 +98,32 @@
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // groupBox1
+            // movieInfoGroupBox
             // 
-            this.groupBox1.Controls.Add(this.movieIDTextBox);
-            this.groupBox1.Controls.Add(this.movieYearTextBox);
-            this.groupBox1.Controls.Add(this.BackButton);
-            this.groupBox1.Controls.Add(this.movieLengthTextBox);
-            this.groupBox1.Controls.Add(this.movieGenreTextBox);
-            this.groupBox1.Controls.Add(this.movieTitleTextBox);
-            this.groupBox1.Controls.Add(this.endDateTimePicker);
-            this.groupBox1.Controls.Add(this.startDateTimePicker);
-            this.groupBox1.Controls.Add(this.toLabel);
-            this.groupBox1.Controls.Add(this.fromLabel);
-            this.groupBox1.Controls.Add(this.screeningTimeLabel);
-            this.groupBox1.Controls.Add(this.movieYearLabel);
-            this.groupBox1.Controls.Add(this.movieLengthLabel);
-            this.groupBox1.Controls.Add(this.movieGenreLabel);
-            this.groupBox1.Controls.Add(this.movieTitleLabel);
-            this.groupBox1.Controls.Add(this.movieIDLabel);
-            this.groupBox1.Controls.Add(this.ModifyButton);
-            this.groupBox1.Controls.Add(this.AddButton);
-            this.groupBox1.Controls.Add(this.DeleteButton);
-            this.groupBox1.Location = new System.Drawing.Point(12, 178);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1015, 108);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
+            this.movieInfoGroupBox.Controls.Add(this.movieIDTextBox);
+            this.movieInfoGroupBox.Controls.Add(this.movieYearTextBox);
+            this.movieInfoGroupBox.Controls.Add(this.BackButton);
+            this.movieInfoGroupBox.Controls.Add(this.movieLengthTextBox);
+            this.movieInfoGroupBox.Controls.Add(this.movieGenreTextBox);
+            this.movieInfoGroupBox.Controls.Add(this.movieTitleTextBox);
+            this.movieInfoGroupBox.Controls.Add(this.endDateTimePicker);
+            this.movieInfoGroupBox.Controls.Add(this.startDateTimePicker);
+            this.movieInfoGroupBox.Controls.Add(this.toLabel);
+            this.movieInfoGroupBox.Controls.Add(this.fromLabel);
+            this.movieInfoGroupBox.Controls.Add(this.screeningTimeLabel);
+            this.movieInfoGroupBox.Controls.Add(this.movieYearLabel);
+            this.movieInfoGroupBox.Controls.Add(this.movieLengthLabel);
+            this.movieInfoGroupBox.Controls.Add(this.movieGenreLabel);
+            this.movieInfoGroupBox.Controls.Add(this.movieTitleLabel);
+            this.movieInfoGroupBox.Controls.Add(this.movieIDLabel);
+            this.movieInfoGroupBox.Controls.Add(this.ModifyButton);
+            this.movieInfoGroupBox.Controls.Add(this.AddButton);
+            this.movieInfoGroupBox.Controls.Add(this.DeleteButton);
+            this.movieInfoGroupBox.Location = new System.Drawing.Point(12, 178);
+            this.movieInfoGroupBox.Name = "movieInfoGroupBox";
+            this.movieInfoGroupBox.Size = new System.Drawing.Size(1015, 108);
+            this.movieInfoGroupBox.TabIndex = 9;
+            this.movieInfoGroupBox.TabStop = false;
             // 
             // movieIDTextBox
             // 
@@ -283,15 +283,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 299);
             this.ControlBox = false;
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.movieInfoGroupBox);
             this.Controls.Add(this.MovieListView);
             this.Name = "MovieModifyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MovieModifyForm";
             this.Load += new System.EventHandler(this.MovieModifyForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tbmT_DBDataSetLocal)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.movieInfoGroupBox.ResumeLayout(false);
+            this.movieInfoGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -303,7 +303,7 @@
         private TBMT_DBDataSetLocalTableAdapters.MovieTableAdapter movieTableAdapter;
         private System.Windows.Forms.ListView MovieListView;
         private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox movieInfoGroupBox;
         private System.Windows.Forms.Button ModifyButton;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Label fromLabel;
