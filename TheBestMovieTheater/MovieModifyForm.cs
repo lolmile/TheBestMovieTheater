@@ -6,7 +6,6 @@ namespace TheBestMovieTheater
 {
     using System;
     using System.Data;
-    using System.Drawing;
     using System.Windows.Forms;
 
     /// <summary>
@@ -53,11 +52,11 @@ namespace TheBestMovieTheater
         /// <param name="e">Additional event arguments.</param>
         private void MovieModifyForm_Load(object sender, EventArgs e)
         {
-            DataTable movie = this.movieTableAdapter.GetData();
+            DataTable movieTable = this.movieTableAdapter.GetData();
 
-            ListViewHelper.ListViewHeaders(movie, this.MovieListView);
-            ListViewHelper.ListViewData(movie, this.MovieListView);
-            ListViewHelper.ListViewColumnAutoSize(movie, this.MovieListView);
+            ListViewHelper.ListViewHeaders(movieTable, this.MovieListView);
+            ListViewHelper.ListViewData(movieTable, this.MovieListView);
+            ListViewHelper.ListViewColumnAutoSize(movieTable, this.MovieListView);
         }
 
         /// <summary>
@@ -89,7 +88,7 @@ namespace TheBestMovieTheater
         }
 
         /// <summary>
-        /// On button click, adds the textbox information into the TBMT_DB database.
+        /// On button click, add the textbox information to the movie table in the database.
         /// </summary>
         /// <param name="sender">The button that was clicked.</param>
         /// <param name="e">Additional event arguments.</param>
@@ -151,6 +150,7 @@ namespace TheBestMovieTheater
         {
             string defaultDate = "2000-01-01";
 
+
             this.movieIDTextBox.Text = string.Empty;
             this.movieTitleTextBox.Text = string.Empty;
             this.movieGenreTextBox.Text = string.Empty;
@@ -172,6 +172,27 @@ namespace TheBestMovieTheater
             this.movieYearTextBox.BackColor = default;
 
             ListViewHelper.UnselectRow(this.MovieListView);
+        }
+
+        /// <summary>
+        /// On button click, delete the selected movie from the movie table in the database.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (this.MovieListView.SelectedItems.Count > 0)
+            {
+                this.movieTableAdapter.DeleteMovie(int.Parse(this.movieIDTextBox.Text), this.movieTitleTextBox.Text);
+
+                ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
+
+                this.ClearSelection();
+            }
+            else
+            {
+                MessageBox.Show("Please select a movie to delete.", "Warning");
+            }
         }
     }
 }
