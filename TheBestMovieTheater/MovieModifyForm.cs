@@ -19,12 +19,9 @@ namespace TheBestMovieTheater
         /// </summary>
         private string[] movieInfo;
 
-        private TextBox[] stringTextBoxArray;
-
-        private TextBox[] numericTextBoxArray;
-
-        private DateTimePicker[] datePickerTextBoxArray;
-
+        /// <summary>
+        /// Int variable to hold the number of valid tests.
+        /// </summary>
         private int validCounter;
 
         /// <summary>
@@ -37,10 +34,6 @@ namespace TheBestMovieTheater
 
             this.movieLengthTextBox.KeyPress += new KeyPressEventHandler(UserInputValidation.DigitTextBox_KeyPress);
             this.movieYearTextBox.KeyPress += new KeyPressEventHandler(UserInputValidation.DigitTextBox_KeyPress);
-
-            this.stringTextBoxArray = new TextBox[] { this.movieTitleTextBox, this.movieGenreTextBox };
-            this.numericTextBoxArray = new TextBox[] { this.movieLengthTextBox, this.movieYearTextBox };
-            this.datePickerTextBoxArray = new DateTimePicker[] { this.startDateTimePicker, this.endDateTimePicker };
         }
 
         /// <summary>
@@ -63,9 +56,7 @@ namespace TheBestMovieTheater
             DataTable movie = this.movieTableAdapter.GetData();
 
             ListViewHelper.ListViewHeaders(movie, this.MovieListView);
-
             ListViewHelper.ListViewData(movie, this.MovieListView);
-
             ListViewHelper.ListViewColumnAutoSize(movie, this.MovieListView);
         }
 
@@ -97,19 +88,25 @@ namespace TheBestMovieTheater
         /// <param name="e">Additional event arguments.</param>
         private void AddButton_Click(object sender, EventArgs e)
         {
-            // TODO Wrap in a Validation.
             this.validCounter = 0;
 
-            this.validCounter += UserInputValidation.NumericValidationCheck(this.numericTextBoxArray);
-            this.validCounter += UserInputValidation.StringValidationCheck(this.stringTextBoxArray);
+            this.validCounter += UserInputValidation.DuplicateValidationCheck(this.MovieListView ,this.movieTitleTextBox);
+            this.validCounter += UserInputValidation.EmptyFieldValidationCheck(this.movieGenreTextBox);
+            this.validCounter += UserInputValidation.NumericValidationCheck(this.movieLengthTextBox);
+            this.validCounter += UserInputValidation.NumericValidationCheck(this.movieYearTextBox);
+            this.validCounter += UserInputValidation.DateTimeValidationCheck(this.startDateTimePicker, this.endDateTimePicker);
 
-            if (this.validCounter == this.movieInfo.Length - 1)
+            if (this.validCounter == 5)
             {
+                // Commented out for testing
                 // this.movieTableAdapter.AddMovie(this.movieTitleTextBox.Text, this.movieGenreTextBox.Text, int.Parse(this.movieLengthTextBox.Text), int.Parse(this.movieYearTextBox.Text), this.startDateTimePicker.Value.ToString(), this.endDateTimePicker.Value.ToString());
 
                 MessageBox.Show("Movie Added!");
 
                 ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
+
+                this.ClearSelection();
+
             }
             else
             {
@@ -120,6 +117,34 @@ namespace TheBestMovieTheater
         private void ModifyButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            this.ClearSelection();
+        }
+
+        private void ClearSelection()
+        {
+            string defaultDate = "2000-01-01";
+
+            this.movieIDTextBox.Text = string.Empty;
+            this.movieTitleTextBox.Text = string.Empty;
+            this.movieGenreTextBox.Text = string.Empty;
+            this.movieLengthTextBox.Text = string.Empty;
+            this.movieYearTextBox.Text = string.Empty;
+            this.startDateTimePicker.Value = DateTime.Parse(defaultDate);
+            this.endDateTimePicker.Value = DateTime.Parse(defaultDate);
+
+            this.movieTitleTextBox.BackColor = Color.White;
+            this.movieGenreTextBox.BackColor = Color.White;
+            this.movieLengthTextBox.BackColor = Color.White;
+            this.movieYearTextBox.BackColor = Color.White;
+
+            if (this.MovieListView.SelectedIndices.Count > 0)
+            {
+                this.MovieListView.SelectedItems[0].Selected = false;
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ namespace TheBestMovieTheater
     using System.Drawing;
     using System.Drawing.Text;
     using System.Linq;
+    using System.Linq.Expressions;
     using System.Text;
     using System.Threading.Tasks;
     using System.Windows.Forms;
@@ -23,63 +24,83 @@ namespace TheBestMovieTheater
             }
         }
 
-        // TODO WIP
-        public static bool EmptyFieldCheck(TextBox textBoxValidation)
+        public static int EmptyFieldValidationCheck(TextBox textBoxValidation)
         {
             if (textBoxValidation.Text == string.Empty)
             {
                 textBoxValidation.BackColor = Color.MistyRose;
-                return false;
+                return 0;
+            }
+
+            textBoxValidation.BackColor = Color.White;
+            return 1;
+        }
+
+        public static int DuplicateValidationCheck(ListView listViewData ,TextBox textBoxValidation)
+        {
+            bool valid = true;
+            ListViewItem item = listViewData.FindItemWithText(textBoxValidation.Text);
+
+            if (textBoxValidation.Text == string.Empty || item != null)
+            {
+                textBoxValidation.BackColor = Color.MistyRose;
+
+                valid = false;
+            }
+
+            if (valid)
+            {
+                textBoxValidation.BackColor = Color.White;
+
+                return 1;
+            }
+
+            return 0;
+        }
+
+        public static int NumericValidationCheck(TextBox textBoxValidation)
+        {
+            bool valid = true;
+
+            if (textBoxValidation.Text != string.Empty)
+            {
+                foreach (char character in textBoxValidation.Text)
+                {
+                    if (!char.IsNumber(character))
+                    {
+                        textBoxValidation.BackColor = Color.MistyRose;
+
+                        valid = false;
+
+                        break;
+                    }
+                }
             }
             else
             {
+                textBoxValidation.BackColor = Color.MistyRose;
+
+                valid = false;
+            }
+
+            if (valid)
+            {
                 textBoxValidation.BackColor = Color.White;
-                return true;
+
+                return 1;
             }
+
+            return 0;
         }
 
-        public static int StringValidationCheck(TextBox[] textBoxValidation)
+        public static int DateTimeValidationCheck(DateTimePicker start, DateTimePicker end)
         {
-            bool valid;
-            int validCounter = 0;
-
-            return validCounter;
-        }
-
-        public static int NumericValidationCheck(TextBox[] textBoxValidation)
-        {
-            bool valid;
-            int validCounter = 0;
-
-            for (int arrayIndex = 0; arrayIndex < textBoxValidation.Length; arrayIndex++)
+            if (start.Value < end.Value)
             {
-                valid = true;
-
-                for (int stringIndex = 0; stringIndex < textBoxValidation[arrayIndex].Text.Length; stringIndex++)
-                {
-                    if (!char.IsDigit(textBoxValidation[arrayIndex].Text, arrayIndex))
-                    {
-                        textBoxValidation[arrayIndex].BackColor = Color.MistyRose;
-
-                        stringIndex = textBoxValidation[arrayIndex].Text.Length;
-
-                        valid = false;
-                    }
-                }
-
-                if (valid)
-                {
-                    textBoxValidation[arrayIndex].BackColor = Color.White;
-                    validCounter++;
-                }
+                return 1;
             }
 
-            if (validCounter != textBoxValidation.Length)
-            {
-                return validCounter;
-            }
-
-            return validCounter;
+            return 0;
         }
     }
 }
