@@ -90,7 +90,7 @@ namespace TheBestMovieTheater
         {
             this.validCounter = 0;
 
-            this.validCounter += UserInputValidation.DuplicateValidationCheck(this.MovieListView ,this.movieTitleTextBox);
+            this.validCounter += UserInputValidation.DuplicateValidationCheck(this.MovieListView, this.movieTitleTextBox);
             this.validCounter += UserInputValidation.EmptyFieldValidationCheck(this.movieGenreTextBox);
             this.validCounter += UserInputValidation.NumericValidationCheck(this.movieLengthTextBox);
             this.validCounter += UserInputValidation.NumericValidationCheck(this.movieYearTextBox);
@@ -98,15 +98,11 @@ namespace TheBestMovieTheater
 
             if (this.validCounter == 5)
             {
-                // Commented out for testing
-                // this.movieTableAdapter.AddMovie(this.movieTitleTextBox.Text, this.movieGenreTextBox.Text, int.Parse(this.movieLengthTextBox.Text), int.Parse(this.movieYearTextBox.Text), this.startDateTimePicker.Value.ToString(), this.endDateTimePicker.Value.ToString());
-
-                MessageBox.Show("Movie Added!");
+                this.movieTableAdapter.AddMovie(this.movieTitleTextBox.Text, this.movieGenreTextBox.Text, int.Parse(this.movieLengthTextBox.Text), int.Parse(this.movieYearTextBox.Text), this.startDateTimePicker.Value.ToString(), this.endDateTimePicker.Value.ToString());
 
                 ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
 
                 this.ClearSelection();
-
             }
             else
             {
@@ -114,16 +110,29 @@ namespace TheBestMovieTheater
             }
         }
 
+        /// <summary>
+        /// TODO.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void ModifyButton_Click(object sender, EventArgs e)
         {
-
+            // TODO.
         }
 
+        /// <summary>
+        /// On button click, calls the <see cref="ClearSelection"/> method.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void ClearButton_Click(object sender, EventArgs e)
         {
             this.ClearSelection();
         }
 
+        /// <summary>
+        /// Resets all the textbox values to an empty string, all the DateTimePicker.
+        /// </summary>
         private void ClearSelection()
         {
             string defaultDate = "2000-01-01";
@@ -141,10 +150,7 @@ namespace TheBestMovieTheater
             this.movieLengthTextBox.BackColor = Color.White;
             this.movieYearTextBox.BackColor = Color.White;
 
-            if (this.MovieListView.SelectedIndices.Count > 0)
-            {
-                this.MovieListView.SelectedItems[0].Selected = false;
-            }
+            ListViewHelper.UnselectRow(this.MovieListView);
         }
     }
 }

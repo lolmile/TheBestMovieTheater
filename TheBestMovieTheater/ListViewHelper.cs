@@ -92,6 +92,11 @@ namespace TheBestMovieTheater
             }
         }
 
+        /// <summary>
+        /// Gets the values of the selected row from a list view.
+        /// </summary>
+        /// <param name="listView">List view holding the date.</param>
+        /// <returns>Returns a string array for the selected row.</returns>
         public static string[] GetSelectedRow(ListView listView)
         {
             string[] listArray = new string[listView.SelectedItems[0].SubItems.Count];
@@ -102,6 +107,18 @@ namespace TheBestMovieTheater
             }
 
             return listArray;
+        }
+
+        /// <summary>
+        /// Unselects current row from the listview.
+        /// </summary>
+        /// <param name="listView">List view holding the row to be unselected.</param>
+        public static void UnselectRow(ListView listView)
+        {
+            if (listView.SelectedIndices.Count > 0)
+            {
+                listView.SelectedItems[0].Selected = false;
+            }
         }
     }
 }
