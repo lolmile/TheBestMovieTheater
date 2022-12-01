@@ -39,10 +39,10 @@
             this.showtimeLabel = new System.Windows.Forms.Label();
             this.purchaseButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.childRadioButton = new System.Windows.Forms.RadioButton();
-            this.adultRadioButton = new System.Windows.Forms.RadioButton();
-            this.studentRadioButton = new System.Windows.Forms.RadioButton();
             this.elderRadioButton = new System.Windows.Forms.RadioButton();
+            this.studentRadioButton = new System.Windows.Forms.RadioButton();
+            this.adultRadioButton = new System.Windows.Forms.RadioButton();
+            this.childRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,7 +96,7 @@
             // 
             this.moviesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.moviesComboBox.FormattingEnabled = true;
-            this.moviesComboBox.Location = new System.Drawing.Point(113, 337);
+            this.moviesComboBox.Location = new System.Drawing.Point(108, 337);
             this.moviesComboBox.Name = "moviesComboBox";
             this.moviesComboBox.Size = new System.Drawing.Size(195, 24);
             this.moviesComboBox.TabIndex = 10;
@@ -152,16 +152,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select Age";
             // 
-            // childRadioButton
+            // elderRadioButton
             // 
-            this.childRadioButton.AutoSize = true;
-            this.childRadioButton.Location = new System.Drawing.Point(35, 39);
-            this.childRadioButton.Name = "childRadioButton";
-            this.childRadioButton.Size = new System.Drawing.Size(100, 20);
-            this.childRadioButton.TabIndex = 0;
-            this.childRadioButton.TabStop = true;
-            this.childRadioButton.Text = "Child (2 - 12)";
-            this.childRadioButton.UseVisualStyleBackColor = true;
+            this.elderRadioButton.AutoSize = true;
+            this.elderRadioButton.Location = new System.Drawing.Point(35, 117);
+            this.elderRadioButton.Name = "elderRadioButton";
+            this.elderRadioButton.Size = new System.Drawing.Size(92, 20);
+            this.elderRadioButton.TabIndex = 3;
+            this.elderRadioButton.TabStop = true;
+            this.elderRadioButton.Text = "Elder (65+)";
+            this.elderRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // studentRadioButton
+            // 
+            this.studentRadioButton.AutoSize = true;
+            this.studentRadioButton.Location = new System.Drawing.Point(35, 91);
+            this.studentRadioButton.Name = "studentRadioButton";
+            this.studentRadioButton.Size = new System.Drawing.Size(73, 20);
+            this.studentRadioButton.TabIndex = 2;
+            this.studentRadioButton.TabStop = true;
+            this.studentRadioButton.Text = "Student";
+            this.studentRadioButton.UseVisualStyleBackColor = true;
             // 
             // adultRadioButton
             // 
@@ -175,27 +186,16 @@
             this.adultRadioButton.Text = "Adult (12 - 65)";
             this.adultRadioButton.UseVisualStyleBackColor = true;
             // 
-            // studentRadioButton
+            // childRadioButton
             // 
-            this.studentRadioButton.AutoSize = true;
-            this.studentRadioButton.Location = new System.Drawing.Point(35, 91);
-            this.studentRadioButton.Name = "studentRadioButton";
-            this.studentRadioButton.Size = new System.Drawing.Size(73, 20);
-            this.studentRadioButton.TabIndex = 2;
-            this.studentRadioButton.TabStop = true;
-            this.studentRadioButton.Text = "Student";
-            this.studentRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // elderRadioButton
-            // 
-            this.elderRadioButton.AutoSize = true;
-            this.elderRadioButton.Location = new System.Drawing.Point(35, 117);
-            this.elderRadioButton.Name = "elderRadioButton";
-            this.elderRadioButton.Size = new System.Drawing.Size(92, 20);
-            this.elderRadioButton.TabIndex = 3;
-            this.elderRadioButton.TabStop = true;
-            this.elderRadioButton.Text = "Elder (65+)";
-            this.elderRadioButton.UseVisualStyleBackColor = true;
+            this.childRadioButton.AutoSize = true;
+            this.childRadioButton.Location = new System.Drawing.Point(35, 39);
+            this.childRadioButton.Name = "childRadioButton";
+            this.childRadioButton.Size = new System.Drawing.Size(100, 20);
+            this.childRadioButton.TabIndex = 0;
+            this.childRadioButton.TabStop = true;
+            this.childRadioButton.Text = "Child (2 - 12)";
+            this.childRadioButton.UseVisualStyleBackColor = true;
             // 
             // AvailableMoviesForm
             // 

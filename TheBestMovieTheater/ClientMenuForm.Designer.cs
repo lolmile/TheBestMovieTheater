@@ -121,8 +121,9 @@
             this.upcomingMoviesButton.Name = "upcomingMoviesButton";
             this.upcomingMoviesButton.Size = new System.Drawing.Size(281, 67);
             this.upcomingMoviesButton.TabIndex = 4;
-            this.upcomingMoviesButton.Text = "Upcoming movies !";
+            this.upcomingMoviesButton.Text = "Coming Soon !";
             this.upcomingMoviesButton.UseVisualStyleBackColor = true;
+            this.upcomingMoviesButton.Click += new System.EventHandler(this.upcomingMoviesButton_Click);
             // 
             // UserTitleLabel
             // 

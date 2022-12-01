@@ -17,6 +17,9 @@ namespace TheBestMovieTheater
     /// </summary>
     public partial class AvailableMoviesForm : Form
     {
+
+        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\TBMT\\TBMT_DB.mdf;Integrated Security=True;Connect Timeout=30");
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AvailableMoviesForm"/> class.
         /// </summary>
@@ -30,10 +33,12 @@ namespace TheBestMovieTheater
         /// </summary>
         public void ConvertToList()
         {
-            DataTable availableMovies = this.availableMoviesTableAdapter.GetData();
+            SqlDataAdapter command = new SqlDataAdapter("SELECT Title,Genre,Minutes,Year from Movie WHERE FirstShowingDate <= GETDATE()", this.conn);
+            DataTable movieTable = new DataTable();
+            command.Fill(movieTable);
 
-            ListViewHelper.ListViewHeaders(availableMovies, this.availableMoviesListView);
-            ListViewHelper.ListViewData(availableMovies, this.availableMoviesListView);
+            ListViewHelper.ListViewHeaders(movieTable, this.availableMoviesListView);
+            ListViewHelper.ListViewData(movieTable, this.availableMoviesListView);
         }
 
         /// <summary>
@@ -45,6 +50,7 @@ namespace TheBestMovieTheater
         {
             this.ConvertToList();
             this.BindMovieComboBox();
+            this.showtimeComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -52,10 +58,9 @@ namespace TheBestMovieTheater
         /// </summary>
         private void BindMovieComboBox()
         {
-            SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\TBMT\\TBMT_DB.mdf;Integrated Security=True;Connect Timeout=30");
-            conn.Open();
+            this.conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT Title from Movie", conn);
+            SqlCommand cmd = new SqlCommand("SELECT Title from Movie WHERE FirstShowingDate <= GETDATE()", this.conn);
             SqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
@@ -65,6 +70,8 @@ namespace TheBestMovieTheater
 
             dr.Close();
             conn.Close();
+
+            this.moviesComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -102,20 +109,34 @@ namespace TheBestMovieTheater
                 }
 
                 dr.Close();
+                conn.Close();
                 stId = showtimeId.ToArray();
-                this.showtimeComboBox.Items.AddRange(stId);
+
+                if (stId.Length == 0)
+                {
+                    this.showtimeComboBox.Items.Add("No showtime available");
+                }
+                else
+                {
+                    this.showtimeComboBox.Items.AddRange(stId);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+            this.showtimeComboBox.SelectedIndex = 0;
         }
 
-
+        /// <summary>
+        /// Purchase button takes the movie selected with the selected showtime and creates a message to validate the ticket bought. Also handles errors if a non-available movie is selected.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void purchaseButton_Click(object sender, EventArgs e)
         {
             double cost = 0;
-
             string movie = this.moviesComboBox.SelectedItem.ToString();
             string showtime = this.showtimeComboBox.SelectedItem.ToString();
 
@@ -139,7 +160,14 @@ namespace TheBestMovieTheater
                 cost = 10;
             }
 
-            MessageBox.Show("Thank you for bying a ticket for " + movie + "\n" + "Cost: " + cost + "$" + "\n" + "Time: " + showtime);
+            if (this.showtimeComboBox.SelectedItem.ToString() == "No showtime available")
+            {
+                MessageBox.Show("Sorry the Movie is not available yet");
+            }
+            else
+            {
+                MessageBox.Show("Thank you for buying a ticket for " + movie + "\n" + "Cost: " + cost + "$" + "\n" + "Time: " + showtime);
+            }
         }
     }
 }
