@@ -44,6 +44,20 @@ namespace TheBestMovieTheater
             ListViewHelper.ListViewHeaders(movie, this.MovieListView);
 
             ListViewHelper.ListViewData(movie, this.MovieListView);
+
+            ListViewHelper.ListViewColumnAutoSize(movie, this.MovieListView);
+        }
+
+        // WIP
+        private void MovieListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.MovieListView.SelectedItems.Count >  0)
+            {
+                ListViewItem item = this.MovieListView.SelectedItems[0];
+
+                MessageBox.Show(item.SubItems[1].ToString());
+                MessageBox.Show(item.ToString());
+            }
         }
     }
 }
