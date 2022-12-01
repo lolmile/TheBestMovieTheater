@@ -41,6 +41,8 @@ namespace TheBestMovieTheater
             int columnCount = dataTable.Columns.Count;
             string[] dataArray = new string[columnCount];
 
+            listView.Items.Clear();
+
             for (int row = 0; row < rowCount; row++)
             {
                 for (int column = 0; column < columnCount; column++)
@@ -87,6 +89,35 @@ namespace TheBestMovieTheater
                 {
                     listView.Columns[column].Width = -1;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Gets the values of the selected row from a list view.
+        /// </summary>
+        /// <param name="listView">List view holding the date.</param>
+        /// <returns>Returns a string array for the selected row.</returns>
+        public static string[] GetSelectedRow(ListView listView)
+        {
+            string[] listArray = new string[listView.SelectedItems[0].SubItems.Count];
+
+            for (int i = 0; i < listArray.Length; i++)
+            {
+                listArray[i] = listView.SelectedItems[0].SubItems[i].Text;
+            }
+
+            return listArray;
+        }
+
+        /// <summary>
+        /// Unselects current row from the listview.
+        /// </summary>
+        /// <param name="listView">List view holding the row to be unselected.</param>
+        public static void UnselectRow(ListView listView)
+        {
+            if (listView.SelectedIndices.Count > 0)
+            {
+                listView.SelectedItems[0].Selected = false;
             }
         }
     }
