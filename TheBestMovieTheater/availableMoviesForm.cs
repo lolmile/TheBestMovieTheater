@@ -17,6 +17,9 @@ namespace TheBestMovieTheater
     /// </summary>
     public partial class AvailableMoviesForm : Form
     {
+
+        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\TBMT\\TBMT_DB.mdf;Integrated Security=True;Connect Timeout=30");
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AvailableMoviesForm"/> class.
         /// </summary>
@@ -30,10 +33,12 @@ namespace TheBestMovieTheater
         /// </summary>
         public void ConvertToList()
         {
-            DataTable availableMovies = this.availableMoviesTableAdapter.GetData();
+            SqlDataAdapter command = new SqlDataAdapter("SELECT Title,Genre,Minutes,Year from Movie WHERE FirstShowingDate <= GETDATE()", this.conn);
+            DataTable movieTable = new DataTable();
+            command.Fill(movieTable);
 
-            ListViewHelper.ListViewHeaders(availableMovies, this.availableMoviesListView);
-            ListViewHelper.ListViewData(availableMovies, this.availableMoviesListView);
+            ListViewHelper.ListViewHeaders(movieTable, this.availableMoviesListView);
+            ListViewHelper.ListViewData(movieTable, this.availableMoviesListView);
         }
 
         /// <summary>
@@ -45,14 +50,17 @@ namespace TheBestMovieTheater
         {
             this.ConvertToList();
             this.BindMovieComboBox();
+            this.showtimeComboBox.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Binds movie titles from DB to the comboBox.
+        /// </summary>
         private void BindMovieComboBox()
         {
-            SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\TBMT\\TBMT_DB.mdf;Integrated Security=True;Connect Timeout=30");
-            conn.Open();
+            this.conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT Title from Movie", conn);
+            SqlCommand cmd = new SqlCommand("SELECT Title from Movie WHERE FirstShowingDate <= GETDATE()", this.conn);
             SqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
@@ -62,22 +70,8 @@ namespace TheBestMovieTheater
 
             dr.Close();
             conn.Close();
-        }
 
-        private void BindShowtimeComboBox()
-        {
-            SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\TBMT\\TBMT_DB.mdf;Integrated Security=True;Connect Timeout=30");
-            conn.Open();
-
-            SqlCommand cmd = new SqlCommand("SELECT Showtime from Showtime", conn);
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            while (dr.Read())
-            {
-                this.showtimeComboBox.Items.Add(dr[0].ToString());
-            }
-
-            dr.Close();
+            this.moviesComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -90,42 +84,90 @@ namespace TheBestMovieTheater
             this.Close();
         }
 
+        /// <summary>
+        /// Loades the right showtimes for any movie that is selected in the movieComboBox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void moviesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string movieId = null;
-
-            string movie = this.moviesComboBox.SelectedItem.ToString();
+            this.showtimeComboBox.Items.Clear();
+            List<string> showtimeId = new List<string>();
+            string[] stId= new string[2];
+            string movieName = this.moviesComboBox.SelectedItem.ToString();
 
             SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\TBMT\\TBMT_DB.mdf;Integrated Security=True;Connect Timeout=30");
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT MovieID from Movie WHERE Title = '" + movie + "'", conn);
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+            try
             {
-                movieId = dr[0].ToString();
+                SqlCommand cmd = new SqlCommand("Select showtime From Showtime Where ShowtimeID IN (Select ShowtimeID From MovieInfoBridge Where MovieID IN (Select MovieID From Movie Where Title = '" + movieName + "'))", conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    showtimeId.Add(dr[0].ToString());
+                }
+
+                dr.Close();
+                conn.Close();
+                stId = showtimeId.ToArray();
+
+                if (stId.Length == 0)
+                {
+                    this.showtimeComboBox.Items.Add("No showtime available");
+                }
+                else
+                {
+                    this.showtimeComboBox.Items.AddRange(stId);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
-            SqlCommand getShowtimeId = new SqlCommand("SELECT ShowtimeID from MovieInfoBridge WHERE MovieID = '" + movieId + "'", conn);
-            dr = getShowtimeId.ExecuteReader();
+            this.showtimeComboBox.SelectedIndex = 0;
+        }
 
-            while (dr.Read())
+        /// <summary>
+        /// Purchase button takes the movie selected with the selected showtime and creates a message to validate the ticket bought. Also handles errors if a non-available movie is selected.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void purchaseButton_Click(object sender, EventArgs e)
+        {
+            double cost = 0;
+            string movie = this.moviesComboBox.SelectedItem.ToString();
+            string showtime = this.showtimeComboBox.SelectedItem.ToString();
+
+            if (this.childRadioButton.Checked == true)
             {
-                string showtimeId = dr[0].ToString();
-
-                SqlCommand getShowtime = new SqlCommand("SELECT Showtime from Showtime WHERE ShowtimeID = '" + showtimeId + "'", conn);
-                dr = getShowtime.ExecuteReader();
-
+                cost = 4;
             }
 
-
-            while (dr.Read())
+            if (this.adultRadioButton.Checked == true)
             {
-                this.showtimeComboBox.Items.Add(dr[0].ToString());
-
+                cost = 15;
             }
-            dr.Close();
 
+            if (this.studentRadioButton.Checked == true)
+            {
+                cost = 10;
+            }
+
+            if (this.elderRadioButton.Checked == true)
+            {
+                cost = 10;
+            }
+
+            if (this.showtimeComboBox.SelectedItem.ToString() == "No showtime available")
+            {
+                MessageBox.Show("Sorry the Movie is not available yet");
+            }
+            else
+            {
+                MessageBox.Show("Thank you for buying a ticket for " + movie + "\n" + "Cost: " + cost + "$" + "\n" + "Time: " + showtime);
+            }
         }
     }
 }

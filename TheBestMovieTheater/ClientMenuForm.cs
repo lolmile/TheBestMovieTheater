@@ -46,5 +46,17 @@ namespace TheBestMovieTheater
 
             this.Close();
         }
+
+        /// <summary>
+        /// Opens the Upcoming movies form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void upcomingMoviesButton_Click(object sender, EventArgs e)
+        {
+            UpcomingMoviesForm upcomingMoviesForm = new UpcomingMoviesForm();
+            upcomingMoviesForm.ShowDialog();
+
+        }
     }
 }
