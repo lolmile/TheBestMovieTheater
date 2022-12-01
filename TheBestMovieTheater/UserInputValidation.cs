@@ -38,7 +38,7 @@ namespace TheBestMovieTheater
                 return 0;
             }
 
-            textBoxValidation.BackColor = Color.White;
+            textBoxValidation.BackColor = default;
             return 1;
         }
 
@@ -62,7 +62,7 @@ namespace TheBestMovieTheater
 
             if (valid)
             {
-                textBoxValidation.BackColor = Color.White;
+                textBoxValidation.BackColor = default;
 
                 return 1;
             }
@@ -102,7 +102,7 @@ namespace TheBestMovieTheater
 
             if (valid)
             {
-                textBoxValidation.BackColor = Color.White;
+                textBoxValidation.BackColor = default;
 
                 return 1;
             }

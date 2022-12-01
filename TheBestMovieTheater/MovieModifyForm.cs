@@ -78,6 +78,13 @@ namespace TheBestMovieTheater
                 this.movieYearTextBox.Text = this.movieInfo[4];
                 this.startDateTimePicker.Value = DateTime.Parse(this.movieInfo[5]);
                 this.endDateTimePicker.Value = DateTime.Parse(this.movieInfo[6]);
+
+                this.movieTitleTextBox.ReadOnly = true;
+                this.movieGenreTextBox.ReadOnly = true;
+                this.movieLengthTextBox.ReadOnly = true;
+                this.movieYearTextBox.ReadOnly = true;
+                this.startDateTimePicker.Enabled = false;
+                this.endDateTimePicker.Enabled = false;
             }
         }
 
@@ -88,25 +95,32 @@ namespace TheBestMovieTheater
         /// <param name="e">Additional event arguments.</param>
         private void AddButton_Click(object sender, EventArgs e)
         {
-            this.validCounter = 0;
-
-            this.validCounter += UserInputValidation.DuplicateValidationCheck(this.MovieListView, this.movieTitleTextBox);
-            this.validCounter += UserInputValidation.EmptyFieldValidationCheck(this.movieGenreTextBox);
-            this.validCounter += UserInputValidation.NumericValidationCheck(this.movieLengthTextBox);
-            this.validCounter += UserInputValidation.NumericValidationCheck(this.movieYearTextBox);
-            this.validCounter += UserInputValidation.DateTimeValidationCheck(this.startDateTimePicker, this.endDateTimePicker);
-
-            if (this.validCounter == 5)
+            if (this.movieTitleTextBox.ReadOnly == false)
             {
-                this.movieTableAdapter.AddMovie(this.movieTitleTextBox.Text, this.movieGenreTextBox.Text, int.Parse(this.movieLengthTextBox.Text), int.Parse(this.movieYearTextBox.Text), this.startDateTimePicker.Value.ToString(), this.endDateTimePicker.Value.ToString());
+                this.validCounter = 0;
 
-                ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
+                this.validCounter += UserInputValidation.DuplicateValidationCheck(this.MovieListView, this.movieTitleTextBox);
+                this.validCounter += UserInputValidation.EmptyFieldValidationCheck(this.movieGenreTextBox);
+                this.validCounter += UserInputValidation.NumericValidationCheck(this.movieLengthTextBox);
+                this.validCounter += UserInputValidation.NumericValidationCheck(this.movieYearTextBox);
+                this.validCounter += UserInputValidation.DateTimeValidationCheck(this.startDateTimePicker, this.endDateTimePicker);
 
-                this.ClearSelection();
+                if (this.validCounter == 5)
+                {
+                    this.movieTableAdapter.AddMovie(this.movieTitleTextBox.Text, this.movieGenreTextBox.Text, int.Parse(this.movieLengthTextBox.Text), int.Parse(this.movieYearTextBox.Text), this.startDateTimePicker.Value.ToString(), this.endDateTimePicker.Value.ToString());
+
+                    ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
+
+                    this.ClearSelection();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Input", "Warning");
+                }
             }
             else
             {
-                MessageBox.Show("Invalid Input");
+                MessageBox.Show("Clear selection before adding a movie", "Warning");
             }
         }
 
@@ -145,10 +159,17 @@ namespace TheBestMovieTheater
             this.startDateTimePicker.Value = DateTime.Parse(defaultDate);
             this.endDateTimePicker.Value = DateTime.Parse(defaultDate);
 
-            this.movieTitleTextBox.BackColor = Color.White;
-            this.movieGenreTextBox.BackColor = Color.White;
-            this.movieLengthTextBox.BackColor = Color.White;
-            this.movieYearTextBox.BackColor = Color.White;
+            this.movieTitleTextBox.ReadOnly = false;
+            this.movieGenreTextBox.ReadOnly = false;
+            this.movieLengthTextBox.ReadOnly = false;
+            this.movieYearTextBox.ReadOnly = false;
+            this.startDateTimePicker.Enabled = true;
+            this.endDateTimePicker.Enabled = true;
+
+            this.movieTitleTextBox.BackColor = default;
+            this.movieGenreTextBox.BackColor = default;
+            this.movieLengthTextBox.BackColor = default;
+            this.movieYearTextBox.BackColor = default;
 
             ListViewHelper.UnselectRow(this.MovieListView);
         }
