@@ -118,13 +118,32 @@ namespace TheBestMovieTheater
                 repeatPasswordTextBox.BackColor = Color.Red;
             }
 
-            // If all verifications are ok, we create the enter for the DB table and close the Form
+
+
+            // If all verifications are ok, we verify if the name exists in both manager and client table, then we create the enter for the DB table and close the Form
             if (validate == 6)
             {
+                SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\TBMT\\TBMT_DB.mdf;Integrated Security=True;Connect Timeout=30");
+
+                SqlDataAdapter clientCommand = new SqlDataAdapter("SELECT COUNT(*) FROM Client WHERE Username ='" + newClient.username + "'", conn);
+                SqlDataAdapter managerCommand = new SqlDataAdapter("SELECT COUNT(*) FROM Manager WHERE Username ='" + newClient.username + "'", conn);
+                DataTable ct = new DataTable();
+                clientCommand.Fill(ct);
+
+                DataTable mt = new DataTable();
+                managerCommand.Fill(mt);
+
+                if (ct.Rows[0][0].ToString() == "1" || mt.Rows[0][0].ToString() == "1")
+                {
+                    MessageBox.Show("'" + newClient.username + "'" + " already exists, use another username please!");
+                }
+                else
+                {
                 TBMT_DBDataSetLocalTableAdapters.ClientTableAdapter clientTableAdapter = new TBMT_DBDataSetLocalTableAdapters.ClientTableAdapter();
                 clientTableAdapter.Insert(newClient.firstName, newClient.lastName, newClient.emailAddress, newClient.username, newClient.password, now, null);
 
                 this.Close();
+                }
             }
         }
     }

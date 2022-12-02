@@ -144,42 +144,42 @@
             this.firstNameTextBox.Location = new System.Drawing.Point(229, 111);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(158, 22);
-            this.firstNameTextBox.TabIndex = 10;
+            this.firstNameTextBox.TabIndex = 1;
             // 
             // emailTextBox
             // 
             this.emailTextBox.Location = new System.Drawing.Point(229, 182);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(158, 22);
-            this.emailTextBox.TabIndex = 11;
+            this.emailTextBox.TabIndex = 3;
             // 
             // lastNameTextBox
             // 
             this.lastNameTextBox.Location = new System.Drawing.Point(229, 147);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(158, 22);
-            this.lastNameTextBox.TabIndex = 12;
+            this.lastNameTextBox.TabIndex = 2;
             // 
             // newPasswordTextBox
             // 
             this.newPasswordTextBox.Location = new System.Drawing.Point(229, 264);
             this.newPasswordTextBox.Name = "newPasswordTextBox";
             this.newPasswordTextBox.Size = new System.Drawing.Size(158, 22);
-            this.newPasswordTextBox.TabIndex = 13;
+            this.newPasswordTextBox.TabIndex = 5;
             // 
             // repeatPasswordTextBox
             // 
             this.repeatPasswordTextBox.Location = new System.Drawing.Point(229, 306);
             this.repeatPasswordTextBox.Name = "repeatPasswordTextBox";
             this.repeatPasswordTextBox.Size = new System.Drawing.Size(158, 22);
-            this.repeatPasswordTextBox.TabIndex = 14;
+            this.repeatPasswordTextBox.TabIndex = 6;
             // 
             // newUsernameTextBox
             // 
             this.newUsernameTextBox.Location = new System.Drawing.Point(229, 222);
             this.newUsernameTextBox.Name = "newUsernameTextBox";
             this.newUsernameTextBox.Size = new System.Drawing.Size(158, 22);
-            this.newUsernameTextBox.TabIndex = 15;
+            this.newUsernameTextBox.TabIndex = 4;
             // 
             // Register
             // 

@@ -52,6 +52,7 @@ namespace TheBestMovieTheater
 
                     this.Hide();
                     clientMenu.ShowDialog();
+                    this.Show();
                 }
 
                 if (mt.Rows[0][0].ToString() == "1")
@@ -62,6 +63,7 @@ namespace TheBestMovieTheater
 
                     this.Hide();
                     managerMenu.ShowDialog();
+                    this.Show();
                 }
 
                 if (verif != 1)

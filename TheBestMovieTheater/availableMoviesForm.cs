@@ -39,6 +39,7 @@ namespace TheBestMovieTheater
 
             ListViewHelper.ListViewHeaders(movieTable, this.availableMoviesListView);
             ListViewHelper.ListViewData(movieTable, this.availableMoviesListView);
+            ListViewHelper.ListViewColumnAutoSize(movieTable, this.availableMoviesListView);
         }
 
         /// <summary>

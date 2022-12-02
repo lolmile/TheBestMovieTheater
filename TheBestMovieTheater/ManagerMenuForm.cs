@@ -48,12 +48,9 @@ namespace TheBestMovieTheater
                     break;
 
                 case 1:
-                    // ClientListForm clientList = new ClientListForm();
-                    // clientList.ShowDialog();
 
-                    // For testing
-                    this.consultSelection = this.viewsComboBox.SelectedItem.ToString();
-                    MessageBox.Show(this.consultSelection);
+                    ConsultClientForm clientList = new ConsultClientForm();
+                    clientList.ShowDialog();
                     break;
 
                 case 2:
