@@ -101,9 +101,6 @@
     <Compile Include="ShowtimeModifyForm.Designer.cs">
       <DependentUpon>ShowtimeModifyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TBMT_DBDataSetLocal.cs">
-      <DependentUpon>TBMT_DBDataSetLocal.xsd</DependentUpon>
-    </Compile>
     <Compile Include="TBMT_DBDataSetLocal.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
