@@ -40,12 +40,13 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.ModifyButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
+            this.errorMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tbmT_DBDataSetLocal)).BeginInit();
             this.SuspendLayout();
             // 
             // BackButton
             // 
-            this.BackButton.Location = new System.Drawing.Point(344, 156);
+            this.BackButton.Location = new System.Drawing.Point(347, 232);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(75, 32);
             this.BackButton.TabIndex = 6;
@@ -60,7 +61,7 @@
             this.ShowtimeListView.HideSelection = false;
             this.ShowtimeListView.Location = new System.Drawing.Point(0, 0);
             this.ShowtimeListView.Name = "ShowtimeListView";
-            this.ShowtimeListView.Size = new System.Drawing.Size(244, 199);
+            this.ShowtimeListView.Size = new System.Drawing.Size(244, 276);
             this.ShowtimeListView.TabIndex = 8;
             this.ShowtimeListView.UseCompatibleStateImageBehavior = false;
             this.ShowtimeListView.View = System.Windows.Forms.View.Details;
@@ -110,7 +111,7 @@
             // 
             // ClearButton
             // 
-            this.ClearButton.Location = new System.Drawing.Point(344, 80);
+            this.ClearButton.Location = new System.Drawing.Point(347, 156);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(75, 70);
             this.ClearButton.TabIndex = 13;
@@ -120,7 +121,7 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(250, 80);
+            this.AddButton.Location = new System.Drawing.Point(253, 156);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(75, 32);
             this.AddButton.TabIndex = 14;
@@ -130,7 +131,7 @@
             // 
             // ModifyButton
             // 
-            this.ModifyButton.Location = new System.Drawing.Point(250, 118);
+            this.ModifyButton.Location = new System.Drawing.Point(253, 194);
             this.ModifyButton.Name = "ModifyButton";
             this.ModifyButton.Size = new System.Drawing.Size(75, 32);
             this.ModifyButton.TabIndex = 15;
@@ -140,7 +141,7 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(250, 156);
+            this.DeleteButton.Location = new System.Drawing.Point(253, 232);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 32);
             this.DeleteButton.TabIndex = 16;
@@ -148,13 +149,25 @@
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
+            // errorMessage
+            // 
+            this.errorMessage.AutoSize = true;
+            this.errorMessage.ForeColor = System.Drawing.Color.Red;
+            this.errorMessage.Location = new System.Drawing.Point(257, 73);
+            this.errorMessage.Name = "errorMessage";
+            this.errorMessage.Size = new System.Drawing.Size(96, 16);
+            this.errorMessage.TabIndex = 17;
+            this.errorMessage.Text = "Error Message";
+            this.errorMessage.Visible = false;
+            // 
             // ShowtimeModifyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(431, 199);
+            this.ClientSize = new System.Drawing.Size(431, 276);
             this.ControlBox = false;
+            this.Controls.Add(this.errorMessage);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.ModifyButton);
             this.Controls.Add(this.AddButton);
@@ -189,5 +202,6 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button ModifyButton;
         private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Label errorMessage;
     }
 }

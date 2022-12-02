@@ -300,6 +300,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1228, 446);
+            this.ControlBox = false;
             this.Controls.Add(this.movieInfoGroupBox);
             this.Controls.Add(this.MovieListView);
             this.Name = "MovieModifyForm";
