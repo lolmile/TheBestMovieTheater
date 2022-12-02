@@ -23,6 +23,9 @@ namespace TheBestMovieTheater
 
         private List<Button> buttonList;
 
+        private bool modifyFirstClick = true;
+
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MovieModifyForm"/> class.
         /// Default Constructor for MovieModifyForm.
@@ -172,7 +175,6 @@ namespace TheBestMovieTheater
         /// <param name="e">Additional event arguments.</param>
         private void ModifyButton_Click(object sender, EventArgs e)
         {
-            bool firstClick = true;
             bool validTitle = true;
             bool validGenre = true;
             bool validMinutes = true;
@@ -181,9 +183,9 @@ namespace TheBestMovieTheater
 
             this.errorLabel.Text = string.Empty;
 
-            if (firstClick)
+            if (this.modifyFirstClick)
             {
-                firstClick = false;
+                this.modifyFirstClick = false;
                 this.DeleteButton.Enabled = false;
                 this.TextBoxEnabler(true);
             }
@@ -224,6 +226,7 @@ namespace TheBestMovieTheater
                     this.movieTableAdapter.UpdateMovie(this.movieTitleTextBox.Text, this.movieGenreTextBox.Text, int.Parse(this.movieLengthTextBox.Text), int.Parse(this.movieYearTextBox.Text), this.startDateTimePicker.Value.ToString(), this.endDateTimePicker.Value.ToString(), int.Parse(this.movieIDTextBox.Text));
 
                     this.errorLabel.Visible = false;
+                    this.modifyFirstClick = true;
 
                     this.startDateTimePicker.Value = DateTime.Today;
                     this.endDateTimePicker.Value = DateTime.Today.AddDays(7);
