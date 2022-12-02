@@ -88,6 +88,11 @@ namespace TheBestMovieTheater
             }
         }
 
+        /// <summary>
+        /// On button click, add new showtime to the Showtime table in the database.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void AddButton_Click(object sender, EventArgs e)
         {
             bool validShowtime = true;
@@ -112,6 +117,11 @@ namespace TheBestMovieTheater
             }
         }
 
+        /// <summary>
+        /// On button click, update the Showtime table in the database.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments</param>
         private void ModifyButton_Click(object sender, EventArgs e)
         {
             bool validShowtime = true;
@@ -145,7 +155,6 @@ namespace TheBestMovieTheater
                     this.showTimeIDTextBox.Text = string.Empty;
                     this.showTimeTimePicker.Text = default;
 
-
                     ModifyFormHelper.ButtonEnabler(this.buttonList, false);
 
                     ListViewHelper.ListViewData(this.showtimeTableAdapter.GetData(), this.ShowtimeListView);
@@ -157,9 +166,23 @@ namespace TheBestMovieTheater
             }
         }
 
+        /// <summary>
+        /// On button click, delete a showtime from the Showtime table in the database.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event argument.</param>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            this.showtimeTableAdapter.DeleteShowtime(int.Parse(this.showTimeIDTextBox.Text), this.showTimeTimePicker.Text);
 
+            this.errorLabel.Visible = false;
+
+            this.showTimeIDTextBox.Text = string.Empty;
+            this.showTimeTimePicker.Text = default;
+
+            ModifyFormHelper.ButtonEnabler(this.buttonList, false);
+
+            ListViewHelper.ListViewData(this.showtimeTableAdapter.GetData(), this.ShowtimeListView);
         }
 
         /// <summary>
@@ -170,6 +193,8 @@ namespace TheBestMovieTheater
         private void ClearButton_Click(object sender, EventArgs e)
         {
             this.errorLabel.Visible = false;
+
+            this.modifyFirstClick = true;
 
             this.showTimeIDTextBox.Text = string.Empty;
 
