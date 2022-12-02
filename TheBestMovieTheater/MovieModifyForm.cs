@@ -48,11 +48,10 @@ namespace TheBestMovieTheater
             this.startDateTimePicker.Value = DateTime.Today;
             this.endDateTimePicker.Value = DateTime.Today.AddDays(7);
 
-            this.ModifyButton.Enabled = false;
-            this.DeleteButton.Enabled = false;
-
             this.textBoxList = new List<TextBox> { this.movieIDTextBox, this.movieTitleTextBox, this.movieGenreTextBox, this.movieLengthTextBox, this.movieYearTextBox };
             this.buttonList = new List<Button> { this.AddButton, this.ModifyButton, this.DeleteButton };
+
+            ModifyFormHelper.ButtonEnabler(this.buttonList, false);
         }
 
         /// <summary>
@@ -104,12 +103,9 @@ namespace TheBestMovieTheater
                 this.endDateTimePicker.Value = DateTime.Parse(this.movieInfo[6]);
                 this.endDateTimePicker.Enabled = false;
 
-                this.AddButton.Enabled = false;
-                this.ModifyButton.Enabled = true;
-                this.DeleteButton.Enabled = true;
-
                 this.errorLabel.Visible = false;
 
+                ModifyFormHelper.ButtonEnabler(this.buttonList, true);
                 ModifyFormHelper.TextBoxEnabler(this.textBoxList, false);
                 ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
             }
@@ -170,7 +166,7 @@ namespace TheBestMovieTheater
                 this.endDateTimePicker.Value = DateTime.Today.AddDays(7);
 
                 ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
-                ModifyFormHelper.ClearSelection(this.textBoxList, this.buttonList);
+                ModifyFormHelper.ClearSelection(this.textBoxList);
 
                 ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
             }
@@ -247,8 +243,9 @@ namespace TheBestMovieTheater
                     this.startDateTimePicker.Value = DateTime.Today;
                     this.endDateTimePicker.Value = DateTime.Today.AddDays(7);
 
+                    ModifyFormHelper.ButtonEnabler(this.buttonList, false);
                     ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
-                    ModifyFormHelper.ClearSelection(this.textBoxList, this.buttonList);
+                    ModifyFormHelper.ClearSelection(this.textBoxList);
 
                     ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
                 }
@@ -260,7 +257,7 @@ namespace TheBestMovieTheater
         }
 
         /// <summary>
-        /// On button click, calls the <see cref="ClearSelection"/> method.
+        /// On button click, resets form to default state.
         /// </summary>
         /// <param name="sender">The button that was clicked.</param>
         /// <param name="e">Additional event arguments.</param>
@@ -274,9 +271,10 @@ namespace TheBestMovieTheater
 
             this.errorLabel.Visible = false;
 
+            ModifyFormHelper.ButtonEnabler(this.buttonList, false);
             ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
             ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
-            ModifyFormHelper.ClearSelection(this.textBoxList, this.buttonList);
+            ModifyFormHelper.ClearSelection(this.textBoxList);
 
             ListViewHelper.UnselectRow(this.MovieListView);
         }
@@ -296,9 +294,10 @@ namespace TheBestMovieTheater
             this.endDateTimePicker.Value = DateTime.Today.AddDays(7);
             this.endDateTimePicker.Enabled = true;
 
+            ModifyFormHelper.ButtonEnabler(this.buttonList, false);
             ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
             ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
-            ModifyFormHelper.ClearSelection(this.textBoxList, this.buttonList);
+            ModifyFormHelper.ClearSelection(this.textBoxList);
 
             ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
         }

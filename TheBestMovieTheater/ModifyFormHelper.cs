@@ -10,6 +10,7 @@ namespace TheBestMovieTheater
     using System.Text;
     using System.Threading.Tasks;
     using System.Windows.Forms;
+    using System.Windows.Shell;
 
     /// <summary>
     /// Holds helpful methods for Modify forms.
@@ -17,27 +18,14 @@ namespace TheBestMovieTheater
     internal static class ModifyFormHelper
     {
         /// <summary>
-        /// Resets all the textbox values to an string.Empty and resets the buttons to forms default value.
+        /// Resets all the textbox values to string.Empty.
         /// </summary>
         /// <param name="textBoxList">List of textboxes to be modified.</param>
-        /// <param name="buttonList">List of buttons to be modified.</param>
-        public static void ClearSelection(List<TextBox> textBoxList, List<Button> buttonList)
+        public static void ClearSelection(List<TextBox> textBoxList)
         {
             foreach (TextBox textBox in textBoxList)
             {
                 textBox.Text = string.Empty;
-            }
-
-            foreach (Button button in buttonList)
-            {
-                if (button.Name.Contains("Add"))
-                {
-                    button.Enabled = true;
-                }
-                else
-                {
-                    button.Enabled = false;
-                }
             }
         }
 
@@ -80,6 +68,43 @@ namespace TheBestMovieTheater
                     if (!textBox.Name.Contains("ID"))
                     {
                         textBox.Enabled = false;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Enables or disables buttons depending on parameter.
+        /// </summary>
+        /// <param name="buttonList">List of buttons to modify.</param>
+        /// <param name="isEnabled">Determine if textboxes are enabled. </param>
+        public static void ButtonEnabler(List<Button> buttonList, bool isEnabled)
+        {
+            if (isEnabled)
+            {
+                foreach (Button button in buttonList)
+                {
+                    if (!button.Name.Contains("Add"))
+                    {
+                        button.Enabled = true;
+                    }
+                    else
+                    {
+                        button.Enabled = false;
+                    }
+                }
+            }
+            else
+            {
+                foreach (Button button in buttonList)
+                {
+                    if (!button.Name.Contains("Add"))
+                    {
+                        button.Enabled = false;
+                    }
+                    else
+                    {
+                        button.Enabled = true;
                     }
                 }
             }
