@@ -5,6 +5,7 @@
 namespace TheBestMovieTheater
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Windows.Forms;
 
@@ -14,14 +15,14 @@ namespace TheBestMovieTheater
     public partial class MovieModifyForm : Form
     {
         /// <summary>
+        /// Holds todays date as a read only value.
+        /// </summary>
+        private readonly DateTime defaultDate = DateTime.Today;
+
+        /// <summary>
         /// String array to hold the information of the selected movie.
         /// </summary>
         private string[] movieInfo;
-
-        /// <summary>
-        /// Int variable to hold the number of valid tests.
-        /// </summary>
-        private int validCounter;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MovieModifyForm"/> class.
@@ -33,6 +34,12 @@ namespace TheBestMovieTheater
 
             this.movieLengthTextBox.KeyPress += new KeyPressEventHandler(UserInputValidation.DigitTextBox_KeyPress);
             this.movieYearTextBox.KeyPress += new KeyPressEventHandler(UserInputValidation.DigitTextBox_KeyPress);
+
+            this.startDateTimePicker.Value = this.defaultDate;
+            this.endDateTimePicker.Value = this.defaultDate.AddDays(7);
+
+            this.ModifyButton.Enabled = false;
+            this.DeleteButton.Enabled = false;
         }
 
         /// <summary>
@@ -78,12 +85,12 @@ namespace TheBestMovieTheater
                 this.startDateTimePicker.Value = DateTime.Parse(this.movieInfo[5]);
                 this.endDateTimePicker.Value = DateTime.Parse(this.movieInfo[6]);
 
-                this.movieTitleTextBox.ReadOnly = true;
-                this.movieGenreTextBox.ReadOnly = true;
-                this.movieLengthTextBox.ReadOnly = true;
-                this.movieYearTextBox.ReadOnly = true;
-                this.startDateTimePicker.Enabled = false;
-                this.endDateTimePicker.Enabled = false;
+                this.AddButton.Enabled = false;
+                this.ModifyButton.Enabled = true;
+                this.DeleteButton.Enabled = true;
+
+                this.TextBoxEnabler(false);
+                this.ResetTextBoxBackColor();
             }
         }
 
@@ -94,43 +101,129 @@ namespace TheBestMovieTheater
         /// <param name="e">Additional event arguments.</param>
         private void AddButton_Click(object sender, EventArgs e)
         {
-            if (this.movieTitleTextBox.ReadOnly == false)
+            bool validTitle = true;
+            bool validGenre = true;
+            bool validMinutes = true;
+            bool validYear = true;
+            bool validTime = true;
+
+            this.errorLabel.Text = string.Empty;
+
+            if (!UserInputValidation.DuplicateValidationCheck(this.MovieListView, this.movieTitleTextBox))
             {
-                this.validCounter = 0;
+                validTitle = false;
+                this.errorLabel.Text = "*Title field must contain a unique title";
+            }
 
-                this.validCounter += UserInputValidation.DuplicateValidationCheck(this.MovieListView, this.movieTitleTextBox);
-                this.validCounter += UserInputValidation.EmptyFieldValidationCheck(this.movieGenreTextBox);
-                this.validCounter += UserInputValidation.NumericValidationCheck(this.movieLengthTextBox);
-                this.validCounter += UserInputValidation.NumericValidationCheck(this.movieYearTextBox);
-                this.validCounter += UserInputValidation.DateTimeValidationCheck(this.startDateTimePicker, this.endDateTimePicker);
+            if (!UserInputValidation.EmptyFieldValidationCheck(this.movieGenreTextBox))
+            {
+                validGenre = false;
+                this.errorLabel.Text += "\n*Genre field cannot be empty";
+            }
 
-                if (this.validCounter == 5)
-                {
-                    this.movieTableAdapter.AddMovie(this.movieTitleTextBox.Text, this.movieGenreTextBox.Text, int.Parse(this.movieLengthTextBox.Text), int.Parse(this.movieYearTextBox.Text), this.startDateTimePicker.Value.ToString(), this.endDateTimePicker.Value.ToString());
+            if (!UserInputValidation.NumericValidationCheck(this.movieLengthTextBox))
+            {
+                validMinutes = false;
+                this.errorLabel.Text += "\n*Minutes field must contain only numeric values";
+            }
 
-                    ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
+            if (!UserInputValidation.NumericValidationCheck(this.movieYearTextBox, 4))
+            {
+                validYear = false;
+                this.errorLabel.Text += "\n*Year field must contain four numeric values";
+            }
 
-                    this.ClearSelection();
-                }
-                else
-                {
-                    MessageBox.Show("Invalid Input", "Warning");
-                }
+            if (!UserInputValidation.DateTimeValidationCheck(this.startDateTimePicker, this.endDateTimePicker))
+            {
+                validTime = false;
+                this.errorLabel.Text += "\n*Start time cannot be before today \n*End time must be after start time";
+            }
+
+            if (validTitle && validGenre && validMinutes && validYear && validTime)
+            {
+                this.movieTableAdapter.AddMovie(this.movieTitleTextBox.Text, this.movieGenreTextBox.Text, int.Parse(this.movieLengthTextBox.Text), int.Parse(this.movieYearTextBox.Text), this.startDateTimePicker.Value.ToString(), this.endDateTimePicker.Value.ToString());
+
+                ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
+
+                this.errorLabel.Visible = false;
+
+                this.ClearSelection();
             }
             else
             {
-                MessageBox.Show("Clear selection before adding a movie", "Warning");
+                this.errorLabel.Visible = true;
             }
         }
 
         /// <summary>
-        /// TODO.
+        /// On button click, update selected movie for the movie table in the database.
         /// </summary>
         /// <param name="sender">The button that was clicked.</param>
         /// <param name="e">Additional event arguments.</param>
         private void ModifyButton_Click(object sender, EventArgs e)
         {
-            // TODO.
+            bool firstClick = true;
+            bool validTitle = true;
+            bool validGenre = true;
+            bool validMinutes = true;
+            bool validYear = true;
+            bool validTime = true;
+
+            this.errorLabel.Text = string.Empty;
+
+            if (firstClick)
+            {
+                firstClick = false;
+                this.DeleteButton.Enabled = false;
+                this.TextBoxEnabler(true);
+            }
+            else
+            {
+                if (!UserInputValidation.EmptyFieldValidationCheck(this.movieTitleTextBox))
+                {
+                    validTitle = false;
+                    this.errorLabel.Text = "*Title field must contain a unique title";
+                }
+
+                if (!UserInputValidation.EmptyFieldValidationCheck(this.movieGenreTextBox))
+                {
+                    validGenre = false;
+                    this.errorLabel.Text += "\n*Genre field cannot be empty";
+                }
+
+                if (!UserInputValidation.NumericValidationCheck(this.movieLengthTextBox))
+                {
+                    validMinutes = false;
+                    this.errorLabel.Text += "\n*Minutes field must contain only numeric values";
+                }
+
+                if (!UserInputValidation.NumericValidationCheck(this.movieYearTextBox, 4))
+                {
+                    validYear = false;
+                    this.errorLabel.Text += "\n*Year field must contain four numeric values";
+                }
+
+                if (!UserInputValidation.DateTimeValidationCheck(this.startDateTimePicker, this.endDateTimePicker))
+                {
+                    validTime = false;
+                    this.errorLabel.Text += "\n*Start time after today \n*End time must be after start time";
+                }
+
+                if (validTitle && validGenre && validMinutes && validYear && validTime)
+                {
+                    this.movieTableAdapter.UpdateMovie(this.movieTitleTextBox.Text, this.movieGenreTextBox.Text, int.Parse(this.movieLengthTextBox.Text), int.Parse(this.movieYearTextBox.Text), this.startDateTimePicker.Value.ToString(), this.endDateTimePicker.Value.ToString(), int.Parse(this.movieIDTextBox.Text));
+
+                    ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
+
+                    this.errorLabel.Visible = false;
+
+                    this.ClearSelection();
+                }
+                else
+                {
+                    this.errorLabel.Visible = true;
+                }
+            }
         }
 
         /// <summary>
@@ -148,28 +241,21 @@ namespace TheBestMovieTheater
         /// </summary>
         private void ClearSelection()
         {
-            string defaultDate = "2000-01-01";
-
-
             this.movieIDTextBox.Text = string.Empty;
             this.movieTitleTextBox.Text = string.Empty;
             this.movieGenreTextBox.Text = string.Empty;
             this.movieLengthTextBox.Text = string.Empty;
             this.movieYearTextBox.Text = string.Empty;
-            this.startDateTimePicker.Value = DateTime.Parse(defaultDate);
-            this.endDateTimePicker.Value = DateTime.Parse(defaultDate);
+            this.startDateTimePicker.Value = this.defaultDate;
+            this.endDateTimePicker.Value = this.defaultDate.AddDays(7);
 
-            this.movieTitleTextBox.ReadOnly = false;
-            this.movieGenreTextBox.ReadOnly = false;
-            this.movieLengthTextBox.ReadOnly = false;
-            this.movieYearTextBox.ReadOnly = false;
-            this.startDateTimePicker.Enabled = true;
-            this.endDateTimePicker.Enabled = true;
+            this.AddButton.Enabled = true;
+            this.ModifyButton.Enabled = false;
+            this.DeleteButton.Enabled = false;
+            this.errorLabel.Visible = false;
 
-            this.movieTitleTextBox.BackColor = default;
-            this.movieGenreTextBox.BackColor = default;
-            this.movieLengthTextBox.BackColor = default;
-            this.movieYearTextBox.BackColor = default;
+            this.TextBoxEnabler(true);
+            this.ResetTextBoxBackColor();
 
             ListViewHelper.UnselectRow(this.MovieListView);
         }
@@ -181,17 +267,47 @@ namespace TheBestMovieTheater
         /// <param name="e">Additional event arguments.</param>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            if (this.MovieListView.SelectedItems.Count > 0)
+            this.movieTableAdapter.DeleteMovie(int.Parse(this.movieIDTextBox.Text), this.movieTitleTextBox.Text);
+
+            ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
+
+            this.ClearSelection();
+        }
+
+        /// <summary>
+        /// Reset TextBox backcolor to default.
+        /// </summary>
+        private void ResetTextBoxBackColor()
+        {
+            this.movieTitleTextBox.BackColor = default;
+            this.movieGenreTextBox.BackColor = default;
+            this.movieLengthTextBox.BackColor = default;
+            this.movieYearTextBox.BackColor = default;
+        }
+
+        /// <summary>
+        /// Enables or disables textboxes depending on parameter.
+        /// </summary>
+        /// <param name="isEnabled">Determine if textboxes are enabled. </param>
+        private void TextBoxEnabler(bool isEnabled)
+        {
+            if (isEnabled)
             {
-                this.movieTableAdapter.DeleteMovie(int.Parse(this.movieIDTextBox.Text), this.movieTitleTextBox.Text);
-
-                ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
-
-                this.ClearSelection();
+                this.movieTitleTextBox.Enabled = true;
+                this.movieGenreTextBox.Enabled = true;
+                this.movieLengthTextBox.Enabled = true;
+                this.movieYearTextBox.Enabled = true;
+                this.startDateTimePicker.Enabled = true;
+                this.endDateTimePicker.Enabled = true;
             }
             else
             {
-                MessageBox.Show("Please select a movie to delete.", "Warning");
+                this.movieTitleTextBox.Enabled = false;
+                this.movieGenreTextBox.Enabled = false;
+                this.movieLengthTextBox.Enabled = false;
+                this.movieYearTextBox.Enabled = false;
+                this.startDateTimePicker.Enabled = false;
+                this.endDateTimePicker.Enabled = false;
             }
         }
     }
