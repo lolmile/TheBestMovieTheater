@@ -6,6 +6,7 @@ namespace TheBestMovieTheater
 {
     using System;
     using System.Drawing;
+    using System.Globalization;
     using System.Windows.Forms;
 
     /// <summary>
@@ -65,6 +66,32 @@ namespace TheBestMovieTheater
             {
                 textBoxValidation.BackColor = default;
 
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Checks that the ListView does not contain the exact contents of the textbox.
+        /// </summary>
+        /// <param name="listViewData">Listview required for validation.</param>
+        /// <param name="textBoxValidation">Textbox to be validated.</param>
+        /// <returns>Returns false if duplicate string is found or textbox is empty. Otherwise returns true. </returns>
+        public static bool DuplicateValidationCheck(ListView listViewData, DateTimePicker dateTimePickerValidation)
+        {
+            bool valid = true;
+            ListViewItem item = listViewData.FindItemWithText(dateTimePickerValidation.Text);
+
+            if (dateTimePickerValidation.Text == string.Empty || item != null)
+            {
+                dateTimePickerValidation.BackColor = Color.MistyRose;
+
+                valid = false;
+            }
+
+            if (valid)
+            {
                 return true;
             }
 
@@ -166,6 +193,28 @@ namespace TheBestMovieTheater
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="textBoxValidation">Textbox to be validated.</param>
+        /// <returns></returns>
+        public static bool RealTimeValidationCheck(TextBox textBoxValidation)
+        {
+            
+            if (textBoxValidation.Text != string.Empty)
+            {
+                DateTime.TryParseExact(textBoxValidation.Text, "HH:mm", CultureInfo.CurrentCulture, DateTimeStyles.None, out DateTime time);
+
+                MessageBox.Show(time.ToString());
+                //if (time < 2360 && )
+                {
+
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
