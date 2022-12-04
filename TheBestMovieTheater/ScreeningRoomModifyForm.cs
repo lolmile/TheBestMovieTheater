@@ -74,6 +74,11 @@ namespace TheBestMovieTheater
             ListViewHelper.ListViewColumnAutoSize(screeningroom, this.ScreeningRoomListView);
         }
 
+        /// <summary>
+        /// Fills textbox with screening room information when a row is selected.
+        /// </summary>
+        /// <param name="sender">The listview index that was changed.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void ScreeningRoomListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.ScreeningRoomListView.SelectedItems.Count > 0)
@@ -97,6 +102,11 @@ namespace TheBestMovieTheater
             }
         }
 
+        /// <summary>
+        /// On button click, add new screening room to the Screeningroom table in the database.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void AddButton_Click(object sender, EventArgs e)
         {
             bool validRoom = true;
@@ -133,6 +143,11 @@ namespace TheBestMovieTheater
             }
         }
 
+        /// <summary>
+        /// On button click, update the Screeningroom table in the database.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void ModifyButton_Click(object sender, EventArgs e)
         {
             bool validRoom = true;
@@ -181,6 +196,11 @@ namespace TheBestMovieTheater
             }
         }
 
+        /// <summary>
+        /// On button click, delete a screening room from the Screeningroom table in the database.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event argument.</param>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             this.screeningRoomTableAdapter.DeleteScreeningRoom(int.Parse(this.roomIDTextBox.Text));
@@ -192,6 +212,11 @@ namespace TheBestMovieTheater
             ListViewHelper.ListViewData(this.screeningRoomTableAdapter.GetData(), this.ScreeningRoomListView);
         }
 
+        /// <summary>
+        /// On button click, resets form to default state.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void ClearButton_Click(object sender, EventArgs e)
         {
             this.errorLabel.Visible = false;

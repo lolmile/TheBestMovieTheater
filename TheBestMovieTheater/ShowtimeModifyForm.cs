@@ -122,7 +122,7 @@ namespace TheBestMovieTheater
         /// On button click, update the Showtime table in the database.
         /// </summary>
         /// <param name="sender">The button that was clicked.</param>
-        /// <param name="e">Additional event arguments</param>
+        /// <param name="e">Additional event arguments.</param>
         private void ModifyButton_Click(object sender, EventArgs e)
         {
             bool validShowtime = true;
