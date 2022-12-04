@@ -183,7 +183,13 @@ namespace TheBestMovieTheater
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            this.screeningRoomTableAdapter.DeleteScreeningRoom(int.Parse(this.roomIDTextBox.Text));
 
+            ModifyFormHelper.ButtonEnabler(this.buttonList, false);
+            ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
+            ModifyFormHelper.ClearSelection(this.textBoxList);
+
+            ListViewHelper.ListViewData(this.screeningRoomTableAdapter.GetData(), this.ScreeningRoomListView);
         }
 
         private void ClearButton_Click(object sender, EventArgs e)

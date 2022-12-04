@@ -298,7 +298,6 @@ namespace TheBestMovieTheater
 
             ModifyFormHelper.ButtonEnabler(this.buttonList, false);
             ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
-            ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
             ModifyFormHelper.ClearSelection(this.textBoxList);
 
             ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
