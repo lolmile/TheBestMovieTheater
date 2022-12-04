@@ -1830,11 +1830,11 @@ namespace TheBestMovieTheater {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ScreeningRoomDataTable : global::System.Data.TypedTableBase<ScreeningRoomRow> {
             
+            private global::System.Data.DataColumn columnScreeningRoomID;
+            
             private global::System.Data.DataColumn columnRoom;
             
             private global::System.Data.DataColumn columnCapacity;
-            
-            private global::System.Data.DataColumn columnScreeningRoomID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1868,7 +1868,15 @@ namespace TheBestMovieTheater {
                     base(info, context) {
                 this.InitVars();
             }
-            
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ScreeningRoomIDColumn {
+                get {
+                    return this.columnScreeningRoomID;
+                }
+            }
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn RoomColumn {
@@ -1884,15 +1892,7 @@ namespace TheBestMovieTheater {
                     return this.columnCapacity;
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ScreeningRoomIDColumn {
-                get {
-                    return this.columnScreeningRoomID;
-                }
-            }
-            
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
@@ -1930,6 +1930,13 @@ namespace TheBestMovieTheater {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ScreeningRoomRow FindByScreeningRoomID(int ScreeningRoomID) {
+                return ((ScreeningRoomRow)(this.Rows.Find(new object[] {
+                            ScreeningRoomID})));
+            }
+
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ScreeningRoomRow AddScreeningRoomRow(string Room, int Capacity) {
                 ScreeningRoomRow rowScreeningRoomRow = ((ScreeningRoomRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1939,13 +1946,6 @@ namespace TheBestMovieTheater {
                 rowScreeningRoomRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowScreeningRoomRow);
                 return rowScreeningRoomRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ScreeningRoomRow FindByScreeningRoomID(int ScreeningRoomID) {
-                return ((ScreeningRoomRow)(this.Rows.Find(new object[] {
-                            ScreeningRoomID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1965,22 +1965,22 @@ namespace TheBestMovieTheater {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
+                this.columnScreeningRoomID = base.Columns["ScreeningRoomID"];
                 this.columnRoom = base.Columns["Room"];
                 this.columnCapacity = base.Columns["Capacity"];
-                this.columnScreeningRoomID = base.Columns["ScreeningRoomID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnRoom = new global::System.Data.DataColumn("Room", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRoom);
-                this.columnCapacity = new global::System.Data.DataColumn("Capacity", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCapacity);
                 this.columnScreeningRoomID = new global::System.Data.DataColumn("ScreeningRoomID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnScreeningRoomID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnScreeningRoomID}, true));
+                this.columnRoom = new global::System.Data.DataColumn("Room", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRoom);
+                this.columnCapacity = new global::System.Data.DataColumn("Capacity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCapacity);
                 this.columnRoom.AllowDBNull = false;
                 this.columnRoom.MaxLength = 255;
                 this.columnCapacity.AllowDBNull = false;
@@ -7643,30 +7643,30 @@ SELECT MovieID, Title, Genre, Minutes, Year, FirstShowingDate, LastShowingDate F
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [ScreeningRoom] WHERE (([Room] = @Original_Room) AND ([Capacity] = @O" +
-                "riginal_Capacity) AND ([ScreeningRoomID] = @Original_ScreeningRoomID))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [ScreeningRoom] WHERE (([ScreeningRoomID] = @Original_ScreeningRoomID" +
+                ") AND ([Room] = @Original_Room) AND ([Capacity] = @Original_Capacity))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Room", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Capacity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Capacity", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [ScreeningRoom] ([Room], [Capacity]) VALUES (@Room, @Capacity);\r\nSELE" +
-                "CT Room, Capacity, ScreeningRoomID FROM ScreeningRoom WHERE (ScreeningRoomID = S" +
+                "CT ScreeningRoomID, Room, Capacity FROM ScreeningRoom WHERE (ScreeningRoomID = S" +
                 "COPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Room", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Capacity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Capacity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [ScreeningRoom] SET [Room] = @Room, [Capacity] = @Capacity WHERE (([Room] = @Original_Room) AND ([Capacity] = @Original_Capacity) AND ([ScreeningRoomID] = @Original_ScreeningRoomID));
-SELECT Room, Capacity, ScreeningRoomID FROM ScreeningRoom WHERE (ScreeningRoomID = @ScreeningRoomID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [ScreeningRoom] SET [Room] = @Room, [Capacity] = @Capacity WHERE (([ScreeningRoomID] = @Original_ScreeningRoomID) AND ([Room] = @Original_Room) AND ([Capacity] = @Original_Capacity));
+SELECT ScreeningRoomID, Room, Capacity FROM ScreeningRoom WHERE (ScreeningRoomID = @ScreeningRoomID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Room", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Capacity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Capacity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Room", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Room", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Capacity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Capacity", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ScreeningRoomID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScreeningRoomID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ScreeningRoomID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -7683,7 +7683,7 @@ SELECT Room, Capacity, ScreeningRoomID FROM ScreeningRoom WHERE (ScreeningRoomID
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Room, Capacity, ScreeningRoomID FROM ScreeningRoom";
+            this._commandCollection[0].CommandText = "SELECT ScreeningRoomID, Room, Capacity  FROM ScreeningRoom";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7744,15 +7744,15 @@ SELECT Room, Capacity, ScreeningRoomID FROM ScreeningRoom WHERE (ScreeningRoomID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Room, int Original_Capacity, int Original_ScreeningRoomID) {
+        public virtual int Delete(int Original_ScreeningRoomID, string Original_Room, int Original_Capacity) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ScreeningRoomID));
             if ((Original_Room == null)) {
                 throw new global::System.ArgumentNullException("Original_Room");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Room));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Room));
             }
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Capacity));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_ScreeningRoomID));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Capacity));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7801,7 +7801,7 @@ SELECT Room, Capacity, ScreeningRoomID FROM ScreeningRoom WHERE (ScreeningRoomID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Room, int Capacity, string Original_Room, int Original_Capacity, int Original_ScreeningRoomID, int ScreeningRoomID) {
+        public virtual int Update(string Room, int Capacity, int Original_ScreeningRoomID, string Original_Room, int Original_Capacity, int ScreeningRoomID) {
             if ((Room == null)) {
                 throw new global::System.ArgumentNullException("Room");
             }
@@ -7809,14 +7809,14 @@ SELECT Room, Capacity, ScreeningRoomID FROM ScreeningRoom WHERE (ScreeningRoomID
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Room));
             }
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Capacity));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_ScreeningRoomID));
             if ((Original_Room == null)) {
                 throw new global::System.ArgumentNullException("Original_Room");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_Room));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_Room));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Capacity));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ScreeningRoomID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Capacity));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(ScreeningRoomID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7838,8 +7838,8 @@ SELECT Room, Capacity, ScreeningRoomID FROM ScreeningRoom WHERE (ScreeningRoomID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Room, int Capacity, string Original_Room, int Original_Capacity, int Original_ScreeningRoomID) {
-            return this.Update(Room, Capacity, Original_Room, Original_Capacity, Original_ScreeningRoomID, Original_ScreeningRoomID);
+        public virtual int Update(string Room, int Capacity, int Original_ScreeningRoomID, string Original_Room, int Original_Capacity) {
+            return this.Update(Room, Capacity, Original_ScreeningRoomID, Original_Room, Original_Capacity, Original_ScreeningRoomID);
         }
     }
     
