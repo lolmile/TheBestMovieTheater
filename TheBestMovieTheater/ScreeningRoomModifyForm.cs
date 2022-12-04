@@ -89,6 +89,7 @@ namespace TheBestMovieTheater
                 }
 
                 this.errorLabel.Visible = false;
+                this.modifyFirstClick = true;
 
                 ModifyFormHelper.ButtonEnabler(this.buttonList, true);
                 ModifyFormHelper.TextBoxEnabler(this.textBoxList, false);
@@ -134,7 +135,50 @@ namespace TheBestMovieTheater
 
         private void ModifyButton_Click(object sender, EventArgs e)
         {
+            bool validRoom = true;
+            bool validCapacity = true;
 
+            this.errorLabel.Text = string.Empty;
+
+            if (this.modifyFirstClick)
+            {
+                this.modifyFirstClick = false;
+                this.DeleteButton.Enabled = false;
+
+                ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
+            }
+            else
+            {
+                if (!UserInputValidation.DuplicateValidationCheck(this.ScreeningRoomListView, this.roomNumberTextBox))
+                {
+                    validRoom = false;
+                    this.errorLabel.Text = "*Room must be unique";
+                }
+
+                if (!UserInputValidation.NumericValidationCheck(this.capacityTextBox))
+                {
+                    validCapacity = false;
+                    this.errorLabel.Text += "\n*Capacity requires numeric values";
+                }
+
+                if (validRoom && validCapacity)
+                {
+                    this.screeningRoomTableAdapter.UpdateScreeningRoom(this.roomNumberTextBox.Text, int.Parse(this.capacityTextBox.Text), int.Parse(this.roomIDTextBox.Text));
+
+                    this.errorLabel.Visible = false;
+                    this.modifyFirstClick = true;
+
+                    ModifyFormHelper.ButtonEnabler(this.buttonList, false);
+                    ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
+                    ModifyFormHelper.ClearSelection(this.textBoxList);
+
+                    ListViewHelper.ListViewData(this.screeningRoomTableAdapter.GetData(), this.ScreeningRoomListView);
+                }
+                else
+                {
+                    this.errorLabel.Visible = true;
+                }
+            }
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -145,6 +189,7 @@ namespace TheBestMovieTheater
         private void ClearButton_Click(object sender, EventArgs e)
         {
             this.errorLabel.Visible = false;
+            this.modifyFirstClick = true;
 
             ModifyFormHelper.ButtonEnabler(this.buttonList, false);
             ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);

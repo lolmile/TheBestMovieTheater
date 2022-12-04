@@ -83,6 +83,7 @@ namespace TheBestMovieTheater
                 this.showTimeTimePicker.Enabled = false;
 
                 this.errorLabel.Visible = false;
+                this.modifyFirstClick = true;
 
                 ModifyFormHelper.ButtonEnabler(this.buttonList, true);
             }

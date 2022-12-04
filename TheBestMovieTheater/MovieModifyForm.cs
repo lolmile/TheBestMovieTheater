@@ -104,6 +104,7 @@ namespace TheBestMovieTheater
                 this.endDateTimePicker.Enabled = false;
 
                 this.errorLabel.Visible = false;
+                this.modifyFirstClick = true;
 
                 ModifyFormHelper.ButtonEnabler(this.buttonList, true);
                 ModifyFormHelper.TextBoxEnabler(this.textBoxList, false);
@@ -270,6 +271,7 @@ namespace TheBestMovieTheater
             this.endDateTimePicker.Enabled = true;
 
             this.errorLabel.Visible = false;
+            this.modifyFirstClick = true;
 
             ModifyFormHelper.ButtonEnabler(this.buttonList, false);
             ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
