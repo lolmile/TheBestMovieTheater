@@ -76,7 +76,7 @@ namespace TheBestMovieTheater
         /// Checks that the ListView does not contain the exact contents of the textbox.
         /// </summary>
         /// <param name="listViewData">Listview required for validation.</param>
-        /// <param name="textBoxValidation">Textbox to be validated.</param>
+        /// <param name="dateTimePickerValidation">DateTimePicker to be validated.</param>
         /// <returns>Returns false if duplicate string is found or textbox is empty. Otherwise returns true. </returns>
         public static bool DuplicateValidationCheck(ListView listViewData, DateTimePicker dateTimePickerValidation)
         {
@@ -193,28 +193,6 @@ namespace TheBestMovieTheater
             }
 
             return true;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="textBoxValidation">Textbox to be validated.</param>
-        /// <returns></returns>
-        public static bool RealTimeValidationCheck(TextBox textBoxValidation)
-        {
-            
-            if (textBoxValidation.Text != string.Empty)
-            {
-                DateTime.TryParseExact(textBoxValidation.Text, "HH:mm", CultureInfo.CurrentCulture, DateTimeStyles.None, out DateTime time);
-
-                MessageBox.Show(time.ToString());
-                //if (time < 2360 && )
-                {
-
-                    return true;
-                }
-            }
-            return false;
         }
     }
 }
