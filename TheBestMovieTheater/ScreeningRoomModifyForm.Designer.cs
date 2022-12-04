@@ -48,9 +48,9 @@
             // 
             // BackButton
             // 
-            this.BackButton.Location = new System.Drawing.Point(380, 251);
+            this.BackButton.Location = new System.Drawing.Point(401, 221);
             this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(75, 32);
+            this.BackButton.Size = new System.Drawing.Size(89, 32);
             this.BackButton.TabIndex = 8;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
@@ -63,10 +63,11 @@
             this.ScreeningRoomListView.HideSelection = false;
             this.ScreeningRoomListView.Location = new System.Drawing.Point(0, 0);
             this.ScreeningRoomListView.Name = "ScreeningRoomListView";
-            this.ScreeningRoomListView.Size = new System.Drawing.Size(275, 290);
+            this.ScreeningRoomListView.Size = new System.Drawing.Size(275, 262);
             this.ScreeningRoomListView.TabIndex = 1;
             this.ScreeningRoomListView.UseCompatibleStateImageBehavior = false;
             this.ScreeningRoomListView.View = System.Windows.Forms.View.Details;
+            this.ScreeningRoomListView.SelectedIndexChanged += new System.EventHandler(this.ScreeningRoomListView_SelectedIndexChanged);
             // 
             // tbmT_DBDataSetLocal
             // 
@@ -80,7 +81,7 @@
             // roomIDLabel
             // 
             this.roomIDLabel.AutoSize = true;
-            this.roomIDLabel.Location = new System.Drawing.Point(286, 9);
+            this.roomIDLabel.Location = new System.Drawing.Point(301, 9);
             this.roomIDLabel.Name = "roomIDLabel";
             this.roomIDLabel.Size = new System.Drawing.Size(63, 16);
             this.roomIDLabel.TabIndex = 9;
@@ -89,7 +90,7 @@
             // roomNumberLabel
             // 
             this.roomNumberLabel.AutoSize = true;
-            this.roomNumberLabel.Location = new System.Drawing.Point(289, 36);
+            this.roomNumberLabel.Location = new System.Drawing.Point(304, 36);
             this.roomNumberLabel.Name = "roomNumberLabel";
             this.roomNumberLabel.Size = new System.Drawing.Size(60, 16);
             this.roomNumberLabel.TabIndex = 10;
@@ -98,7 +99,7 @@
             // capacityLabel
             // 
             this.capacityLabel.AutoSize = true;
-            this.capacityLabel.Location = new System.Drawing.Point(283, 64);
+            this.capacityLabel.Location = new System.Drawing.Point(298, 64);
             this.capacityLabel.Name = "capacityLabel";
             this.capacityLabel.Size = new System.Drawing.Size(66, 16);
             this.capacityLabel.TabIndex = 11;
@@ -117,9 +118,9 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(286, 251);
+            this.DeleteButton.Location = new System.Drawing.Point(286, 221);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(75, 32);
+            this.DeleteButton.Size = new System.Drawing.Size(93, 32);
             this.DeleteButton.TabIndex = 6;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
@@ -127,9 +128,9 @@
             // 
             // ModifyButton
             // 
-            this.ModifyButton.Location = new System.Drawing.Point(286, 213);
+            this.ModifyButton.Location = new System.Drawing.Point(286, 183);
             this.ModifyButton.Name = "ModifyButton";
-            this.ModifyButton.Size = new System.Drawing.Size(75, 32);
+            this.ModifyButton.Size = new System.Drawing.Size(93, 32);
             this.ModifyButton.TabIndex = 5;
             this.ModifyButton.Text = "Modify";
             this.ModifyButton.UseVisualStyleBackColor = true;
@@ -137,9 +138,9 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(286, 175);
+            this.AddButton.Location = new System.Drawing.Point(286, 145);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(75, 32);
+            this.AddButton.Size = new System.Drawing.Size(93, 32);
             this.AddButton.TabIndex = 4;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
@@ -147,9 +148,9 @@
             // 
             // ClearButton
             // 
-            this.ClearButton.Location = new System.Drawing.Point(380, 175);
+            this.ClearButton.Location = new System.Drawing.Point(401, 145);
             this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(75, 70);
+            this.ClearButton.Size = new System.Drawing.Size(89, 70);
             this.ClearButton.TabIndex = 7;
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
@@ -157,7 +158,7 @@
             // 
             // roomIDTextBox
             // 
-            this.roomIDTextBox.Location = new System.Drawing.Point(355, 6);
+            this.roomIDTextBox.Location = new System.Drawing.Point(390, 6);
             this.roomIDTextBox.Name = "roomIDTextBox";
             this.roomIDTextBox.ReadOnly = true;
             this.roomIDTextBox.Size = new System.Drawing.Size(100, 22);
@@ -166,14 +167,14 @@
             // 
             // roomNumberTextBox
             // 
-            this.roomNumberTextBox.Location = new System.Drawing.Point(355, 33);
+            this.roomNumberTextBox.Location = new System.Drawing.Point(390, 33);
             this.roomNumberTextBox.Name = "roomNumberTextBox";
             this.roomNumberTextBox.Size = new System.Drawing.Size(100, 22);
             this.roomNumberTextBox.TabIndex = 2;
             // 
             // capacityTextBox
             // 
-            this.capacityTextBox.Location = new System.Drawing.Point(355, 61);
+            this.capacityTextBox.Location = new System.Drawing.Point(390, 61);
             this.capacityTextBox.Name = "capacityTextBox";
             this.capacityTextBox.Size = new System.Drawing.Size(100, 22);
             this.capacityTextBox.TabIndex = 3;
@@ -182,7 +183,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 290);
+            this.ClientSize = new System.Drawing.Size(506, 262);
             this.ControlBox = false;
             this.Controls.Add(this.capacityTextBox);
             this.Controls.Add(this.roomNumberTextBox);
