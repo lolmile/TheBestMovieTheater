@@ -49,7 +49,7 @@
             this.BackButton.Location = new System.Drawing.Point(347, 182);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(75, 32);
-            this.BackButton.TabIndex = 6;
+            this.BackButton.TabIndex = 7;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
@@ -62,7 +62,7 @@
             this.ShowtimeListView.Location = new System.Drawing.Point(0, 0);
             this.ShowtimeListView.Name = "ShowtimeListView";
             this.ShowtimeListView.Size = new System.Drawing.Size(244, 230);
-            this.ShowtimeListView.TabIndex = 8;
+            this.ShowtimeListView.TabIndex = 1;
             this.ShowtimeListView.UseCompatibleStateImageBehavior = false;
             this.ShowtimeListView.View = System.Windows.Forms.View.Details;
             this.ShowtimeListView.SelectedIndexChanged += new System.EventHandler(this.ShowtimeListView_SelectedIndexChanged);
@@ -92,13 +92,14 @@
             this.showTimeIDTextBox.ReadOnly = true;
             this.showTimeIDTextBox.Size = new System.Drawing.Size(53, 22);
             this.showTimeIDTextBox.TabIndex = 11;
+            this.showTimeIDTextBox.TabStop = false;
             // 
             // ClearButton
             // 
             this.ClearButton.Location = new System.Drawing.Point(347, 106);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(75, 70);
-            this.ClearButton.TabIndex = 13;
+            this.ClearButton.TabIndex = 6;
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
@@ -108,7 +109,7 @@
             this.AddButton.Location = new System.Drawing.Point(253, 106);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(75, 32);
-            this.AddButton.TabIndex = 14;
+            this.AddButton.TabIndex = 3;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
@@ -118,7 +119,7 @@
             this.ModifyButton.Location = new System.Drawing.Point(253, 144);
             this.ModifyButton.Name = "ModifyButton";
             this.ModifyButton.Size = new System.Drawing.Size(75, 32);
-            this.ModifyButton.TabIndex = 15;
+            this.ModifyButton.TabIndex = 4;
             this.ModifyButton.Text = "Modify";
             this.ModifyButton.UseVisualStyleBackColor = true;
             this.ModifyButton.Click += new System.EventHandler(this.ModifyButton_Click);
@@ -128,7 +129,7 @@
             this.DeleteButton.Location = new System.Drawing.Point(253, 182);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 32);
-            this.DeleteButton.TabIndex = 16;
+            this.DeleteButton.TabIndex = 5;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
@@ -152,7 +153,7 @@
             this.showTimeTimePicker.Name = "showTimeTimePicker";
             this.showTimeTimePicker.ShowUpDown = true;
             this.showTimeTimePicker.Size = new System.Drawing.Size(75, 22);
-            this.showTimeTimePicker.TabIndex = 18;
+            this.showTimeTimePicker.TabIndex = 2;
             this.showTimeTimePicker.Value = new System.DateTime(2022, 12, 2, 0, 0, 0, 0);
             // 
             // tbmT_DBDataSetLocal

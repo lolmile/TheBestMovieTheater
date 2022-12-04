@@ -61,7 +61,7 @@
             this.BackButton.Location = new System.Drawing.Point(163, 377);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(124, 40);
-            this.BackButton.TabIndex = 5;
+            this.BackButton.TabIndex = 12;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
@@ -84,7 +84,7 @@
             this.MovieListView.MultiSelect = false;
             this.MovieListView.Name = "MovieListView";
             this.MovieListView.Size = new System.Drawing.Size(893, 446);
-            this.MovieListView.TabIndex = 7;
+            this.MovieListView.TabIndex = 1;
             this.MovieListView.UseCompatibleStateImageBehavior = false;
             this.MovieListView.View = System.Windows.Forms.View.Details;
             this.MovieListView.SelectedIndexChanged += new System.EventHandler(this.MovieListView_SelectedIndexChanged);
@@ -143,7 +143,7 @@
             this.ClearButton.Location = new System.Drawing.Point(163, 285);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(124, 86);
-            this.ClearButton.TabIndex = 26;
+            this.ClearButton.TabIndex = 11;
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
@@ -163,7 +163,7 @@
             this.movieYearTextBox.MaxLength = 4;
             this.movieYearTextBox.Name = "movieYearTextBox";
             this.movieYearTextBox.Size = new System.Drawing.Size(56, 22);
-            this.movieYearTextBox.TabIndex = 24;
+            this.movieYearTextBox.TabIndex = 5;
             // 
             // movieLengthTextBox
             // 
@@ -171,21 +171,21 @@
             this.movieLengthTextBox.MaxLength = 3;
             this.movieLengthTextBox.Name = "movieLengthTextBox";
             this.movieLengthTextBox.Size = new System.Drawing.Size(56, 22);
-            this.movieLengthTextBox.TabIndex = 23;
+            this.movieLengthTextBox.TabIndex = 4;
             // 
             // movieGenreTextBox
             // 
             this.movieGenreTextBox.Location = new System.Drawing.Point(82, 74);
             this.movieGenreTextBox.Name = "movieGenreTextBox";
             this.movieGenreTextBox.Size = new System.Drawing.Size(221, 22);
-            this.movieGenreTextBox.TabIndex = 22;
+            this.movieGenreTextBox.TabIndex = 3;
             // 
             // movieTitleTextBox
             // 
             this.movieTitleTextBox.Location = new System.Drawing.Point(82, 46);
             this.movieTitleTextBox.Name = "movieTitleTextBox";
             this.movieTitleTextBox.Size = new System.Drawing.Size(221, 22);
-            this.movieTitleTextBox.TabIndex = 21;
+            this.movieTitleTextBox.TabIndex = 2;
             // 
             // endDateTimePicker
             // 
@@ -193,7 +193,7 @@
             this.endDateTimePicker.Location = new System.Drawing.Point(194, 139);
             this.endDateTimePicker.Name = "endDateTimePicker";
             this.endDateTimePicker.Size = new System.Drawing.Size(109, 22);
-            this.endDateTimePicker.TabIndex = 20;
+            this.endDateTimePicker.TabIndex = 7;
             this.endDateTimePicker.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
             // startDateTimePicker
@@ -202,7 +202,7 @@
             this.startDateTimePicker.Location = new System.Drawing.Point(194, 107);
             this.startDateTimePicker.Name = "startDateTimePicker";
             this.startDateTimePicker.Size = new System.Drawing.Size(109, 22);
-            this.startDateTimePicker.TabIndex = 19;
+            this.startDateTimePicker.TabIndex = 6;
             this.startDateTimePicker.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
             // endLabel

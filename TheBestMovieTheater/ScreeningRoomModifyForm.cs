@@ -47,5 +47,25 @@ namespace TheBestMovieTheater
 
             ListViewHelper.ListViewColumnAutoSize(screeningroom, this.ScreeningRoomListView);
         }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ModifyButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
