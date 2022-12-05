@@ -14,6 +14,9 @@ namespace TheBestMovieTheater
     using System.Threading.Tasks;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// Contains the design and functionality for movie screenings.
+    /// </summary>
     public partial class MovieScreeningsModifyForm : Form
     {
         /// <summary>
@@ -36,6 +39,10 @@ namespace TheBestMovieTheater
         /// </summary>
         private bool modifyFirstClick = true;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MovieScreeningsModifyForm"/> class.
+        /// Default constructor for MovieScreeningModifyForm.
+        /// </summary>
         public MovieScreeningsModifyForm()
         {
             this.InitializeComponent();
