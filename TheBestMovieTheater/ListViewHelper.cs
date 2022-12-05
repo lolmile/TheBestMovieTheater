@@ -30,6 +30,20 @@ namespace TheBestMovieTheater
         }
 
         /// <summary>
+        /// Inserts set number of column headers into the ListView.
+        /// </summary>
+        /// <param name="dataTable">Data source for the ListView.</param>
+        /// <param name="listView">ListView object to modify.</param>
+        /// <param name="maxColumns">Int value for max columns to create.</param>
+        public static void ListViewHeaders(DataTable dataTable, ListView listView, int maxColumns)
+        {
+            for (int column = 0; column < maxColumns; column++)
+            {
+                listView.Columns.Add(dataTable.Columns[column].ToString());
+            }
+        }
+
+        /// <summary>
         /// Inserts source data into ListView.
         /// </summary>
         /// <param name="dataTable">Data source for the ListView.</param>
@@ -56,6 +70,32 @@ namespace TheBestMovieTheater
         }
 
         /// <summary>
+        /// Inserts source data into ListView giving the max amount of columns.
+        /// </summary>
+        /// <param name="dataTable">Data source for the ListView.</param>
+        /// <param name="listView">ListView object to modify.</param>
+        /// <param name="maxColumns">Int value for max columns to create.</param>
+        public static void ListViewData(DataTable dataTable, ListView listView, int maxColumns)
+        {
+            ListViewItem dataItems;
+            int rowCount = dataTable.Rows.Count;
+            string[] dataArray = new string[maxColumns];
+
+            listView.Items.Clear();
+
+            for (int row = 0; row < rowCount; row++)
+            {
+                for (int column = 0; column < maxColumns; column++)
+                {
+                    dataArray[column] = dataTable.Rows[row][column].ToString();
+                }
+
+                dataItems = new ListViewItem(dataArray);
+                listView.Items.Add(dataItems);
+            }
+        }
+
+        /// <summary>
         /// Auto sizes each column by header size or row size, depending which has the largest length.
         /// </summary>
         /// <param name="dataTable">Data source for the ListView.</param>
@@ -68,6 +108,43 @@ namespace TheBestMovieTheater
             int rowCount = dataTable.Rows.Count;
 
             for (int column = 0; column < columnCount; column++)
+            {
+                headerLength = listView.Columns[column].Text.Length;
+
+                rowLength = 0;
+
+                for (int row = 0; row < rowCount; row++)
+                {
+                    if (rowLength < listView.Items[row].SubItems[column].Text.Length)
+                    {
+                        rowLength = listView.Items[row].SubItems[column].Text.Length;
+                    }
+                }
+
+                if (headerLength > rowLength)
+                {
+                    listView.Columns[column].Width = -2;
+                }
+                else
+                {
+                    listView.Columns[column].Width = -1;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Auto sizes set number of columns by header size or row size, depending which has the largest length.
+        /// </summary>
+        /// <param name="dataTable">Data source for the ListView.</param>
+        /// <param name="listView">ListView object to modify.</param>
+        /// <param name="maxColumns">Int value for max columns to create.</param>
+        public static void ListViewColumnAutoSize(DataTable dataTable, ListView listView, int maxColumns)
+        {
+            int headerLength;
+            int rowLength;
+            int rowCount = dataTable.Rows.Count;
+
+            for (int column = 0; column < maxColumns; column++)
             {
                 headerLength = listView.Columns[column].Text.Length;
 

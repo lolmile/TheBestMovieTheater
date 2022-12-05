@@ -374,7 +374,7 @@ SELECT ScreeningRoomID, Room, Capacity FROM ScreeningRoom WHERE (ScreeningRoomID
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="TBMT_DBConnectionStringLocal (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteScreeningRoom" Modifier="Public" Name="DeleteScreeningRoom" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DeleteScreeningRoom">
+              <DbSource ConnectionRef="TBMT_DBConnectionStringLocal (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteScreeningRoom" Modifier="Public" Name="DeleteScreeningRoom" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteScreeningRoom">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM [ScreeningRoom] WHERE (([ScreeningRoomID] = @Original_ScreeningRoomID))</CommandText>
@@ -384,7 +384,7 @@ SELECT ScreeningRoomID, Room, Capacity FROM ScreeningRoom WHERE (ScreeningRoomID
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="TBMT_DBConnectionStringLocal (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateScreeningRoom" Modifier="Public" Name="UpdateScreeningRoom" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateScreeningRoom">
+              <DbSource ConnectionRef="TBMT_DBConnectionStringLocal (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateScreeningRoom" Modifier="Public" Name="UpdateScreeningRoom" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateScreeningRoom">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [ScreeningRoom] SET [Room] = @Room, [Capacity] = @Capacity WHERE (([ScreeningRoomID] = @Original_ScreeningRoomID));</CommandText>
@@ -886,14 +886,14 @@ SELECT TicketID, TicketNumber, PriceID, MovieID, ShowtimeID, ScreeningRoomID FRO
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ScreeningRoomID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="ScreeningRoomIDColumn" msprop:Generator_ColumnPropNameInRow="ScreeningRoomID" msprop:Generator_UserColumnName="ScreeningRoomID" msprop:Generator_ColumnVarNameInTable="columnScreeningRoomID" type="xs:int" />
-              <xs:element name="Room" msprop:Generator_ColumnPropNameInRow="Room" msprop:Generator_ColumnPropNameInTable="RoomColumn" msprop:Generator_ColumnVarNameInTable="columnRoom" msprop:Generator_UserColumnName="Room">
+              <xs:element name="Room" msprop:Generator_ColumnPropNameInTable="RoomColumn" msprop:Generator_ColumnPropNameInRow="Room" msprop:Generator_UserColumnName="Room" msprop:Generator_ColumnVarNameInTable="columnRoom">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Capacity" msprop:Generator_ColumnPropNameInRow="Capacity" msprop:Generator_ColumnPropNameInTable="CapacityColumn" msprop:Generator_ColumnVarNameInTable="columnCapacity" msprop:Generator_UserColumnName="Capacity" type="xs:int" />
+              <xs:element name="Capacity" msprop:Generator_ColumnPropNameInTable="CapacityColumn" msprop:Generator_ColumnPropNameInRow="Capacity" msprop:Generator_UserColumnName="Capacity" msprop:Generator_ColumnVarNameInTable="columnCapacity" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

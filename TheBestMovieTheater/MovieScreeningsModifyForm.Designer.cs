@@ -32,9 +32,9 @@
             this.ClearButton = new System.Windows.Forms.Button();
             this.movieScreeningIDTextBox = new System.Windows.Forms.TextBox();
             this.BackButton = new System.Windows.Forms.Button();
-            this.movieLengthTextBox = new System.Windows.Forms.TextBox();
-            this.movieGenreTextBox = new System.Windows.Forms.TextBox();
-            this.movieTitleTextBox = new System.Windows.Forms.TextBox();
+            this.screeningRoomIDTextBox = new System.Windows.Forms.TextBox();
+            this.showtimeIDTextBox = new System.Windows.Forms.TextBox();
+            this.movieIDTextBox = new System.Windows.Forms.TextBox();
             this.screeningRoomLabel = new System.Windows.Forms.Label();
             this.showtimeIDLabel = new System.Windows.Forms.Label();
             this.movieIDLabel = new System.Windows.Forms.Label();
@@ -42,12 +42,18 @@
             this.ModifyButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
-            this.tbmT_DBDataSetLocal = new TheBestMovieTheater.TBMT_DBDataSetLocal();
             this.movieInfoGroupBox = new System.Windows.Forms.GroupBox();
             this.MovieScreeningListView = new System.Windows.Forms.ListView();
+            this.MovieListView = new System.Windows.Forms.ListView();
+            this.ShowtimeListView = new System.Windows.Forms.ListView();
+            this.ScreeningRoomListView = new System.Windows.Forms.ListView();
+            this.tbmT_DBDataSetLocal = new TheBestMovieTheater.TBMT_DBDataSetLocal();
             this.movieInfoBridgeTableAdapter = new TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.MovieInfoBridgeTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.tbmT_DBDataSetLocal)).BeginInit();
+            this.movieTableAdapter = new TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.MovieTableAdapter();
+            this.showtimeTableAdapter = new TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.ShowtimeTableAdapter();
+            this.screeningRoomTableAdapter = new TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.ScreeningRoomTableAdapter();
             this.movieInfoGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbmT_DBDataSetLocal)).BeginInit();
             this.SuspendLayout();
             // 
             // errorLabel
@@ -69,6 +75,7 @@
             this.ClearButton.TabIndex = 10;
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // movieScreeningIDTextBox
             // 
@@ -87,28 +94,29 @@
             this.BackButton.TabIndex = 11;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
-            // movieLengthTextBox
+            // screeningRoomIDTextBox
             // 
-            this.movieLengthTextBox.Location = new System.Drawing.Point(148, 102);
-            this.movieLengthTextBox.MaxLength = 3;
-            this.movieLengthTextBox.Name = "movieLengthTextBox";
-            this.movieLengthTextBox.Size = new System.Drawing.Size(56, 22);
-            this.movieLengthTextBox.TabIndex = 3;
+            this.screeningRoomIDTextBox.Location = new System.Drawing.Point(148, 102);
+            this.screeningRoomIDTextBox.MaxLength = 3;
+            this.screeningRoomIDTextBox.Name = "screeningRoomIDTextBox";
+            this.screeningRoomIDTextBox.Size = new System.Drawing.Size(56, 22);
+            this.screeningRoomIDTextBox.TabIndex = 3;
             // 
-            // movieGenreTextBox
+            // showtimeIDTextBox
             // 
-            this.movieGenreTextBox.Location = new System.Drawing.Point(148, 74);
-            this.movieGenreTextBox.Name = "movieGenreTextBox";
-            this.movieGenreTextBox.Size = new System.Drawing.Size(56, 22);
-            this.movieGenreTextBox.TabIndex = 2;
+            this.showtimeIDTextBox.Location = new System.Drawing.Point(148, 74);
+            this.showtimeIDTextBox.Name = "showtimeIDTextBox";
+            this.showtimeIDTextBox.Size = new System.Drawing.Size(56, 22);
+            this.showtimeIDTextBox.TabIndex = 2;
             // 
-            // movieTitleTextBox
+            // movieIDTextBox
             // 
-            this.movieTitleTextBox.Location = new System.Drawing.Point(148, 46);
-            this.movieTitleTextBox.Name = "movieTitleTextBox";
-            this.movieTitleTextBox.Size = new System.Drawing.Size(56, 22);
-            this.movieTitleTextBox.TabIndex = 1;
+            this.movieIDTextBox.Location = new System.Drawing.Point(148, 46);
+            this.movieIDTextBox.Name = "movieIDTextBox";
+            this.movieIDTextBox.Size = new System.Drawing.Size(56, 22);
+            this.movieIDTextBox.TabIndex = 1;
             // 
             // screeningRoomLabel
             // 
@@ -177,20 +185,15 @@
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
             // 
-            // tbmT_DBDataSetLocal
-            // 
-            this.tbmT_DBDataSetLocal.DataSetName = "TBMT_DBDataSetLocal";
-            this.tbmT_DBDataSetLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // movieInfoGroupBox
             // 
             this.movieInfoGroupBox.Controls.Add(this.errorLabel);
             this.movieInfoGroupBox.Controls.Add(this.ClearButton);
             this.movieInfoGroupBox.Controls.Add(this.movieScreeningIDTextBox);
             this.movieInfoGroupBox.Controls.Add(this.BackButton);
-            this.movieInfoGroupBox.Controls.Add(this.movieLengthTextBox);
-            this.movieInfoGroupBox.Controls.Add(this.movieGenreTextBox);
-            this.movieInfoGroupBox.Controls.Add(this.movieTitleTextBox);
+            this.movieInfoGroupBox.Controls.Add(this.screeningRoomIDTextBox);
+            this.movieInfoGroupBox.Controls.Add(this.showtimeIDTextBox);
+            this.movieInfoGroupBox.Controls.Add(this.movieIDTextBox);
             this.movieInfoGroupBox.Controls.Add(this.screeningRoomLabel);
             this.movieInfoGroupBox.Controls.Add(this.showtimeIDLabel);
             this.movieInfoGroupBox.Controls.Add(this.movieIDLabel);
@@ -216,26 +219,87 @@
             this.MovieScreeningListView.TabIndex = 1;
             this.MovieScreeningListView.UseCompatibleStateImageBehavior = false;
             this.MovieScreeningListView.View = System.Windows.Forms.View.Details;
+            this.MovieScreeningListView.SelectedIndexChanged += new System.EventHandler(this.MovieScreeningListView_SelectedIndexChanged);
+            // 
+            // MovieListView
+            // 
+            this.MovieListView.FullRowSelect = true;
+            this.MovieListView.HideSelection = false;
+            this.MovieListView.Location = new System.Drawing.Point(941, 0);
+            this.MovieListView.MultiSelect = false;
+            this.MovieListView.Name = "MovieListView";
+            this.MovieListView.Size = new System.Drawing.Size(258, 239);
+            this.MovieListView.TabIndex = 12;
+            this.MovieListView.TabStop = false;
+            this.MovieListView.UseCompatibleStateImageBehavior = false;
+            this.MovieListView.View = System.Windows.Forms.View.Details;
+            // 
+            // ShowtimeListView
+            // 
+            this.ShowtimeListView.FullRowSelect = true;
+            this.ShowtimeListView.HideSelection = false;
+            this.ShowtimeListView.HoverSelection = true;
+            this.ShowtimeListView.Location = new System.Drawing.Point(727, 0);
+            this.ShowtimeListView.MultiSelect = false;
+            this.ShowtimeListView.Name = "ShowtimeListView";
+            this.ShowtimeListView.Size = new System.Drawing.Size(208, 450);
+            this.ShowtimeListView.TabIndex = 13;
+            this.ShowtimeListView.TabStop = false;
+            this.ShowtimeListView.UseCompatibleStateImageBehavior = false;
+            this.ShowtimeListView.View = System.Windows.Forms.View.Details;
+            // 
+            // ScreeningRoomListView
+            // 
+            this.ScreeningRoomListView.FullRowSelect = true;
+            this.ScreeningRoomListView.HideSelection = false;
+            this.ScreeningRoomListView.Location = new System.Drawing.Point(941, 245);
+            this.ScreeningRoomListView.MultiSelect = false;
+            this.ScreeningRoomListView.Name = "ScreeningRoomListView";
+            this.ScreeningRoomListView.Size = new System.Drawing.Size(258, 205);
+            this.ScreeningRoomListView.TabIndex = 14;
+            this.ScreeningRoomListView.TabStop = false;
+            this.ScreeningRoomListView.UseCompatibleStateImageBehavior = false;
+            this.ScreeningRoomListView.View = System.Windows.Forms.View.Details;
+            // 
+            // tbmT_DBDataSetLocal
+            // 
+            this.tbmT_DBDataSetLocal.DataSetName = "TBMT_DBDataSetLocal";
+            this.tbmT_DBDataSetLocal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // movieInfoBridgeTableAdapter
             // 
             this.movieInfoBridgeTableAdapter.ClearBeforeFill = true;
             // 
+            // movieTableAdapter
+            // 
+            this.movieTableAdapter.ClearBeforeFill = true;
+            // 
+            // showtimeTableAdapter
+            // 
+            this.showtimeTableAdapter.ClearBeforeFill = true;
+            // 
+            // screeningRoomTableAdapter
+            // 
+            this.screeningRoomTableAdapter.ClearBeforeFill = true;
+            // 
             // MovieScreeningsModifyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1021, 450);
+            this.ClientSize = new System.Drawing.Size(1211, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.ScreeningRoomListView);
+            this.Controls.Add(this.ShowtimeListView);
+            this.Controls.Add(this.MovieListView);
             this.Controls.Add(this.movieInfoGroupBox);
             this.Controls.Add(this.MovieScreeningListView);
             this.Name = "MovieScreeningsModifyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModifyMovieScreeningsForm";
             this.Load += new System.EventHandler(this.MovieScreeningsModifyForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.tbmT_DBDataSetLocal)).EndInit();
             this.movieInfoGroupBox.ResumeLayout(false);
             this.movieInfoGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbmT_DBDataSetLocal)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -246,9 +310,9 @@
         private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.TextBox movieScreeningIDTextBox;
         private System.Windows.Forms.Button BackButton;
-        private System.Windows.Forms.TextBox movieLengthTextBox;
-        private System.Windows.Forms.TextBox movieGenreTextBox;
-        private System.Windows.Forms.TextBox movieTitleTextBox;
+        private System.Windows.Forms.TextBox screeningRoomIDTextBox;
+        private System.Windows.Forms.TextBox showtimeIDTextBox;
+        private System.Windows.Forms.TextBox movieIDTextBox;
         private System.Windows.Forms.Label screeningRoomLabel;
         private System.Windows.Forms.Label showtimeIDLabel;
         private System.Windows.Forms.Label movieIDLabel;
@@ -260,5 +324,11 @@
         private System.Windows.Forms.GroupBox movieInfoGroupBox;
         private System.Windows.Forms.ListView MovieScreeningListView;
         private TBMT_DBDataSetLocalTableAdapters.MovieInfoBridgeTableAdapter movieInfoBridgeTableAdapter;
+        private TBMT_DBDataSetLocalTableAdapters.MovieTableAdapter movieTableAdapter;
+        private TBMT_DBDataSetLocalTableAdapters.ShowtimeTableAdapter showtimeTableAdapter;
+        private TBMT_DBDataSetLocalTableAdapters.ScreeningRoomTableAdapter screeningRoomTableAdapter;
+        private System.Windows.Forms.ListView MovieListView;
+        private System.Windows.Forms.ListView ShowtimeListView;
+        private System.Windows.Forms.ListView ScreeningRoomListView;
     }
 }
