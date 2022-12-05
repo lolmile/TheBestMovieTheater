@@ -106,7 +106,7 @@ namespace TheBestMovieTheater
                 this.modifyFirstClick = true;
 
                 ModifyFormHelper.ButtonEnabler(this.buttonList, true);
-                ModifyFormHelper.TextBoxEnabler(this.textBoxList, false);
+                ModifyFormHelper.TextBoxReadOnlySkipOne(this.textBoxList, true);
                 ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
             }
         }
@@ -122,7 +122,7 @@ namespace TheBestMovieTheater
             this.modifyFirstClick = true;
 
             ModifyFormHelper.ButtonEnabler(this.buttonList, false);
-            ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
+            ModifyFormHelper.TextBoxReadOnlySkipOne(this.textBoxList, false);
             ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
             ModifyFormHelper.ClearSelection(this.textBoxList);
 
@@ -183,7 +183,60 @@ namespace TheBestMovieTheater
 
         private void ModifyButton_Click(object sender, EventArgs e)
         {
+            bool validMovieID = true;
+            bool validShowtimeID = true;
+            bool validScreeningRoomID = true;
 
+            this.errorLabel.Text = string.Empty;
+
+            this.errorLabel.Text = string.Empty;
+
+            if (this.modifyFirstClick)
+            {
+                this.modifyFirstClick = false;
+                this.DeleteButton.Enabled = false;
+
+                ModifyFormHelper.TextBoxReadOnlySkipOne(this.textBoxList, false);
+            }
+            else
+            {
+                // WIP need more validations to prevent overlapping. Validation for existing movies, showtimes, and screening rooms.
+                if (!UserInputValidation.NumericValidationCheck(this.movieIDTextBox))
+                {
+                    validMovieID = false;
+                    this.errorLabel.Text += "\n*MovieID requires only numeric values";
+                }
+
+                if (!UserInputValidation.NumericValidationCheck(this.showtimeIDTextBox))
+                {
+                    validMovieID = false;
+                    this.errorLabel.Text += "\n*ShowtimeID requires only numeric values";
+                }
+
+                if (!UserInputValidation.NumericValidationCheck(this.screeningRoomIDTextBox))
+                {
+                    validMovieID = false;
+                    this.errorLabel.Text += "\n*RoomID requires only numeric values";
+                }
+
+                if (validMovieID && validShowtimeID && validScreeningRoomID)
+                {
+                    this.movieInfoBridgeTableAdapter.UpdateMovieScreening(int.Parse(this.movieIDTextBox.Text), int.Parse(this.showtimeIDTextBox.Text), int.Parse(this.screeningRoomIDTextBox.Text), int.Parse(this.movieScreeningIDTextBox.Text));
+
+                    this.errorLabel.Visible = false;
+                    this.modifyFirstClick = true;
+
+                    ModifyFormHelper.ButtonEnabler(this.buttonList, false);
+                    ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
+                    ModifyFormHelper.ClearSelection(this.textBoxList);
+
+                    ListViewHelper.ListViewData(this.movieInfoBridgeTableAdapter.GetData(), this.MovieScreeningListView);
+                }
+                else
+                {
+                    this.errorLabel.Visible = true;
+                }
+            }
         }
 
         /// <summary>
@@ -196,7 +249,7 @@ namespace TheBestMovieTheater
             this.movieInfoBridgeTableAdapter.DeleteMovieScreening(int.Parse(this.movieScreeningIDTextBox.Text));
 
             ModifyFormHelper.ButtonEnabler(this.buttonList, false);
-            ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
+            ModifyFormHelper.TextBoxReadOnly(this.textBoxList, false);
             ModifyFormHelper.ClearSelection(this.textBoxList);
 
             ListViewHelper.ListViewData(this.movieInfoBridgeTableAdapter.GetData(), this.MovieScreeningListView);
