@@ -132,7 +132,11 @@ namespace TheBestMovieTheater
             ListViewHelper.UnselectRow(this.ScreeningRoomListView);
         }
 
-        // WIP need more validations to prevent overlapping.
+        /// <summary>
+        /// On button click, add the textbox information to the movie info bridge table in the database.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void AddButton_Click(object sender, EventArgs e)
         {
             bool validMovieID = true;
@@ -141,6 +145,7 @@ namespace TheBestMovieTheater
 
             this.errorLabel.Text = string.Empty;
 
+            // WIP need more validations to prevent overlapping. Validation for existing movies, showtimes, and screening rooms.
             if (!UserInputValidation.NumericValidationCheck(this.movieIDTextBox))
             {
                 validMovieID = false;
@@ -168,7 +173,7 @@ namespace TheBestMovieTheater
                 ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
                 ModifyFormHelper.ClearSelection(this.textBoxList);
 
-                ListViewHelper.ListViewData(this.movieInfoBridgeTableAdapter.GetData(), this.MovieListView);
+                ListViewHelper.ListViewData(this.movieInfoBridgeTableAdapter.GetData(), this.MovieScreeningListView);
             }
             else
             {
@@ -181,9 +186,20 @@ namespace TheBestMovieTheater
 
         }
 
+        /// <summary>
+        /// On button click, delete the selected movie screening from the movie info bridge table in the database.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            this.movieInfoBridgeTableAdapter.DeleteMovieScreening(int.Parse(this.movieScreeningIDTextBox.Text));
 
+            ModifyFormHelper.ButtonEnabler(this.buttonList, false);
+            ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
+            ModifyFormHelper.ClearSelection(this.textBoxList);
+
+            ListViewHelper.ListViewData(this.movieInfoBridgeTableAdapter.GetData(), this.MovieScreeningListView);
         }
     }
 }
