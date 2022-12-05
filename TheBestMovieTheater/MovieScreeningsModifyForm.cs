@@ -29,10 +29,27 @@ namespace TheBestMovieTheater
         /// </summary>
         private readonly List<Button> buttonList;
 
+        private readonly List<ListView> listViewList;
+
         /// <summary>
         /// String array to hold the movies screening information.
         /// </summary>
         private string[] movieScreeningInfo;
+
+        /// <summary>
+        /// String array to hold the movies information.
+        /// </summary>
+        private string[] movieInfo;
+
+        /// <summary>
+        /// String array to hold the showtime information.
+        /// </summary>
+        private string[] showtimeInfo;
+
+        /// <summary>
+        /// String array to hold the screening rooms information.
+        /// </summary>
+        private string[] screeningRoomInfo;
 
         /// <summary>
         /// Holds boolean value to determine the first click of the modify button.
@@ -53,6 +70,7 @@ namespace TheBestMovieTheater
 
             this.textBoxList = new List<TextBox> { this.movieScreeningIDTextBox, this.movieIDTextBox, this.showtimeIDTextBox, this.screeningRoomIDTextBox };
             this.buttonList = new List<Button> { this.AddButton, this.ModifyButton, this.DeleteButton };
+            this.listViewList = new List<ListView> { this.MovieListView, this.ShowtimeListView, this.ScreeningRoomListView };
 
             ModifyFormHelper.ButtonEnabler(this.buttonList, false);
         }
@@ -106,6 +124,12 @@ namespace TheBestMovieTheater
                 foreach (TextBox textBox in this.textBoxList)
                 {
                     textBox.Text = this.movieScreeningInfo[index];
+
+                    if (index < 3)
+                    {
+                        ListViewHelper.SelectMatchingRow(this.listViewList[index], this.movieScreeningInfo);
+                    }
+
                     index++;
                 }
 
@@ -146,8 +170,11 @@ namespace TheBestMovieTheater
         /// <param name="e">Additional event arguments.</param>
         private void AddButton_Click(object sender, EventArgs e)
         {
+            bool validNumericMovieID = true;
             bool validMovieID = true;
+            bool validNumericShowtimeID = true;
             bool validShowtimeID = true;
+            bool validNumericScreeningRoomID = true;
             bool validScreeningRoomID = true;
 
             this.errorLabel.Text = string.Empty;
@@ -155,26 +182,49 @@ namespace TheBestMovieTheater
             // WIP need more validations to prevent overlapping. Validation for existing movies, showtimes, and screening rooms.
             if (!UserInputValidation.NumericValidationCheck(this.movieIDTextBox))
             {
-                validMovieID = false;
+                validNumericMovieID = false;
                 this.errorLabel.Text += "\n*MovieID requires only numeric values";
             }
 
-            if (!UserInputValidation.NumericValidationCheck(this.showtimeIDTextBox))
+            if (!UserInputValidation.ExistingValidationCheck(this.MovieListView, this.movieIDTextBox))
             {
                 validMovieID = false;
+                this.errorLabel.Text += "\n*Requires an existing MovieID";
+            }
+
+            //if ()
+            //{
+
+            //}
+
+            if (!UserInputValidation.NumericValidationCheck(this.showtimeIDTextBox))
+            {
+                validNumericShowtimeID = false;
                 this.errorLabel.Text += "\n*ShowtimeID requires only numeric values";
+            }
+
+            if (!UserInputValidation.ExistingValidationCheck(this.MovieListView, this.movieIDTextBox))
+            {
+                validShowtimeID = false;
+                this.errorLabel.Text += "\n*Requires an existing ShowtimeID";
             }
 
             if (!UserInputValidation.NumericValidationCheck(this.screeningRoomIDTextBox))
             {
-                validMovieID = false;
+                validNumericScreeningRoomID = false;
                 this.errorLabel.Text += "\n*RoomID requires only numeric values";
             }
 
-            if (validMovieID && validShowtimeID && validScreeningRoomID)
+            if (!UserInputValidation.ExistingValidationCheck(this.MovieListView, this.movieIDTextBox))
             {
-                this.movieInfoBridgeTableAdapter.AddMovieScreening(int.Parse(this.movieIDTextBox.Text), int.Parse(this.showtimeIDTextBox.Text), int.Parse(this.screeningRoomIDTextBox.Text));
+                validScreeningRoomID = false;
+                this.errorLabel.Text += "\n*Requires an existing RoomID";
+            }
 
+            if (validNumericMovieID && validMovieID && validNumericShowtimeID && validShowtimeID && validNumericScreeningRoomID && validScreeningRoomID)
+            {
+                // this.movieInfoBridgeTableAdapter.AddMovieScreening(int.Parse(this.movieIDTextBox.Text), int.Parse(this.showtimeIDTextBox.Text), int.Parse(this.screeningRoomIDTextBox.Text));
+                MessageBox.Show("Screening Added!");
                 this.errorLabel.Visible = false;
 
                 ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);

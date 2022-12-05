@@ -178,9 +178,9 @@ namespace TheBestMovieTheater
         {
             string[] listArray = new string[listView.SelectedItems[0].SubItems.Count];
 
-            for (int i = 0; i < listArray.Length; i++)
+            for (int index = 0; index < listArray.Length; index++)
             {
-                listArray[i] = listView.SelectedItems[0].SubItems[i].Text;
+                listArray[index] = listView.SelectedItems[0].SubItems[index].Text;
             }
 
             return listArray;
@@ -195,6 +195,24 @@ namespace TheBestMovieTheater
             if (listView.SelectedIndices.Count > 0)
             {
                 listView.SelectedItems[0].Selected = false;
+            }
+        }
+
+        /// <summary>
+        /// Selects a row in the received listview where the information matches the received string array.
+        /// </summary>
+        /// <param name="listView">List view holding the row to be selected.</param>
+        /// <param name="info">String array containing information to compare. </param>
+        public static void SelectMatchingRow(ListView listView, string[] info)
+        {
+            for (int rowIndex = 0; rowIndex < listView.Items.Count; rowIndex++)
+            {
+                if (listView.Items[rowIndex].Text == info[1].ToString())
+                {
+                    int listIndex = listView.Items.IndexOf(listView.Items[rowIndex]);
+                    listView.Items[listIndex].Selected = true;
+                    break;
+                }
             }
         }
     }

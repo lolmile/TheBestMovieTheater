@@ -52,6 +52,7 @@
             this.movieTableAdapter = new TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.MovieTableAdapter();
             this.showtimeTableAdapter = new TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.ShowtimeTableAdapter();
             this.screeningRoomTableAdapter = new TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.ScreeningRoomTableAdapter();
+            this.vManager_ScreeningsTableAdapter = new TheBestMovieTheater.TBMT_DBDataSetLocalTableAdapters.vManager_ScreeningsTableAdapter();
             this.movieInfoGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbmT_DBDataSetLocal)).BeginInit();
             this.SuspendLayout();
@@ -204,7 +205,7 @@
             this.movieInfoGroupBox.Controls.Add(this.ModifyButton);
             this.movieInfoGroupBox.Controls.Add(this.AddButton);
             this.movieInfoGroupBox.Controls.Add(this.DeleteButton);
-            this.movieInfoGroupBox.Location = new System.Drawing.Point(444, 4);
+            this.movieInfoGroupBox.Location = new System.Drawing.Point(469, 4);
             this.movieInfoGroupBox.Name = "movieInfoGroupBox";
             this.movieInfoGroupBox.Size = new System.Drawing.Size(277, 434);
             this.movieInfoGroupBox.TabIndex = 11;
@@ -218,7 +219,7 @@
             this.MovieScreeningListView.Location = new System.Drawing.Point(0, 0);
             this.MovieScreeningListView.MultiSelect = false;
             this.MovieScreeningListView.Name = "MovieScreeningListView";
-            this.MovieScreeningListView.Size = new System.Drawing.Size(438, 450);
+            this.MovieScreeningListView.Size = new System.Drawing.Size(462, 450);
             this.MovieScreeningListView.TabIndex = 1;
             this.MovieScreeningListView.UseCompatibleStateImageBehavior = false;
             this.MovieScreeningListView.View = System.Windows.Forms.View.Details;
@@ -228,7 +229,7 @@
             // 
             this.MovieListView.FullRowSelect = true;
             this.MovieListView.HideSelection = false;
-            this.MovieListView.Location = new System.Drawing.Point(941, 0);
+            this.MovieListView.Location = new System.Drawing.Point(966, 0);
             this.MovieListView.MultiSelect = false;
             this.MovieListView.Name = "MovieListView";
             this.MovieListView.Size = new System.Drawing.Size(258, 239);
@@ -242,7 +243,7 @@
             this.ShowtimeListView.FullRowSelect = true;
             this.ShowtimeListView.HideSelection = false;
             this.ShowtimeListView.HoverSelection = true;
-            this.ShowtimeListView.Location = new System.Drawing.Point(727, 0);
+            this.ShowtimeListView.Location = new System.Drawing.Point(752, 0);
             this.ShowtimeListView.MultiSelect = false;
             this.ShowtimeListView.Name = "ShowtimeListView";
             this.ShowtimeListView.Size = new System.Drawing.Size(208, 450);
@@ -255,7 +256,7 @@
             // 
             this.ScreeningRoomListView.FullRowSelect = true;
             this.ScreeningRoomListView.HideSelection = false;
-            this.ScreeningRoomListView.Location = new System.Drawing.Point(941, 245);
+            this.ScreeningRoomListView.Location = new System.Drawing.Point(966, 245);
             this.ScreeningRoomListView.MultiSelect = false;
             this.ScreeningRoomListView.Name = "ScreeningRoomListView";
             this.ScreeningRoomListView.Size = new System.Drawing.Size(258, 205);
@@ -285,11 +286,15 @@
             // 
             this.screeningRoomTableAdapter.ClearBeforeFill = true;
             // 
+            // vManager_ScreeningsTableAdapter
+            // 
+            this.vManager_ScreeningsTableAdapter.ClearBeforeFill = true;
+            // 
             // MovieScreeningsModifyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1211, 450);
+            this.ClientSize = new System.Drawing.Size(1234, 450);
             this.ControlBox = false;
             this.Controls.Add(this.ScreeningRoomListView);
             this.Controls.Add(this.ShowtimeListView);
@@ -333,5 +338,6 @@
         private System.Windows.Forms.ListView MovieListView;
         private System.Windows.Forms.ListView ShowtimeListView;
         private System.Windows.Forms.ListView ScreeningRoomListView;
+        private TBMT_DBDataSetLocalTableAdapters.vManager_ScreeningsTableAdapter vManager_ScreeningsTableAdapter;
     }
 }

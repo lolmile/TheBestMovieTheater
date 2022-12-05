@@ -194,5 +194,26 @@ namespace TheBestMovieTheater
 
             return true;
         }
+
+        /// <summary>
+        /// Checks that the ListView does not contain the exact contents of the textbox.
+        /// </summary>
+        /// <param name="listViewData">Listview required for validation.</param>
+        /// <param name="textBoxValidation">Textbox to be validated.</param>
+        /// <returns>Returns false if duplicate string is found or textbox is empty. Otherwise returns true. </returns>
+        public static bool ExistingValidationCheck(ListView listViewData, TextBox textBoxValidation)
+        {
+            if (textBoxValidation.Text == string.Empty)
+            {
+                ListViewItem item = listViewData.FindItemWithText(textBoxValidation.Text);
+
+                if (item != null)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

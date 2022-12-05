@@ -747,6 +747,28 @@ SELECT TicketID, TicketNumber, PriceID, MovieID, ShowtimeID, ScreeningRoomID FRO
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vManager_ScreeningsTableAdapter" GeneratorDataComponentClassName="vManager_ScreeningsTableAdapter" Name="vManager_Screenings" UserDataComponentName="vManager_ScreeningsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TBMT_DBConnectionStringLocal (Settings)" DbObjectName="dbo.vManager_Screenings" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT MovieID, ShowtimeID, ScreeningRoomID, Title, Minutes, Showtime, Room FROM dbo.vManager_Screenings</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MovieID" DataSetColumn="MovieID" />
+              <Mapping SourceColumn="ShowtimeID" DataSetColumn="ShowtimeID" />
+              <Mapping SourceColumn="ScreeningRoomID" DataSetColumn="ScreeningRoomID" />
+              <Mapping SourceColumn="Title" DataSetColumn="Title" />
+              <Mapping SourceColumn="Minutes" DataSetColumn="Minutes" />
+              <Mapping SourceColumn="Showtime" DataSetColumn="Showtime" />
+              <Mapping SourceColumn="Room" DataSetColumn="Room" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vManager_ShowtimeCapacityTableAdapter" GeneratorDataComponentClassName="vManager_ShowtimeCapacityTableAdapter" Name="vManager_ShowtimeCapacity" UserDataComponentName="vManager_ShowtimeCapacityTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="TBMT_DBConnectionStringLocal (Settings)" DbObjectName="dbo.vManager_ShowtimeCapacity" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -766,25 +788,6 @@ SELECT TicketID, TicketNumber, PriceID, MovieID, ShowtimeID, ScreeningRoomID FRO
               <Mapping SourceColumn="Capacity" DataSetColumn="Capacity" />
               <Mapping SourceColumn="PurchasedTickets" DataSetColumn="PurchasedTickets" />
               <Mapping SourceColumn="RemainingSeats" DataSetColumn="RemainingSeats" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vManager_ShowtimesTableAdapter" GeneratorDataComponentClassName="vManager_ShowtimesTableAdapter" Name="vManager_Showtimes" UserDataComponentName="vManager_ShowtimesTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="TBMT_DBConnectionStringLocal (Settings)" DbObjectName="dbo.vManager_Showtimes" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Title, Minutes, Showtime, Room FROM dbo.vManager_Showtimes</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="Title" DataSetColumn="Title" />
-              <Mapping SourceColumn="Minutes" DataSetColumn="Minutes" />
-              <Mapping SourceColumn="Showtime" DataSetColumn="Showtime" />
-              <Mapping SourceColumn="Room" DataSetColumn="Room" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -994,62 +997,65 @@ SELECT TicketID, TicketNumber, PriceID, MovieID, ShowtimeID, ScreeningRoomID FRO
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vManager_ShowtimeCapacity" msprop:Generator_RowEvHandlerName="vManager_ShowtimeCapacityRowChangeEventHandler" msprop:Generator_RowDeletedName="vManager_ShowtimeCapacityRowDeleted" msprop:Generator_RowDeletingName="vManager_ShowtimeCapacityRowDeleting" msprop:Generator_RowEvArgName="vManager_ShowtimeCapacityRowChangeEvent" msprop:Generator_TablePropName="vManager_ShowtimeCapacity" msprop:Generator_RowChangedName="vManager_ShowtimeCapacityRowChanged" msprop:Generator_UserTableName="vManager_ShowtimeCapacity" msprop:Generator_RowChangingName="vManager_ShowtimeCapacityRowChanging" msprop:Generator_RowClassName="vManager_ShowtimeCapacityRow" msprop:Generator_TableClassName="vManager_ShowtimeCapacityDataTable" msprop:Generator_TableVarName="tablevManager_ShowtimeCapacity">
+        <xs:element name="vManager_Screenings" msprop:Generator_RowEvHandlerName="vManager_ScreeningsRowChangeEventHandler" msprop:Generator_RowDeletedName="vManager_ScreeningsRowDeleted" msprop:Generator_RowDeletingName="vManager_ScreeningsRowDeleting" msprop:Generator_RowEvArgName="vManager_ScreeningsRowChangeEvent" msprop:Generator_TablePropName="vManager_Screenings" msprop:Generator_RowChangedName="vManager_ScreeningsRowChanged" msprop:Generator_RowChangingName="vManager_ScreeningsRowChanging" msprop:Generator_TableClassName="vManager_ScreeningsDataTable" msprop:Generator_RowClassName="vManager_ScreeningsRow" msprop:Generator_TableVarName="tablevManager_Screenings" msprop:Generator_UserTableName="vManager_Screenings">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_UserColumnName="Title" msprop:Generator_ColumnVarNameInTable="columnTitle">
+              <xs:element name="MovieID" msprop:Generator_ColumnPropNameInRow="MovieID" msprop:Generator_ColumnPropNameInTable="MovieIDColumn" msprop:Generator_ColumnVarNameInTable="columnMovieID" msprop:Generator_UserColumnName="MovieID" type="xs:int" />
+              <xs:element name="ShowtimeID" msprop:Generator_ColumnPropNameInRow="ShowtimeID" msprop:Generator_ColumnPropNameInTable="ShowtimeIDColumn" msprop:Generator_ColumnVarNameInTable="columnShowtimeID" msprop:Generator_UserColumnName="ShowtimeID" type="xs:int" />
+              <xs:element name="ScreeningRoomID" msprop:Generator_ColumnPropNameInRow="ScreeningRoomID" msprop:Generator_ColumnPropNameInTable="ScreeningRoomIDColumn" msprop:Generator_ColumnVarNameInTable="columnScreeningRoomID" msprop:Generator_UserColumnName="ScreeningRoomID" type="xs:int" />
+              <xs:element name="Title" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_UserColumnName="Title">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Minutes" msprop:Generator_ColumnPropNameInTable="MinutesColumn" msprop:Generator_ColumnPropNameInRow="Minutes" msprop:Generator_UserColumnName="Minutes" msprop:Generator_ColumnVarNameInTable="columnMinutes" type="xs:int" />
-              <xs:element name="Showtime" msprop:Generator_ColumnPropNameInTable="ShowtimeColumn" msprop:Generator_ColumnPropNameInRow="Showtime" msprop:Generator_UserColumnName="Showtime" msprop:Generator_ColumnVarNameInTable="columnShowtime">
+              <xs:element name="Minutes" msprop:Generator_ColumnPropNameInRow="Minutes" msprop:Generator_ColumnPropNameInTable="MinutesColumn" msprop:Generator_ColumnVarNameInTable="columnMinutes" msprop:Generator_UserColumnName="Minutes" type="xs:int" />
+              <xs:element name="Showtime" msprop:Generator_ColumnPropNameInRow="Showtime" msprop:Generator_ColumnPropNameInTable="ShowtimeColumn" msprop:Generator_ColumnVarNameInTable="columnShowtime" msprop:Generator_UserColumnName="Showtime">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Room" msprop:Generator_ColumnPropNameInTable="RoomColumn" msprop:Generator_ColumnPropNameInRow="Room" msprop:Generator_UserColumnName="Room" msprop:Generator_ColumnVarNameInTable="columnRoom">
+              <xs:element name="Room" msprop:Generator_ColumnPropNameInRow="Room" msprop:Generator_ColumnPropNameInTable="RoomColumn" msprop:Generator_ColumnVarNameInTable="columnRoom" msprop:Generator_UserColumnName="Room">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Capacity" msprop:Generator_ColumnPropNameInTable="CapacityColumn" msprop:Generator_ColumnPropNameInRow="Capacity" msprop:Generator_UserColumnName="Capacity" msprop:Generator_ColumnVarNameInTable="columnCapacity" type="xs:int" />
-              <xs:element name="PurchasedTickets" msprop:Generator_ColumnPropNameInTable="PurchasedTicketsColumn" msprop:Generator_ColumnPropNameInRow="PurchasedTickets" msprop:Generator_UserColumnName="PurchasedTickets" msprop:Generator_ColumnVarNameInTable="columnPurchasedTickets" type="xs:int" minOccurs="0" />
-              <xs:element name="RemainingSeats" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="RemainingSeatsColumn" msprop:Generator_ColumnPropNameInRow="RemainingSeats" msprop:Generator_UserColumnName="RemainingSeats" msprop:Generator_ColumnVarNameInTable="columnRemainingSeats" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vManager_Showtimes" msprop:Generator_RowEvHandlerName="vManager_ShowtimesRowChangeEventHandler" msprop:Generator_RowDeletedName="vManager_ShowtimesRowDeleted" msprop:Generator_RowDeletingName="vManager_ShowtimesRowDeleting" msprop:Generator_RowEvArgName="vManager_ShowtimesRowChangeEvent" msprop:Generator_TablePropName="vManager_Showtimes" msprop:Generator_RowChangedName="vManager_ShowtimesRowChanged" msprop:Generator_UserTableName="vManager_Showtimes" msprop:Generator_RowChangingName="vManager_ShowtimesRowChanging" msprop:Generator_RowClassName="vManager_ShowtimesRow" msprop:Generator_TableClassName="vManager_ShowtimesDataTable" msprop:Generator_TableVarName="tablevManager_Showtimes">
+        <xs:element name="vManager_ShowtimeCapacity" msprop:Generator_RowEvHandlerName="vManager_ShowtimeCapacityRowChangeEventHandler" msprop:Generator_RowDeletedName="vManager_ShowtimeCapacityRowDeleted" msprop:Generator_RowDeletingName="vManager_ShowtimeCapacityRowDeleting" msprop:Generator_RowEvArgName="vManager_ShowtimeCapacityRowChangeEvent" msprop:Generator_TablePropName="vManager_ShowtimeCapacity" msprop:Generator_RowChangedName="vManager_ShowtimeCapacityRowChanged" msprop:Generator_RowChangingName="vManager_ShowtimeCapacityRowChanging" msprop:Generator_TableClassName="vManager_ShowtimeCapacityDataTable" msprop:Generator_RowClassName="vManager_ShowtimeCapacityRow" msprop:Generator_TableVarName="tablevManager_ShowtimeCapacity" msprop:Generator_UserTableName="vManager_ShowtimeCapacity">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_UserColumnName="Title" msprop:Generator_ColumnVarNameInTable="columnTitle">
+              <xs:element name="Title" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_UserColumnName="Title">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Minutes" msprop:Generator_ColumnPropNameInTable="MinutesColumn" msprop:Generator_ColumnPropNameInRow="Minutes" msprop:Generator_UserColumnName="Minutes" msprop:Generator_ColumnVarNameInTable="columnMinutes" type="xs:int" />
-              <xs:element name="Showtime" msprop:Generator_ColumnPropNameInTable="ShowtimeColumn" msprop:Generator_ColumnPropNameInRow="Showtime" msprop:Generator_UserColumnName="Showtime" msprop:Generator_ColumnVarNameInTable="columnShowtime">
+              <xs:element name="Minutes" msprop:Generator_ColumnPropNameInRow="Minutes" msprop:Generator_ColumnPropNameInTable="MinutesColumn" msprop:Generator_ColumnVarNameInTable="columnMinutes" msprop:Generator_UserColumnName="Minutes" type="xs:int" />
+              <xs:element name="Showtime" msprop:Generator_ColumnPropNameInRow="Showtime" msprop:Generator_ColumnPropNameInTable="ShowtimeColumn" msprop:Generator_ColumnVarNameInTable="columnShowtime" msprop:Generator_UserColumnName="Showtime">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Room" msprop:Generator_ColumnPropNameInTable="RoomColumn" msprop:Generator_ColumnPropNameInRow="Room" msprop:Generator_UserColumnName="Room" msprop:Generator_ColumnVarNameInTable="columnRoom">
+              <xs:element name="Room" msprop:Generator_ColumnPropNameInRow="Room" msprop:Generator_ColumnPropNameInTable="RoomColumn" msprop:Generator_ColumnVarNameInTable="columnRoom" msprop:Generator_UserColumnName="Room">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Capacity" msprop:Generator_ColumnPropNameInRow="Capacity" msprop:Generator_ColumnPropNameInTable="CapacityColumn" msprop:Generator_ColumnVarNameInTable="columnCapacity" msprop:Generator_UserColumnName="Capacity" type="xs:int" />
+              <xs:element name="PurchasedTickets" msprop:Generator_ColumnPropNameInRow="PurchasedTickets" msprop:Generator_ColumnPropNameInTable="PurchasedTicketsColumn" msprop:Generator_ColumnVarNameInTable="columnPurchasedTickets" msprop:Generator_UserColumnName="PurchasedTickets" type="xs:int" minOccurs="0" />
+              <xs:element name="RemainingSeats" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="RemainingSeats" msprop:Generator_ColumnPropNameInTable="RemainingSeatsColumn" msprop:Generator_ColumnVarNameInTable="columnRemainingSeats" msprop:Generator_UserColumnName="RemainingSeats" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
