@@ -131,5 +131,59 @@ namespace TheBestMovieTheater
             ListViewHelper.UnselectRow(this.ShowtimeListView);
             ListViewHelper.UnselectRow(this.ScreeningRoomListView);
         }
+
+        // WIP need more validations to prevent overlapping.
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            bool validMovieID = true;
+            bool validShowtimeID = true;
+            bool validScreeningRoomID = true;
+
+            this.errorLabel.Text = string.Empty;
+
+            if (!UserInputValidation.NumericValidationCheck(this.movieIDTextBox))
+            {
+                validMovieID = false;
+                this.errorLabel.Text += "\n*MovieID requires only numeric values";
+            }
+
+            if (!UserInputValidation.NumericValidationCheck(this.showtimeIDTextBox))
+            {
+                validMovieID = false;
+                this.errorLabel.Text += "\n*ShowtimeID requires only numeric values";
+            }
+
+            if (!UserInputValidation.NumericValidationCheck(this.screeningRoomIDTextBox))
+            {
+                validMovieID = false;
+                this.errorLabel.Text += "\n*RoomID requires only numeric values";
+            }
+
+            if (validMovieID && validShowtimeID && validScreeningRoomID)
+            {
+                this.movieInfoBridgeTableAdapter.AddMovieScreening(int.Parse(this.movieIDTextBox.Text), int.Parse(this.showtimeIDTextBox.Text), int.Parse(this.screeningRoomIDTextBox.Text));
+
+                this.errorLabel.Visible = false;
+
+                ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
+                ModifyFormHelper.ClearSelection(this.textBoxList);
+
+                ListViewHelper.ListViewData(this.movieInfoBridgeTableAdapter.GetData(), this.MovieListView);
+            }
+            else
+            {
+                this.errorLabel.Visible = true;
+            }
+        }
+
+        private void ModifyButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

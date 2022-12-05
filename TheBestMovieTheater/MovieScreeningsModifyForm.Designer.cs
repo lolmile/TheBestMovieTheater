@@ -166,6 +166,7 @@
             this.ModifyButton.TabIndex = 8;
             this.ModifyButton.Text = "Modify";
             this.ModifyButton.UseVisualStyleBackColor = true;
+            this.ModifyButton.Click += new System.EventHandler(this.ModifyButton_Click);
             // 
             // AddButton
             // 
@@ -175,6 +176,7 @@
             this.AddButton.TabIndex = 7;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // DeleteButton
             // 
@@ -184,6 +186,7 @@
             this.DeleteButton.TabIndex = 9;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // movieInfoGroupBox
             // 
