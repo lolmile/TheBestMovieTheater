@@ -171,15 +171,16 @@ namespace TheBestMovieTheater
         private void AddButton_Click(object sender, EventArgs e)
         {
             bool validNumericMovieID = true;
-            bool validMovieID = true;
             bool validNumericShowtimeID = true;
-            bool validShowtimeID = true;
             bool validNumericScreeningRoomID = true;
+            bool validMovieID = true;
+            bool validShowtimeID = true;
             bool validScreeningRoomID = true;
 
             this.errorLabel.Text = string.Empty;
 
             // WIP need more validations to prevent overlapping. Validation for existing movies, showtimes, and screening rooms.
+            // MovieID Validations.
             if (!UserInputValidation.NumericValidationCheck(this.movieIDTextBox))
             {
                 validNumericMovieID = false;
@@ -192,11 +193,9 @@ namespace TheBestMovieTheater
                 this.errorLabel.Text += "\n*Requires an existing MovieID";
             }
 
-            //if ()
-            //{
+            // Overlapping validation missing.
 
-            //}
-
+            // ShowtimeID Validations.
             if (!UserInputValidation.NumericValidationCheck(this.showtimeIDTextBox))
             {
                 validNumericShowtimeID = false;
@@ -209,6 +208,9 @@ namespace TheBestMovieTheater
                 this.errorLabel.Text += "\n*Requires an existing ShowtimeID";
             }
 
+            // Overlapping validaiton missing.
+
+            // ScreeningRoomID Validations.
             if (!UserInputValidation.NumericValidationCheck(this.screeningRoomIDTextBox))
             {
                 validNumericScreeningRoomID = false;
@@ -220,6 +222,8 @@ namespace TheBestMovieTheater
                 validScreeningRoomID = false;
                 this.errorLabel.Text += "\n*Requires an existing RoomID";
             }
+
+            // Overlapping validation missing.
 
             if (validNumericMovieID && validMovieID && validNumericShowtimeID && validShowtimeID && validNumericScreeningRoomID && validScreeningRoomID)
             {
@@ -240,6 +244,9 @@ namespace TheBestMovieTheater
 
         private void ModifyButton_Click(object sender, EventArgs e)
         {
+            bool validNumericMovieID = true;
+            bool validNumericShowtimeID = true;
+            bool validNumericScreeningRoomID = true;
             bool validMovieID = true;
             bool validShowtimeID = true;
             bool validScreeningRoomID = true;
@@ -258,25 +265,52 @@ namespace TheBestMovieTheater
             else
             {
                 // WIP need more validations to prevent overlapping. Validation for existing movies, showtimes, and screening rooms.
+                // MovieID Validations.
                 if (!UserInputValidation.NumericValidationCheck(this.movieIDTextBox))
                 {
                     validMovieID = false;
                     this.errorLabel.Text += "\n*MovieID requires only numeric values";
                 }
 
+                if (!UserInputValidation.ExistingValidationCheck(this.MovieListView, this.movieIDTextBox))
+                {
+                    validMovieID = false;
+                    this.errorLabel.Text += "\n*Requires an existing MovieID";
+                }
+
+                // Overlap[ing validation Missing.
+
+                // ShowtimeID Validations.
                 if (!UserInputValidation.NumericValidationCheck(this.showtimeIDTextBox))
                 {
                     validMovieID = false;
                     this.errorLabel.Text += "\n*ShowtimeID requires only numeric values";
                 }
 
+                if (!UserInputValidation.ExistingValidationCheck(this.ShowtimeListView, this.showtimeIDTextBox))
+                {
+                    validShowtimeID = false;
+                    this.errorLabel.Text += "\n*Requires an existing ShowtimeID";
+                }
+
+                // Overlapping validation missing.
+
+                // ScreeningRoomID Validations.
                 if (!UserInputValidation.NumericValidationCheck(this.screeningRoomIDTextBox))
                 {
                     validMovieID = false;
                     this.errorLabel.Text += "\n*RoomID requires only numeric values";
                 }
 
-                if (validMovieID && validShowtimeID && validScreeningRoomID)
+                if (!UserInputValidation.ExistingValidationCheck(this.ScreeningRoomListView, this.screeningRoomIDTextBox))
+                {
+                    validScreeningRoomID = false;
+                    this.errorLabel.Text += "\n*Requires an existing RoomID";
+                }
+
+                // Overlapping validation missing.
+
+                if (validNumericMovieID && validMovieID && validNumericShowtimeID && validShowtimeID && validNumericScreeningRoomID && validScreeningRoomID)
                 {
                     this.movieInfoBridgeTableAdapter.UpdateMovieScreening(int.Parse(this.movieIDTextBox.Text), int.Parse(this.showtimeIDTextBox.Text), int.Parse(this.screeningRoomIDTextBox.Text), int.Parse(this.movieScreeningIDTextBox.Text));
 
