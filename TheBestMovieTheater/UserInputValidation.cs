@@ -203,14 +203,21 @@ namespace TheBestMovieTheater
         /// <returns>Returns false if duplicate string is found or textbox is empty. Otherwise returns true. </returns>
         public static bool ExistingValidationCheck(ListView listViewData, TextBox textBoxValidation)
         {
-            if (textBoxValidation.Text == string.Empty)
-            {
-                ListViewItem item = listViewData.FindItemWithText(textBoxValidation.Text);
+            bool valid = true;
+            ListViewItem item = listViewData.FindItemWithText(textBoxValidation.Text);
 
-                if (item != null)
-                {
-                    return true;
-                }
+            if (textBoxValidation.Text == string.Empty || item == null)
+            {
+                textBoxValidation.BackColor = Color.MistyRose;
+
+                valid = false;
+            }
+
+            if (valid)
+            {
+                textBoxValidation.BackColor = default;
+
+                return true;
             }
 
             return false;

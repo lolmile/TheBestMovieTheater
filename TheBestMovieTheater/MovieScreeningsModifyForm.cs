@@ -203,7 +203,7 @@ namespace TheBestMovieTheater
                 this.errorLabel.Text += "\n*ShowtimeID requires only numeric values";
             }
 
-            if (!UserInputValidation.ExistingValidationCheck(this.MovieListView, this.movieIDTextBox))
+            if (!UserInputValidation.ExistingValidationCheck(this.ShowtimeListView, this.showtimeIDTextBox))
             {
                 validShowtimeID = false;
                 this.errorLabel.Text += "\n*Requires an existing ShowtimeID";
@@ -215,7 +215,7 @@ namespace TheBestMovieTheater
                 this.errorLabel.Text += "\n*RoomID requires only numeric values";
             }
 
-            if (!UserInputValidation.ExistingValidationCheck(this.MovieListView, this.movieIDTextBox))
+            if (!UserInputValidation.ExistingValidationCheck(this.ScreeningRoomListView, this.screeningRoomIDTextBox))
             {
                 validScreeningRoomID = false;
                 this.errorLabel.Text += "\n*Requires an existing RoomID";
