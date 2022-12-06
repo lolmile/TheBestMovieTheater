@@ -31,9 +31,10 @@ namespace TheBestMovieTheater
         /// <param name="e"></param>
         private void loginButton_Click(object sender, EventArgs e)
         {
-            int verif = 0;
             try
             {
+                int verif = 0;
+
                 SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\TBMT\\TBMT_DB.mdf;Integrated Security=True;Connect Timeout=30");
 
                 SqlDataAdapter command = new SqlDataAdapter("SELECT COUNT(*) FROM Manager WHERE Username ='" + usernameTextBox.Text + "' AND Password='" + passwordTextBox.Text + "'", conn);
@@ -48,7 +49,6 @@ namespace TheBestMovieTheater
                     ClientMenuForm clientMenu = new ClientMenuForm();
 
                     verif++;
-
 
                     this.Hide();
                     clientMenu.ShowDialog();

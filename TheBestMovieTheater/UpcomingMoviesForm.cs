@@ -27,22 +27,19 @@ namespace TheBestMovieTheater
         /// </summary>
         private void BindMovieListView()
         {
-            List<string> movies = new List<string>();
-
-
             SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\TBMT\\TBMT_DB.mdf;Integrated Security=True;Connect Timeout=30");
 
             SqlDataAdapter command = new SqlDataAdapter("SELECT Title,Genre,Minutes,Year from Movie WHERE FirstShowingDate > GETDATE()", conn);
             DataTable movieTable = new DataTable();
             command.Fill(movieTable);
 
-
             ListViewHelper.ListViewHeaders(movieTable, this.upcomingMovieListView);
             ListViewHelper.ListViewData(movieTable, this.upcomingMovieListView);
+            ListViewHelper.ListViewColumnAutoSize(movieTable, this.upcomingMovieListView);
         }
 
         /// <summary>
-        /// 
+        /// Closes the form.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

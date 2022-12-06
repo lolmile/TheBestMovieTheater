@@ -60,6 +60,12 @@
     <Compile Include="ClientMenuForm.Designer.cs">
       <DependentUpon>ClientMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultClientForm.Designer.cs">
+      <DependentUpon>ConsultClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListViewHelper.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -106,6 +112,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TBMT_DBDataSetLocal.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TicketInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TicketInfoForm.Designer.cs">
+      <DependentUpon>TicketInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpcomingMoviesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClientMenuForm.resx">
       <DependentUpon>ClientMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultClientForm.resx">
+      <DependentUpon>ConsultClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -144,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ShowtimeModifyForm.resx">
       <DependentUpon>ShowtimeModifyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TicketInfoForm.resx">
+      <DependentUpon>TicketInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpcomingMoviesForm.resx">
       <DependentUpon>UpcomingMoviesForm.cs</DependentUpon>

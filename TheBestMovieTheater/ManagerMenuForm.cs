@@ -42,36 +42,14 @@ namespace TheBestMovieTheater
             {
                 case 0:
 
-                    // For testing
-                    this.consultSelection = this.viewsComboBox.SelectedItem.ToString();
-                    MessageBox.Show(this.consultSelection);
+                    ConsultClientForm clientList = new ConsultClientForm();
+                    clientList.ShowDialog();
                     break;
 
                 case 1:
-                    // ClientListForm clientList = new ClientListForm();
-                    // clientList.ShowDialog();
 
-                    // For testing
-                    this.consultSelection = this.viewsComboBox.SelectedItem.ToString();
-                    MessageBox.Show(this.consultSelection);
-                    break;
-
-                case 2:
-                    // TicketSalesForm movieSalesForm = new TicketSalesForm("Movies");
-                    // movieSalesForm.ShowDialog();
-
-                    // For testing
-                    this.consultSelection = this.viewsComboBox.SelectedItem.ToString();
-                    MessageBox.Show(this.consultSelection);
-                    break;
-
-                case 3:
-                    // TicketSalesForm showtimeSalesForm = new TicketSalesForm("Showtimes");
-                    // showtimeSalesForm.ShowDialog();
-
-                    // For testing
-                    this.consultSelection = this.viewsComboBox.SelectedItem.ToString();
-                    MessageBox.Show(this.consultSelection);
+                    TicketInfoForm ticketInfoForm = new TicketInfoForm();
+                    ticketInfoForm.ShowDialog();
                     break;
 
                 default:
