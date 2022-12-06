@@ -56,7 +56,6 @@ namespace TheBestMovieTheater
         {
             UpcomingMoviesForm upcomingMoviesForm = new UpcomingMoviesForm();
             upcomingMoviesForm.ShowDialog();
-
         }
     }
 }

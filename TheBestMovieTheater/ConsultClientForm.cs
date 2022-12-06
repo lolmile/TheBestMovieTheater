@@ -34,11 +34,13 @@ namespace TheBestMovieTheater
         }
 
         /// <summary>
-        /// This method will load the data from the Client table in the DB and bind it to the listview.
+        /// This method will load the data from the Client table in the DB and bind it to the listview without any passwords to show.
         /// </summary>
         private void BindListView()
         {
             DataTable clientTable = this.clientTableAdapter.GetData();
+
+            clientTable.Columns.RemoveAt(5);
 
             ListViewHelper.ListViewHeaders(clientTable, this.clientListView);
             ListViewHelper.ListViewData(clientTable, this.clientListView);

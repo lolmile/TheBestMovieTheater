@@ -81,10 +81,8 @@
             this.viewsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.viewsComboBox.FormattingEnabled = true;
             this.viewsComboBox.Items.AddRange(new object[] {
-            "Movie Information",
             "Client List",
-            "Ticket Sales (Movies)",
-            "Ticket Sales (Showtime)"});
+            "Ticket Sales"});
             this.viewsComboBox.Location = new System.Drawing.Point(17, 65);
             this.viewsComboBox.Name = "viewsComboBox";
             this.viewsComboBox.Size = new System.Drawing.Size(186, 24);

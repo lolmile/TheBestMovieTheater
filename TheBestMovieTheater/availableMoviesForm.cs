@@ -17,8 +17,10 @@ namespace TheBestMovieTheater
     /// </summary>
     public partial class AvailableMoviesForm : Form
     {
-
-        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\TBMT\\TBMT_DB.mdf;Integrated Security=True;Connect Timeout=30");
+        /// <summary>
+        /// Readonly SQL connection string.
+        /// </summary>
+        private readonly SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\TBMT\\TBMT_DB.mdf;Integrated Security=True;Connect Timeout=30");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AvailableMoviesForm"/> class.
@@ -59,18 +61,25 @@ namespace TheBestMovieTheater
         /// </summary>
         private void BindMovieComboBox()
         {
-            this.conn.Open();
-
-            SqlCommand cmd = new SqlCommand("SELECT Title from Movie WHERE FirstShowingDate <= GETDATE()", this.conn);
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            while (dr.Read())
+            try
             {
-                this.moviesComboBox.Items.Add(dr[0].ToString());
-            }
+                this.conn.Open();
 
-            dr.Close();
-            conn.Close();
+                SqlCommand cmd = new SqlCommand("SELECT Title from Movie WHERE FirstShowingDate <= GETDATE()", this.conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    this.moviesComboBox.Items.Add(dr[0].ToString());
+                }
+
+                dr.Close();
+                this.conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             this.moviesComboBox.SelectedIndex = 0;
         }
