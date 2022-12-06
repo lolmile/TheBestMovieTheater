@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,11 +17,17 @@ namespace TheBestMovieTheater
     public partial class ClientMenuForm : Form
     {
         /// <summary>
+        /// SQL connection string.
+        /// </summary>
+        private readonly SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\TBMT\\TBMT_DB.mdf;Integrated Security=True;Connect Timeout=30");
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ClientMenuForm"/> class.
         /// </summary>
         public ClientMenuForm()
         {
             InitializeComponent();
+            BindPrices();
         }
 
         /// <summary>
@@ -56,6 +63,39 @@ namespace TheBestMovieTheater
         {
             UpcomingMoviesForm upcomingMoviesForm = new UpcomingMoviesForm();
             upcomingMoviesForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Binds prices to price lables.
+        /// </summary>
+        private void BindPrices()
+        {
+            List<string> priceList = new List<string>();
+            string[] priceArray;
+
+            this.conn.Open();
+
+            SqlCommand cmd = new SqlCommand("Select Price From Price", this.conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            try
+            {
+                while (dr.Read())
+                {
+                    priceList.Add(dr[0].ToString());
+                }
+            }
+            finally
+            {
+                dr.Close();
+                this.conn.Close();
+            }
+
+            priceArray = priceList.ToArray();
+
+            this.price1Label.Text = priceArray[0] + "$";
+            this.price2Label.Text = priceArray[1] + "$";
+            this.price3Label.Text = priceArray[2] + "$";
+            this.price4Label.Text = priceArray[3] + "$";
         }
     }
 }

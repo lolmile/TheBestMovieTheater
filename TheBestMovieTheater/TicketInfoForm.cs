@@ -124,7 +124,7 @@ namespace TheBestMovieTheater
             finally
             {
                 dr.Close();
-                conn.Close();
+                this.conn.Close();
             }
 
             ticketArray = ticketList.ToArray();

@@ -75,6 +75,12 @@
     </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="ModifyFormHelper.cs" />
+    <Compile Include="ModifyPriceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyPriceForm.Designer.cs">
+      <DependentUpon>ModifyPriceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MovieModifyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerMenuForm.resx">
       <DependentUpon>ManagerMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyPriceForm.resx">
+      <DependentUpon>ModifyPriceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MovieModifyForm.resx">
       <DependentUpon>MovieModifyForm.cs</DependentUpon>
