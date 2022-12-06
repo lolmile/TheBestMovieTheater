@@ -74,6 +74,7 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
+    <Compile Include="ModifyFormHelper.cs" />
     <Compile Include="MovieModifyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +125,7 @@
     <Compile Include="UpcomingMoviesForm.Designer.cs">
       <DependentUpon>UpcomingMoviesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserInputValidation.cs" />
     <EmbeddedResource Include="AvailableMoviesForm.resx">
       <DependentUpon>AvailableMoviesForm.cs</DependentUpon>
     </EmbeddedResource>

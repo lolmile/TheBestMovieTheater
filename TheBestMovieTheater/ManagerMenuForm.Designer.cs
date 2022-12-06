@@ -86,14 +86,14 @@
             this.viewsComboBox.Location = new System.Drawing.Point(17, 65);
             this.viewsComboBox.Name = "viewsComboBox";
             this.viewsComboBox.Size = new System.Drawing.Size(186, 24);
-            this.viewsComboBox.TabIndex = 6;
+            this.viewsComboBox.TabIndex = 1;
             // 
             // ViewButton
             // 
             this.ViewButton.Location = new System.Drawing.Point(73, 102);
             this.ViewButton.Name = "ViewButton";
             this.ViewButton.Size = new System.Drawing.Size(81, 38);
-            this.ViewButton.TabIndex = 5;
+            this.ViewButton.TabIndex = 2;
             this.ViewButton.Text = "View";
             this.ViewButton.UseVisualStyleBackColor = true;
             this.ViewButton.Click += new System.EventHandler(this.ViewButton_Click);
@@ -132,7 +132,7 @@
             this.modifyComboBox.Location = new System.Drawing.Point(49, 65);
             this.modifyComboBox.Name = "modifyComboBox";
             this.modifyComboBox.Size = new System.Drawing.Size(186, 24);
-            this.modifyComboBox.TabIndex = 7;
+            this.modifyComboBox.TabIndex = 3;
             // 
             // ModifyButton
             // 
@@ -160,7 +160,7 @@
             this.LogoutButton.Location = new System.Drawing.Point(418, 288);
             this.LogoutButton.Name = "LogoutButton";
             this.LogoutButton.Size = new System.Drawing.Size(75, 32);
-            this.LogoutButton.TabIndex = 4;
+            this.LogoutButton.TabIndex = 5;
             this.LogoutButton.Text = "Logout";
             this.LogoutButton.UseVisualStyleBackColor = true;
             this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
