@@ -86,6 +86,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(697, 453);
+            this.ControlBox = false;
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.upcomingMovieListView);
             this.Controls.Add(this.UserTitleLabel);

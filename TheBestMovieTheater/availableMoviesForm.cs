@@ -146,28 +146,50 @@ namespace TheBestMovieTheater
         /// <param name="e"></param>
         private void purchaseButton_Click(object sender, EventArgs e)
         {
-            double cost = 0;
+            decimal cost = 0;
             string movie = this.moviesComboBox.SelectedItem.ToString();
             string showtime = this.showtimeComboBox.SelectedItem.ToString();
 
+            List<string> priceList = new List<string>();
+            string[] priceArray;
+
+            this.conn.Open();
+
+            SqlCommand cmd = new SqlCommand("Select Price From Price", this.conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            try
+            {
+                while (dr.Read())
+                {
+                    priceList.Add(dr[0].ToString());
+                }
+            }
+            finally
+            {
+                dr.Close();
+                this.conn.Close();
+            }
+
+            priceArray = priceList.ToArray();
+
             if (this.childRadioButton.Checked == true)
             {
-                cost = 4;
+                cost = decimal.Parse(priceArray[0]);
             }
 
             if (this.adultRadioButton.Checked == true)
             {
-                cost = 15;
+                cost = decimal.Parse(priceArray[1]);
             }
 
             if (this.studentRadioButton.Checked == true)
             {
-                cost = 10;
+                cost = decimal.Parse(priceArray[2]);
             }
 
             if (this.elderRadioButton.Checked == true)
             {
-                cost = 10;
+                cost = decimal.Parse(priceArray[3]);
             }
 
             if (this.showtimeComboBox.SelectedItem.ToString() == "No showtime available")

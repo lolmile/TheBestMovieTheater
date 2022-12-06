@@ -98,12 +98,8 @@ namespace TheBestMovieTheater
                 case 3:
                     this.Hide();
 
-                    // ManagerModifyForm modifyPriceForm = new ManagerModifyForm("Prices");
-                    // modifyPriceForm.ShowDialog();
-
-                    // For testing.
-                    this.modifySelection = this.modifyComboBox.SelectedItem.ToString();
-                    MessageBox.Show(this.modifySelection);
+                    ModifyPriceForm modifyPriceForm = new ModifyPriceForm();
+                    modifyPriceForm.ShowDialog();
 
                     this.Show();
                     break;
