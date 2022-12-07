@@ -92,6 +92,7 @@
             this.Controls.Add(this.UserTitleLabel);
             this.Controls.Add(this.MovieTheatreLabel);
             this.Name = "ConsultClientForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConsultClientForm";
             this.Load += new System.EventHandler(this.ConsultClientForm_Load);
             this.ResumeLayout(false);

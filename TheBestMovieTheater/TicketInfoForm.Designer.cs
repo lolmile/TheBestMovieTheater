@@ -384,6 +384,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.movieTotalRevenueLabel);
             this.Controls.Add(this.movieTotalTicketLabel);
@@ -419,6 +420,7 @@
             this.Controls.Add(this.UserTitleLabel);
             this.Controls.Add(this.MovieTheatreLabel);
             this.Name = "TicketInfoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TicketInfoForm";
             this.Load += new System.EventHandler(this.TicketInfoForm_Load);
             this.ResumeLayout(false);

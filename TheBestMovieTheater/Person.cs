@@ -1,33 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="Person.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace TheBestMovieTheater
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    /// <summary>
+    /// Holds an instance of a Person.
+    /// </summary>
     internal class Person
     {
         /// <summary>
-        /// Person's first name value.
+        /// Gets or sets person's first name value.
         /// </summary>
-        public string firstName { get; set; }
+        public string FirstName { get; set; }
+
         /// <summary>
-        /// Person's last name value.
+        /// Gets or sets person's last name value.
         /// </summary>
-        public string lastName { get; set; }
+        public string LastName { get; set; }
+
         /// <summary>
-        /// Person's email Address.
+        /// Gets or sets person's email Address.
         /// </summary>
-        public string emailAddress { get; set; }
+        public string EmailAddress { get; set; }
+
         /// <summary>
-        /// Person's username for login.
+        /// Gets or sets person's username for login.
         /// </summary>
-        public string username { get; set; }
+        public string Username { get; set; }
+
         /// <summary>
-        /// Person's password for login.
+        /// Gets or sets person's password for login.
         /// </summary>
-        public virtual string password { get; set; }
-        
+        public virtual string Password { get; set; }
     }
 }

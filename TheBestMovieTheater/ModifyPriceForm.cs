@@ -1,17 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+﻿// <copyright file="ModifyPriceForm.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace TheBestMovieTheater
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Drawing;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+    using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
     /// <summary>
     /// This Form is to modify the prices of tickets from the database.
     /// </summary>
@@ -27,8 +31,8 @@ namespace TheBestMovieTheater
         /// </summary>
         public ModifyPriceForm()
         {
-            InitializeComponent();
-            BindPrices();
+            this.InitializeComponent();
+            this.BindPrices();
         }
 
         /// <summary>
@@ -60,16 +64,16 @@ namespace TheBestMovieTheater
 
             this.childPriceLabel.Text = priceArray[0] + "$";
             this.adultPriceLabel.Text = priceArray[1] + "$";
-            this.studentPriceLabel.Text= priceArray[2] + "$";
+            this.studentPriceLabel.Text = priceArray[2] + "$";
             this.elderPriceLabel.Text = priceArray[3] + "$";
         }
 
         /// <summary>
         /// Updates The prices of ticket with the input from the textBoxes.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void updateButton_Click(object sender, EventArgs e)
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void UpdateButton_Click(object sender, EventArgs e)
         {
             decimal childNewPrice = 0;
             decimal adultNewPrice = 0;
@@ -168,13 +172,13 @@ namespace TheBestMovieTheater
                 this.BindPrices();
             }
 
-            this.newChildPriceMaskedTextBox.Text = "";
-            this.newAdultPriceMaskedTextBox.Text = "";
-            this.newStudentPriceMaskedTextBox.Text = "";
-            this.newElderPriceMaskedTextBox.Text = "";
+            this.newChildPriceMaskedTextBox.Text = string.Empty;
+            this.newAdultPriceMaskedTextBox.Text = string.Empty;
+            this.newStudentPriceMaskedTextBox.Text = string.Empty;
+            this.newElderPriceMaskedTextBox.Text = string.Empty;
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void BackButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }

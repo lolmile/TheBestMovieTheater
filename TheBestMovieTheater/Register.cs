@@ -1,16 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿// <copyright file="Register.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace TheBestMovieTheater
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Drawing;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+
     /// <summary>
     /// This Form takes the input from the client and if the info is alright, stores it in the data base.
     /// </summary>
@@ -21,112 +25,110 @@ namespace TheBestMovieTheater
         /// </summary>
         public Register()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         /// <summary>
         /// Verifies the information then enters the client data in the database.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void registerButton_Click(object sender, EventArgs e)
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
+        private void RegisterButton_Click(object sender, EventArgs e)
         {
             Client newClient = new Client();
             int validate = 0;
             DateTime now = DateTime.Now;
 
-            newClient.firstName = firstNameTextBox.Text;
-            newClient.lastName = lastNameTextBox.Text;
-            newClient.emailAddress = emailTextBox.Text;
-            newClient.username = newUsernameTextBox.Text;
-            newClient.password = newPasswordTextBox.Text;
+            newClient.FirstName = this.firstNameTextBox.Text;
+            newClient.LastName = this.lastNameTextBox.Text;
+            newClient.EmailAddress = this.emailTextBox.Text;
+            newClient.Username = this.newUsernameTextBox.Text;
+            newClient.Password = this.newPasswordTextBox.Text;
 
             // Verify the firstname so it is at least 2 characters.
-            if (newClient.firstName.Length > 2)
+            if (newClient.FirstName.Length > 2)
             {
                 validate++;
-                firstNameTextBox.BackColor = Color.White;
+                this.firstNameTextBox.BackColor = Color.White;
             }
             else
             {
-                firstNameTextBox.BackColor = Color.Red;
+                this.firstNameTextBox.BackColor = Color.Red;
             }
 
             // Verify last name so it is at least 2 characters
-            if (newClient.lastName.Length > 2)
+            if (newClient.LastName.Length > 2)
             {
                 validate++;
-                lastNameTextBox.BackColor = Color.White;
+                this.lastNameTextBox.BackColor = Color.White;
             }
             else
             {
-                lastNameTextBox.BackColor = Color.Red;
+                this.lastNameTextBox.BackColor = Color.Red;
             }
 
             // Verify email to only accept valid emails
-            if (newClient.emailAddress.Contains("@")) {
-
+            if (newClient.EmailAddress.Contains("@"))
+            {
                 string[] email;
 
-                email = newClient.emailAddress.Split('@', '.');
+                email = newClient.EmailAddress.Split('@', '.');
 
                 if (email[0].Length > 2 && email[1].Length > 2 && email[2].Length > 1)
                 {
                     validate++;
-                    emailTextBox.BackColor = Color.White;
+                    this.emailTextBox.BackColor = Color.White;
                 }
                 else
                 {
-                    emailTextBox.BackColor = Color.Red;
+                    this.emailTextBox.BackColor = Color.Red;
                 }
             }
             else
             {
-                emailTextBox.BackColor = Color.Red;
+                this.emailTextBox.BackColor = Color.Red;
             }
 
             // Verify new username is at least 2 characters
-            if (newClient.username.Length > 2)
+            if (newClient.Username.Length > 2)
             {
                 validate++;
-                newUsernameTextBox.BackColor = Color.White;
+                this.newUsernameTextBox.BackColor = Color.White;
             }
             else
             {
-                newUsernameTextBox.BackColor = Color.Red;
+                this.newUsernameTextBox.BackColor = Color.Red;
             }
 
             // Verify password is at least 2 characters long
-            if (newClient.password.Length > 2)
+            if (newClient.Password.Length > 2)
             {
                 validate++;
-                newPasswordTextBox.BackColor = Color.White;
+                this.newPasswordTextBox.BackColor = Color.White;
             }
             else
             {
-                newPasswordTextBox.BackColor = Color.Red;
+                this.newPasswordTextBox.BackColor = Color.Red;
             }
 
             // Verify that the Client did not do any mistakes in his password creation
-            if (repeatPasswordTextBox.Text == newClient.password)
+            if (this.repeatPasswordTextBox.Text == newClient.Password)
             {
                 validate++;
-                repeatPasswordTextBox.BackColor = Color.White;
+                this.repeatPasswordTextBox.BackColor = Color.White;
             }
             else
             {
-                repeatPasswordTextBox.BackColor = Color.Red;
+                this.repeatPasswordTextBox.BackColor = Color.Red;
             }
-
-
 
             // If all verifications are ok, we verify if the name exists in both manager and client table, then we create the enter for the DB table and close the Form
             if (validate == 6)
             {
                 SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\TBMT\\TBMT_DB.mdf;Integrated Security=True;Connect Timeout=30");
 
-                SqlDataAdapter clientCommand = new SqlDataAdapter("SELECT COUNT(*) FROM Client WHERE Username ='" + newClient.username + "'", conn);
-                SqlDataAdapter managerCommand = new SqlDataAdapter("SELECT COUNT(*) FROM Manager WHERE Username ='" + newClient.username + "'", conn);
+                SqlDataAdapter clientCommand = new SqlDataAdapter("SELECT COUNT(*) FROM Client WHERE Username ='" + newClient.Username + "'", conn);
+                SqlDataAdapter managerCommand = new SqlDataAdapter("SELECT COUNT(*) FROM Manager WHERE Username ='" + newClient.Username + "'", conn);
                 DataTable ct = new DataTable();
                 clientCommand.Fill(ct);
 
@@ -135,12 +137,12 @@ namespace TheBestMovieTheater
 
                 if (ct.Rows[0][0].ToString() == "1" || mt.Rows[0][0].ToString() == "1")
                 {
-                    MessageBox.Show("'" + newClient.username + "'" + " already exists, use another username please!");
+                    MessageBox.Show("'" + newClient.Username + "'" + " already exists, use another username please!");
                 }
                 else
                 {
                 TBMT_DBDataSetLocalTableAdapters.ClientTableAdapter clientTableAdapter = new TBMT_DBDataSetLocalTableAdapters.ClientTableAdapter();
-                clientTableAdapter.Insert(newClient.firstName, newClient.lastName, newClient.emailAddress, newClient.username, newClient.password, now, null);
+                clientTableAdapter.Insert(newClient.FirstName, newClient.LastName, newClient.EmailAddress, newClient.Username, newClient.Password, now, null);
 
                 this.Close();
                 }

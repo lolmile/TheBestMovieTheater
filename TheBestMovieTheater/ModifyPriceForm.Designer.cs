@@ -144,7 +144,7 @@
             this.updateButton.TabIndex = 15;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
-            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // backButton
             // 
@@ -154,7 +154,7 @@
             this.backButton.TabIndex = 16;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.backButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // newChildPriceMaskedTextBox
             // 
@@ -214,6 +214,7 @@
             this.Controls.Add(this.childPriceTableLabel);
             this.Controls.Add(this.MovieTheatreLabel);
             this.Name = "ModifyPriceForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModifyPriceForm";
             this.ResumeLayout(false);
             this.PerformLayout();

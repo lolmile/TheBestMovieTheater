@@ -13,16 +13,6 @@ namespace TheBestMovieTheater
     public partial class ManagerMenuForm : Form
     {
         /// <summary>
-        /// String variable to hold the consult selection from the ConsultComboBox.
-        /// </summary>
-        private string consultSelection;
-
-        /// <summary>
-        /// String variable to hold the modify selection from the ModifyComboBox.
-        /// </summary>
-        private string modifySelection;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="ManagerMenuForm"/> class.
         /// Default constructor for ManagerMenuForm.
         /// </summary>
@@ -111,7 +101,6 @@ namespace TheBestMovieTheater
                     ModifyPriceForm modifyPriceForm = new ModifyPriceForm();
                     modifyPriceForm.ShowDialog();
 
-
                     this.Show();
                     break;
 
@@ -119,7 +108,7 @@ namespace TheBestMovieTheater
                     MessageBox.Show("Please select a modifying option from the drop down menu.", "Warning");
                     break;
             }
-        } 
+        }
 
         /// <summary>
         /// Button click closes the current form program and opens the login form.

@@ -214,6 +214,7 @@
             this.Controls.Add(this.UserTitleLabel);
             this.Controls.Add(this.MovieTheatreLabel);
             this.Name = "AvailableMoviesForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AvailableMoviesForm";
             this.Load += new System.EventHandler(this.AvailableMoviesForm_Load);
             this.groupBox1.ResumeLayout(false);

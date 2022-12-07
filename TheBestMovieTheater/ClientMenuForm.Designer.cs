@@ -30,6 +30,10 @@
         {
             this.MovieTheatreLabel = new System.Windows.Forms.Label();
             this.priceGroupBox = new System.Windows.Forms.GroupBox();
+            this.price4Label = new System.Windows.Forms.Label();
+            this.price3Label = new System.Windows.Forms.Label();
+            this.price2Label = new System.Windows.Forms.Label();
+            this.price1Label = new System.Windows.Forms.Label();
             this.elderPriceLabel = new System.Windows.Forms.Label();
             this.studentPriceLabel = new System.Windows.Forms.Label();
             this.adultPriceLabel = new System.Windows.Forms.Label();
@@ -38,10 +42,6 @@
             this.upcomingMoviesButton = new System.Windows.Forms.Button();
             this.UserTitleLabel = new System.Windows.Forms.Label();
             this.logoutButton = new System.Windows.Forms.Button();
-            this.price1Label = new System.Windows.Forms.Label();
-            this.price2Label = new System.Windows.Forms.Label();
-            this.price3Label = new System.Windows.Forms.Label();
-            this.price4Label = new System.Windows.Forms.Label();
             this.priceGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +72,42 @@
             this.priceGroupBox.TabIndex = 2;
             this.priceGroupBox.TabStop = false;
             this.priceGroupBox.Text = "Ticket Price";
+            // 
+            // price4Label
+            // 
+            this.price4Label.AutoSize = true;
+            this.price4Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.price4Label.Location = new System.Drawing.Point(100, 219);
+            this.price4Label.Name = "price4Label";
+            this.price4Label.Size = new System.Drawing.Size(0, 25);
+            this.price4Label.TabIndex = 7;
+            // 
+            // price3Label
+            // 
+            this.price3Label.AutoSize = true;
+            this.price3Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.price3Label.Location = new System.Drawing.Point(125, 166);
+            this.price3Label.Name = "price3Label";
+            this.price3Label.Size = new System.Drawing.Size(0, 25);
+            this.price3Label.TabIndex = 6;
+            // 
+            // price2Label
+            // 
+            this.price2Label.AutoSize = true;
+            this.price2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.price2Label.Location = new System.Drawing.Point(100, 113);
+            this.price2Label.Name = "price2Label";
+            this.price2Label.Size = new System.Drawing.Size(0, 25);
+            this.price2Label.TabIndex = 5;
+            // 
+            // price1Label
+            // 
+            this.price1Label.AutoSize = true;
+            this.price1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.price1Label.Location = new System.Drawing.Point(100, 61);
+            this.price1Label.Name = "price1Label";
+            this.price1Label.Size = new System.Drawing.Size(0, 25);
+            this.price1Label.TabIndex = 4;
             // 
             // elderPriceLabel
             // 
@@ -154,42 +190,6 @@
             this.logoutButton.UseVisualStyleBackColor = true;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
-            // price1Label
-            // 
-            this.price1Label.AutoSize = true;
-            this.price1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.price1Label.Location = new System.Drawing.Point(100, 61);
-            this.price1Label.Name = "price1Label";
-            this.price1Label.Size = new System.Drawing.Size(0, 25);
-            this.price1Label.TabIndex = 4;
-            // 
-            // price2Label
-            // 
-            this.price2Label.AutoSize = true;
-            this.price2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.price2Label.Location = new System.Drawing.Point(100, 113);
-            this.price2Label.Name = "price2Label";
-            this.price2Label.Size = new System.Drawing.Size(0, 25);
-            this.price2Label.TabIndex = 5;
-            // 
-            // price3Label
-            // 
-            this.price3Label.AutoSize = true;
-            this.price3Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.price3Label.Location = new System.Drawing.Point(125, 166);
-            this.price3Label.Name = "price3Label";
-            this.price3Label.Size = new System.Drawing.Size(0, 25);
-            this.price3Label.TabIndex = 6;
-            // 
-            // price4Label
-            // 
-            this.price4Label.AutoSize = true;
-            this.price4Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.price4Label.Location = new System.Drawing.Point(100, 219);
-            this.price4Label.Name = "price4Label";
-            this.price4Label.Size = new System.Drawing.Size(0, 25);
-            this.price4Label.TabIndex = 7;
-            // 
             // ClientMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -203,6 +203,7 @@
             this.Controls.Add(this.priceGroupBox);
             this.Controls.Add(this.MovieTheatreLabel);
             this.Name = "ClientMenuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientMenuForm";
             this.priceGroupBox.ResumeLayout(false);
             this.priceGroupBox.PerformLayout();

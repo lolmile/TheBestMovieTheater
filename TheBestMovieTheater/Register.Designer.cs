@@ -135,7 +135,7 @@
             this.registerButton.TabIndex = 9;
             this.registerButton.Text = "Register !";
             this.registerButton.UseVisualStyleBackColor = true;
-            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
+            this.registerButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // firstNameTextBox
             // 
@@ -202,6 +202,7 @@
             this.Controls.Add(this.registerTitleLabel);
             this.Controls.Add(this.titleLabel);
             this.Name = "Register";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.ResumeLayout(false);
             this.PerformLayout();
