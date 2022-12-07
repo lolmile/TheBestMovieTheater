@@ -135,12 +135,19 @@ namespace TheBestMovieTheater
             this.movieStudentTicketLabel.Text = ticketArray[3] + " Tickets";
             this.movieElderTicketLabel.Text = ticketArray[4] + " Tickets";
 
+            try
+            {
             decimal childTotal = decimal.Parse(ticketArray[1]);
             decimal adultTotal = decimal.Parse(ticketArray[2]);
             decimal studentTotal = decimal.Parse(ticketArray[3]);
             decimal elderTotal = decimal.Parse(ticketArray[4]);
 
             this.movieTotalRevenueLabel.Text = this.CalculateTotalRevenue(childTotal, adultTotal, studentTotal, elderTotal);
+            }
+            catch
+            {
+                MessageBox.Show("There is no Ticket available for this movie.");
+            }
         }
 
         /// <summary>
