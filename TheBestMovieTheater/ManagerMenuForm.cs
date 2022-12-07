@@ -70,8 +70,8 @@ namespace TheBestMovieTheater
                 case 0:
                     this.Hide();
 
-                    MovieModifyForm movieModifyForm = new MovieModifyForm();
-                    movieModifyForm.ShowDialog();
+                    MovieScreeningsModifyForm movieScreeningsModifyForm = new MovieScreeningsModifyForm();
+                    movieScreeningsModifyForm.ShowDialog();
 
                     this.Show();
 
@@ -80,13 +80,23 @@ namespace TheBestMovieTheater
                 case 1:
                     this.Hide();
 
+                    MovieModifyForm movieModifyForm = new MovieModifyForm();
+                    movieModifyForm.ShowDialog();
+
+                    this.Show();
+
+                    break;
+
+                case 2:
+                    this.Hide();
+
                     ScreeningRoomModifyForm roomModifyForm = new ScreeningRoomModifyForm();
                     roomModifyForm.ShowDialog();
 
                     this.Show();
                     break;
 
-                case 2:
+                case 3:
                     this.Hide();
 
                     ShowtimeModifyForm showtimeModifyForm = new ShowtimeModifyForm();
@@ -95,11 +105,12 @@ namespace TheBestMovieTheater
                     this.Show();
                     break;
 
-                case 3:
+                case 4:
                     this.Hide();
 
                     ModifyPriceForm modifyPriceForm = new ModifyPriceForm();
                     modifyPriceForm.ShowDialog();
+
 
                     this.Show();
                     break;
@@ -108,7 +119,7 @@ namespace TheBestMovieTheater
                     MessageBox.Show("Please select a modifying option from the drop down menu.", "Warning");
                     break;
             }
-        }
+        } 
 
         /// <summary>
         /// Button click closes the current form program and opens the login form.

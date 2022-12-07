@@ -37,27 +37,24 @@ namespace TheBestMovieTheater
         {
             foreach (TextBox textBox in textBoxList)
             {
-                if (!textBox.Name.Contains("ID"))
-                {
-                    textBox.BackColor = default;
-                }
+                textBox.BackColor = default;
             }
         }
 
         /// <summary>
-        /// Enables or disables textboxes depending on parameter.
+        /// Enables or disables textboxes read only property depending on parameter.
         /// </summary>
         /// <param name="textBoxList">List of text boxes to modify.</param>
-        /// <param name="isEnabled">Determine if textboxes are enabled. </param>
-        public static void TextBoxEnabler(List<TextBox> textBoxList, bool isEnabled)
+        /// <param name="isReadOnly">Determine if textboxes are read only. </param>
+        public static void TextBoxReadOnly(List<TextBox> textBoxList, bool isReadOnly)
         {
-            if (isEnabled)
+            if (isReadOnly)
             {
                 foreach (TextBox textBox in textBoxList)
                 {
                     if (!textBox.Name.Contains("ID"))
                     {
-                        textBox.Enabled = true;
+                        textBox.ReadOnly = true;
                     }
                 }
             }
@@ -67,8 +64,31 @@ namespace TheBestMovieTheater
                 {
                     if (!textBox.Name.Contains("ID"))
                     {
-                        textBox.Enabled = false;
+                        textBox.ReadOnly = false;
                     }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Skips first textbox, then enables or disables textboxes read only property depending on parameter.
+        /// </summary>
+        /// <param name="textBoxList">List of text boxes to modify.</param>
+        /// <param name="isReadOnly">Determine if textboxes are read only. </param>
+        public static void TextBoxReadOnlySkipOne(List<TextBox> textBoxList, bool isReadOnly)
+        {
+            if (isReadOnly)
+            {
+                for (int index = 1; index < textBoxList.Count; index++)
+                {
+                    textBoxList[index].ReadOnly = true;
+                }
+            }
+            else
+            {
+                for (int index = 1; index < textBoxList.Count; index++)
+                {
+                    textBoxList[index].ReadOnly = false;
                 }
             }
         }

@@ -97,7 +97,7 @@ namespace TheBestMovieTheater
                 this.modifyFirstClick = true;
 
                 ModifyFormHelper.ButtonEnabler(this.buttonList, true);
-                ModifyFormHelper.TextBoxEnabler(this.textBoxList, false);
+                ModifyFormHelper.TextBoxReadOnly(this.textBoxList, true);
                 ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
             }
         }
@@ -160,7 +160,7 @@ namespace TheBestMovieTheater
                 this.modifyFirstClick = false;
                 this.DeleteButton.Enabled = false;
 
-                ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
+                ModifyFormHelper.TextBoxReadOnly(this.textBoxList, false);
             }
             else
             {
@@ -206,7 +206,7 @@ namespace TheBestMovieTheater
             this.screeningRoomTableAdapter.DeleteScreeningRoom(int.Parse(this.roomIDTextBox.Text));
 
             ModifyFormHelper.ButtonEnabler(this.buttonList, false);
-            ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
+            ModifyFormHelper.TextBoxReadOnly(this.textBoxList, false);
             ModifyFormHelper.ClearSelection(this.textBoxList);
 
             ListViewHelper.ListViewData(this.screeningRoomTableAdapter.GetData(), this.ScreeningRoomListView);
@@ -223,7 +223,7 @@ namespace TheBestMovieTheater
             this.modifyFirstClick = true;
 
             ModifyFormHelper.ButtonEnabler(this.buttonList, false);
-            ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
+            ModifyFormHelper.TextBoxReadOnly(this.textBoxList, false);
             ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
             ModifyFormHelper.ClearSelection(this.textBoxList);
 

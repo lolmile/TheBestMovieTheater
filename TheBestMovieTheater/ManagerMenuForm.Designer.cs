@@ -125,6 +125,7 @@
             this.modifyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.modifyComboBox.FormattingEnabled = true;
             this.modifyComboBox.Items.AddRange(new object[] {
+            "Movie Screenings",
             "Movies",
             "Screening Rooms",
             "Showtimes",

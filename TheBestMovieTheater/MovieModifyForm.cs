@@ -107,7 +107,7 @@ namespace TheBestMovieTheater
                 this.modifyFirstClick = true;
 
                 ModifyFormHelper.ButtonEnabler(this.buttonList, true);
-                ModifyFormHelper.TextBoxEnabler(this.textBoxList, false);
+                ModifyFormHelper.TextBoxReadOnly(this.textBoxList, true);
                 ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
             }
         }
@@ -200,7 +200,7 @@ namespace TheBestMovieTheater
                 this.startDateTimePicker.Enabled = true;
                 this.endDateTimePicker.Enabled = true;
 
-                ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
+                ModifyFormHelper.TextBoxReadOnly(this.textBoxList, false);
             }
             else
             {
@@ -274,7 +274,7 @@ namespace TheBestMovieTheater
             this.modifyFirstClick = true;
 
             ModifyFormHelper.ButtonEnabler(this.buttonList, false);
-            ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
+            ModifyFormHelper.TextBoxReadOnly(this.textBoxList, false);
             ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
             ModifyFormHelper.ClearSelection(this.textBoxList);
 
@@ -297,7 +297,7 @@ namespace TheBestMovieTheater
             this.endDateTimePicker.Enabled = true;
 
             ModifyFormHelper.ButtonEnabler(this.buttonList, false);
-            ModifyFormHelper.TextBoxEnabler(this.textBoxList, true);
+            ModifyFormHelper.TextBoxReadOnly(this.textBoxList, false);
             ModifyFormHelper.ClearSelection(this.textBoxList);
 
             ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
