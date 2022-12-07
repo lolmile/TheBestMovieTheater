@@ -340,7 +340,7 @@ namespace TheBestMovieTheater
                     totalTime = movieTime + showtime + cleanUpTime;
 
                     // If total time is past 23:59 then set total time to 00:00.
-                    if (totalTime > TimeSpan.FromDays(1))
+                    if (totalTime >= TimeSpan.FromDays(1))
                     {
                         totalTime = TimeSpan.FromHours(0);
                     }

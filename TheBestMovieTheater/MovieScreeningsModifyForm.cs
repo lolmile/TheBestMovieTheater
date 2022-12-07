@@ -144,7 +144,7 @@ namespace TheBestMovieTheater
         /// <param name="sender">The listview index that was changed.</param>
         /// <param name="e">Additional event arguments.</param>
         private void MovieScreeningListView_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            {
             if (this.MovieScreeningListView.SelectedItems.Count > 0)
             {
                 int index = 0;
@@ -370,7 +370,7 @@ namespace TheBestMovieTheater
 
                     if (validTimeSlot)
                     {
-                        this.movieInfoBridgeTableAdapter.UpdateMovieScreening(int.Parse(this.movieIDTextBox.Text), int.Parse(this.showtimeIDTextBox.Text), int.Parse(this.screeningRoomIDTextBox.Text), int.Parse(this.screeningRoomIDTextBox.Text));
+                        this.movieInfoBridgeTableAdapter.UpdateMovieScreening(int.Parse(this.movieIDTextBox.Text), int.Parse(this.showtimeIDTextBox.Text), int.Parse(this.screeningRoomIDTextBox.Text), int.Parse(this.movieScreeningIDTextBox.Text));
 
                         this.errorLabel.Visible = false;
 
