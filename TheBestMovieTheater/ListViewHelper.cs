@@ -203,14 +203,15 @@ namespace TheBestMovieTheater
         /// </summary>
         /// <param name="listView">List view holding the row to be selected.</param>
         /// <param name="info">String array containing information to compare. </param>
-        public static void SelectMatchingRow(ListView listView, string[] info)
+        public static void SelectMatchingRow(ListView listView, string info)
         {
             for (int rowIndex = 0; rowIndex < listView.Items.Count; rowIndex++)
             {
-                if (listView.Items[rowIndex].Text == info[1].ToString())
+                if (listView.Items[rowIndex].SubItems[0].Text == info)
                 {
                     int listIndex = listView.Items.IndexOf(listView.Items[rowIndex]);
                     listView.Items[listIndex].Selected = true;
+                    listView.EnsureVisible(listView.Items[listIndex].Index);
                     break;
                 }
             }

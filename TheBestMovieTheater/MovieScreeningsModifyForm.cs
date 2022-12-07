@@ -29,27 +29,45 @@ namespace TheBestMovieTheater
         /// </summary>
         private readonly List<Button> buttonList;
 
+        /// <summary>
+        /// List of list views.
+        /// </summary>
         private readonly List<ListView> listViewList;
+
+        /// <summary>
+        /// List of data tables.
+        /// </summary>
+        private readonly List<DataTable> dataTableList;
+
+        /// <summary>
+        /// Datatable to hold movie screening view information.
+        /// </summary>
+        private DataTable vMovieBridgeTable;
+
+        /// <summary>
+        /// Datatable to hold moviescreening table information.
+        /// </summary>
+        private DataTable movieScreeningTable;
+
+        /// <summary>
+        /// Datatable to hold movie table information.
+        /// </summary>
+        private DataTable movieTable;
+
+        /// <summary>
+        /// Datatable to hold showtime table information.
+        /// </summary>
+        private DataTable showtimeTable;
+
+        /// <summary>
+        /// Datatable to hold screening room table information.
+        /// </summary>
+        private DataTable screeningRoomTable;
 
         /// <summary>
         /// String array to hold the movies screening information.
         /// </summary>
         private string[] movieScreeningInfo;
-
-        /// <summary>
-        /// String array to hold the movies information.
-        /// </summary>
-        private string[] movieInfo;
-
-        /// <summary>
-        /// String array to hold the showtime information.
-        /// </summary>
-        private string[] showtimeInfo;
-
-        /// <summary>
-        /// String array to hold the screening rooms information.
-        /// </summary>
-        private string[] screeningRoomInfo;
 
         /// <summary>
         /// Holds boolean value to determine the first click of the modify button.
@@ -68,39 +86,46 @@ namespace TheBestMovieTheater
             this.showtimeIDTextBox.KeyPress += new KeyPressEventHandler(UserInputValidation.DigitTextBox_KeyPress);
             this.screeningRoomIDTextBox.KeyPress += new KeyPressEventHandler(UserInputValidation.DigitTextBox_KeyPress);
 
+            this.vMovieBridgeTable = this.vManager_ScreeningsTableAdapter.GetData();
+            this.movieScreeningTable = this.movieInfoBridgeTableAdapter.GetData();
+            this.movieTable = this.movieTableAdapter.GetData();
+            this.showtimeTable = this.showtimeTableAdapter.GetData();
+            this.screeningRoomTable = this.screeningRoomTableAdapter.GetData();
+
             this.textBoxList = new List<TextBox> { this.movieScreeningIDTextBox, this.movieIDTextBox, this.showtimeIDTextBox, this.screeningRoomIDTextBox };
             this.buttonList = new List<Button> { this.AddButton, this.ModifyButton, this.DeleteButton };
             this.listViewList = new List<ListView> { this.MovieListView, this.ShowtimeListView, this.ScreeningRoomListView };
-
-            ModifyFormHelper.ButtonEnabler(this.buttonList, false);
+            this.dataTableList = new List<DataTable> { this.movieTable, this.showtimeTable, this.screeningRoomTable };
         }
 
+        /// <summary>
+        /// Fills listviews with data on form load.
+        /// </summary>
+        /// <param name="sender">The form that was loaded.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void MovieScreeningsModifyForm_Load(object sender, EventArgs e)
         {
-            DataTable movieScreeningTable = this.movieInfoBridgeTableAdapter.GetData();
-            DataTable movieTable = this.movieTableAdapter.GetData();
-            DataTable showtimeTable = this.showtimeTableAdapter.GetData();
-            DataTable screeningRoomTable = this.screeningRoomTableAdapter.GetData();
+            ModifyFormHelper.ButtonEnabler(this.buttonList, false);
 
             // Fill Movie Screenings list view.
-            ListViewHelper.ListViewHeaders(movieScreeningTable, this.MovieScreeningListView);
-            ListViewHelper.ListViewData(movieScreeningTable, this.MovieScreeningListView);
-            ListViewHelper.ListViewColumnAutoSize(movieScreeningTable, this.MovieScreeningListView);
+            ListViewHelper.ListViewHeaders(this.movieScreeningTable, this.MovieScreeningListView);
+            ListViewHelper.ListViewData(this.movieScreeningTable, this.MovieScreeningListView);
+            ListViewHelper.ListViewColumnAutoSize(this.movieScreeningTable, this.MovieScreeningListView);
 
             // Fill Movies list view.
-            ListViewHelper.ListViewHeaders(movieTable, this.MovieListView, 2);
-            ListViewHelper.ListViewData(movieTable, this.MovieListView, 2);
-            ListViewHelper.ListViewColumnAutoSize(movieTable, this.MovieListView, 2);
+            ListViewHelper.ListViewHeaders(this.movieTable, this.MovieListView, 2);
+            ListViewHelper.ListViewData(this.movieTable, this.MovieListView, 2);
+            ListViewHelper.ListViewColumnAutoSize(this.movieTable, this.MovieListView, 2);
 
             // Fill Showtimes list view.
-            ListViewHelper.ListViewHeaders(showtimeTable, this.ShowtimeListView);
-            ListViewHelper.ListViewData(showtimeTable, this.ShowtimeListView);
-            ListViewHelper.ListViewColumnAutoSize(showtimeTable, this.ShowtimeListView);
+            ListViewHelper.ListViewHeaders(this.showtimeTable, this.ShowtimeListView);
+            ListViewHelper.ListViewData(this.showtimeTable, this.ShowtimeListView);
+            ListViewHelper.ListViewColumnAutoSize(this.showtimeTable, this.ShowtimeListView);
 
             // Fill Screening rooms list view.
-            ListViewHelper.ListViewHeaders(screeningRoomTable, this.ScreeningRoomListView, 2);
-            ListViewHelper.ListViewData(screeningRoomTable, this.ScreeningRoomListView, 2);
-            ListViewHelper.ListViewColumnAutoSize(screeningRoomTable, this.ScreeningRoomListView, 2);
+            ListViewHelper.ListViewHeaders(this.screeningRoomTable, this.ScreeningRoomListView, 2);
+            ListViewHelper.ListViewData(this.screeningRoomTable, this.ScreeningRoomListView, 2);
+            ListViewHelper.ListViewColumnAutoSize(this.screeningRoomTable, this.ScreeningRoomListView, 2);
         }
 
         /// <summary>
@@ -113,6 +138,11 @@ namespace TheBestMovieTheater
             this.Close();
         }
 
+        /// <summary>
+        /// Fills textbox with movie screening information when a row is selected.
+        /// </summary>
+        /// <param name="sender">The listview index that was changed.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void MovieScreeningListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.MovieScreeningListView.SelectedItems.Count > 0)
@@ -127,7 +157,7 @@ namespace TheBestMovieTheater
 
                     if (index < 3)
                     {
-                        ListViewHelper.SelectMatchingRow(this.listViewList[index], this.movieScreeningInfo);
+                        ListViewHelper.SelectMatchingRow(this.listViewList[index], this.movieScreeningInfo[index + 1]);
                     }
 
                     index++;
@@ -170,71 +200,84 @@ namespace TheBestMovieTheater
         /// <param name="e">Additional event arguments.</param>
         private void AddButton_Click(object sender, EventArgs e)
         {
-            bool validNumericMovieID = true;
-            bool validNumericShowtimeID = true;
-            bool validNumericScreeningRoomID = true;
             bool validMovieID = true;
             bool validShowtimeID = true;
             bool validScreeningRoomID = true;
+            bool validTimeSlot = true;
 
             this.errorLabel.Text = string.Empty;
 
-            // WIP need more validations to prevent overlapping. Validation for existing movies, showtimes, and screening rooms.
             // MovieID Validations.
-            if (!UserInputValidation.NumericValidationCheck(this.movieIDTextBox))
+            if (UserInputValidation.ExistingValidationCheck(this.MovieListView, this.movieIDTextBox))
             {
-                validNumericMovieID = false;
-                this.errorLabel.Text += "\n*MovieID requires only numeric values";
+                if (!UserInputValidation.NumericValidationCheck(this.movieIDTextBox))
+                {
+                    validMovieID = false;
+                    this.errorLabel.Text += "\n*MovieID cannot be blank and\n  requires only numeric values";
+                }
             }
-
-            if (!UserInputValidation.ExistingValidationCheck(this.MovieListView, this.movieIDTextBox))
+            else
             {
                 validMovieID = false;
-                this.errorLabel.Text += "\n*Requires an existing MovieID";
+                this.errorLabel.Text += "\n*MovieID requires an existing ID";
             }
-
-            // Overlapping validation missing.
 
             // ShowtimeID Validations.
-            if (!UserInputValidation.NumericValidationCheck(this.showtimeIDTextBox))
+            if (UserInputValidation.ExistingValidationCheck(this.ShowtimeListView, this.showtimeIDTextBox))
             {
-                validNumericShowtimeID = false;
-                this.errorLabel.Text += "\n*ShowtimeID requires only numeric values";
+                if (!UserInputValidation.NumericValidationCheck(this.showtimeIDTextBox))
+                {
+                    validShowtimeID = false;
+                    this.errorLabel.Text += "\n*ShowtimeID cannot be blank and\n  requires only numeric values";
+                }
             }
-
-            if (!UserInputValidation.ExistingValidationCheck(this.ShowtimeListView, this.showtimeIDTextBox))
+            else
             {
                 validShowtimeID = false;
-                this.errorLabel.Text += "\n*Requires an existing ShowtimeID";
+                this.errorLabel.Text += "\n*ShowtimeID requires an existing ID";
             }
-
-            // Overlapping validaiton missing.
 
             // ScreeningRoomID Validations.
-            if (!UserInputValidation.NumericValidationCheck(this.screeningRoomIDTextBox))
+            if (UserInputValidation.ExistingValidationCheck(this.ScreeningRoomListView, this.screeningRoomIDTextBox))
             {
-                validNumericScreeningRoomID = false;
-                this.errorLabel.Text += "\n*RoomID requires only numeric values";
+                if (!UserInputValidation.NumericValidationCheck(this.screeningRoomIDTextBox))
+                {
+                    validScreeningRoomID = false;
+                    this.errorLabel.Text += "\n*RoomID cannot be blank and\n  requires only numeric values";
+                }
             }
-
-            if (!UserInputValidation.ExistingValidationCheck(this.ScreeningRoomListView, this.screeningRoomIDTextBox))
+            else
             {
                 validScreeningRoomID = false;
-                this.errorLabel.Text += "\n*Requires an existing RoomID";
+                this.errorLabel.Text += "\n*RoomID requires an existing ID";
             }
 
-            // Overlapping validation missing.
-
-            if (validNumericMovieID && validMovieID && validNumericShowtimeID && validShowtimeID && validNumericScreeningRoomID && validScreeningRoomID)
+            if (validMovieID && validShowtimeID && validScreeningRoomID)
             {
-                // this.movieInfoBridgeTableAdapter.AddMovieScreening(int.Parse(this.movieIDTextBox.Text), int.Parse(this.showtimeIDTextBox.Text), int.Parse(this.screeningRoomIDTextBox.Text));
-                MessageBox.Show("Screening Added!");
-                this.errorLabel.Visible = false;
+                // Overlapping Request Validation.
+                if (!UserInputValidation.ScreeningOverlapValidationCheck(this.textBoxList, this.vMovieBridgeTable, this.showtimeTable))
+                {
+                    validTimeSlot = false;
+                    this.errorLabel.Text += "\n*Invalid input";
+                    this.errorLabel.Text += "\n  Room is occupied\n  select another showtime or room";
 
-                ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
-                ModifyFormHelper.ClearSelection(this.textBoxList);
+                    this.showtimeIDTextBox.BackColor = Color.MistyRose;
+                    this.screeningRoomIDTextBox.BackColor = Color.MistyRose;
 
-                ListViewHelper.ListViewData(this.movieInfoBridgeTableAdapter.GetData(), this.MovieScreeningListView);
+                    this.errorLabel.Visible = true;
+                }
+
+                if (validTimeSlot)
+                {
+                    this.movieInfoBridgeTableAdapter.AddMovieScreening(int.Parse(this.movieIDTextBox.Text), int.Parse(this.showtimeIDTextBox.Text), int.Parse(this.screeningRoomIDTextBox.Text));
+
+                    this.errorLabel.Visible = false;
+
+                    ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
+                    ModifyFormHelper.ClearSelection(this.textBoxList);
+
+                    ListViewHelper.ListViewData(this.movieInfoBridgeTableAdapter.GetData(), this.MovieScreeningListView);
+                }
             }
             else
             {
@@ -242,16 +285,17 @@ namespace TheBestMovieTheater
             }
         }
 
+        /// <summary>
+        /// On button click, modify the list of movie screenings on the MovieBridgeInfo table in the database.
+        /// </summary>
+        /// <param name="sender">The button that was clicked.</param>
+        /// <param name="e">Additional event arguments.</param>
         private void ModifyButton_Click(object sender, EventArgs e)
         {
-            bool validNumericMovieID = true;
-            bool validNumericShowtimeID = true;
-            bool validNumericScreeningRoomID = true;
+            bool validTimeSlot = true;
             bool validMovieID = true;
             bool validShowtimeID = true;
             bool validScreeningRoomID = true;
-
-            this.errorLabel.Text = string.Empty;
 
             this.errorLabel.Text = string.Empty;
 
@@ -264,64 +308,77 @@ namespace TheBestMovieTheater
             }
             else
             {
-                // WIP need more validations to prevent overlapping. Validation for existing movies, showtimes, and screening rooms.
                 // MovieID Validations.
-                if (!UserInputValidation.NumericValidationCheck(this.movieIDTextBox))
+                if (UserInputValidation.ExistingValidationCheck(this.MovieListView, this.movieIDTextBox))
+                {
+                    if (!UserInputValidation.NumericValidationCheck(this.movieIDTextBox))
+                    {
+                        validMovieID = false;
+                        this.errorLabel.Text += "\n*MovieID cannot be blank and\n  requires only numeric values";
+                    }
+                }
+                else
                 {
                     validMovieID = false;
-                    this.errorLabel.Text += "\n*MovieID requires only numeric values";
+                    this.errorLabel.Text += "\n*MovieID requires an existing ID";
                 }
-
-                if (!UserInputValidation.ExistingValidationCheck(this.MovieListView, this.movieIDTextBox))
-                {
-                    validMovieID = false;
-                    this.errorLabel.Text += "\n*Requires an existing MovieID";
-                }
-
-                // Overlap[ing validation Missing.
 
                 // ShowtimeID Validations.
-                if (!UserInputValidation.NumericValidationCheck(this.showtimeIDTextBox))
+                if (UserInputValidation.ExistingValidationCheck(this.ShowtimeListView, this.showtimeIDTextBox))
                 {
-                    validMovieID = false;
-                    this.errorLabel.Text += "\n*ShowtimeID requires only numeric values";
+                    if (!UserInputValidation.NumericValidationCheck(this.showtimeIDTextBox))
+                    {
+                        validShowtimeID = false;
+                        this.errorLabel.Text += "\n*ShowtimeID cannot be blank and\n  requires only numeric values";
+                    }
                 }
-
-                if (!UserInputValidation.ExistingValidationCheck(this.ShowtimeListView, this.showtimeIDTextBox))
+                else
                 {
                     validShowtimeID = false;
-                    this.errorLabel.Text += "\n*Requires an existing ShowtimeID";
+                    this.errorLabel.Text += "\n*ShowtimeID requires an existing ID";
                 }
-
-                // Overlapping validation missing.
 
                 // ScreeningRoomID Validations.
-                if (!UserInputValidation.NumericValidationCheck(this.screeningRoomIDTextBox))
+                if (UserInputValidation.ExistingValidationCheck(this.ScreeningRoomListView, this.screeningRoomIDTextBox))
                 {
-                    validMovieID = false;
-                    this.errorLabel.Text += "\n*RoomID requires only numeric values";
+                    if (!UserInputValidation.NumericValidationCheck(this.screeningRoomIDTextBox))
+                    {
+                        validScreeningRoomID = false;
+                        this.errorLabel.Text += "\n*RoomID cannot be blank and\n  requires only numeric values";
+                    }
                 }
-
-                if (!UserInputValidation.ExistingValidationCheck(this.ScreeningRoomListView, this.screeningRoomIDTextBox))
+                else
                 {
                     validScreeningRoomID = false;
-                    this.errorLabel.Text += "\n*Requires an existing RoomID";
+                    this.errorLabel.Text += "\n*RoomID requires an existing ID";
                 }
 
-                // Overlapping validation missing.
-
-                if (validNumericMovieID && validMovieID && validNumericShowtimeID && validShowtimeID && validNumericScreeningRoomID && validScreeningRoomID)
+                if (validMovieID && validShowtimeID && validScreeningRoomID)
                 {
-                    this.movieInfoBridgeTableAdapter.UpdateMovieScreening(int.Parse(this.movieIDTextBox.Text), int.Parse(this.showtimeIDTextBox.Text), int.Parse(this.screeningRoomIDTextBox.Text), int.Parse(this.movieScreeningIDTextBox.Text));
+                    // Overlapping Request Validation.
+                    if (!UserInputValidation.ScreeningOverlapValidationCheck(this.textBoxList, this.vMovieBridgeTable, this.showtimeTable))
+                    {
+                        validTimeSlot = false;
+                        this.errorLabel.Text += "\n*Invalid input";
+                        this.errorLabel.Text += "\n  Room is occupied\n  select another showtime or room";
 
-                    this.errorLabel.Visible = false;
-                    this.modifyFirstClick = true;
+                        this.showtimeIDTextBox.BackColor = Color.MistyRose;
+                        this.screeningRoomIDTextBox.BackColor = Color.MistyRose;
 
-                    ModifyFormHelper.ButtonEnabler(this.buttonList, false);
-                    ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
-                    ModifyFormHelper.ClearSelection(this.textBoxList);
+                        this.errorLabel.Visible = true;
+                    }
 
-                    ListViewHelper.ListViewData(this.movieInfoBridgeTableAdapter.GetData(), this.MovieScreeningListView);
+                    if (validTimeSlot)
+                    {
+                        this.movieInfoBridgeTableAdapter.UpdateMovieScreening(int.Parse(this.movieIDTextBox.Text), int.Parse(this.showtimeIDTextBox.Text), int.Parse(this.screeningRoomIDTextBox.Text), int.Parse(this.screeningRoomIDTextBox.Text));
+
+                        this.errorLabel.Visible = false;
+
+                        ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
+                        ModifyFormHelper.ClearSelection(this.textBoxList);
+
+                        ListViewHelper.ListViewData(this.movieInfoBridgeTableAdapter.GetData(), this.MovieScreeningListView);
+                    }
                 }
                 else
                 {

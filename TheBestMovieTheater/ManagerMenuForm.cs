@@ -137,6 +137,7 @@ namespace TheBestMovieTheater
                     this.modifySelection = this.modifyComboBox.SelectedItem.ToString();
                     MessageBox.Show(this.modifySelection);
 
+
                     this.Show();
                     break;
 
@@ -144,7 +145,7 @@ namespace TheBestMovieTheater
                     MessageBox.Show("Please select a modifying option from the drop down menu.", "Warning");
                     break;
             }
-        }
+        } 
 
         /// <summary>
         /// Button click closes the current form program and opens the login form.

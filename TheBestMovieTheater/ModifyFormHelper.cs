@@ -37,10 +37,7 @@ namespace TheBestMovieTheater
         {
             foreach (TextBox textBox in textBoxList)
             {
-                if (!textBox.Name.Contains("ID"))
-                {
-                    textBox.BackColor = default;
-                }
+                textBox.BackColor = default;
             }
         }
 
