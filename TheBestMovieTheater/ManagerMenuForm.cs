@@ -31,15 +31,23 @@ namespace TheBestMovieTheater
             switch (this.viewsComboBox.SelectedIndex)
             {
                 case 0:
+                    this.Hide();
 
                     ConsultClientForm clientList = new ConsultClientForm();
                     clientList.ShowDialog();
+
+                    this.Show();
+
                     break;
 
                 case 1:
+                    this.Hide();
 
                     TicketInfoForm ticketInfoForm = new TicketInfoForm();
                     ticketInfoForm.ShowDialog();
+
+                    this.Show();
+
                     break;
 
                 default:
