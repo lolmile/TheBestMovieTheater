@@ -62,6 +62,7 @@
             this.ScreeningRoomListView.FullRowSelect = true;
             this.ScreeningRoomListView.HideSelection = false;
             this.ScreeningRoomListView.Location = new System.Drawing.Point(0, 0);
+            this.ScreeningRoomListView.MultiSelect = false;
             this.ScreeningRoomListView.Name = "ScreeningRoomListView";
             this.ScreeningRoomListView.Size = new System.Drawing.Size(275, 262);
             this.ScreeningRoomListView.TabIndex = 1;
