@@ -35,11 +35,6 @@ namespace TheBestMovieTheater
         private readonly List<ListView> listViewList;
 
         /// <summary>
-        /// List of data tables.
-        /// </summary>
-        private readonly List<DataTable> dataTableList;
-
-        /// <summary>
         /// Datatable to hold movie screening view information.
         /// </summary>
         private DataTable vMovieBridgeTable;
@@ -95,7 +90,6 @@ namespace TheBestMovieTheater
             this.textBoxList = new List<TextBox> { this.movieScreeningIDTextBox, this.movieIDTextBox, this.showtimeIDTextBox, this.screeningRoomIDTextBox };
             this.buttonList = new List<Button> { this.AddButton, this.ModifyButton, this.DeleteButton };
             this.listViewList = new List<ListView> { this.MovieListView, this.ShowtimeListView, this.ScreeningRoomListView };
-            this.dataTableList = new List<DataTable> { this.movieTable, this.showtimeTable, this.screeningRoomTable };
         }
 
         /// <summary>
