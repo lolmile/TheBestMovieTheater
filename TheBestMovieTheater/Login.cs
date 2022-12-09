@@ -82,9 +82,13 @@ namespace TheBestMovieTheater
         /// <param name="e"></param>
         private void registerButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
+
             Register registerForm = new Register();
 
             registerForm.ShowDialog();
+
+            this.Show();
         }
     }
 }

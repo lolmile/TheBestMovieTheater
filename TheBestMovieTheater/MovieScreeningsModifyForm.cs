@@ -368,6 +368,7 @@ namespace TheBestMovieTheater
 
                         this.errorLabel.Visible = false;
 
+                        ModifyFormHelper.ButtonEnabler(this.buttonList, false);
                         ModifyFormHelper.ResetTextBoxBackColor(this.textBoxList);
                         ModifyFormHelper.ClearSelection(this.textBoxList);
 
@@ -391,7 +392,7 @@ namespace TheBestMovieTheater
             this.movieInfoBridgeTableAdapter.DeleteMovieScreening(int.Parse(this.movieScreeningIDTextBox.Text));
 
             ModifyFormHelper.ButtonEnabler(this.buttonList, false);
-            ModifyFormHelper.TextBoxReadOnly(this.textBoxList, false);
+            ModifyFormHelper.TextBoxReadOnlySkipOne(this.textBoxList, false);
             ModifyFormHelper.ClearSelection(this.textBoxList);
 
             ListViewHelper.ListViewData(this.movieInfoBridgeTableAdapter.GetData(), this.MovieScreeningListView);

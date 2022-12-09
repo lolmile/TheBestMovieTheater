@@ -204,10 +204,13 @@ namespace TheBestMovieTheater
             }
             else
             {
-                if (!UserInputValidation.EmptyFieldValidationCheck(this.movieTitleTextBox))
+                if (UserInputValidation.EmptyFieldValidationCheck(this.movieTitleTextBox))
                 {
-                    validTitle = false;
-                    this.errorLabel.Text = "*Title field must contain a unique title";
+                    if (!UserInputValidation.IgnoreIndexDuplicateValidationCheck(this.MovieListView, this.movieTitleTextBox, this.movieInfo[1]))
+                    {
+                        validTitle = false;
+                        this.errorLabel.Text = "*Title field must contain a unique title";
+                    }
                 }
 
                 if (!UserInputValidation.EmptyFieldValidationCheck(this.movieGenreTextBox))
@@ -288,6 +291,8 @@ namespace TheBestMovieTheater
         /// <param name="e">Additional event arguments.</param>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            try
+            {
             this.movieTableAdapter.DeleteMovie(int.Parse(this.movieIDTextBox.Text), this.movieTitleTextBox.Text);
 
             this.startDateTimePicker.Value = DateTime.Today;
@@ -301,6 +306,11 @@ namespace TheBestMovieTheater
             ModifyFormHelper.ClearSelection(this.textBoxList);
 
             ListViewHelper.ListViewData(this.movieTableAdapter.GetData(), this.MovieListView);
+            }
+            catch
+            {
+                MessageBox.Show("Cannot delete a movie assigned to a screening time.", "Warning");
+            }
         }
     }
 }
