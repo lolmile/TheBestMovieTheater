@@ -174,6 +174,8 @@ namespace TheBestMovieTheater
         /// <param name="e">Additional event argument.</param>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            try
+            {
             this.showtimeTableAdapter.DeleteShowtime(int.Parse(this.showTimeIDTextBox.Text), this.showTimeTimePicker.Text);
 
             this.errorLabel.Visible = false;
@@ -184,6 +186,11 @@ namespace TheBestMovieTheater
             ModifyFormHelper.ButtonEnabler(this.buttonList, false);
 
             ListViewHelper.ListViewData(this.showtimeTableAdapter.GetData(), this.ShowtimeListView);
+            }
+            catch
+            {
+                MessageBox.Show("Cannot delete showtime assigned to a screening time.", "Warning");
+            }
         }
 
         /// <summary>

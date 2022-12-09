@@ -164,10 +164,13 @@ namespace TheBestMovieTheater
             }
             else
             {
-                if (!UserInputValidation.DuplicateValidationCheck(this.ScreeningRoomListView, this.roomNumberTextBox))
+                if (UserInputValidation.EmptyFieldValidationCheck(this.roomNumberTextBox))
                 {
-                    validRoom = false;
-                    this.errorLabel.Text = "*Room must be unique";
+                    if (!UserInputValidation.IgnoreIndexDuplicateValidationCheck(this.ScreeningRoomListView, this.roomNumberTextBox, this.roomInfo[1]))
+                    {
+                        validRoom = false;
+                        this.errorLabel.Text = "*Title field must contain a unique title";
+                    }
                 }
 
                 if (!UserInputValidation.NumericValidationCheck(this.capacityTextBox))
@@ -203,6 +206,8 @@ namespace TheBestMovieTheater
         /// <param name="e">Additional event argument.</param>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            try
+            {
             this.screeningRoomTableAdapter.DeleteScreeningRoom(int.Parse(this.roomIDTextBox.Text));
 
             ModifyFormHelper.ButtonEnabler(this.buttonList, false);
@@ -210,6 +215,11 @@ namespace TheBestMovieTheater
             ModifyFormHelper.ClearSelection(this.textBoxList);
 
             ListViewHelper.ListViewData(this.screeningRoomTableAdapter.GetData(), this.ScreeningRoomListView);
+            }
+            catch
+            {
+                MessageBox.Show("Cannot delete a room assigned to a screening time.", "Warning");
+            }
         }
 
         /// <summary>

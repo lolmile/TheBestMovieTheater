@@ -37,8 +37,12 @@ namespace TheBestMovieTheater
         /// <param name="e"></param>
         private void availableMovieButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
+
             AvailableMoviesForm availableMoviesForm= new AvailableMoviesForm();
             availableMoviesForm.ShowDialog();
+
+            this.Show();
         }
 
         /// <summary>
@@ -61,8 +65,12 @@ namespace TheBestMovieTheater
         /// <param name="e"></param>
         private void upcomingMoviesButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
+
             UpcomingMoviesForm upcomingMoviesForm = new UpcomingMoviesForm();
             upcomingMoviesForm.ShowDialog();
+
+            this.Show();
         }
 
         /// <summary>
