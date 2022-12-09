@@ -76,6 +76,39 @@ namespace TheBestMovieTheater
         }
 
         /// <summary>
+        /// Checks that the ListView does not contain the exact contents of the textbox ignoring the selected index.
+        /// </summary>
+        /// <param name="listViewData">Listview required for validation.</param>
+        /// <param name="textBoxValidation">Textbox to be validated.</param>
+        /// <returns>Returns false if duplicate string is found or textbox is empty. Otherwise returns true. </returns>
+        public static bool IgnoreIndexDuplicateValidationCheck(ListView listViewData, TextBox textBoxValidation, string validationString)
+        {
+            bool valid = true;
+            ListViewItem item = listViewData.FindItemWithText(textBoxValidation.Text);
+
+            if (item != null)
+            {
+                string duplicateTitle = listViewData.Items[item.Index].SubItems[1].Text;
+
+                if (validationString != duplicateTitle)
+                {
+                    textBoxValidation.BackColor = Color.MistyRose;
+
+                    valid = false;
+                }
+            }
+
+            if (valid)
+            {
+                textBoxValidation.BackColor = default;
+
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
         /// Checks that the ListView does not contain the exact contents of the textbox.
         /// </summary>
         /// <param name="listViewData">Listview required for validation.</param>
@@ -238,123 +271,141 @@ namespace TheBestMovieTheater
             List<int> validationIndices = new List<int>();
 
             TimeSpan filmLength = TimeSpan.Zero;
+            TimeSpan roomAfterExisting;
+            TimeSpan roomAfterInput;
 
-            string formattedDate = string.Empty;
-
-            int validationShowtimeID = -1;
-            int nextShowtimeID = -1;
+            int nextTimeSlotBefore;
+            int nextTimeSlotAfter;
 
             int inputMovieID = int.Parse(inputData[1].Text);
             int inputShowtimeID = int.Parse(inputData[2].Text);
             int inputRoomID = int.Parse(inputData[3].Text);
 
-            // Loops the data adding indexes where MovieID & RoomID matches input IDs.
+            int rowMovieID;
+            int rowRoomID;
+            int rowShowtimeID;
+            int rowUnderShowtimeID;
+            int rowAboveShowtimeID;
+
+            // Add to the list all rooms matching the inputed roomID
             for (int dataIndex = 0; dataIndex < validationData.Rows.Count; dataIndex++)
             {
-                if (int.Parse(validationData.Rows[dataIndex][0].ToString()) == inputMovieID && int.Parse(validationData.Rows[dataIndex][2].ToString()) == inputRoomID)
+                rowMovieID = int.Parse(validationData.Rows[dataIndex][0].ToString());
+                rowRoomID = int.Parse(validationData.Rows[dataIndex][2].ToString());
+
+                if (inputMovieID == rowMovieID)
+                {
+                    filmLength = TimeSpan.FromMinutes(double.Parse(validationData.Rows[dataIndex][4].ToString()));
+                    Console.WriteLine("filmLength: " + filmLength);
+                }
+
+                if (rowRoomID == inputRoomID)
                 {
                     validationIndices.Add(dataIndex);
                 }
             }
 
-            // If List is empty add index for matching RoomIDs.
-            if (validationIndices.Count <= 0)
-            {
-                for (int dataIndex = 0; dataIndex < validationData.Rows.Count; dataIndex++)
-                {
-                    if (int.Parse(validationData.Rows[dataIndex][2].ToString()) == inputRoomID)
-                    {
-                        validationIndices.Add(dataIndex);
-                    }
-                }
-            }
-
-            // If list still empty then room has no showtimes return true.
-            if (validationIndices.Count <= 0)
+            // If list empty then room has no showtimes return true.
+            if (validationIndices.Count == 0)
             {
                 return true;
             }
 
-            validationIndices.Sort((a, b) => b.CompareTo(a));
-
-            // Loop through Rooms and check if showtime matches user input. If user input is greater get the film length and index of last ShowtimeID.
+            // Loop through Rooms and check if showtime matches user input.
             foreach (int index in validationIndices)
             {
-                if (inputShowtimeID == int.Parse(validationData.Rows[index][1].ToString()))
+                rowShowtimeID = int.Parse(validationData.Rows[index][1].ToString());
+
+                if (inputShowtimeID == rowShowtimeID)
                 {
+                    return false;
+                }
+
+                if (inputShowtimeID < rowShowtimeID)
+                {
+                    rowUnderShowtimeID = int.Parse(validationData.Rows[index - 1][1].ToString());
+                    roomAfterExisting = OccupiedTimeRoundUp(filmLength, rowUnderShowtimeID, showtimeTable);
+                    nextTimeSlotBefore = NextShowtimeSlot(roomAfterExisting.ToString().Substring(0, 5), showtimeTable);
+
+                    rowAboveShowtimeID = int.Parse(validationData.Rows[index][1].ToString());
+                    roomAfterInput = OccupiedTimeRoundUp(filmLength, inputShowtimeID, showtimeTable);
+                    nextTimeSlotAfter = NextShowtimeSlot(roomAfterInput.ToString().Substring(0, 5), showtimeTable);
+
+                    if (nextTimeSlotBefore >= inputShowtimeID && nextTimeSlotAfter >= rowShowtimeID)
+                    {
+                        return false;
+                    }
+
                     break;
                 }
+            }
 
-                if (inputShowtimeID > int.Parse(validationData.Rows[index][1].ToString()))
+            rowShowtimeID = int.Parse(validationData.Rows[validationIndices[validationIndices.Count - 1]][1].ToString());
+
+            if (inputShowtimeID > rowShowtimeID)
+            {
+                rowUnderShowtimeID = int.Parse(showtimeTable.Rows[rowShowtimeID][0].ToString());
+                roomAfterExisting = OccupiedTimeRoundUp(filmLength, rowUnderShowtimeID, showtimeTable);
+                nextTimeSlotBefore = NextShowtimeSlot(roomAfterExisting.ToString().Substring(0, 5), showtimeTable);
+
+                if (nextTimeSlotBefore >= inputShowtimeID)
                 {
-                    filmLength = TimeSpan.FromMinutes(double.Parse(validationData.Rows[index][4].ToString()));
-
-                    validationShowtimeID = int.Parse(validationData.Rows[index][1].ToString());
-
-                    break;
+                    return false;
                 }
             }
 
-            if (filmLength > TimeSpan.Zero)
-            {
-                formattedDate = RoomAvailableTime(filmLength, validationShowtimeID, validationData);
-                nextShowtimeID = NextShowtimeSlot(formattedDate, showtimeTable);
-            }
-
-            if (nextShowtimeID > 0)
-            {
-                if (inputShowtimeID >= nextShowtimeID)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            //validationIndices.Sort((a, b) => b.CompareTo(a));
+            return true;
         }
 
         /// <summary>
-        /// Calculates the next available showtime by taking the start showtime, film length, and clean up time. Rounding up to the nearest quarter hour.
+        /// Calculates the total length a film will be holding a room. Rounding up to the nearest quarter hour.
         /// </summary>
         /// <param name="movieTime">Timespan of the movie length.</param>
         /// <param name="showtimeID">User input for showtimeID.</param>
         /// <param name="dataTable">ShowtimeData used to validate.</param>
-        /// <returns>Returns a string variable of the room availbility time.</returns>
-        private static string RoomAvailableTime(TimeSpan movieTime, int showtimeID, DataTable dataTable)
+        /// <returns>Returns the time the room will become available again.</returns>
+        private static TimeSpan OccupiedTimeRoundUp(TimeSpan movieTime, int showtimeID, DataTable dataTable)
         {
-            string formattedRoomAvailability = string.Empty;
-
             TimeSpan roundUp = TimeSpan.FromMinutes(15);
             TimeSpan cleanUpTime = TimeSpan.FromMinutes(30);
+            TimeSpan totalTime = TimeSpan.Zero;
             TimeSpan showtime;
-            TimeSpan totalTime;
 
-            DateTime roomClearTime;
-            DateTime roomAvailability;
+            DateTime totalTimeConverted;
+            DateTime totalRounded;
+
+            int tableShowtimeID;
 
             // Calculate room availability rounding to the nearest quarter hour(15min).
             for (int index = 0; index < dataTable.Rows.Count; index++)
             {
-                if (dataTable.Rows[index][1].ToString() == showtimeID.ToString())
+                tableShowtimeID = int.Parse(dataTable.Rows[index][0].ToString());
+
+                if (tableShowtimeID == showtimeID)
                 {
-                    showtime = TimeSpan.Parse(dataTable.Rows[index][5].ToString());
+                    showtime = TimeSpan.Parse(dataTable.Rows[index][1].ToString());
                     totalTime = movieTime + showtime + cleanUpTime;
 
-                    // If total time is past 23:59 then set total time to 00:00.
+                    // If total time is past 23:59 then set total time to 00:00 and return.
                     if (totalTime >= TimeSpan.FromDays(1))
                     {
                         totalTime = TimeSpan.FromHours(0);
+
+                        return totalTime;
                     }
 
-                    roomClearTime = DateTime.Parse(totalTime.ToString());
-                    roomAvailability = new DateTime((roomClearTime.Ticks + roundUp.Ticks - 1) / roundUp.Ticks * roundUp.Ticks, roomClearTime.Kind);
+                    totalTimeConverted = DateTime.Parse(totalTime.ToString());
+                    totalRounded = new DateTime((totalTimeConverted.Ticks + roundUp.Ticks - 1) / roundUp.Ticks * roundUp.Ticks, totalTimeConverted.Kind);
 
-                    formattedRoomAvailability = roomAvailability.TimeOfDay.ToString().Substring(0, 5);
+                    totalTime = totalRounded.TimeOfDay;
+
 
                     break;
                 }
             }
 
-            return formattedRoomAvailability;
+            return totalTime;
         }
 
         /// <summary>
